@@ -1,0 +1,18 @@
+﻿2026-02-27T10:41:26.2934650Z ##[group]Run actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+2026-02-27T10:41:26.2935060Z with:
+2026-02-27T10:41:26.2935801Z   script: const { setupGlobals } = require('/opt/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io);
+const { main } = require('/opt/gh-aw/actions/parse_copilot_log.cjs');
+await main();
+
+2026-02-27T10:41:26.2936715Z   github-token: ***
+2026-02-27T10:41:26.2936911Z   debug: false
+2026-02-27T10:41:26.2937113Z   user-agent: actions/github-script
+2026-02-27T10:41:26.2937362Z   result-encoding: json
+2026-02-27T10:41:26.2937562Z   retries: 0
+2026-02-27T10:41:26.2937769Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-02-27T10:41:26.2938037Z env:
+2026-02-27T10:41:26.2938219Z   GH_AW_WORKFLOW_ID_SANITIZED: squadintro
+2026-02-27T10:41:26.2938740Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/sandbox/agent/logs/
+2026-02-27T10:41:26.2939034Z ##[endgroup]
+2026-02-27T10:41:26.3714334Z Copilot log parsed successfully

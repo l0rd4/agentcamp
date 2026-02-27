@@ -1,0 +1,19 @@
+﻿2026-02-27T11:13:59.8836742Z ##[group]Run actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+2026-02-27T11:13:59.8838688Z with:
+2026-02-27T11:13:59.8843526Z   script: const { setupGlobals } = require('/opt/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io);
+const { main } = require('/opt/gh-aw/actions/validate_context_variables.cjs');
+await main();
+
+2026-02-27T11:13:59.8846801Z   github-token: ***
+2026-02-27T11:13:59.8847817Z   debug: false
+2026-02-27T11:13:59.8848535Z   user-agent: actions/github-script
+2026-02-27T11:13:59.8849395Z   result-encoding: json
+2026-02-27T11:13:59.8850131Z   retries: 0
+2026-02-27T11:13:59.8850893Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-02-27T11:13:59.8851851Z ##[endgroup]
+2026-02-27T11:14:00.4109606Z Starting context variable validation...
+2026-02-27T11:14:00.4118288Z ✓ github.event.repository.id is valid: 1168349201
+2026-02-27T11:14:00.4123085Z ✓ github.event.sender.id is valid: 104939587
+2026-02-27T11:14:00.4127705Z Validated 2 context variables
+2026-02-27T11:14:00.4131832Z ✅ All context variables validated successfully

@@ -1,0 +1,30 @@
+﻿2026-02-27T11:26:22.8349876Z ##[group]Run actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+2026-02-27T11:26:22.8350249Z with:
+2026-02-27T11:26:22.8350438Z   name: agent-artifacts
+2026-02-27T11:26:22.8351029Z   path: /tmp/gh-aw/aw-prompts/prompt.txt
+/tmp/gh-aw/aw_info.json
+/tmp/gh-aw/mcp-logs/
+/tmp/gh-aw/sandbox/firewall/logs/
+/tmp/gh-aw/agent-stdio.log
+/tmp/gh-aw/agent/
+
+2026-02-27T11:26:22.8351765Z   if-no-files-found: ignore
+2026-02-27T11:26:22.8351985Z   compression-level: 6
+2026-02-27T11:26:22.8352182Z   overwrite: false
+2026-02-27T11:26:22.8352370Z   include-hidden-files: false
+2026-02-27T11:26:22.8352764Z env:
+2026-02-27T11:26:22.8352946Z   GH_AW_WORKFLOW_ID_SANITIZED: squadintro
+2026-02-27T11:26:22.8353188Z ##[endgroup]
+2026-02-27T11:26:22.9824213Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-02-27T11:26:22.9826400Z The least common ancestor is /tmp/gh-aw. This will be the root directory of the artifact
+2026-02-27T11:26:22.9826962Z With the provided path, there will be 12 files uploaded
+2026-02-27T11:26:22.9831152Z Artifact name is valid!
+2026-02-27T11:26:22.9832015Z Root directory input is valid!
+2026-02-27T11:26:23.2059068Z Beginning upload of artifact content to blob storage
+2026-02-27T11:26:23.5075722Z Uploaded bytes 34670
+2026-02-27T11:26:23.5665630Z Finished uploading artifact content to blob storage!
+2026-02-27T11:26:23.5666570Z SHA256 digest of uploaded artifact zip is 8d09dbafc2160c9d612e66c1284ab6424f2909cd244532610383993d43f2b570
+2026-02-27T11:26:23.5668258Z Finalizing artifact upload
+2026-02-27T11:26:23.8401679Z Artifact agent-artifacts.zip successfully finalized. Artifact ID 5689147789
+2026-02-27T11:26:23.8403069Z Artifact agent-artifacts has been successfully uploaded! Final size is 34670 bytes. Artifact ID is 5689147789
+2026-02-27T11:26:23.8407982Z Artifact download URL: https://github.com/l0rd4/agentcamp/actions/runs/22484296402/artifacts/5689147789

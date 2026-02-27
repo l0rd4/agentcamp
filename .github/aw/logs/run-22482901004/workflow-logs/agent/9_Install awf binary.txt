@@ -1,0 +1,14 @@
+﻿2026-02-27T10:40:43.6449775Z ##[group]Run bash /opt/gh-aw/actions/install_awf_binary.sh v0.23.0
+2026-02-27T10:40:43.6450278Z [36;1mbash /opt/gh-aw/actions/install_awf_binary.sh v0.23.0[0m
+2026-02-27T10:40:43.6500030Z shell: /usr/bin/bash -e {0}
+2026-02-27T10:40:43.6500265Z env:
+2026-02-27T10:40:43.6500453Z   GH_AW_WORKFLOW_ID_SANITIZED: squadintro
+2026-02-27T10:40:43.6500718Z ##[endgroup]
+2026-02-27T10:40:43.6602281Z Installing awf with checksum verification (version: v0.23.0, os: Linux, arch: x86_64)
+2026-02-27T10:40:43.6616476Z Downloading checksums from 'https://github.com/github/gh-aw-firewall/releases/download/v0.23.0/checksums.txt'...
+2026-02-27T10:40:43.8426362Z Downloading binary from 'https://github.com/github/gh-aw-firewall/releases/download/v0.23.0/awf-linux-x64'...
+2026-02-27T10:40:44.1470606Z Verifying SHA256 checksum for awf-linux-x64...
+2026-02-27T10:40:44.1903347Z ✓ Checksum verification passed for awf-linux-x64
+2026-02-27T10:40:44.2010505Z /usr/local/bin/awf
+2026-02-27T10:40:44.2770731Z 0.23.0
+2026-02-27T10:40:44.2804772Z ✓ AWF installation complete

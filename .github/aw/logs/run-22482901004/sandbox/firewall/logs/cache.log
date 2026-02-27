@@ -1,0 +1,36 @@
+2026/02/27 10:41:03| Processing Configuration File: /etc/squid/squid.conf (depth 0)
+2026/02/27 10:41:03| WARNING: HTTP requires the use of Via
+2026/02/27 10:41:03| Created PID file (/run/squid.pid)
+2026/02/27 10:41:03| Current Directory is /
+2026/02/27 10:41:03| Starting Squid Cache version 6.13 for x86_64-pc-linux-gnu...
+2026/02/27 10:41:03| Service Name: squid
+2026/02/27 10:41:03| Process ID 1
+2026/02/27 10:41:03| Process Roles: master worker
+2026/02/27 10:41:03| With 65536 file descriptors available
+2026/02/27 10:41:03| Initializing IP Cache...
+2026/02/27 10:41:03| DNS IPv6 socket created at [::], FD 8
+2026/02/27 10:41:03| DNS IPv4 socket created at 0.0.0.0, FD 9
+2026/02/27 10:41:03| Adding nameserver 8.8.8.8 from squid.conf
+2026/02/27 10:41:03| Adding nameserver 8.8.4.4 from squid.conf
+2026/02/27 10:41:03| Logfile: opening log /var/log/squid/access.log
+2026/02/27 10:41:03| WARNING: log name now starts with a module name. Use 'stdio:/var/log/squid/access.log'
+2026/02/27 10:41:03| Local cache digest enabled; rebuild/rewrite every 3600/3600 sec
+2026/02/27 10:41:03| Store logging disabled
+2026/02/27 10:41:03| Swap maxSize 0 + 65536 KB, estimated 5041 objects
+2026/02/27 10:41:03| Target number of buckets: 252
+2026/02/27 10:41:03| Using 8192 Store buckets
+2026/02/27 10:41:03| Max Mem  size: 65536 KB
+2026/02/27 10:41:03| Max Swap size: 0 KB
+2026/02/27 10:41:03| Using Least Load store dir selection
+2026/02/27 10:41:03| Current Directory is /
+2026/02/27 10:41:03| Finished loading MIME types and icons.
+2026/02/27 10:41:03| HTCP Disabled.
+2026/02/27 10:41:03| Squid plugin modules loaded: 0
+2026/02/27 10:41:03| Adaptation support is off.
+2026/02/27 10:41:03| Accepting HTTP Socket connections at conn3 local=[::]:3128 remote=[::] FD 11 flags=9
+    listening port: 3128
+2026/02/27 10:41:04| storeLateRelease: released 0 objects
+2026/02/27 10:41:14| Preparing for shutdown after 2 requests
+2026/02/27 10:41:14| Waiting 30 seconds for active connections to finish
+2026/02/27 10:41:14| Closing HTTP(S) port [::]:3128
+    listening port: 3128

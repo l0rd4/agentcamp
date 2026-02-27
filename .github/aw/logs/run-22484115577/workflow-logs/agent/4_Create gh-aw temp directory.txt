@@ -1,0 +1,7 @@
+﻿2026-02-27T11:19:26.5240925Z ##[group]Run bash /opt/gh-aw/actions/create_gh_aw_tmp_dir.sh
+2026-02-27T11:19:26.5241378Z [36;1mbash /opt/gh-aw/actions/create_gh_aw_tmp_dir.sh[0m
+2026-02-27T11:19:26.5290410Z shell: /usr/bin/bash -e {0}
+2026-02-27T11:19:26.5290646Z env:
+2026-02-27T11:19:26.5290847Z   GH_AW_WORKFLOW_ID_SANITIZED: squadintro
+2026-02-27T11:19:26.5291104Z ##[endgroup]
+2026-02-27T11:19:26.5393918Z Created /tmp/gh-aw/agent directory for agentic workflow temporary files

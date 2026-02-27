@@ -1,0 +1,16 @@
+﻿2026-02-27T11:20:10.4352867Z ##[group]Run bash /opt/gh-aw/actions/stop_mcp_gateway.sh "$GATEWAY_PID"
+2026-02-27T11:20:10.4353377Z [36;1mbash /opt/gh-aw/actions/stop_mcp_gateway.sh "$GATEWAY_PID"[0m
+2026-02-27T11:20:10.4397442Z shell: /usr/bin/bash -e {0}
+2026-02-27T11:20:10.4397680Z env:
+2026-02-27T11:20:10.4397880Z   GH_AW_WORKFLOW_ID_SANITIZED: squadintro
+2026-02-27T11:20:10.4398156Z   MCP_GATEWAY_PORT: 80
+2026-02-27T11:20:10.4398598Z   MCP_GATEWAY_API_KEY: '***'
+2026-02-27T11:20:10.4398837Z   GATEWAY_PID: 3724
+2026-02-27T11:20:10.4399032Z ##[endgroup]
+2026-02-27T11:20:10.4473886Z Stopping MCP gateway (PID: 3724)...
+2026-02-27T11:20:10.4580078Z Attempting graceful shutdown via /close endpoint...
+2026-02-27T11:20:10.4698169Z Failed to invoke /close endpoint (curl exit: 22)
+2026-02-27T11:20:10.4698751Z Response: 
+2026-02-27T11:20:10.4699117Z Falling back to kill signal...
+2026-02-27T11:20:10.4699718Z Gateway process is still running, sending termination signal...
+2026-02-27T11:20:11.4957009Z Gateway stopped successfully

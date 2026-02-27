@@ -1,0 +1,21 @@
+﻿2026-02-27T11:19:45.2461140Z ##[group]Run actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53
+2026-02-27T11:19:45.2461576Z with:
+2026-02-27T11:19:45.2461757Z   name: prompt
+2026-02-27T11:19:45.2461967Z   path: /tmp/gh-aw/aw-prompts
+2026-02-27T11:19:45.2462205Z   merge-multiple: false
+2026-02-27T11:19:45.2462425Z   repository: l0rd4/agentcamp
+2026-02-27T11:19:45.2462642Z   run-id: 22484115577
+2026-02-27T11:19:45.2462820Z env:
+2026-02-27T11:19:45.2463004Z   GH_AW_WORKFLOW_ID_SANITIZED: squadintro
+2026-02-27T11:19:45.2463253Z ##[endgroup]
+2026-02-27T11:19:45.4499776Z Downloading single artifact
+2026-02-27T11:19:45.6159116Z Preparing to download the following artifacts:
+2026-02-27T11:19:45.6160706Z - prompt (ID: 5689057498, Size: 2145, Expected Digest: sha256:f171d3601accbf0bb2da4fa4d854aff1a90088f0651c4678fb274fb92e81f214)
+2026-02-27T11:19:45.7422279Z Redirecting to blob download url: https://productionresultssa8.blob.core.windows.net/actions-results/1637dc96-b135-4abf-b8ec-2c8c38df51c8/workflow-job-run-9ebf5a56-aeb6-5f69-a96c-7d2e0afcd2a7/artifacts/cf07194ee232eb531e15f690000d19846dea69cf05504782658afcfacb9228a2.zip
+2026-02-27T11:19:45.7424928Z Starting download of artifact to: /tmp/gh-aw/aw-prompts
+2026-02-27T11:19:45.9286352Z (node:4011) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-02-27T11:19:45.9288140Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-02-27T11:19:45.9330039Z SHA256 digest of downloaded artifact is f171d3601accbf0bb2da4fa4d854aff1a90088f0651c4678fb274fb92e81f214
+2026-02-27T11:19:45.9331507Z Artifact download completed successfully.
+2026-02-27T11:19:45.9332400Z Total of 1 artifact(s) downloaded
+2026-02-27T11:19:45.9339097Z Download artifact has finished successfully

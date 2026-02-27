@@ -1,0 +1,20 @@
+﻿2026-02-27T11:15:05.0916052Z ##[group]Run # Copy Copilot session state files to logs folder for artifact collection
+2026-02-27T11:15:05.0916676Z [36;1m# Copy Copilot session state files to logs folder for artifact collection[0m
+2026-02-27T11:15:05.0917192Z [36;1m# This ensures they are in /tmp/gh-aw/ where secret redaction can scan them[0m
+2026-02-27T11:15:05.0917837Z [36;1mSESSION_STATE_DIR="$HOME/.copilot/session-state"[0m
+2026-02-27T11:15:05.0918187Z [36;1mLOGS_DIR="/tmp/gh-aw/sandbox/agent/logs"[0m
+2026-02-27T11:15:05.0918454Z [36;1m[0m
+2026-02-27T11:15:05.0919703Z [36;1mif [ -d "$SESSION_STATE_DIR" ]; then[0m
+2026-02-27T11:15:05.0920165Z [36;1m  echo "Copying Copilot session state files from $SESSION_STATE_DIR to $LOGS_DIR"[0m
+2026-02-27T11:15:05.0920605Z [36;1m  mkdir -p "$LOGS_DIR"[0m
+2026-02-27T11:15:05.0920950Z [36;1m  cp -v "$SESSION_STATE_DIR"/*.jsonl "$LOGS_DIR/" 2>/dev/null || true[0m
+2026-02-27T11:15:05.0921363Z [36;1m  echo "Session state files copied successfully"[0m
+2026-02-27T11:15:05.0921654Z [36;1melse[0m
+2026-02-27T11:15:05.0922005Z [36;1m  echo "No session-state directory found at $SESSION_STATE_DIR"[0m
+2026-02-27T11:15:05.0922346Z [36;1mfi[0m
+2026-02-27T11:15:05.0970738Z shell: /usr/bin/bash -e {0}
+2026-02-27T11:15:05.0970984Z env:
+2026-02-27T11:15:05.0971196Z   GH_AW_WORKFLOW_ID_SANITIZED: squadintro
+2026-02-27T11:15:05.0971475Z ##[endgroup]
+2026-02-27T11:15:05.1036248Z Copying Copilot session state files from /home/runner/.copilot/session-state to /tmp/gh-aw/sandbox/agent/logs
+2026-02-27T11:15:05.1064675Z Session state files copied successfully

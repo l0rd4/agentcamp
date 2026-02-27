@@ -1,0 +1,11 @@
+Checking MCP servers...
+
+⏱️  TIMING: Configuration validation took 6ms
+
+  Attempting connection (timeout: 10s)...
+✓ github: connected
+⏱️  TIMING: Server check for github took 62ms
+
+⏱️  TIMING: Overall MCP server checks took 71ms
+
+✓ All checks passed (1 succeeded, 0 skipped)

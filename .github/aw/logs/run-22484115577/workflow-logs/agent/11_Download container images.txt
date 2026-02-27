@@ -1,0 +1,23 @@
+﻿2026-02-27T11:19:30.5774754Z ##[group]Run bash /opt/gh-aw/actions/download_docker_images.sh ghcr.io/github/gh-aw-firewall/agent:0.23.0 ghcr.io/github/gh-aw-firewall/api-proxy:0.23.0 ghcr.io/github/gh-aw-firewall/squid:0.23.0 ghcr.io/github/gh-aw-mcpg:v0.1.5 ghcr.io/github/github-mcp-server:v0.31.0
+2026-02-27T11:19:30.5777146Z [36;1mbash /opt/gh-aw/actions/download_docker_images.sh ghcr.io/github/gh-aw-firewall/agent:0.23.0 ghcr.io/github/gh-aw-firewall/api-proxy:0.23.0 ghcr.io/github/gh-aw-firewall/squid:0.23.0 ghcr.io/github/gh-aw-mcpg:v0.1.5 ghcr.io/github/github-mcp-server:v0.31.0[0m
+2026-02-27T11:19:30.5825681Z shell: /usr/bin/bash -e {0}
+2026-02-27T11:19:30.5825914Z env:
+2026-02-27T11:19:30.5826111Z   GH_AW_WORKFLOW_ID_SANITIZED: squadintro
+2026-02-27T11:19:30.5826374Z ##[endgroup]
+2026-02-27T11:19:30.5905310Z Starting download of 5 image(s) with max 4 concurrent downloads...
+2026-02-27T11:19:30.5962550Z Attempt 1 of 3: Pulling ghcr.io/github/gh-aw-firewall/squid:0.23.0...
+2026-02-27T11:19:30.5965770Z Attempt 1 of 3: Pulling ghcr.io/github/gh-aw-firewall/api-proxy:0.23.0...
+2026-02-27T11:19:30.5966671Z Attempt 1 of 3: Pulling ghcr.io/github/gh-aw-firewall/agent:0.23.0...
+2026-02-27T11:19:30.5967861Z Attempt 1 of 3: Pulling ghcr.io/github/gh-aw-mcpg:v0.1.5...
+2026-02-27T11:19:35.5550069Z ghcr.io/github/gh-aw-mcpg:v0.1.5
+2026-02-27T11:19:35.5569640Z Successfully pulled ghcr.io/github/gh-aw-mcpg:v0.1.5
+2026-02-27T11:19:35.5626904Z Attempt 1 of 3: Pulling ghcr.io/github/github-mcp-server:v0.31.0...
+2026-02-27T11:19:37.2664711Z ghcr.io/github/gh-aw-firewall/api-proxy:0.23.0
+2026-02-27T11:19:37.2689062Z Successfully pulled ghcr.io/github/gh-aw-firewall/api-proxy:0.23.0
+2026-02-27T11:19:37.8534117Z ghcr.io/github/github-mcp-server:v0.31.0
+2026-02-27T11:19:37.8553119Z Successfully pulled ghcr.io/github/github-mcp-server:v0.31.0
+2026-02-27T11:19:39.7538467Z ghcr.io/github/gh-aw-firewall/squid:0.23.0
+2026-02-27T11:19:39.7553659Z Successfully pulled ghcr.io/github/gh-aw-firewall/squid:0.23.0
+2026-02-27T11:19:39.9096212Z ghcr.io/github/gh-aw-firewall/agent:0.23.0
+2026-02-27T11:19:39.9111341Z Successfully pulled ghcr.io/github/gh-aw-firewall/agent:0.23.0
+2026-02-27T11:19:39.9116480Z All images downloaded successfully

@@ -56,5 +56,5 @@ Cuando se ejecute este workflow, el agente debe:
 ## Uso
 
 ```bash
-gh aw run .github/workflows/squad-intro.md
+gh aw run .github/aw/squad-intro.md
 ```

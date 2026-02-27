@@ -1,0 +1,123 @@
+{
+  "cli_version": "v0.50.6",
+  "run_id": 22484366829,
+  "processed_at": "2026-02-27T12:29:06.5282978+01:00",
+  "run": {
+    "databaseId": 22484366829,
+    "number": 8,
+    "url": "https://github.com/l0rd4/agentcamp/actions/runs/22484366829",
+    "status": "in_progress",
+    "conclusion": "",
+    "workflowName": "Squad Intro — Workflow de presentación del squad",
+    "workflowPath": ".github/workflows/squad-intro.lock.yml",
+    "createdAt": "2026-02-27T11:27:12Z",
+    "startedAt": "2026-02-27T11:27:12Z",
+    "updatedAt": "2026-02-27T11:27:41Z",
+    "event": "workflow_dispatch",
+    "headBranch": "master",
+    "headSha": "0a7644ce3591423a791e1191220db63cc5550e7e",
+    "displayTitle": "Squad Intro — Workflow de presentación del squad",
+    "Duration": 29000000000,
+    "TokenUsage": 0,
+    "EstimatedCost": 0,
+    "Turns": 5,
+    "ErrorCount": 0,
+    "WarningCount": 0,
+    "MissingToolCount": 0,
+    "MissingDataCount": 0,
+    "NoopCount": 0,
+    "SafeItemsCount": 0,
+    "LogsPath": ".github\\aw\\logs\\run-22484366829"
+  },
+  "metrics": {
+    "TokenUsage": 0,
+    "EstimatedCost": 0,
+    "Turns": 5,
+    "ToolCalls": [
+      {
+        "Name": "multiple",
+        "CallCount": 1,
+        "MaxInputSize": 0,
+        "MaxOutputSize": 0,
+        "MaxDuration": 0
+      },
+      {
+        "Name": "for",
+        "CallCount": 1,
+        "MaxInputSize": 0,
+        "MaxOutputSize": 0,
+        "MaxDuration": 0
+      },
+      {
+        "Name": "to",
+        "CallCount": 1,
+        "MaxInputSize": 0,
+        "MaxOutputSize": 0,
+        "MaxDuration": 0
+      },
+      {
+        "Name": "launches",
+        "CallCount": 1,
+        "MaxInputSize": 0,
+        "MaxOutputSize": 0,
+        "MaxDuration": 0
+      },
+      {
+        "Name": "calls",
+        "CallCount": 8,
+        "MaxInputSize": 0,
+        "MaxOutputSize": 0,
+        "MaxDuration": 0
+      }
+    ],
+    "ToolSequences": [
+      [
+        "multiple",
+        "for"
+      ],
+      [
+        "to"
+      ],
+      [
+        "launches",
+        "calls",
+        "calls",
+        "calls",
+        "calls",
+        "calls",
+        "calls",
+        "calls",
+        "calls"
+      ]
+    ]
+  },
+  "access_analysis": null,
+  "firewall_analysis": null,
+  "redacted_domains_analysis": null,
+  "missing_tools": null,
+  "missing_data": null,
+  "noops": null,
+  "mcp_failures": null,
+  "artifacts_list": [
+    "prompt.txt",
+    "sandbox\\agent\\logs\\process-1772191707276-154.log"
+  ],
+  "job_details": [
+    {
+      "name": "activation",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-02-27T11:27:17Z",
+      "completed_at": "2026-02-27T11:27:36Z",
+      "Duration": 19000000000
+    },
+    {
+      "name": "agent",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-02-27T11:27:40Z",
+      "completed_at": "2026-02-27T11:29:04Z",
+      "Duration": 84000000000
+    }
+  ]
+}

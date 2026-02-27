@@ -1,0 +1,183 @@
+﻿2026-02-27T11:25:55.6383972Z ##[group]Run set -o pipefail
+2026-02-27T11:25:55.6384290Z [36;1mset -o pipefail[0m
+2026-02-27T11:25:55.6384519Z [36;1m# shellcheck disable=SC1003[0m
+2026-02-27T11:25:55.6395294Z [36;1msudo -E awf --env-all --container-workdir "${GITHUB_WORKSPACE}" --allow-domains "api.business.githubcopilot.com,api.enterprise.githubcopilot.com,api.github.com,api.githubcopilot.com,api.individual.githubcopilot.com,api.snapcraft.io,archive.ubuntu.com,azure.archive.ubuntu.com,crl.geotrust.com,crl.globalsign.com,crl.identrust.com,crl.sectigo.com,crl.thawte.com,crl.usertrust.com,crl.verisign.com,crl3.digicert.com,crl4.digicert.com,crls.ssl.com,github.com,host.docker.internal,json-schema.org,json.schemastore.org,keyserver.ubuntu.com,ocsp.digicert.com,ocsp.geotrust.com,ocsp.globalsign.com,ocsp.identrust.com,ocsp.sectigo.com,ocsp.ssl.com,ocsp.thawte.com,ocsp.usertrust.com,ocsp.verisign.com,packagecloud.io,packages.cloud.google.com,packages.microsoft.com,ppa.launchpad.net,raw.githubusercontent.com,registry.npmjs.org,s.symcb.com,s.symcd.com,security.ubuntu.com,telemetry.enterprise.githubcopilot.com,ts-crl.ws.symantec.com,ts-ocsp.ws.symantec.com" --log-level info --proxy-logs-dir /tmp/gh-aw/sandbox/firewall/logs --enable-host-access --image-tag 0.23.0 --skip-pull --enable-api-proxy \[0m
+2026-02-27T11:25:55.6406165Z [36;1m  -- /bin/bash -c '/usr/local/bin/copilot --add-dir /tmp/gh-aw/ --log-level all --log-dir /tmp/gh-aw/sandbox/agent/logs/ --add-dir "${GITHUB_WORKSPACE}" --disable-builtin-mcps --allow-all-tools --allow-all-paths --prompt "$(cat /tmp/gh-aw/aw-prompts/prompt.txt)"${GH_AW_MODEL_DETECTION_COPILOT:+ --model "$GH_AW_MODEL_DETECTION_COPILOT"}' 2>&1 | tee -a /tmp/gh-aw/agent-stdio.log[0m
+2026-02-27T11:25:55.6431811Z shell: /usr/bin/bash -e {0}
+2026-02-27T11:25:55.6432043Z env:
+2026-02-27T11:25:55.6432238Z   GH_AW_WORKFLOW_ID_SANITIZED: squadintro
+2026-02-27T11:25:55.6432655Z   COPILOT_AGENT_RUNNER_TYPE: STANDALONE
+2026-02-27T11:25:55.6433373Z   COPILOT_GITHUB_TOKEN: ***
+2026-02-27T11:25:55.6433662Z   GH_AW_MCP_CONFIG: /home/runner/.copilot/mcp-config.json
+2026-02-27T11:25:55.6434113Z   GH_AW_MODEL_DETECTION_COPILOT: 
+2026-02-27T11:25:55.6434388Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-02-27T11:25:55.6434693Z   GITHUB_API_URL: https://api.github.com
+2026-02-27T11:25:55.6434947Z   GITHUB_HEAD_REF: 
+2026-02-27T11:25:55.6435279Z   GITHUB_MCP_SERVER_TOKEN: ***
+2026-02-27T11:25:55.6435506Z   GITHUB_REF_NAME: master
+2026-02-27T11:25:55.6435726Z   GITHUB_SERVER_URL: https://github.com
+2026-02-27T11:25:55.6435972Z   GITHUB_STEP_SUMMARY: 
+2026-02-27T11:25:55.6436223Z   GITHUB_WORKSPACE: /home/runner/work/agentcamp/agentcamp
+2026-02-27T11:25:55.6436517Z   XDG_CONFIG_HOME: /home/runner
+2026-02-27T11:25:55.6436733Z ##[endgroup]
+2026-02-27T11:25:55.7225508Z [WARN] ⚠️  Using --env-all: All host environment variables will be passed to container
+2026-02-27T11:25:55.7228096Z [WARN]    This may expose sensitive credentials if logs or configs are shared
+2026-02-27T11:25:55.7229265Z [WARN] ⚠️  Host access enabled with host.docker.internal in allowed domains
+2026-02-27T11:25:55.7229923Z [WARN]    Containers can access ANY service running on the host machine
+2026-02-27T11:25:55.7230479Z [WARN]    Only use this for trusted workloads (e.g., MCP gateways)
+2026-02-27T11:25:55.7231043Z [INFO] API proxy enabled: OpenAI=false, Anthropic=false, Copilot=true
+2026-02-27T11:25:55.7236886Z [INFO] Allowed domains: api.business.githubcopilot.com, api.enterprise.githubcopilot.com, api.github.com, api.githubcopilot.com, api.individual.githubcopilot.com, api.snapcraft.io, archive.ubuntu.com, azure.archive.ubuntu.com, crl.geotrust.com, crl.globalsign.com, crl.identrust.com, crl.sectigo.com, crl.thawte.com, crl.usertrust.com, crl.verisign.com, crl3.digicert.com, crl4.digicert.com, crls.ssl.com, github.com, host.docker.internal, json-schema.org, json.schemastore.org, keyserver.ubuntu.com, ocsp.digicert.com, ocsp.geotrust.com, ocsp.globalsign.com, ocsp.identrust.com, ocsp.sectigo.com, ocsp.ssl.com, ocsp.thawte.com, ocsp.usertrust.com, ocsp.verisign.com, packagecloud.io, packages.cloud.google.com, packages.microsoft.com, ppa.launchpad.net, raw.githubusercontent.com, registry.npmjs.org, s.symcb.com, s.symcd.com, security.ubuntu.com, telemetry.enterprise.githubcopilot.com, ts-crl.ws.symantec.com, ts-ocsp.ws.symantec.com
+2026-02-27T11:25:55.7240935Z [INFO] Setting up host-level firewall network and iptables rules...
+2026-02-27T11:25:55.7817675Z [SUCCESS] Created network 'awf-net' with bridge 'fw-bridge'
+2026-02-27T11:25:55.7818146Z [INFO] Setting up host-level iptables rules...
+2026-02-27T11:25:55.9060502Z [SUCCESS] Host-level iptables rules configured successfully
+2026-02-27T11:25:55.9122390Z [INFO] Generating configuration files...
+2026-02-27T11:25:57.6193500Z [INFO] API proxy sidecar enabled - API keys will be held securely in sidecar container
+2026-02-27T11:25:57.6247791Z [INFO] API proxy will route through Squid to respect domain whitelisting
+2026-02-27T11:25:57.6248480Z [INFO] Starting containers...
+2026-02-27T11:25:59.4947101Z  Container awf-api-proxy  Creating
+2026-02-27T11:25:59.4947872Z  Container awf-squid  Creating
+2026-02-27T11:25:59.5183670Z  Container awf-squid  Created
+2026-02-27T11:25:59.5184192Z  Container awf-api-proxy  Created
+2026-02-27T11:25:59.5184678Z  Container awf-agent  Creating
+2026-02-27T11:25:59.5318164Z  Container awf-agent  Created
+2026-02-27T11:25:59.5328777Z  Container awf-api-proxy  Starting
+2026-02-27T11:25:59.5329499Z  Container awf-squid  Starting
+2026-02-27T11:25:59.6660115Z  Container awf-api-proxy  Started
+2026-02-27T11:25:59.6817523Z  Container awf-squid  Started
+2026-02-27T11:25:59.6818457Z  Container awf-api-proxy  Waiting
+2026-02-27T11:25:59.6819182Z  Container awf-squid  Waiting
+2026-02-27T11:26:05.1838324Z  Container awf-api-proxy  Healthy
+2026-02-27T11:26:05.1838964Z  Container awf-squid  Healthy
+2026-02-27T11:26:05.1839374Z  Container awf-agent  Starting
+2026-02-27T11:26:05.2741280Z  Container awf-agent  Started
+2026-02-27T11:26:05.2774296Z [SUCCESS] Containers started successfully
+2026-02-27T11:26:05.2774823Z [INFO] Executing agent command...
+2026-02-27T11:26:05.2949556Z [entrypoint] Agentic Workflow Firewall - Agent Container
+2026-02-27T11:26:05.2950532Z [entrypoint] ==================================
+2026-02-27T11:26:05.2951897Z [entrypoint] Adjusting awfuser UID:GID from 1000:1000 to 1001:1001
+2026-02-27T11:26:05.3025232Z [entrypoint] UID/GID adjustment complete
+2026-02-27T11:26:05.3025887Z [entrypoint] Configuring DNS...
+2026-02-27T11:26:05.3067911Z [entrypoint] DNS configured with Docker embedded DNS (127.0.0.11) and trusted servers: 8.8.8.8,8.8.4.4
+2026-02-27T11:26:05.3080291Z [iptables] Setting up NAT redirection to Squid proxy...
+2026-02-27T11:26:05.3080929Z [iptables] NOTE: Host-level DOCKER-USER chain handles egress filtering for all containers on this network
+2026-02-27T11:26:05.3095075Z [iptables] ip6tables is available
+2026-02-27T11:26:05.3095645Z [iptables] Squid proxy: squid-proxy:3128
+2026-02-27T11:26:05.3117038Z [iptables] Squid IP resolved to: 172.30.0.10
+2026-02-27T11:26:05.3187586Z [iptables] Allow localhost traffic...
+2026-02-27T11:26:05.3241522Z [iptables] Configuring DNS rules for trusted servers: 8.8.8.8,8.8.4.4
+2026-02-27T11:26:05.3270784Z [iptables]   IPv4 DNS servers: 8.8.8.8 8.8.4.4
+2026-02-27T11:26:05.3271188Z [iptables]   IPv6 DNS servers: none
+2026-02-27T11:26:05.3271483Z [iptables] Allow DNS to trusted IPv4 server: 8.8.8.8
+2026-02-27T11:26:05.3299703Z [iptables] Allow DNS to trusted IPv4 server: 8.8.4.4
+2026-02-27T11:26:05.3326232Z [iptables] Allow DNS to Docker embedded DNS (127.0.0.11)...
+2026-02-27T11:26:05.3353956Z [iptables] Allow traffic to trusted DNS servers...
+2026-02-27T11:26:05.3374208Z [iptables] Allow traffic to Squid proxy (172.30.0.10:3128)...
+2026-02-27T11:26:05.3385297Z [iptables] Allow traffic to API proxy sidecar (172.30.0.30)...
+2026-02-27T11:26:05.3535137Z [iptables] Allow direct traffic to host gateway (172.17.0.1) - bypassing Squid...
+2026-02-27T11:26:05.3599852Z [iptables] Allow direct traffic to network gateway (172.30.0.1) - bypassing Squid...
+2026-02-27T11:26:05.3636525Z [iptables] Configuring NAT blacklist for dangerous ports...
+2026-02-27T11:26:05.3820916Z [iptables] NAT blacklist applied for 15 dangerous ports
+2026-02-27T11:26:05.3821579Z [iptables] Redirect HTTP (80) and HTTPS (443) to Squid...
+2026-02-27T11:26:05.3848057Z [iptables] No additional ports specified (only 80, 443 allowed)
+2026-02-27T11:26:05.3848730Z [iptables] Configuring OUTPUT filter chain rules...
+2026-02-27T11:26:05.3957394Z [iptables] Drop all non-redirected TCP traffic (default deny)...
+2026-02-27T11:26:05.3970392Z [iptables] NAT rules applied successfully
+2026-02-27T11:26:05.3970921Z [iptables] Current IPv4 NAT OUTPUT rules:
+2026-02-27T11:26:05.3986742Z Chain OUTPUT (policy ACCEPT 2 packets, 132 bytes)
+2026-02-27T11:26:05.3988243Z  pkts bytes target     prot opt in     out     source               destination         
+2026-02-27T11:26:05.3989012Z     1    66 RETURN     all  --  *      lo      0.0.0.0/0            0.0.0.0/0           
+2026-02-27T11:26:05.3989676Z     0     0 RETURN     all  --  *      *       0.0.0.0/0            127.0.0.0/8         
+2026-02-27T11:26:05.3990431Z     1    66 RETURN     udp  --  *      *       0.0.0.0/0            8.8.8.8              udp dpt:53
+2026-02-27T11:26:05.3991188Z     0     0 RETURN     tcp  --  *      *       0.0.0.0/0            8.8.8.8              tcp dpt:53
+2026-02-27T11:26:05.3991922Z     0     0 RETURN     udp  --  *      *       0.0.0.0/0            8.8.4.4              udp dpt:53
+2026-02-27T11:26:05.3992855Z     0     0 RETURN     tcp  --  *      *       0.0.0.0/0            8.8.4.4              tcp dpt:53
+2026-02-27T11:26:05.3993574Z     0     0 RETURN     udp  --  *      *       0.0.0.0/0            127.0.0.11           udp dpt:53
+2026-02-27T11:26:05.3994222Z     0     0 RETURN     tcp  --  *      *       0.0.0.0/0            127.0.0.11           tcp dpt:53
+2026-02-27T11:26:05.3994884Z     0     0 RETURN     all  --  *      *       0.0.0.0/0            8.8.8.8             
+2026-02-27T11:26:05.3995526Z     0     0 RETURN     all  --  *      *       0.0.0.0/0            8.8.4.4             
+2026-02-27T11:26:05.3996435Z     0     0 RETURN     all  --  *      *       0.0.0.0/0            172.30.0.10         
+2026-02-27T11:26:05.3997055Z     0     0 RETURN     all  --  *      *       0.0.0.0/0            172.30.0.30         
+2026-02-27T11:26:05.3997902Z     0     0 RETURN     all  --  *      *       0.0.0.0/0            172.17.0.1          
+2026-02-27T11:26:05.3998495Z     0     0 RETURN     all  --  *      *       0.0.0.0/0            172.30.0.1          
+2026-02-27T11:26:05.3999405Z     0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:22
+2026-02-27T11:26:05.4000174Z     0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:23
+2026-02-27T11:26:05.4000638Z     0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:25
+2026-02-27T11:26:05.4001039Z     0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:110
+2026-02-27T11:26:05.4001486Z     0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:143
+2026-02-27T11:26:05.4002018Z     0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:445
+2026-02-27T11:26:05.4002719Z     0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:1433
+2026-02-27T11:26:05.4003211Z     0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:1521
+2026-02-27T11:26:05.4003617Z     0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:3306
+2026-02-27T11:26:05.4004019Z     0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:3389
+2026-02-27T11:26:05.4004418Z     0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:5432
+2026-02-27T11:26:05.4004819Z     0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:6379
+2026-02-27T11:26:05.4005376Z     0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:27017
+2026-02-27T11:26:05.4005782Z     0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:27018
+2026-02-27T11:26:05.4006179Z     0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:28017
+2026-02-27T11:26:05.4006626Z     0     0 DNAT       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80 to:172.30.0.10:3128
+2026-02-27T11:26:05.4007098Z     0     0 DNAT       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:443 to:172.30.0.10:3128
+2026-02-27T11:26:05.4007482Z [iptables] Current IPv6 NAT OUTPUT rules:
+2026-02-27T11:26:05.4007791Z Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+2026-02-27T11:26:05.4008171Z  pkts bytes target     prot opt in     out     source               destination         
+2026-02-27T11:26:05.4014078Z     0     0 RETURN     all      *      lo      ::/0                 ::/0                
+2026-02-27T11:26:05.4014787Z     0     0 RETURN     all      *      *       ::/0                 ::1                 
+2026-02-27T11:26:05.4015360Z [health-check] API Proxy Pre-flight Check
+2026-02-27T11:26:05.4015892Z [health-check] ==========================================
+2026-02-27T11:26:05.4018641Z [health-check] Checking GitHub Copilot API proxy configuration...
+2026-02-27T11:26:05.4019451Z [health-check] COPILOT_API_URL=http://172.30.0.30:10002
+2026-02-27T11:26:05.4020154Z [health-check] ✓ COPILOT_GITHUB_TOKEN is placeholder value (correct)
+2026-02-27T11:26:05.4020874Z [health-check] ✓ COPILOT_TOKEN is placeholder value (correct)
+2026-02-27T11:26:05.4021642Z [health-check] Testing connectivity to GitHub Copilot API proxy at http://172.30.0.30:10002...
+2026-02-27T11:26:05.4084384Z [health-check] ✓ GitHub Copilot API proxy is reachable at http://172.30.0.30:10002
+2026-02-27T11:26:05.4084861Z [health-check] ==========================================
+2026-02-27T11:26:05.4085451Z [health-check] ✓ All API proxy health checks passed
+2026-02-27T11:26:05.4085813Z [health-check] ✓ Credential isolation verified
+2026-02-27T11:26:05.4086145Z [health-check] ✓ Connectivity established
+2026-02-27T11:26:05.4086422Z [health-check] ==========================================
+2026-02-27T11:26:05.4088956Z [entrypoint] Pre-seeding JVM build tool proxy configuration (squid-proxy:3128)...
+2026-02-27T11:26:05.4119153Z [entrypoint] ✓ Created Maven proxy config (/host/home/runner/.m2/settings.xml)
+2026-02-27T11:26:05.4146725Z [entrypoint] ✓ Created Gradle proxy config (/host/home/runner/.gradle/gradle.properties)
+2026-02-27T11:26:05.4165468Z [entrypoint] ✓ Set JAVA_TOOL_OPTIONS with proxy and nonProxyHosts flags
+2026-02-27T11:26:05.4166164Z [entrypoint] Proxy configuration:
+2026-02-27T11:26:05.4166755Z [entrypoint]   HTTP_PROXY=http://172.30.0.10:3128
+2026-02-27T11:26:05.4167127Z [entrypoint]   HTTPS_PROXY=http://172.30.0.10:3128
+2026-02-27T11:26:05.4167419Z [entrypoint] Network information:
+2026-02-27T11:26:05.4177195Z [entrypoint]   IP address: 172.30.0.20 
+2026-02-27T11:26:05.4185594Z [entrypoint]   Hostname: 7014663016f5
+2026-02-27T11:26:05.4232701Z [entrypoint] ==================================
+2026-02-27T11:26:05.4233461Z [entrypoint] Chroot mode enabled - dropping CAP_NET_ADMIN, CAP_SYS_CHROOT, and CAP_SYS_ADMIN
+2026-02-27T11:26:05.4255732Z [entrypoint] Switching to awfuser (UID: 1001, GID: 1001)
+2026-02-27T11:26:05.4257354Z [entrypoint] Executing command: /bin/bash -c /bin/bash -c '/usr/local/bin/copilot --add-dir /tmp/gh-aw/ --log-level all --log-dir /tmp/gh-aw/sandbox/agent/logs/ --add-dir "${GITHUB_WORKSPACE}" --disable-builtin-mcps --allow-all-tools --allow-all-paths --prompt "$(cat /tmp/gh-aw/aw-prompts/prompt.txt)"${GH_AW_MODEL_DETECTION_COPILOT:+ --model "$GH_AW_MODEL_DETECTION_COPILOT"}'
+2026-02-27T11:26:05.4258612Z 
+2026-02-27T11:26:05.4262100Z [entrypoint] Chroot mode: running command inside host filesystem (/host)
+2026-02-27T11:26:05.4284503Z [entrypoint] Mounted procfs at /host/proc (nosuid,nodev,noexec)
+2026-02-27T11:26:05.4305124Z [entrypoint] One-shot token library copied to chroot at /tmp/awf-lib/one-shot-token.so
+2026-02-27T11:26:05.4330788Z [entrypoint] DNS configuration created in chroot (/host/etc/resolv.conf)
+2026-02-27T11:26:05.4359313Z [entrypoint] Chroot working directory: /home/runner/work/agentcamp/agentcamp
+2026-02-27T11:26:05.4380610Z [entrypoint] Running as host user: runner (UID: 1001)
+2026-02-27T11:26:05.4381213Z [entrypoint] Using host PATH for chroot
+2026-02-27T11:26:05.4390951Z [entrypoint] Adding JAVA_HOME/bin to PATH: /usr/lib/jvm/temurin-17-jdk-amd64/bin
+2026-02-27T11:26:05.4402247Z [entrypoint] DNS configuration will be removed on exit
+2026-02-27T11:26:07.4462303Z Error: Run `copilot --model claude-sonnet-4.6` in interactive mode to enable this model
+2026-02-27T11:26:10.4422752Z [entrypoint] Unsetting sensitive tokens from parent shell environment...
+2026-02-27T11:26:10.4423788Z [entrypoint] Unset COPILOT_GITHUB_TOKEN from /proc/1/environ
+2026-02-27T11:26:11.0159913Z [INFO] Stopping containers...
+2026-02-27T11:26:11.0887899Z  Container awf-agent  Stopping
+2026-02-27T11:26:11.0890740Z  Container awf-agent  Stopped
+2026-02-27T11:26:11.0892053Z  Container awf-agent  Removing
+2026-02-27T11:26:11.0934907Z  Container awf-agent  Removed
+2026-02-27T11:26:11.0935812Z  Container awf-api-proxy  Stopping
+2026-02-27T11:26:11.0937925Z  Container awf-squid  Stopping
+2026-02-27T11:26:21.1655287Z  Container awf-api-proxy  Stopped
+2026-02-27T11:26:21.1655825Z  Container awf-api-proxy  Removing
+2026-02-27T11:26:21.1708247Z  Container awf-api-proxy  Removed
+2026-02-27T11:26:21.1968924Z  Container awf-squid  Stopped
+2026-02-27T11:26:21.1969703Z  Container awf-squid  Removing
+2026-02-27T11:26:21.2004005Z  Container awf-squid  Removed
+2026-02-27T11:26:21.2029987Z [SUCCESS] Containers stopped successfully
+2026-02-27T11:26:21.2691868Z [INFO] API proxy logs available at: /tmp/gh-aw/sandbox/firewall/api-proxy-logs
+2026-02-27T11:26:21.2721463Z [INFO] Squid logs available at: /tmp/gh-aw/sandbox/firewall/logs
+2026-02-27T11:26:21.2752875Z [WARN] Command completed with exit code: 1
+2026-02-27T11:26:21.2753361Z Process exiting with code: 1
+2026-02-27T11:26:21.2805620Z ##[error]Process completed with exit code 1.

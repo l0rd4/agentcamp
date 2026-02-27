@@ -1,0 +1,15 @@
+﻿2026-02-27T10:40:59.2145565Z ##[group]Run actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+2026-02-27T10:40:59.2145962Z with:
+2026-02-27T10:40:59.2146512Z   script: const { generateWorkflowOverview } = require('/opt/gh-aw/actions/generate_workflow_overview.cjs');
+await generateWorkflowOverview(core);
+
+2026-02-27T10:40:59.2147263Z   github-token: ***
+2026-02-27T10:40:59.2147457Z   debug: false
+2026-02-27T10:40:59.2147643Z   user-agent: actions/github-script
+2026-02-27T10:40:59.2147892Z   result-encoding: json
+2026-02-27T10:40:59.2148103Z   retries: 0
+2026-02-27T10:40:59.2148302Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-02-27T10:40:59.2148801Z env:
+2026-02-27T10:40:59.2148989Z   GH_AW_WORKFLOW_ID_SANITIZED: squadintro
+2026-02-27T10:40:59.2149232Z ##[endgroup]
+2026-02-27T10:40:59.2916635Z Generated workflow overview in step summary

@@ -45,7 +45,7 @@ El blog usa:
 
 El `baseURL` en `hugo.toml` debe ser:
 ```
-https://github.com/l0rd4/agentcamp
+https://<OWNER>.github.io/kitten-agent-blog
 ```
 
 Donde `<OWNER>` es el propietario del repositorio actual (consúltalo con `git remote -v`).

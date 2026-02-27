@@ -1,0 +1,82 @@
+﻿2026-02-27T10:40:40.8242789Z ##[group]Run actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+2026-02-27T10:40:40.8243185Z with:
+2026-02-27T10:40:40.8247168Z   script: const fs = require('fs');
+
+const awInfo = {
+  engine_id: "copilot",
+  engine_name: "GitHub Copilot CLI",
+  model: process.env.GH_AW_MODEL_AGENT_COPILOT || "",
+  version: "",
+  agent_version: "0.0.418",
+  cli_version: "v0.50.6",
+  workflow_name: "Squad Intro — Workflow de presentación del squad",
+  experimental: false,
+  supports_tools_allowlist: true,
+  run_id: context.runId,
+  run_number: context.runNumber,
+  run_attempt: process.env.GITHUB_RUN_ATTEMPT,
+  repository: context.repo.owner + '/' + context.repo.repo,
+  ref: context.ref,
+  sha: context.sha,
+  actor: context.actor,
+  event_name: context.eventName,
+  staged: false,
+  allowed_domains: ["defaults"],
+  firewall_enabled: true,
+  awf_version: "v0.23.0",
+  awmg_version: "v0.1.5",
+  steps: {
+    firewall: "squid"
+  },
+  created_at: new Date().toISOString()
+};
+
+// Write to /tmp/gh-aw directory to avoid inclusion in PR
+const tmpPath = '/tmp/gh-aw/aw_info.json';
+fs.writeFileSync(tmpPath, JSON.stringify(awInfo, null, 2));
+console.log('Generated aw_info.json at:', tmpPath);
+console.log(JSON.stringify(awInfo, null, 2));
+
+// Set model as output for reuse in other steps/jobs
+core.setOutput('model', awInfo.model);
+
+2026-02-27T10:40:40.8251666Z   github-token: ***
+2026-02-27T10:40:40.8251860Z   debug: false
+2026-02-27T10:40:40.8252046Z   user-agent: actions/github-script
+2026-02-27T10:40:40.8252291Z   result-encoding: json
+2026-02-27T10:40:40.8252483Z   retries: 0
+2026-02-27T10:40:40.8252681Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-02-27T10:40:40.8252941Z env:
+2026-02-27T10:40:40.8253111Z   GH_AW_WORKFLOW_ID_SANITIZED: squadintro
+2026-02-27T10:40:40.8253357Z ##[endgroup]
+2026-02-27T10:40:40.8954746Z Generated aw_info.json at: /tmp/gh-aw/aw_info.json
+2026-02-27T10:40:40.8956879Z {
+2026-02-27T10:40:40.8957173Z   "engine_id": "copilot",
+2026-02-27T10:40:40.8957579Z   "engine_name": "GitHub Copilot CLI",
+2026-02-27T10:40:40.8957943Z   "model": "",
+2026-02-27T10:40:40.8958142Z   "version": "",
+2026-02-27T10:40:40.8958337Z   "agent_version": "0.0.418",
+2026-02-27T10:40:40.8958705Z   "cli_version": "v0.50.6",
+2026-02-27T10:40:40.8959310Z   "workflow_name": "Squad Intro — Workflow de presentación del squad",
+2026-02-27T10:40:40.8959710Z   "experimental": false,
+2026-02-27T10:40:40.8959953Z   "supports_tools_allowlist": true,
+2026-02-27T10:40:40.8960206Z   "run_id": 22482901004,
+2026-02-27T10:40:40.8960421Z   "run_number": 1,
+2026-02-27T10:40:40.8960617Z   "run_attempt": "1",
+2026-02-27T10:40:40.8960833Z   "repository": "l0rd4/agentcamp",
+2026-02-27T10:40:40.8961094Z   "ref": "refs/heads/master",
+2026-02-27T10:40:40.8961359Z   "sha": "0a7644ce3591423a791e1191220db63cc5550e7e",
+2026-02-27T10:40:40.8961651Z   "actor": "l0rd4",
+2026-02-27T10:40:40.8961878Z   "event_name": "workflow_dispatch",
+2026-02-27T10:40:40.8962128Z   "staged": false,
+2026-02-27T10:40:40.8962339Z   "allowed_domains": [
+2026-02-27T10:40:40.8962544Z     "defaults"
+2026-02-27T10:40:40.8962722Z   ],
+2026-02-27T10:40:40.8962902Z   "firewall_enabled": true,
+2026-02-27T10:40:40.8963130Z   "awf_version": "v0.23.0",
+2026-02-27T10:40:40.8963352Z   "awmg_version": "v0.1.5",
+2026-02-27T10:40:40.8963571Z   "steps": {
+2026-02-27T10:40:40.8963750Z     "firewall": "squid"
+2026-02-27T10:40:40.8963950Z   },
+2026-02-27T10:40:40.8964125Z   "created_at": "2026-02-27T10:40:40.894Z"
+2026-02-27T10:40:40.8964386Z }

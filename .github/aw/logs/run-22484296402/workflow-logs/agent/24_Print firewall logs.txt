@@ -1,0 +1,26 @@
+﻿2026-02-27T11:26:22.7094946Z ##[group]Run # Fix permissions on firewall logs so they can be uploaded as artifacts
+2026-02-27T11:26:22.7095501Z [36;1m# Fix permissions on firewall logs so they can be uploaded as artifacts[0m
+2026-02-27T11:26:22.7095911Z [36;1m# AWF runs with sudo, creating files owned by root[0m
+2026-02-27T11:26:22.7096308Z [36;1msudo chmod -R a+r /tmp/gh-aw/sandbox/firewall/logs 2>/dev/null || true[0m
+2026-02-27T11:26:22.7096872Z [36;1m# Only run awf logs summary if awf command exists (it may not be installed if workflow failed before install step)[0m
+2026-02-27T11:26:22.7097351Z [36;1mif command -v awf &> /dev/null; then[0m
+2026-02-27T11:26:22.7097661Z [36;1m  awf logs summary | tee -a "$GITHUB_STEP_SUMMARY"[0m
+2026-02-27T11:26:22.7097942Z [36;1melse[0m
+2026-02-27T11:26:22.7098211Z [36;1m  echo 'AWF binary not installed, skipping firewall log summary'[0m
+2026-02-27T11:26:22.7098526Z [36;1mfi[0m
+2026-02-27T11:26:22.7125060Z shell: /usr/bin/bash -e {0}
+2026-02-27T11:26:22.7125312Z env:
+2026-02-27T11:26:22.7125549Z   GH_AW_WORKFLOW_ID_SANITIZED: squadintro
+2026-02-27T11:26:22.7125847Z   AWF_LOGS_DIR: /tmp/gh-aw/sandbox/firewall/logs
+2026-02-27T11:26:22.7126109Z ##[endgroup]
+2026-02-27T11:26:22.8269207Z <details>
+2026-02-27T11:26:22.8269643Z <summary>Firewall Activity</summary>
+2026-02-27T11:26:22.8269951Z 
+2026-02-27T11:26:22.8270442Z ▼ 2 requests | 2 allowed | 0 blocked | 1 unique domain
+2026-02-27T11:26:22.8270772Z 
+2026-02-27T11:26:22.8270905Z | Domain | Allowed | Denied |
+2026-02-27T11:26:22.8271251Z |--------|---------|--------|
+2026-02-27T11:26:22.8271599Z | api.githubcopilot.com | 2 | 0 |
+2026-02-27T11:26:22.8271839Z 
+2026-02-27T11:26:22.8271943Z </details>
+2026-02-27T11:26:22.8272080Z 

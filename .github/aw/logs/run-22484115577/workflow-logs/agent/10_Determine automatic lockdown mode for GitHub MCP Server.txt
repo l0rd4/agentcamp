@@ -1,0 +1,27 @@
+﻿2026-02-27T11:19:30.1714750Z ##[group]Run actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+2026-02-27T11:19:30.1715720Z with:
+2026-02-27T11:19:30.1716406Z   script: const determineAutomaticLockdown = require('/opt/gh-aw/actions/determine_automatic_lockdown.cjs');
+await determineAutomaticLockdown(github, context, core);
+
+2026-02-27T11:19:30.1717321Z   github-token: ***
+2026-02-27T11:19:30.1717527Z   debug: false
+2026-02-27T11:19:30.1717720Z   user-agent: actions/github-script
+2026-02-27T11:19:30.1717973Z   result-encoding: json
+2026-02-27T11:19:30.1718171Z   retries: 0
+2026-02-27T11:19:30.1718377Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-02-27T11:19:30.1718648Z env:
+2026-02-27T11:19:30.1718832Z   GH_AW_WORKFLOW_ID_SANITIZED: squadintro
+2026-02-27T11:19:30.1719088Z   GH_AW_GITHUB_TOKEN: 
+2026-02-27T11:19:30.1719294Z   GH_AW_GITHUB_MCP_SERVER_TOKEN: 
+2026-02-27T11:19:30.1719514Z ##[endgroup]
+2026-02-27T11:19:30.2417701Z Determining automatic lockdown mode for GitHub MCP server
+2026-02-27T11:19:30.2419186Z Checking repository: l0rd4/agentcamp
+2026-02-27T11:19:30.5513884Z Repository visibility: public
+2026-02-27T11:19:30.5514374Z Repository is private: false
+2026-02-27T11:19:30.5514887Z GH_AW_GITHUB_TOKEN configured: false
+2026-02-27T11:19:30.5515553Z GH_AW_GITHUB_MCP_SERVER_TOKEN configured: false
+2026-02-27T11:19:30.5516102Z Custom github-token configured: false
+2026-02-27T11:19:30.5516586Z Any custom token configured: false
+2026-02-27T11:19:30.5517064Z Automatic lockdown mode determined: false
+2026-02-27T11:19:30.5524003Z Automatic lockdown mode disabled for public repository (no custom tokens configured)
+2026-02-27T11:19:30.5525619Z To enable lockdown mode for enhanced security, configure GH_AW_GITHUB_TOKEN as a repository secret and set 'lockdown: true' in your workflow.

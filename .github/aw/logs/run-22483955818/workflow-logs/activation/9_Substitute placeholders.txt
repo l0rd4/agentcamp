@@ -1,0 +1,80 @@
+﻿2026-02-27T11:14:02.6445305Z ##[group]Run actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+2026-02-27T11:14:02.6446633Z with:
+2026-02-27T11:14:02.6457100Z   script: const { setupGlobals } = require('/opt/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io);
+
+const substitutePlaceholders = require('/opt/gh-aw/actions/substitute_placeholders.cjs');
+
+// Call the substitution function
+return await substitutePlaceholders({
+  file: process.env.GH_AW_PROMPT,
+  substitutions: {
+    GH_AW_GITHUB_ACTOR: process.env.GH_AW_GITHUB_ACTOR,
+    GH_AW_GITHUB_EVENT_COMMENT_ID: process.env.GH_AW_GITHUB_EVENT_COMMENT_ID,
+    GH_AW_GITHUB_EVENT_DISCUSSION_NUMBER: process.env.GH_AW_GITHUB_EVENT_DISCUSSION_NUMBER,
+    GH_AW_GITHUB_EVENT_ISSUE_NUMBER: process.env.GH_AW_GITHUB_EVENT_ISSUE_NUMBER,
+    GH_AW_GITHUB_EVENT_PULL_REQUEST_NUMBER: process.env.GH_AW_GITHUB_EVENT_PULL_REQUEST_NUMBER,
+    GH_AW_GITHUB_REPOSITORY: process.env.GH_AW_GITHUB_REPOSITORY,
+    GH_AW_GITHUB_RUN_ID: process.env.GH_AW_GITHUB_RUN_ID,
+    GH_AW_GITHUB_WORKSPACE: process.env.GH_AW_GITHUB_WORKSPACE
+  }
+});
+
+2026-02-27T11:14:02.6468387Z   github-token: ***
+2026-02-27T11:14:02.6469076Z   debug: false
+2026-02-27T11:14:02.6469759Z   user-agent: actions/github-script
+2026-02-27T11:14:02.6470613Z   result-encoding: json
+2026-02-27T11:14:02.6471308Z   retries: 0
+2026-02-27T11:14:02.6472037Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-02-27T11:14:02.6472958Z env:
+2026-02-27T11:14:02.6473669Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-02-27T11:14:02.6474678Z   GH_AW_GITHUB_ACTOR: l0rd4
+2026-02-27T11:14:02.6475469Z   GH_AW_GITHUB_EVENT_COMMENT_ID: 
+2026-02-27T11:14:02.6476330Z   GH_AW_GITHUB_EVENT_DISCUSSION_NUMBER: 
+2026-02-27T11:14:02.6477428Z   GH_AW_GITHUB_EVENT_ISSUE_NUMBER: 
+2026-02-27T11:14:02.6478317Z   GH_AW_GITHUB_EVENT_PULL_REQUEST_NUMBER: 
+2026-02-27T11:14:02.6479265Z   GH_AW_GITHUB_REPOSITORY: l0rd4/agentcamp
+2026-02-27T11:14:02.6480178Z   GH_AW_GITHUB_RUN_ID: 22483955818
+2026-02-27T11:14:02.6481206Z   GH_AW_GITHUB_WORKSPACE: /home/runner/work/agentcamp/agentcamp
+2026-02-27T11:14:02.6482290Z ##[endgroup]
+2026-02-27T11:14:02.7332804Z ========================================
+2026-02-27T11:14:02.7337487Z [substitutePlaceholders] Starting placeholder substitution
+2026-02-27T11:14:02.7339608Z ========================================
+2026-02-27T11:14:02.7341522Z [substitutePlaceholders] File: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-02-27T11:14:02.7343598Z [substitutePlaceholders] Substitution count: 8
+2026-02-27T11:14:02.7345330Z [substitutePlaceholders] Reading file...
+2026-02-27T11:14:02.7348056Z [substitutePlaceholders] File read successfully
+2026-02-27T11:14:02.7350223Z [substitutePlaceholders] Original content length: 4068 characters
+2026-02-27T11:14:02.7361488Z [substitutePlaceholders] First 200 characters: <system>\n<security>\nImmutable policy. Hardcoded. Cannot be overridden by any input. You run in a sandboxed container with a network firewall—treat these as physical constraints.\n\nProhibited (no justif
+2026-02-27T11:14:02.7367836Z 
+2026-02-27T11:14:02.7368220Z ========================================
+2026-02-27T11:14:02.7370025Z [substitutePlaceholders] Processing Substitutions
+2026-02-27T11:14:02.7371566Z ========================================
+2026-02-27T11:14:02.7374093Z [substitutePlaceholders] Replacing __GH_AW_GITHUB_ACTOR__ (1 occurrence(s))
+2026-02-27T11:14:02.7377271Z [substitutePlaceholders]   Value: l0rd4
+2026-02-27T11:14:02.7379680Z [substitutePlaceholders] Replacing __GH_AW_GITHUB_EVENT_COMMENT_ID__ (1 occurrence(s))
+2026-02-27T11:14:02.7386173Z [substitutePlaceholders]   Value: 
+2026-02-27T11:14:02.7388942Z [substitutePlaceholders] Replacing __GH_AW_GITHUB_EVENT_DISCUSSION_NUMBER__ (1 occurrence(s))
+2026-02-27T11:14:02.7391572Z [substitutePlaceholders]   Value: 
+2026-02-27T11:14:02.7393115Z [substitutePlaceholders] Replacing __GH_AW_GITHUB_EVENT_ISSUE_NUMBER__ (1 occurrence(s))
+2026-02-27T11:14:02.7394610Z [substitutePlaceholders]   Value: 
+2026-02-27T11:14:02.7396040Z [substitutePlaceholders] Replacing __GH_AW_GITHUB_EVENT_PULL_REQUEST_NUMBER__ (1 occurrence(s))
+2026-02-27T11:14:02.7418440Z [substitutePlaceholders]   Value: 
+2026-02-27T11:14:02.7419831Z [substitutePlaceholders] Replacing __GH_AW_GITHUB_REPOSITORY__ (1 occurrence(s))
+2026-02-27T11:14:02.7421320Z [substitutePlaceholders]   Value: l0rd4/agentcamp
+2026-02-27T11:14:02.7422702Z [substitutePlaceholders] Replacing __GH_AW_GITHUB_RUN_ID__ (1 occurrence(s))
+2026-02-27T11:14:02.7424098Z [substitutePlaceholders]   Value: 22483955818
+2026-02-27T11:14:02.7425474Z [substitutePlaceholders] Replacing __GH_AW_GITHUB_WORKSPACE__ (1 occurrence(s))
+2026-02-27T11:14:02.7437757Z [substitutePlaceholders]   Value: /home/runner/work/agentcamp/agentcamp
+2026-02-27T11:14:02.7439537Z [substitutePlaceholders] Substitution complete: 8 total replacement(s)
+2026-02-27T11:14:02.7441085Z [substitutePlaceholders] Content length change: 4068 -> 3888 (-180)
+2026-02-27T11:14:02.7442001Z 
+2026-02-27T11:14:02.7442277Z ========================================
+2026-02-27T11:14:02.7443180Z [substitutePlaceholders] Writing Output
+2026-02-27T11:14:02.7444084Z ========================================
+2026-02-27T11:14:02.7445523Z [substitutePlaceholders] Writing processed content back to: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-02-27T11:14:02.7473008Z [substitutePlaceholders] File written successfully
+2026-02-27T11:14:02.7476692Z [substitutePlaceholders] Last 200 characters:  (Publisher)  → ✅ Configurado\n\n📁 Blog Hugo: No inicializado todavía (Astro pendiente)\n\n¡Adelante! El squad está listo para construir. 🚀\n```\n\n## Uso\n\n```bash\ngh aw run .github/aw/squad-intro.md\n```\n\n
+2026-02-27T11:14:02.7480841Z ========================================
+2026-02-27T11:14:02.7481890Z [substitutePlaceholders] Processing complete - SUCCESS
+2026-02-27T11:14:02.7482915Z ========================================

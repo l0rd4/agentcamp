@@ -1,0 +1,27 @@
+﻿2026-02-27T11:19:08.8578146Z ##[group]Run actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+2026-02-27T11:19:08.8579760Z with:
+2026-02-27T11:19:08.8582278Z   script: const { setupGlobals } = require('/opt/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io);
+const { main } = require('/opt/gh-aw/actions/check_workflow_timestamp_api.cjs');
+await main();
+
+2026-02-27T11:19:08.8585594Z   github-token: ***
+2026-02-27T11:19:08.8586265Z   debug: false
+2026-02-27T11:19:08.8586950Z   user-agent: actions/github-script
+2026-02-27T11:19:08.8587812Z   result-encoding: json
+2026-02-27T11:19:08.8588511Z   retries: 0
+2026-02-27T11:19:08.8589481Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-02-27T11:19:08.8590413Z env:
+2026-02-27T11:19:08.8591082Z   GH_AW_WORKFLOW_FILE: squad-intro.lock.yml
+2026-02-27T11:19:08.8591974Z ##[endgroup]
+2026-02-27T11:19:09.6351840Z Checking workflow timestamps using GitHub API:
+2026-02-27T11:19:09.6353236Z   Source: .github/workflows/squad-intro.md
+2026-02-27T11:19:09.6354530Z   Lock file: .github/workflows/squad-intro.lock.yml
+2026-02-27T11:19:09.6355860Z   Source last commit: 2026-02-27T09:34:07.000Z (83e8cc6)
+2026-02-27T11:19:09.6356987Z   Lock last commit: 2026-02-27T10:33:30.000Z (0a7644c)
+2026-02-27T11:19:09.6358222Z Lock file is newer - verifying frontmatter hash for consistency
+2026-02-27T11:19:09.6403277Z Frontmatter hash comparison:
+2026-02-27T11:19:09.6405289Z   Lock file hash:    ed8a5adc38ceb21f2fbb54843b6714077185576a4dfdf5fb8b3c3fc5b42d24ba
+2026-02-27T11:19:09.6407774Z   Recomputed hash:   ed8a5adc38ceb21f2fbb54843b6714077185576a4dfdf5fb8b3c3fc5b42d24ba
+2026-02-27T11:19:09.6410573Z   Status: ✅ Hashes match
+2026-02-27T11:19:09.6412374Z ✅ Lock file is up to date (lock is newer and hashes match)

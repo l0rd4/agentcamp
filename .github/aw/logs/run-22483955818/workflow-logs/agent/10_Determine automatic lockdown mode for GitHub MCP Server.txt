@@ -1,0 +1,81 @@
+﻿2026-02-27T11:14:26.4474431Z ##[group]Run actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+2026-02-27T11:14:26.4474824Z with:
+2026-02-27T11:14:26.4475436Z   script: const determineAutomaticLockdown = require('/opt/gh-aw/actions/determine_automatic_lockdown.cjs');
+await determineAutomaticLockdown(github, context, core);
+
+2026-02-27T11:14:26.4476249Z   github-token: ***
+2026-02-27T11:14:26.4476438Z   debug: false
+2026-02-27T11:14:26.4476630Z   user-agent: actions/github-script
+2026-02-27T11:14:26.4476872Z   result-encoding: json
+2026-02-27T11:14:26.4477068Z   retries: 0
+2026-02-27T11:14:26.4477269Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-02-27T11:14:26.4477533Z env:
+2026-02-27T11:14:26.4477704Z   GH_AW_WORKFLOW_ID_SANITIZED: squadintro
+2026-02-27T11:14:26.4477953Z   GH_AW_GITHUB_TOKEN: 
+2026-02-27T11:14:26.4478163Z   GH_AW_GITHUB_MCP_SERVER_TOKEN: 
+2026-02-27T11:14:26.4478380Z ##[endgroup]
+2026-02-27T11:14:26.5180478Z Determining automatic lockdown mode for GitHub MCP server
+2026-02-27T11:14:26.5182677Z Checking repository: l0rd4/agentcamp
+2026-02-27T11:14:26.7174998Z ##[error]Failed to determine automatic lockdown mode: <!DOCTYPE html>
+<!--
+
+Hello future GitHubber! I bet you're here to remove those nasty inline styles,
+DRY up these templates and make 'em nice and re-usable, right?
+
+Please, don't. https://github.com/styleguide/templates/2.0
+
+-->
+<html>
+  <head>
+    <title>Unicorn! &middot; GitHub</title>
+    <style type="text/css" media="screen">
+      body {
+        background-color: #f1f1f1;
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      .container { margin: 50px auto 40px auto; width: 600px; text-align: center; }
+
+      a { color: #4183c4; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      h1 { letter-spacing: -1px; line-height: 60px; font-size: 60px; font-weight: 100; margin: 0px; text-shadow: 0 1px 0 #fff; }
+      p { color: rgba(0, 0, 0, 0.5); margin: 10px 0 10px; font-size: 18px; font-weight: 200; line-height: 1.6em;}
+
+      ul { list-style: none; margin: 25px 0; padding: 0; }
+      li { display: table-cell; font-weight: bold; width: 1%; }
+
+      .logo { display: inline-block; margin-top: 35px; }
+      .logo-img-2x { display: none; }
+      @media
+      only screen and (-webkit-min-device-pixel-ratio: 2),
+      only screen and (   min--moz-device-pixel-ratio: 2),
+      only screen and (     -o-min-device-pixel-ratio: 2/1),
+      only screen and (        min-device-pixel-ratio: 2),
+      only screen and (                min-resolution: 192dpi),
+      only screen and (                min-resolution: 2dppx) {
+        .logo-img-1x { display: none; }
+        .logo-img-2x { display: inline-block; }
+      }
+
+      #suggestions {
+        margin-top: 35px;
+        color: #ccc;
+      }
+      #suggestions a {
+        color: #666666;
+        font-weight: 200;
+        font-size: 14px;
+        margin: 0 10px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <p>
+        <img width="200" src="data:image/png;base64,
+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
+2026-02-27T11:14:26.7200704Z ##[warning]Failed to determine repository visibility. Defaulting to lockdown mode for security.

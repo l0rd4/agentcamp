@@ -1,0 +1,1019 @@
+﻿2026-02-27T10:41:26.3840177Z ##[group]Run actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+2026-02-27T10:41:26.3840607Z with:
+2026-02-27T10:41:26.3841372Z   script: const { setupGlobals } = require('/opt/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io);
+const { main } = require('/opt/gh-aw/actions/parse_mcp_gateway_log.cjs');
+await main();
+
+2026-02-27T10:41:26.3842298Z   github-token: ***
+2026-02-27T10:41:26.3842492Z   debug: false
+2026-02-27T10:41:26.3842690Z   user-agent: actions/github-script
+2026-02-27T10:41:26.3842941Z   result-encoding: json
+2026-02-27T10:41:26.3843133Z   retries: 0
+2026-02-27T10:41:26.3843341Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-02-27T10:41:26.3843607Z env:
+2026-02-27T10:41:26.3843787Z   GH_AW_WORKFLOW_ID_SANITIZED: squadintro
+2026-02-27T10:41:26.3844037Z ##[endgroup]
+2026-02-27T10:41:26.4561815Z ##[group]=== Listing All Gateway-Related Files ===
+2026-02-27T10:41:26.4564750Z ##[group]📁 Directory: /tmp/gh-aw/mcp-logs
+2026-02-27T10:41:26.4567248Z ##[group]gateway.md (1182 bytes)
+2026-02-27T10:41:26.4567989Z <details>
+2026-02-27T10:41:26.4568841Z <summary>MCP Gateway</summary>
+2026-02-27T10:41:26.4569109Z 
+2026-02-27T10:41:26.4569618Z - ✓ **startup** MCPG Gateway version: v0.1.5
+2026-02-27T10:41:26.4570539Z - ✓ **startup** Starting MCPG with config: stdin, listen: 0.0.0.0:80, log-dir: /tmp/gh-aw/mcp-logs/
+2026-02-27T10:41:26.4571453Z - ✓ **startup** Loaded 1 MCP server(s): [github]
+2026-02-27T10:41:26.4571995Z - ✓ **backend**
+2026-02-27T10:41:26.4572312Z   ```
+2026-02-27T10:41:26.4572746Z   Successfully connected to MCP backend server, command=docker
+2026-02-27T10:41:26.4573314Z   ```
+2026-02-27T10:41:26.4573690Z - 🔍 rpc **github**→`tools/list`
+2026-02-27T10:41:26.4577580Z - 🔍 rpc **github**←`resp` `{"jsonrpc":"2.0","id":1,"result":{"tools":[{"annotations":{"readOnlyHint":true,"title":"Get commit details"},"description":"Get details for a commit from a GitHub repository","inputSchema":{"properties":{"include_diff":{"default":true,"description":"Whether to include file diffs and stats in the response. Default is true.","type":"boolean"},"owner":{"description":"Repository owner","type":"string"},"page":{"description":"Page number for pagination (min 1)","minimum":1,"type":"number"},"perPage":{"descriptio...`
+2026-02-27T10:41:26.4581623Z - ✓ **startup** Starting in ROUTED mode on 0.0.0.0:80
+2026-02-27T10:41:26.4582446Z - ✓ **startup** Routes: /mcp/<server> for servers: [github]
+2026-02-27T10:41:26.4583561Z - ✗ **auth** Authentication failed: invalid API key, remote=[::1]:57580, path=/close
+2026-02-27T10:41:26.4584372Z - ✓ **shutdown** Shutting down gateway...
+2026-02-27T10:41:26.4584697Z 
+2026-02-27T10:41:26.4584828Z </details>
+2026-02-27T10:41:26.4584994Z 
+2026-02-27T10:41:26.4585395Z ##[endgroup]
+2026-02-27T10:41:26.4585975Z ##[group]github.log (1351 bytes)
+2026-02-27T10:41:26.4586581Z [2026-02-27T10:40:54Z] [DEBUG] [backend] GetOrLaunch called for server: github
+2026-02-27T10:41:26.4589042Z [2026-02-27T10:40:54Z] [INFO] [backend] Launching MCP backend server: github, command=docker, args=[run --rm -i -e NO_COLOR=... -e TERM=... -e PYTHONUNBUFFERED=... -e GITHUB_LOCKDOWN_MODE=... -e GITHUB_PERSONAL_ACCESS_TOKEN=ghs_... -e GITHUB_READ_ONLY=... -e GITHUB_TOOLSETS=cont... ghcr.io/github/github-mcp-server:v0.31.0]
+2026-02-27T10:41:26.4592057Z [2026-02-27T10:40:54Z] [INFO] [backend] [stderr] time=2026-02-27T10:40:54.479Z level=INFO msg="starting server" version=v0.31.0 host="" dynamicToolsets=false readOnly=true lockdownEnabled=false
+2026-02-27T10:41:26.4593638Z [2026-02-27T10:40:54Z] [INFO] [backend] [stderr] GitHub MCP Server running on stdio
+2026-02-27T10:41:26.4594671Z [2026-02-27T10:40:54Z] [INFO] [backend] [stderr] time=2026-02-27T10:40:54.480Z level=INFO msg="server run start"
+2026-02-27T10:41:26.4595747Z [2026-02-27T10:40:54Z] [INFO] [backend] Successfully launched MCP backend server: github
+2026-02-27T10:41:26.4596855Z [2026-02-27T10:40:54Z] [INFO] [backend] [stderr] time=2026-02-27T10:40:54.480Z level=INFO msg="server connecting"
+2026-02-27T10:41:26.4598256Z [2026-02-27T10:40:54Z] [INFO] [backend] [stderr] time=2026-02-27T10:40:54.480Z level=INFO msg="server session connected" session_id=""
+2026-02-27T10:41:26.4600208Z [2026-02-27T10:40:54Z] [INFO] [backend] [stderr] time=2026-02-27T10:40:54.482Z level=INFO msg="session initialized"
+2026-02-27T10:41:26.4601379Z [2026-02-27T10:40:54Z] [INFO] [backend] Successfully registered tools from github (took 290.695859ms)
+2026-02-27T10:41:26.4602035Z 
+2026-02-27T10:41:26.4602466Z ##[endgroup]
+2026-02-27T10:41:26.4603063Z ##[group]mcp-gateway.log (54004 bytes)
+2026-02-27T10:41:26.4603656Z [2026-02-27T10:40:54Z] [INFO] [startup] MCPG Gateway version: v0.1.5
+2026-02-27T10:41:26.4604700Z [2026-02-27T10:40:54Z] [INFO] [startup] Starting MCPG with config: stdin, listen: 0.0.0.0:80, log-dir: /tmp/gh-aw/mcp-logs/
+2026-02-27T10:41:26.4605898Z [2026-02-27T10:40:54Z] [DEBUG] [cmd:root] Starting MCPG with config: stdin, listen: 0.0.0.0:80
+2026-02-27T10:41:26.4606921Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Expanding variables: context=raw JSON data
+2026-02-27T10:41:26.4608131Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Expanded variable: GITHUB_MCP_SERVER_TOKEN (found in environment)
+2026-02-27T10:41:26.4609756Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Variable expansion completed: context=raw JSON data, undefined_count=0
+2026-02-27T10:41:26.4611113Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation_schema] Starting JSON schema validation: data_size=569 bytes
+2026-02-27T10:41:26.4612288Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation_schema] Compiling JSON schema for the first time
+2026-02-27T10:41:26.4613984Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation_schema] Fetching schema from URL: https://raw.githubusercontent.com/github/gh-aw/v0.41.1/docs/public/schemas/mcp-gateway-config.schema.json
+2026-02-27T10:41:26.4615673Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation_schema] HTTP request completed in 63.887456ms
+2026-02-27T10:41:26.4617029Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation_schema] Schema read completed in 154.359µs (size: 13040 bytes)
+2026-02-27T10:41:26.4618837Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation_schema] Schema fixes applied in 539.077µs
+2026-02-27T10:41:26.4619993Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation_schema] Total schema fetch and fix completed in 66.270041ms
+2026-02-27T10:41:26.4621176Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation_schema] Schema compiled and cached successfully
+2026-02-27T10:41:26.4622315Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation_schema] Schema compilation/retrieval took: 68.613133ms
+2026-02-27T10:41:26.4623555Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation_schema] JSON parsing took: 13.776µs
+2026-02-27T10:41:26.4624685Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation_schema] Schema validation took: 54.673µs
+2026-02-27T10:41:26.4625805Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation_schema] Total validation completed successfully in 70.389639ms
+2026-02-27T10:41:26.4626984Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation_schema] Validating string patterns: server_count=1
+2026-02-27T10:41:26.4628125Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation_schema] Validating server: name=github, type=stdio
+2026-02-27T10:41:26.4629342Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Validating gateway configuration
+2026-02-27T10:41:26.4630201Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Validating gateway port: 80
+2026-02-27T10:41:26.4631149Z [2026-02-27T10:40:54Z] [DEBUG] [config:rules] Validating port range: port=80, jsonPath=gateway.port
+2026-02-27T10:41:26.4632273Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Validating payload directory: /tmp/gh-aw/mcp-payloads
+2026-02-27T10:41:26.4633729Z [2026-02-27T10:40:54Z] [DEBUG] [config:rules] Validating absolute path: field=payloadDir, value=/tmp/gh-aw/mcp-payloads, jsonPath=gateway.payloadDir
+2026-02-27T10:41:26.4635090Z [2026-02-27T10:40:54Z] [DEBUG] [config:rules] Valid Unix absolute path: /tmp/gh-aw/mcp-payloads
+2026-02-27T10:41:26.4636050Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Gateway config validation passed
+2026-02-27T10:41:26.4637219Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Validating gateway configuration
+2026-02-27T10:41:26.4638068Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Validating gateway port: 80
+2026-02-27T10:41:26.4639224Z [2026-02-27T10:40:54Z] [DEBUG] [config:rules] Validating port range: port=80, jsonPath=gateway.port
+2026-02-27T10:41:26.4640322Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Validating payload directory: /tmp/gh-aw/mcp-payloads
+2026-02-27T10:41:26.4641820Z [2026-02-27T10:40:54Z] [DEBUG] [config:rules] Validating absolute path: field=payloadDir, value=/tmp/gh-aw/mcp-payloads, jsonPath=gateway.payloadDir
+2026-02-27T10:41:26.4643200Z [2026-02-27T10:40:54Z] [DEBUG] [config:rules] Valid Unix absolute path: /tmp/gh-aw/mcp-payloads
+2026-02-27T10:41:26.4644171Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Gateway config validation passed
+2026-02-27T10:41:26.4645118Z [2026-02-27T10:40:54Z] [DEBUG] [config:feature] Applying 1 default setter(s)
+2026-02-27T10:41:26.4645922Z [2026-02-27T10:40:54Z] [DEBUG] [config:feature] All default setters applied
+2026-02-27T10:41:26.4646913Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Validating server config: name=github, type=stdio
+2026-02-27T10:41:26.4648022Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Server config validation passed: name=github
+2026-02-27T10:41:26.4649317Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Expanding env variables for server: github, count=4
+2026-02-27T10:41:26.4650677Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Expanding variables: context=jsonPath=mcpServers.github.env.GITHUB_LOCKDOWN_MODE
+2026-02-27T10:41:26.4652387Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Variable expansion completed: context=jsonPath=mcpServers.github.env.GITHUB_LOCKDOWN_MODE, undefined_count=0
+2026-02-27T10:41:26.4654152Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Expanding variables: context=jsonPath=mcpServers.github.env.GITHUB_PERSONAL_ACCESS_TOKEN
+2026-02-27T10:41:26.4656288Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Variable expansion completed: context=jsonPath=mcpServers.github.env.GITHUB_PERSONAL_ACCESS_TOKEN, undefined_count=0
+2026-02-27T10:41:26.4658046Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Expanding variables: context=jsonPath=mcpServers.github.env.GITHUB_READ_ONLY
+2026-02-27T10:41:26.4659923Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Variable expansion completed: context=jsonPath=mcpServers.github.env.GITHUB_READ_ONLY, undefined_count=0
+2026-02-27T10:41:26.4661582Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Expanding variables: context=jsonPath=mcpServers.github.env.GITHUB_TOOLSETS
+2026-02-27T10:41:26.4663278Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Variable expansion completed: context=jsonPath=mcpServers.github.env.GITHUB_TOOLSETS, undefined_count=0
+2026-02-27T10:41:26.4664743Z [2026-02-27T10:40:54Z] [DEBUG] [config:validation] Env variable expansion completed for server: github
+2026-02-27T10:41:26.4665777Z [2026-02-27T10:40:54Z] [DEBUG] [config:feature] Applying 0 stdin converter(s)
+2026-02-27T10:41:26.4666580Z [2026-02-27T10:40:54Z] [DEBUG] [config:feature] All stdin converters applied
+2026-02-27T10:41:26.4667385Z [2026-02-27T10:40:54Z] [DEBUG] [cmd:root] Configuration loaded with 1 servers
+2026-02-27T10:41:26.4668155Z [2026-02-27T10:40:54Z] [INFO] [startup] Loaded 1 MCP server(s): [github]
+2026-02-27T10:41:26.4669168Z [2026-02-27T10:40:54Z] [DEBUG] [cmd:root] Server mode: routed, DIFC enabled: false
+2026-02-27T10:41:26.4670337Z [2026-02-27T10:40:54Z] [DEBUG] [server:unified] Creating new unified server: enableDIFC=false, sequentialLaunch=false, servers=1
+2026-02-27T10:41:26.4671637Z [2026-02-27T10:40:54Z] [DEBUG] [launcher:launcher] Creating new launcher with 1 configured servers
+2026-02-27T10:41:26.4672675Z [2026-02-27T10:40:54Z] [DEBUG] [launcher:launcher] Using configured startup timeout: 1m0s
+2026-02-27T10:41:26.4673936Z [2026-02-27T10:40:54Z] [DEBUG] [launcher:pool] Creating new session connection pool: idleTimeout=30m0s, cleanupInterval=5m0s, maxErrors=10
+2026-02-27T10:41:26.4675786Z [2026-02-27T10:40:54Z] [DEBUG] [server:unified] Payload configuration: dir=/tmp/gh-aw/mcp-payloads, sizeThreshold=10240 bytes (10.00 KB)
+2026-02-27T10:41:26.4677095Z [2026-02-27T10:40:54Z] [DEBUG] [launcher:launcher] Retrieved server IDs: count=1, ids=[github]
+2026-02-27T10:41:26.4678088Z [2026-02-27T10:40:54Z] [DEBUG] [sys:sys] Creating new SysServer with 1 servers: [github]
+2026-02-27T10:41:26.4679173Z [2026-02-27T10:40:54Z] [DEBUG] [guard:registry] Creating new guard registry
+2026-02-27T10:41:26.4679997Z [2026-02-27T10:40:54Z] [DEBUG] [launcher:pool] Cleanup goroutine started
+2026-02-27T10:41:26.4680656Z [2026-02-27T10:40:54Z] [DEBUG] [difc:capabilities] Creating new capabilities set
+2026-02-27T10:41:26.4681187Z [2026-02-27T10:40:54Z] [DEBUG] [launcher:launcher] Retrieved server IDs: count=1, ids=[github]
+2026-02-27T10:41:26.4681738Z [2026-02-27T10:40:54Z] [DEBUG] [guard:noop] Creating new noop guard (no DIFC restrictions)
+2026-02-27T10:41:26.4682330Z [2026-02-27T10:40:54Z] [DEBUG] [guard:registry] Registering guard for serverID=github, guardName=noop
+2026-02-27T10:41:26.4682920Z [2026-02-27T10:40:54Z] [DEBUG] [guard:context] [Guard] Registered guard 'noop' for server 'github'
+2026-02-27T10:41:26.4683548Z [2026-02-27T10:40:54Z] [DEBUG] [launcher:launcher] Retrieved server IDs: count=1, ids=[github]
+2026-02-27T10:41:26.4684118Z [2026-02-27T10:40:54Z] [DEBUG] [server:unified] Starting tool registration for 1 backends
+2026-02-27T10:41:26.4684648Z [2026-02-27T10:40:54Z] [DEBUG] [launcher:launcher] Retrieved server IDs: count=1, ids=[github]
+2026-02-27T10:41:26.4685188Z [2026-02-27T10:40:54Z] [DEBUG] [server:unified] Registering tools in parallel from 1 backends
+2026-02-27T10:41:26.4685734Z [2026-02-27T10:40:54Z] [DEBUG] [backend] [github] GetOrLaunch called for server: github
+2026-02-27T10:41:26.4686254Z [2026-02-27T10:40:54Z] [DEBUG] [launcher:launcher] GetOrLaunch called: serverID=github
+2026-02-27T10:41:26.4686857Z [2026-02-27T10:40:54Z] [DEBUG] [launcher:launcher] Connection not found in cache, launching new: serverID=github
+2026-02-27T10:41:26.4687701Z [2026-02-27T10:40:54Z] [DEBUG] [launcher:launcher] Retrieved server config: serverID=github, type=stdio
+2026-02-27T10:41:26.4689306Z [2026-02-27T10:40:54Z] [INFO] [backend] [github] Launching MCP backend server: github, command=docker, args=[run --rm -i -e NO_COLOR=... -e TERM=... -e PYTHONUNBUFFERED=... -e GITHUB_LOCKDOWN_MODE=... -e GITHUB_PERSONAL_ACCESS_TOKEN=ghs_... -e GITHUB_READ_ONLY=... -e GITHUB_TOOLSETS=cont... ghcr.io/github/github-mcp-server:v0.31.0]
+2026-02-27T10:41:26.4690816Z [2026-02-27T10:40:54Z] [DEBUG] [launcher:launcher] Launching new server: serverID=github, command=docker, inContainer=true, isDirectCommand=false
+2026-02-27T10:41:26.4691625Z [2026-02-27T10:40:54Z] [DEBUG] [launcher:launcher] Starting server with timeout: serverID=github, timeout=1m0s
+2026-02-27T10:41:26.4692287Z [2026-02-27T10:40:54Z] [DEBUG] [launcher:launcher] Starting connection goroutine: serverID=github
+2026-02-27T10:41:26.4693641Z [2026-02-27T10:40:54Z] [INFO] [backend] Creating new MCP backend connection, command=docker, args=[run --rm -i -e NO_COLOR=... -e TERM=... -e PYTHONUNBUFFERED=... -e GITHUB_LOCKDOWN_MODE=... -e GITHUB_PERSONAL_ACCESS_TOKEN=ghs_... -e GITHUB_READ_ONLY=... -e GITHUB_TOOLSETS=cont... ghcr.io/github/github-mcp-server:v0.31.0]
+2026-02-27T10:41:26.4695655Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:connection] Creating new MCP connection: command=docker, args=[run --rm -i -e NO_COLOR=... -e TERM=... -e PYTHONUNBUFFERED=... -e GITHUB_LOCKDOWN_MODE=... -e GITHUB_PERSONAL_ACCESS_TOKEN=ghs_... -e GITHUB_READ_ONLY=... -e GITHUB_TOOLSETS=cont... ghcr.io/github/github-mcp-server:v0.31.0]
+2026-02-27T10:41:26.4698053Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:connection] Expanded args for Docker env: [run --rm -i -e NO_COLOR=... -e TERM=... -e PYTHONUNBUFFERED=... -e GITHUB_LOCKDOWN_MODE=... -e GITHUB_PERSONAL_ACCESS_TOKEN=ghs_... -e GITHUB_READ_ONLY=... -e GITHUB_TOOLSETS=cont... ghcr.io/github/github-mcp-server:v0.31.0]
+2026-02-27T10:41:26.4701205Z [2026-02-27T10:40:54Z] [INFO] [backend] Starting MCP backend server, command=docker, args=[run --rm -i -e NO_COLOR=... -e TERM=... -e PYTHONUNBUFFERED=... -e GITHUB_LOCKDOWN_MODE=... -e GITHUB_PERSONAL_ACCESS_TOKEN=ghs_... -e GITHUB_READ_ONLY=... -e GITHUB_TOOLSETS=cont... ghcr.io/github/github-mcp-server:v0.31.0]
+2026-02-27T10:41:26.4702499Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:connection] Initiating MCP server connection and handshake
+2026-02-27T10:41:26.4703430Z [2026-02-27T10:40:54Z] [INFO] [backend] [github] [stderr] time=2026-02-27T10:40:54.479Z level=INFO msg="starting server" version=v0.31.0 host="" dynamicToolsets=false readOnly=true lockdownEnabled=false
+2026-02-27T10:41:26.4704692Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:connection] [github stderr] time=2026-02-27T10:40:54.479Z level=INFO msg="starting server" version=v0.31.0 host="" dynamicToolsets=false readOnly=true lockdownEnabled=false
+2026-02-27T10:41:26.4705607Z [2026-02-27T10:40:54Z] [INFO] [backend] [github] [stderr] GitHub MCP Server running on stdio
+2026-02-27T10:41:26.4706200Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:connection] [github stderr] GitHub MCP Server running on stdio
+2026-02-27T10:41:26.4706819Z [2026-02-27T10:40:54Z] [INFO] [backend] Successfully connected to MCP backend server, command=docker
+2026-02-27T10:41:26.4707482Z [2026-02-27T10:40:54Z] [INFO] [backend] [github] [stderr] time=2026-02-27T10:40:54.480Z level=INFO msg="server run start"
+2026-02-27T10:41:26.4708131Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:connection] Successfully connected to MCP server: command=docker
+2026-02-27T10:41:26.4709045Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:connection] [github stderr] time=2026-02-27T10:40:54.480Z level=INFO msg="server run start"
+2026-02-27T10:41:26.4709720Z [2026-02-27T10:40:54Z] [INFO] [backend] [github] Successfully launched MCP backend server: github
+2026-02-27T10:41:26.4710369Z [2026-02-27T10:40:54Z] [INFO] [backend] [github] [stderr] time=2026-02-27T10:40:54.480Z level=INFO msg="server connecting"
+2026-02-27T10:41:26.4711299Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:connection] [github stderr] time=2026-02-27T10:40:54.480Z level=INFO msg="server connecting"
+2026-02-27T10:41:26.4711957Z [2026-02-27T10:40:54Z] [DEBUG] [launcher:launcher] Connection established: serverID=github
+2026-02-27T10:41:26.4712654Z [2026-02-27T10:40:54Z] [INFO] [backend] [github] [stderr] time=2026-02-27T10:40:54.480Z level=INFO msg="server session connected" session_id=""
+2026-02-27T10:41:26.4713995Z [2026-02-27T10:40:54Z] [DEBUG] [rpc] github→tools/list 53b {"jsonrpc":"2.0","method":"tools/list","params":null}
+2026-02-27T10:41:26.4715025Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:connection] [github stderr] time=2026-02-27T10:40:54.480Z level=INFO msg="server session connected" session_id=""
+2026-02-27T10:41:26.4716010Z [2026-02-27T10:40:54Z] [INFO] [backend] [github] [stderr] time=2026-02-27T10:40:54.482Z level=INFO msg="session initialized"
+2026-02-27T10:41:26.4716874Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:connection] [github stderr] time=2026-02-27T10:40:54.482Z level=INFO msg="session initialized"
+2026-02-27T10:41:26.4781222Z [2026-02-27T10:40:54Z] [DEBUG] [rpc] github←resp 49712b {"jsonrpc":"2.0","id":1,"result":{"tools":[{"annotations":{"readOnlyHint":true,"title":"Get commit details"},"description":"Get details for a commit from a GitHub repository","inputSchema":{"properties":{"include_diff":{"default":true,"description":"Whether to include file diffs and stats in the response. Default is true.","type":"boolean"},"owner":{"description":"Repository owner","type":"string"},"page":{"description":"Page number for pagination (min 1)","minimum":1,"type":"number"},"perPage":{"description":"Results per page for pagination (min 1, max 100)","maximum":100,"minimum":1,"type":"number"},"repo":{"description":"Repository name","type":"string"},"sha":{"description":"Commit SHA, branch name, or tag name","type":"string"}},"required":["owner","repo","sha"],"type":"object"},"name":"get_commit","icons":[{"src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABTklEQVRIie2UPUvDUBSGn5PW2qnYwUXExWhNpY2CUKT+BB10E3R0dnbrppuKLgouHbr5X5qlKRIFB+cuguBHj4O05KYfNsVJ+m7n3Hue54ZcrhDKQqGQTX1YVwg7QIbx0gh8b7VTJMMrqS+5RtgD7oDX2GhhC6UcbhkCVLZVuX1sesex4YCdX6uAGgIrsicjlrTGgQ9KVPDnmQgmgongPwgkXNiOq8ADMAtkx4UGvtflJvus20ANeIlN/vW5/kkt8L3D2HD6P9dRgSI8dQcc9w1IR3acBE3vbFSp8ZMVnoFSqJ/unZDe3pAYXyDIJarn9opbDZrewaAh2y7Oy5S1r6h5QG2Xxbw3piDw6xe244oKyxFmC5ihc+tS1qaqngKJyAEBGmZvSGzHVYT790T7aPozsaFoFZGboFGvDJsbOYuOuxuuc7n1uaV8sRSH8Q1DUVLnYLty3gAAAABJRU5ErkJggg==","mimeType":"image/png","theme":"light"},{"src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA+ElEQVRIie2WLU5DQRRGzwUEirQCQ9BsoSGtZQHgSFgIsg4JXQCGP8V2QCBIEATZkJDgOJi+MJnMo30TFHmfmzvzfeeKyZ2BROpQvVHfrddDmhkZ4BY4Ai6BD7prAowjIoq7i85nFcGNf6qa1tayM1vAvBZQUg74c/WAHtAD/gMgn6YCT8A2MKwOTaZpCfAF3AGvFdlLx7XqdUVw4186rgWeE8Nn4cU67QLNAS/ASG3qmwVPqdaqjWw9A86BK+CkzaTuAseFBse/AiLiQg1gLzs3Bwb8XIp94AxYL/Af2xordap6v/htHKhv6nTlgBUAh9l6Rx11yfgG8ne/zwh2OysAAAAASUVORK5CYII=","mimeType":"image/png","theme":"dark"}]},{"annotations":{"readOnlyHint":true,"title":"Get file or directory contents"},"description":"Get the contents of a file or directory from a GitHub repository","inputSchema":{"properties":{"owner":{"description":"Repository owner (username or organization)","type":"string"},"path":{"default":"/","description":"Path to file/directory","type":"string"},"ref":{"description":"Accepts optional git refs such as `refs/tags/{tag}`, `refs/heads/{branch}` or `refs/pull/{pr_number}/head`","type":"string"},"repo":{"description":"Repository name","type":"string"},"sha":{"description":"Accepts optional commit SHA. If specified, it will be used instead of ref","type":"string"}},"required":["owner","repo"],"type":"object"},"name":"get_file_contents","icons":[{"src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABTklEQVRIie2UPUvDUBSGn5PW2qnYwUXExWhNpY2CUKT+BB10E3R0dnbrppuKLgouHbr5X5qlKRIFB+cuguBHj4O05KYfNsVJ+m7n3Hue54ZcrhDKQqGQTX1YVwg7QIbx0gh8b7VTJMMrqS+5RtgD7oDX2GhhC6UcbhkCVLZVuX1sesex4YCdX6uAGgIrsicjlrTGgQ9KVPDnmQgmgongPwgkXNiOq8ADMAtkx4UGvtflJvus20ANeIlN/vW5/kkt8L3D2HD6P9dRgSI8dQcc9w1IR3acBE3vbFSp8ZMVnoFSqJ/unZDe3pAYXyDIJarn9opbDZrewaAh2y7Oy5S1r6h5QG2Xxbw3piDw6xe244oKyxFmC5ihc+tS1qaqngKJyAEBGmZvSGzHVYT790T7aPozsaFoFZGboFGvDJsbOYuOuxuuc7n1uaV8sRSH8Q1DUVLnYLty3gAAAABJRU5ErkJggg==","mimeType":"image/png","theme":"light"},{"src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA+ElEQVRIie2WLU5DQRRGzwUEirQCQ9BsoSGtZQHgSFgIsg4JXQCGP8V2QCBIEATZkJDgOJi+MJnMo30TFHmfmzvzfeeKyZ2BROpQvVHfrddDmhkZ4BY4Ai6BD7prAowjIoq7i85nFcGNf6qa1tayM1vAvBZQUg74c/WAHtAD/gMgn6YCT8A2MKwOTaZpCfAF3AGvFdlLx7XqdUVw4186rgWeE8Nn4cU67QLNAS/ASG3qmwVPqdaqjWw9A86BK+CkzaTuAseFBse/AiLiQg1gLzs3Bwb8XIp94AxYL/Af2xordap6v/htHKhv6nTlgBUAh9l6Rx11yfgG8ne/zwh2OysAAAAASUVORK5CYII=","mimeType":"image/png","theme":"dark"}]},{"annotations":{"readOnlyHint":true,"title":"Get a specific label from a repository."},"description":"Get a specific label from a repository.","inputSchema":{"properties":{"name":{"description":"Label name.","type":"string"},"owner":{"description":"Repository owner (username or organization name)","type":"string"},"repo":{"description":"Repository name","type":"string"}},"required":["owner","repo","name"],"type":"object"},"name":"get_label","icons":[{"src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAC2UlEQVRIicWVMUyTaRjHf/+vVUpOJOdilOYoUvVreq2CDmLOwdlAS5xMbrrhBifjYG7QjYuJw108nZx1huLgYlw0QshxChUK2koxHHcuCmgsFfieG0or3kGPSoz/8X3f5/97nvfN8z7wmaVqm9FodFfR/EnMugy5giCAwYwgI9Ff9Hl9L9Lp1zUBgsGO+rqGwnlhF4CdwBSyAUwvS1G220zHBSFgHtmVxYWvfp2ZGSj8LyAcjgfZphTQZtAr7OdsZvSP9RIJR+LtQhcNusF+d1aUfPp05M8NAavmg8AOk3cmN56+s1Hpa7U/cviUYbcw3jgex9ZCKoBgsKM+0PDuAdBq2He5zOiTzZiXtc+NxRw598GeLRcWTuTz+UUAp3ygrqFwHmgzeWdqNQd4PpFOy/gedNQfaDz3UQXRaHRX0fNPGdzNZUZO12q+VuHIoV7g5Hu/1/IinX7tABTNnwR2SvRsxRzAzOsBGuuWfAkoX5FZFzCVHR95tFVAbiI9DEwj6wLwl5YVMTRYLTDsxjuRrgGYYz/kxkbvbXRWMOBB24cKYI9ks1X8hXQDaAaa5XG9WjImZgV71wI+m8qAv8y0t1pSmP0ITANTmHO2qqvRZDALlTdgHKyjWkx2YvQ2cHtTacMxYBhWK5DoF4TCkXj7Jg02VKsbOwI0Y+qvALZrOQXMC13cKkDSJWBuJUCqAhgbG3uF7IpBcn/k8KlPNQ+78U5QQuhy/vHjuQoAYPndwi9gw4bd2ufGYrWatxz8No50ExhaKsz9Vl6vAPL5/KKzoiTGG0fOg1oqCbvxTp/juw/M+zynu/yTwjoD58CBQ02ez/pAR4E+M69ntf3/o1Y3dqR050oAQz7P6Z6cfPRRw647MkOhUMAfaDyH+AloBKYNPRT292rQHoMOSp09J3TZlt5ezWazxX97VR3638RiX9ct+RImSyBcrDT0ETMyMp4ptRIgVX7QL6J/ALSUEwJ5rdg2AAAAAElFTkSuQmCC","mimeType":"image/png","theme":"light"},{"src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABxElEQVRIibWVvW4TURCFv0vlNEDcIHAkKAERJOIKSjoUArwBPwUFFaKIIngAJARCPIgdh4cgRBYt6ZIAEYEqdhpEw0fhCbkKa68dxyNtsfNzzpnZu3NhwpYGBdUqcA+4A1wEZiK0DawD74FWSml3JAJ1CngGLAIngU1gFfgZKWeAG8AFoAu8At6mlH6VtqTOqJ/UP2pDnRuQO6c27VlbrQ0Dvq121Fulag7q5qPmW18SdSqUd9Qrw4Jn9bNR21YrRQkvYixDKy/AuB3jWjocqKpdtXFU8AxrOTqZzp2PgvnaMRDUA+tB7mypG+OCZ3hbahPgRPguAR9LihaicEu9WcKxClzOi/fU1wPAk7rjgX0uEfNG3cs7mJjtE+wA5/olpZQEHgNf6K2NJyW4NeD7v7c4WptjSc0svlMjdzyM2fbdOyOA7x/T+7mzGj9H8xgIWuquevpw4HmsivkxwBdC/WJRsBKLqqPOHgH8aqybtcJlF0m1WLndUToJ5V31q9r3NOYk7Wh1Wa0PyK3HzA3l/4H3uzIrwFNgCThF7/x/AH5EylngOnAe6AAvgXcppd9DEWRE08DdeIou/RVgJaXUGYQzUfsL+zmwV7BtIq0AAAAASUVORK5CYII=","mimeType":"image/png","theme":"dark"}]},{"annotations":{"readOnlyHint":true,"title":"Get latest release"},"description":"Get the latest release in a GitHub repository","inputSchema":{"properties":{"owner":{"description":"Repository owner","type":"string"},"repo":{"description":"Repository name","type":"string"}},"required":["owner","repo"],"type":"object"},"name":"get_latest_release","icons":[{"src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABTklEQVRIie2UPUvDUBSGn5PW2qnYwUXExWhNpY2CUKT+BB10E3R0dnbrppuKLgouHbr5X5qlKRIFB+cuguBHj4O05KYfNsVJ+m7n3Hue54ZcrhDKQqGQTX1YVwg7QIbx0gh8b7VTJMMrqS+5RtgD7oDX2GhhC6UcbhkCVLZVuX1sesex4YCdX6uAGgIrsicjlrTGgQ9KVPDnmQgmgongPwgkXNiOq8ADMAtkx4UGvtflJvus20ANeIlN/vW5/kkt8L3D2HD6P9dRgSI8dQcc9w1IR3acBE3vbFSp8ZMVnoFSqJ/unZDe3pAYXyDIJarn9opbDZrewaAh2y7Oy5S1r6h5QG2Xxbw3piDw6xe244oKyxFmC5ihc+tS1qaqngKJyAEBGmZvSGzHVYT790T7aPozsaFoFZGboFGvDJsbOYuOuxuuc7n1uaV8sRSH8Q1DUVLnYLty3gAAAABJRU5ErkJggg==","mimeType":"image/png","theme":"light"},{"src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA+ElEQVRIie2WLU5DQRRGzwUEirQCQ9BsoSGtZQHgSFgIsg4JXQCGP8V2QCBIEATZkJDgOJi+MJnMo30TFHmfmzvzfeeKyZ2BROpQvVHfrddDmhkZ4BY4Ai6BD7prAowjIoq7i85nFcGNf6qa1tayM1vAvBZQUg74c/WAHtAD/gMgn6YCT8A2MKwOTaZpCfAF3AGvFdlLx7XqdUVw4186rgWeE8Nn4cU67QLNAS/ASG3qmwVPqdaqjWw9A86BK+CkzaTuAseFBse/AiLiQg1gLzs3Bwb8XIp94AxYL/Af2xordap6v/htHKhv6nTlgBUAh9l6Rx11yfgG8ne/zwh2OysAAAAASUVORK5CYII=","mimeType":"image/png","theme":"dark"}]},{"annotations":{"readOnlyHint":true,"title":"Get my user profile"},"description":"Get details of the authenticated GitHub user. Use this when a request is about the user's own profile for GitHub. Or when information is missing to build other tool calls.","inputSchema":{"properties":{},"type":"object"},"name":"get_me","icons":[{"src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAACSUlEQVRIidWVv09TURTHP+e+2mJMEOLiQBig4GtN4WEHRQxGMfHHYkx0YpJJR+OmjMTNP0CjRv4DJyNETXTQODRQSkmJTweYBUw0KeX1HoeCKY3v0eKi3/Gdc74/zrs3F/53SJN9Jul6owhpAJQlvzT/HrB/LZB0h4YR+wjI7B6UBVW55ZfmPkY6a4J8FugQ1euOLbc7ttyuyDWLJhA7k0wNnNpvAulLefOKdiZM4BWLxbX6Yncm0xkPTB5lzS/lhwBtKUHS9c4qOiCqdxrJAVYKhXVE7iIMJt2h0TCe8BVt/1Cjm7OhPZXETK23mm5ZQMTGQom3YW0gACoS2hsqoNbJAwTm4FjocFtwEcCozYcajTBo+lLenEUTWzE7vFIorNcXXdc9EpCYB775pfwJQu5E1BqsVW6L8CoemHwy7d39vfN4+VJgeYhwGPRGGPleCQCkN+XdE3Tqz1W97y8tPIgkCCv092dc68gzkGFgHXiNsFrLJt2IjgGdwAfH6sTy8sJy0wK9xwbPieEFSlmRyY5DzvNcLrdV35PNZg9s/KzeFNEpII6aq35p7t2eAjXn5hOwqk718pfFxdXQ/EDP8Wy3scFLoMuxerIxSeMxFeuYpyjlZsgBvhZzK9bErgAVa+RJo+ldAn0p7wJwWpHJZsjrRVRlUuFMT3rgfEQCOw5stDlb082S70CCH9PAd2NlPFRAkRGEN8VisdKqgO/7mwJvEUZCBYCjwOdWyXdga7Nd9d9232SRCSo28oWKgjjVxxrElvY7/2/iF/Bu47CZ2fOnAAAAAElFTkSuQmCC","mimeType":"image/png","theme":"light"},{"src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABaElEQVRIidWUvUrDcBTFz79YnRSii4N2cVB8AuvgByKuQqmrILQPoe9SfABxV5wUna2IVLq1k11adffn4A3UNPknjQ56IARyzz3ncj8i/Xe4LCSgIGlD0qp9epJ07Zz7+HEFQBl4YBRNoPwb4u9AB6gA0/bsAy3gDVjLK+6syg4wGxMPLHYPZGp1VGDLWlHxcKrG2UziFDwe4UAvPZyLCHcsgwlPLETYmkSuz6Bp7x0PZy/CzQ6gYENuAUFMfA7o2pB9hXpN1m0VOzbQGXsOTDz/mpqBA05ijizEcZpG4v4CK5IaksqS+pKuJHUtXNLXbAJJd5KOnHPP41S+DbwCL0ANKMZwikAd6AED3y2MVG7ij8BiBn7JuANgOY3sgFurPFU8YtIDbry/DWDXhlfLKj6UW7fc5LsBToE+MJnDYMra1PCR2sDZuOJD+efAt22KXuC8pHZeA8td8FVQBZIJKQCWgMO8+X8Tn12zhtgfmPjeAAAAAElFTkSuQmCC","mimeType":"image/png","theme":"dark"}]},{"annotations":{"readOnlyHint":true,"title":"Get a release by tag name"},"description":"Get a specific release by its tag name in a GitHub repository","inputSchema":{"properties":{"owner":{"description":"Repository owner","type":"string"},"repo":{"description":"Repository name","type":"string"},"tag":{"description":"Tag name (e.g., 'v1.0.0')","type":"string"}},"required":["owner","repo","tag"],"type":"object"},"name":"get_release_by_tag","icons":[{"src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABTklEQVRIie2UPUvDUBSGn5PW2qnYwUXExWhNpY2CUKT+BB10E3R0dnbrppuKLgouHbr5X5ql...
+2026-02-27T10:41:26.4839364Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___get_commit
+2026-02-27T10:41:26.4839991Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_commit schema analysis: hasType=true
+2026-02-27T10:41:26.4840721Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_commit object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4841488Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_commit schema is valid, no normalization needed
+2026-02-27T10:41:26.4842144Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___get_file_contents
+2026-02-27T10:41:26.4842786Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_file_contents schema analysis: hasType=true
+2026-02-27T10:41:26.4843765Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_file_contents object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4844568Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_file_contents schema is valid, no normalization needed
+2026-02-27T10:41:26.4845207Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___get_label
+2026-02-27T10:41:26.4845797Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_label schema analysis: hasType=true
+2026-02-27T10:41:26.4846515Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_label object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4847260Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_label schema is valid, no normalization needed
+2026-02-27T10:41:26.4847901Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___get_latest_release
+2026-02-27T10:41:26.4848702Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_latest_release schema analysis: hasType=true
+2026-02-27T10:41:26.4849481Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_latest_release object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4850286Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_latest_release schema is valid, no normalization needed
+2026-02-27T10:41:26.4850911Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___get_me
+2026-02-27T10:41:26.4851463Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_me schema analysis: hasType=true
+2026-02-27T10:41:26.4852148Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_me object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4852872Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_me schema is valid, no normalization needed
+2026-02-27T10:41:26.4853640Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___get_release_by_tag
+2026-02-27T10:41:26.4854265Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_release_by_tag schema analysis: hasType=true
+2026-02-27T10:41:26.4855023Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_release_by_tag object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4855838Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_release_by_tag schema is valid, no normalization needed
+2026-02-27T10:41:26.4856468Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___get_tag
+2026-02-27T10:41:26.4857021Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_tag schema analysis: hasType=true
+2026-02-27T10:41:26.4857715Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_tag object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4858443Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_tag schema is valid, no normalization needed
+2026-02-27T10:41:26.4859219Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___get_team_members
+2026-02-27T10:41:26.4859830Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_team_members schema analysis: hasType=true
+2026-02-27T10:41:26.4860580Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_team_members object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4861359Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_team_members schema is valid, no normalization needed
+2026-02-27T10:41:26.4861982Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___get_teams
+2026-02-27T10:41:26.4862585Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_teams schema analysis: hasType=true
+2026-02-27T10:41:26.4863279Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_teams object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4864152Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___get_teams schema is valid, no normalization needed
+2026-02-27T10:41:26.4864750Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___issue_read
+2026-02-27T10:41:26.4865321Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___issue_read schema analysis: hasType=true
+2026-02-27T10:41:26.4866028Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___issue_read object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4866774Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___issue_read schema is valid, no normalization needed
+2026-02-27T10:41:26.4867393Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___list_branches
+2026-02-27T10:41:26.4867985Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_branches schema analysis: hasType=true
+2026-02-27T10:41:26.4868961Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_branches object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4869750Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_branches schema is valid, no normalization needed
+2026-02-27T10:41:26.4870371Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___list_commits
+2026-02-27T10:41:26.4870966Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_commits schema analysis: hasType=true
+2026-02-27T10:41:26.4871699Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_commits object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4872455Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_commits schema is valid, no normalization needed
+2026-02-27T10:41:26.4873104Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___list_issue_types
+2026-02-27T10:41:26.4873851Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_issue_types schema analysis: hasType=true
+2026-02-27T10:41:26.4874593Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_issue_types object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4875376Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_issue_types schema is valid, no normalization needed
+2026-02-27T10:41:26.4876001Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___list_issues
+2026-02-27T10:41:26.4876576Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_issues schema analysis: hasType=true
+2026-02-27T10:41:26.4877292Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_issues object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4878056Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_issues schema is valid, no normalization needed
+2026-02-27T10:41:26.4878912Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___list_pull_requests
+2026-02-27T10:41:26.4879550Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_pull_requests schema analysis: hasType=true
+2026-02-27T10:41:26.4880322Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_pull_requests object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4881128Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_pull_requests schema is valid, no normalization needed
+2026-02-27T10:41:26.4881767Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___list_releases
+2026-02-27T10:41:26.4882359Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_releases schema analysis: hasType=true
+2026-02-27T10:41:26.4883092Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_releases object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4883998Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_releases schema is valid, no normalization needed
+2026-02-27T10:41:26.4884612Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___list_tags
+2026-02-27T10:41:26.4885175Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_tags schema analysis: hasType=true
+2026-02-27T10:41:26.4885876Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_tags object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4886607Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___list_tags schema is valid, no normalization needed
+2026-02-27T10:41:26.4887234Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___pull_request_read
+2026-02-27T10:41:26.4887850Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___pull_request_read schema analysis: hasType=true
+2026-02-27T10:41:26.4888772Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___pull_request_read object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4889572Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___pull_request_read schema is valid, no normalization needed
+2026-02-27T10:41:26.4890205Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___search_code
+2026-02-27T10:41:26.4890780Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___search_code schema analysis: hasType=true
+2026-02-27T10:41:26.4891496Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___search_code object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4892236Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___search_code schema is valid, no normalization needed
+2026-02-27T10:41:26.4892850Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___search_issues
+2026-02-27T10:41:26.4893571Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___search_issues schema analysis: hasType=true
+2026-02-27T10:41:26.4894303Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___search_issues object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4895060Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___search_issues schema is valid, no normalization needed
+2026-02-27T10:41:26.4895709Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___search_pull_requests
+2026-02-27T10:41:26.4896344Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___search_pull_requests schema analysis: hasType=true
+2026-02-27T10:41:26.4897118Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___search_pull_requests object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4897940Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___search_pull_requests schema is valid, no normalization needed
+2026-02-27T10:41:26.4898782Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Normalizing input schema for tool: github___search_repositories
+2026-02-27T10:41:26.4899427Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___search_repositories schema analysis: hasType=true
+2026-02-27T10:41:26.4900203Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___search_repositories object type schema: hasProperties=true, hasAdditionalProperties=false
+2026-02-27T10:41:26.4901014Z [2026-02-27T10:40:54Z] [DEBUG] [mcp:schema] Tool github___search_repositories schema is valid, no normalization needed
+2026-02-27T10:41:26.4901701Z [2026-02-27T10:40:54Z] [DEBUG] [server:unified] Successfully registered tools from github (took 290.695859ms)
+2026-02-27T10:41:26.4902354Z [2026-02-27T10:40:54Z] [INFO] [backend] [github] Successfully registered tools from github (took 290.695859ms)
+2026-02-27T10:41:26.4903033Z [2026-02-27T10:40:54Z] [DEBUG] [server:unified] Tool registration complete: 1 succeeded, 0 failed, total tools=22
+2026-02-27T10:41:26.4903664Z [2026-02-27T10:40:54Z] [DEBUG] [server:unified] Unified server created successfully with 22 tools
+2026-02-27T10:41:26.4904370Z [2026-02-27T10:40:54Z] [DEBUG] [launcher:launcher] Retrieved server IDs: count=1, ids=[github]
+2026-02-27T10:41:26.4904882Z [2026-02-27T10:40:54Z] [INFO] [startup] Starting in ROUTED mode on 0.0.0.0:80
+2026-02-27T10:41:26.4905383Z [2026-02-27T10:40:54Z] [DEBUG] [launcher:launcher] Retrieved server IDs: count=1, ids=[github]
+2026-02-27T10:41:26.4905905Z [2026-02-27T10:40:54Z] [INFO] [startup] Routes: /mcp/<server> for servers: [github]
+2026-02-27T10:41:26.4906442Z [2026-02-27T10:40:54Z] [DEBUG] [server:routed] Creating HTTP server for routed mode: addr=0.0.0.0:80
+2026-02-27T10:41:26.4906974Z [2026-02-27T10:40:54Z] [DEBUG] [server:handlers] Creating OAuth discovery handler
+2026-02-27T10:41:26.4907439Z [2026-02-27T10:40:54Z] [DEBUG] [server:handlers] Creating OAuth discovery handler
+2026-02-27T10:41:26.4907895Z [2026-02-27T10:40:54Z] [DEBUG] [server:handlers] Creating close handler
+2026-02-27T10:41:26.4908327Z [2026-02-27T10:40:54Z] [DEBUG] [server:auth] Initialized auth middleware
+2026-02-27T10:41:26.4909032Z [2026-02-27T10:40:54Z] [DEBUG] [launcher:launcher] Retrieved server IDs: count=1, ids=[github]
+2026-02-27T10:41:26.4909606Z [2026-02-27T10:40:54Z] [DEBUG] [server:routed] DIFC disabled: excluding sys from route registration
+2026-02-27T10:41:26.4910169Z [2026-02-27T10:40:54Z] [DEBUG] [server:routed] Registering routes for 1 backends: [github]
+2026-02-27T10:41:26.4910644Z [2026-02-27T10:40:54Z] [DEBUG] [server:auth] Initialized auth middleware
+2026-02-27T10:41:26.4911182Z [2026-02-27T10:40:59Z] [DEBUG] [server:response_writer] Creating new response writer with default status 200
+2026-02-27T10:41:26.4911819Z [2026-02-27T10:40:59Z] [DEBUG] [server:health] Health check request: method=GET, remote=[::1]:56932
+2026-02-27T10:41:26.4912384Z [2026-02-27T10:40:59Z] [DEBUG] [server:response_writer] Setting response status code: 200
+2026-02-27T10:41:26.4912874Z [2026-02-27T10:40:59Z] [DEBUG] [server:health] Building health response
+2026-02-27T10:41:26.4913508Z [2026-02-27T10:40:59Z] [DEBUG] [launcher:launcher] Retrieved server IDs: count=1, ids=[github]
+2026-02-27T10:41:26.4914022Z [2026-02-27T10:40:59Z] [DEBUG] [server:health] Retrieved status for 1 servers
+2026-02-27T10:41:26.4914497Z [2026-02-27T10:40:59Z] [DEBUG] [server:health] Overall health status determined: healthy
+2026-02-27T10:41:26.4915016Z [2026-02-27T10:40:59Z] [DEBUG] [server:health] Health response: status=healthy, servers=1
+2026-02-27T10:41:26.4915528Z [2026-02-27T10:40:59Z] [DEBUG] [server:response_writer] Writing response body: 122 bytes
+2026-02-27T10:41:26.4916050Z [2026-02-27T10:40:59Z] [DEBUG] [server:response_writer] Retrieving captured body: 122 bytes
+2026-02-27T10:41:26.4916579Z [2026-02-27T10:40:59Z] [DEBUG] [server:response_writer] Retrieving captured body: 122 bytes
+2026-02-27T10:41:26.4917115Z [2026-02-27T10:40:59Z] [DEBUG] [server:response_writer] Retrieving captured status code: 200
+2026-02-27T10:41:26.4917770Z [2026-02-27T10:40:59Z] [DEBUG] [server:auth] Authenticating request: method=POST, path=/mcp/github, remote=127.0.0.1:40080
+2026-02-27T10:41:26.4918354Z [2026-02-27T10:40:59Z] [DEBUG] [server:auth] Authentication successful
+2026-02-27T10:41:26.4919109Z [2026-02-27T10:40:59Z] [INFO] [auth] Authentication successful, remote=127.0.0.1:40080, path=/mcp/github
+2026-02-27T10:41:26.4919747Z [2026-02-27T10:40:59Z] [DEBUG] [auth:header] Extracting session ID from auth header: sanitized=KBDM...
+2026-02-27T10:41:26.4920284Z [2026-02-27T10:40:59Z] [DEBUG] [auth:header] Using plain API key as session ID
+2026-02-27T10:41:26.4920994Z [2026-02-27T10:40:59Z] [DEBUG] [server:sdk-frontend] >>> SDK Request [routed:github] session=KBDMpGo8... mcp-session=(none) method=POST path=/mcp/github
+2026-02-27T10:41:26.4921746Z [2026-02-27T10:40:59Z] [DEBUG] [server:sdk-frontend]     JSON-RPC Request: method=ping id=1
+2026-02-27T10:41:26.4922428Z [2026-02-27T10:40:59Z] [DEBUG] [sdk-frontend] JSON-RPC request parsed: mode=routed:github, method=ping, id=1, session=KBDMpGo8...
+2026-02-27T10:41:26.4923300Z [2026-02-27T10:40:59Z] [DEBUG] [server:response_writer] Creating new response writer with default status 200
+2026-02-27T10:41:26.4923989Z [2026-02-27T10:40:59Z] [DEBUG] [server:helpers] Extracting session from request: remote=127.0.0.1:40080, path=/mcp/github
+2026-02-27T10:41:26.4924664Z [2026-02-27T10:40:59Z] [DEBUG] [auth:header] Extracting session ID from auth header: sanitized=KBDM...
+2026-02-27T10:41:26.4925200Z [2026-02-27T10:40:59Z] [DEBUG] [auth:header] Using plain API key as session ID
+2026-02-27T10:41:26.4926100Z [2026-02-27T10:40:59Z] [DEBUG] [server:helpers] Session extracted successfully: sessionID=***, remote=127.0.0.1:40080
+2026-02-27T10:41:26.4927143Z [2026-02-27T10:40:59Z] [INFO] [client] New MCP client connection, remote=127.0.0.1:40080, method=POST, path=/mcp/github, backend=github, session=***
+2026-02-27T10:41:26.4928169Z [2026-02-27T10:40:59Z] [DEBUG] [server:helpers] Checking request body: method=POST, hasBody=true, sessionID=***
+2026-02-27T10:41:26.4929253Z [2026-02-27T10:40:59Z] [DEBUG] [server:helpers] Request body read: size=40 bytes, sessionID=***, backendID=github
+2026-02-27T10:41:26.4929986Z [2026-02-27T10:40:59Z] [DEBUG] [client] MCP client request body, backend=github, body={"jsonrpc":"2.0","id":1,"method":"ping"}
+2026-02-27T10:41:26.4930630Z [2026-02-27T10:40:59Z] [DEBUG] [server:helpers] Request body restored for subsequent reads
+2026-02-27T10:41:26.4931453Z [2026-02-27T10:40:59Z] [DEBUG] [server:helpers] Injecting session context: sessionID=***, backendID=github
+2026-02-27T10:41:26.4932058Z [2026-02-27T10:40:59Z] [DEBUG] [server:helpers] Adding backend ID to context: backendID=github
+2026-02-27T10:41:26.4932586Z [2026-02-27T10:40:59Z] [DEBUG] [server:helpers] Session context injected successfully
+2026-02-27T10:41:26.4933411Z [2026-02-27T10:40:59Z] [DEBUG] [server:routed] [CACHE] Creating new filtered server: backend=github, session=***
+2026-02-27T10:41:26.4934007Z [2026-02-27T10:40:59Z] [DEBUG] [server:routed] Creating filtered server: backend=github
+2026-02-27T10:41:26.4934647Z [2026-02-27T10:40:59Z] [DEBUG] [server:routed] Backend github has 22 tools available
+2026-02-27T10:41:26.4935115Z [2026-02-27T10:40:59Z] [DEBUG] [server:routed] [INFO] server connecting
+2026-02-27T10:41:26.4935676Z [2026-02-27T10:40:59Z] [DEBUG] [server:routed] [INFO] server session connected session_id=3FOWPUT4NHMWVXQF4CPDQ2L4U7
+2026-02-27T10:41:26.4936286Z [2026-02-27T10:40:59Z] [DEBUG] [server:response_writer] Writing response body: 59 bytes
+2026-02-27T10:41:26.4936902Z [2026-02-27T10:40:59Z] [DEBUG] [server:routed] [INFO] server session disconnected session_id=3FOWPUT4NHMWVXQF4CPDQ2L4U7
+2026-02-27T10:41:26.4937533Z [2026-02-27T10:40:59Z] [DEBUG] [server:response_writer] Retrieving captured body: 59 bytes
+2026-02-27T10:41:26.4938068Z [2026-02-27T10:40:59Z] [DEBUG] [server:response_writer] Retrieving captured status code: 200
+2026-02-27T10:41:26.4938860Z [2026-02-27T10:40:59Z] [DEBUG] [server:sdk-frontend] <<< SDK Response [routed:github] status=200 duration=11.617477ms (non-JSON or stream)
+2026-02-27T10:41:26.4939534Z [2026-02-27T10:40:59Z] [DEBUG] [server:sdk-frontend]     Raw response: event: message
+2026-02-27T10:41:26.4939928Z data: {"jsonrpc":"2.0","id":1,"result":{}}
+2026-02-27T10:41:26.4940109Z 
+2026-02-27T10:41:26.4940116Z 
+2026-02-27T10:41:26.4940448Z [2026-02-27T10:40:59Z] [DEBUG] [server:auth] Authenticating request: method=POST, path=/mcp/github, remote=127.0.0.1:40084
+2026-02-27T10:41:26.4941036Z [2026-02-27T10:40:59Z] [DEBUG] [server:auth] Authentication successful
+2026-02-27T10:41:26.4941550Z [2026-02-27T10:40:59Z] [INFO] [auth] Authentication successful, remote=127.0.0.1:40084, path=/mcp/github
+2026-02-27T10:41:26.4942158Z [2026-02-27T10:40:59Z] [DEBUG] [auth:header] Extracting session ID from auth header: sanitized=KBDM...
+2026-02-27T10:41:26.4942721Z [2026-02-27T10:40:59Z] [DEBUG] [auth:header] Using plain API key as session ID
+2026-02-27T10:41:26.4943448Z [2026-02-27T10:40:59Z] [DEBUG] [server:sdk-frontend] >>> SDK Request [routed:github] session=KBDMpGo8... mcp-session=(none) method=POST path=/mcp/github
+2026-02-27T10:41:26.4944333Z [2026-02-27T10:40:59Z] [DEBUG] [server:sdk-frontend]     JSON-RPC Request: method=initialize id=2
+2026-02-27T10:41:26.4945051Z [2026-02-27T10:40:59Z] [DEBUG] [sdk-frontend] JSON-RPC request parsed: mode=routed:github, method=initialize, id=2, session=KBDMpGo8...
+2026-02-27T10:41:26.4945808Z [2026-02-27T10:40:59Z] [DEBUG] [server:response_writer] Creating new response writer with default status 200
+2026-02-27T10:41:26.4946503Z [2026-02-27T10:40:59Z] [DEBUG] [server:helpers] Extracting session from request: remote=127.0.0.1:40084, path=/mcp/github
+2026-02-27T10:41:26.4947172Z [2026-02-27T10:40:59Z] [DEBUG] [auth:header] Extracting session ID from auth header: sanitized=KBDM...
+2026-02-27T10:41:26.4947700Z [2026-02-27T10:40:59Z] [DEBUG] [auth:header] Using plain API key as session ID
+2026-02-27T10:41:26.4948635Z [2026-02-27T10:40:59Z] [DEBUG] [server:helpers] Session extracted successfully: sessionID=***, remote=127.0.0.1:40084
+2026-02-27T10:41:26.4949688Z [2026-02-27T10:40:59Z] [INFO] [client] New MCP client connection, remote=127.0.0.1:40084, method=POST, path=/mcp/github, backend=github, session=***
+2026-02-27T10:41:26.4950690Z [2026-02-27T10:40:59Z] [DEBUG] [server:helpers] Checking request body: method=POST, hasBody=true, sessionID=***
+2026-02-27T10:41:26.4951596Z [2026-02-27T10:40:59Z] [DEBUG] [server:helpers] Request body read: size=166 bytes, sessionID=***, backendID=github
+2026-02-27T10:41:26.4952707Z [2026-02-27T10:40:59Z] [DEBUG] [client] MCP client request body, backend=github, body={"jsonrpc":"2.0","id":2,"method":"initialize","params":{"capabilities":{},"clientInfo":{"name":"check-mcp-servers","version":"1.0.0"},"protocolVersion":"2024-11-05"}}
+2026-02-27T10:41:26.4953742Z [2026-02-27T10:40:59Z] [DEBUG] [server:helpers] Request body restored for subsequent reads
+2026-02-27T10:41:26.4954562Z [2026-02-27T10:40:59Z] [DEBUG] [server:helpers] Injecting session context: sessionID=***, backendID=github
+2026-02-27T10:41:26.4955332Z [2026-02-27T10:40:59Z] [DEBUG] [server:helpers] Adding backend ID to context: backendID=github
+2026-02-27T10:41:26.4955855Z [2026-02-27T10:40:59Z] [DEBUG] [server:helpers] Session context injected successfully
+2026-02-27T10:41:26.4956672Z [2026-02-27T10:40:59Z] [DEBUG] [server:routed] [CACHE] Reusing cached filtered server: backend=github, session=***
+2026-02-27T10:41:26.4957221Z [2026-02-27T10:40:59Z] [DEBUG] [server:routed] [INFO] server connecting
+2026-02-27T10:41:26.4957778Z [2026-02-27T10:40:59Z] [DEBUG] [server:routed] [INFO] server session connected session_id=447IKHNMW3EJBVAXC7ONDLZVMM
+2026-02-27T10:41:26.4958391Z [2026-02-27T10:40:59Z] [DEBUG] [server:response_writer] Writing response body: 202 bytes
+2026-02-27T10:41:26.4959026Z [2026-02-27T10:40:59Z] [DEBUG] [server:response_writer] Retrieving captured body: 202 bytes
+2026-02-27T10:41:26.4959567Z [2026-02-27T10:40:59Z] [DEBUG] [server:response_writer] Retrieving captured status code: 200
+2026-02-27T10:41:26.4960261Z [2026-02-27T10:40:59Z] [DEBUG] [server:sdk-frontend] <<< SDK Response [routed:github] status=200 duration=9.973235ms (non-JSON or stream)
+2026-02-27T10:41:26.4960914Z [2026-02-27T10:40:59Z] [DEBUG] [server:sdk-frontend]     Raw response: event: message
+2026-02-27T10:41:26.4961712Z data: {"jsonrpc":"2.0","id":2,"result":{"capabilities":{"logging":{},"tools":{"listChanged":true}},"protocolVersion":"2024-11-05","serverInfo":{"name":"awmg-github","version":"1.0.0"}}}
+2026-02-27T10:41:26.4962338Z 
+2026-02-27T10:41:26.4962343Z 
+2026-02-27T10:41:26.4962672Z [2026-02-27T10:40:59Z] [DEBUG] [server:auth] Authenticating request: method=POST, path=/mcp/github, remote=127.0.0.1:40092
+2026-02-27T10:41:26.4963270Z [2026-02-27T10:40:59Z] [DEBUG] [server:auth] Authentication successful
+2026-02-27T10:41:26.4963781Z [2026-02-27T10:40:59Z] [INFO] [auth] Authentication successful, remote=127.0.0.1:40092, path=/mcp/github
+2026-02-27T10:41:26.4964393Z [2026-02-27T10:40:59Z] [DEBUG] [auth:header] Extracting session ID from auth header: sanitized=KBDM...
+2026-02-27T10:41:26.4965059Z [2026-02-27T10:40:59Z] [DEBUG] [auth:header] Using plain API key as session ID
+2026-02-27T10:41:26.4965778Z [2026-02-27T10:40:59Z] [DEBUG] [server:sdk-frontend] >>> SDK Request [routed:github] session=KBDMpGo8... mcp-session=447IKHNM... method=POST path=/mcp/github
+2026-02-27T10:41:26.4966544Z [2026-02-27T10:40:59Z] [DEBUG] [server:sdk-frontend]     JSON-RPC Request: method=tools/list id=3
+2026-02-27T10:41:26.4967263Z [2026-02-27T10:40:59Z] [DEBUG] [sdk-frontend] JSON-RPC request parsed: mode=routed:github, method=tools/list, id=3, session=KBDMpGo8...
+2026-02-27T10:41:26.4968015Z [2026-02-27T10:40:59Z] [DEBUG] [server:response_writer] Creating new response writer with default status 200
+2026-02-27T10:41:26.4968723Z [2026-02-27T10:40:59Z] [DEBUG] [server:response_writer] Writing response body: 15997 bytes
+2026-02-27T10:41:26.4969284Z [2026-02-27T10:40:59Z] [DEBUG] [server:response_writer] Retrieving captured body: 15997 bytes
+2026-02-27T10:41:26.4969839Z [2026-02-27T10:40:59Z] [DEBUG] [server:response_writer] Retrieving captured status code: 200
+2026-02-27T10:41:26.4970533Z [2026-02-27T10:40:59Z] [DEBUG] [server:sdk-frontend] <<< SDK Response [routed:github] status=200 duration=3.579195ms (non-JSON or stream)
+2026-02-27T10:41:26.4971231Z [2026-02-27T10:40:59Z] [DEBUG] [server:sdk-frontend]     Raw response (truncated): event: message
+2026-02-27T10:41:26.4973051Z data: {"jsonrpc":"2.0","id":3,"result":{"tools":[{"description":"[github] Get details for a commit from a GitHub repository","inputSchema":{"properties":{"include_diff":{"default":true,"description":"Whether to include file diffs and stats in the response. Default is true.","type":"boolean"},"owner":{"description":"Repository owner","type":"string"},"page":{"description":"Page number for pagination (min 1)","minimum":1,"type":"number"},"perPage":{"description":"Results per page fo...
+2026-02-27T10:41:26.4974945Z [2026-02-27T10:41:10Z] [DEBUG] [server:auth] Authenticating request: method=POST, path=/mcp/github, remote=172.30.0.20:52372
+2026-02-27T10:41:26.4975658Z [2026-02-27T10:41:10Z] [DEBUG] [server:auth] Authentication successful
+2026-02-27T10:41:26.4976180Z [2026-02-27T10:41:10Z] [INFO] [auth] Authentication successful, remote=172.30.0.20:52372, path=/mcp/github
+2026-02-27T10:41:26.4976796Z [2026-02-27T10:41:10Z] [DEBUG] [auth:header] Extracting session ID from auth header: sanitized=KBDM...
+2026-02-27T10:41:26.4977332Z [2026-02-27T10:41:10Z] [DEBUG] [auth:header] Using plain API key as session ID
+2026-02-27T10:41:26.4978029Z [2026-02-27T10:41:10Z] [DEBUG] [server:sdk-frontend] >>> SDK Request [routed:github] session=KBDMpGo8... mcp-session=(none) method=POST path=/mcp/github
+2026-02-27T10:41:26.4978887Z [2026-02-27T10:41:10Z] [DEBUG] [server:sdk-frontend]     JSON-RPC Request: method=initialize id=0
+2026-02-27T10:41:26.4979591Z [2026-02-27T10:41:10Z] [DEBUG] [sdk-frontend] JSON-RPC request parsed: mode=routed:github, method=initialize, id=0, session=KBDMpGo8...
+2026-02-27T10:41:26.4980340Z [2026-02-27T10:41:10Z] [DEBUG] [server:response_writer] Creating new response writer with default status 200
+2026-02-27T10:41:26.4981043Z [2026-02-27T10:41:10Z] [DEBUG] [server:helpers] Extracting session from request: remote=172.30.0.20:52372, path=/mcp/github
+2026-02-27T10:41:26.4981714Z [2026-02-27T10:41:10Z] [DEBUG] [auth:header] Extracting session ID from auth header: sanitized=KBDM...
+2026-02-27T10:41:26.4982244Z [2026-02-27T10:41:10Z] [DEBUG] [auth:header] Using plain API key as session ID
+2026-02-27T10:41:26.4983118Z [2026-02-27T10:41:10Z] [DEBUG] [server:helpers] Session extracted successfully: sessionID=***, remote=172.30.0.20:52372
+2026-02-27T10:41:26.4984167Z [2026-02-27T10:41:10Z] [INFO] [client] New MCP client connection, remote=172.30.0.20:52372, method=POST, path=/mcp/github, backend=github, session=***
+2026-02-27T10:41:26.4985172Z [2026-02-27T10:41:10Z] [DEBUG] [server:helpers] Checking request body: method=POST, hasBody=true, sessionID=***
+2026-02-27T10:41:26.4986077Z [2026-02-27T10:41:10Z] [DEBUG] [server:helpers] Request body read: size=173 bytes, sessionID=***, backendID=github
+2026-02-27T10:41:26.4987369Z [2026-02-27T10:41:10Z] [DEBUG] [client] MCP client request body, backend=github, body={"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"github-copilot-developer","version":"1.0.0"}},"jsonrpc":"2.0","id":0}
+2026-02-27T10:41:26.4988447Z [2026-02-27T10:41:10Z] [DEBUG] [server:helpers] Request body restored for subsequent reads
+2026-02-27T10:41:26.4989375Z [2026-02-27T10:41:10Z] [DEBUG] [server:helpers] Injecting session context: sessionID=***, backendID=github
+2026-02-27T10:41:26.4989976Z [2026-02-27T10:41:10Z] [DEBUG] [server:helpers] Adding backend ID to context: backendID=github
+2026-02-27T10:41:26.4990504Z [2026-02-27T10:41:10Z] [DEBUG] [server:helpers] Session context injected successfully
+2026-02-27T10:41:26.4991323Z [2026-02-27T10:41:10Z] [DEBUG] [server:routed] [CACHE] Reusing cached filtered server: backend=github, session=***
+2026-02-27T10:41:26.4991881Z [2026-02-27T10:41:10Z] [DEBUG] [server:routed] [INFO] server connecting
+2026-02-27T10:41:26.4992445Z [2026-02-27T10:41:10Z] [DEBUG] [server:routed] [INFO] server session connected session_id=EXHMQ7R26LXILFMKK7ZOLHLVZW
+2026-02-27T10:41:26.4993062Z [2026-02-27T10:41:10Z] [DEBUG] [server:response_writer] Writing response body: 202 bytes
+2026-02-27T10:41:26.4993587Z [2026-02-27T10:41:10Z] [DEBUG] [server:response_writer] Retrieving captured body: 202 bytes
+2026-02-27T10:41:26.4994142Z [2026-02-27T10:41:10Z] [DEBUG] [server:response_writer] Retrieving captured status code: 200
+2026-02-27T10:41:26.4994828Z [2026-02-27T10:41:10Z] [DEBUG] [server:sdk-frontend] <<< SDK Response [routed:github] status=200 duration=8.353303ms (non-JSON or stream)
+2026-02-27T10:41:26.4995481Z [2026-02-27T10:41:10Z] [DEBUG] [server:sdk-frontend]     Raw response: event: message
+2026-02-27T10:41:26.4996279Z data: {"jsonrpc":"2.0","id":0,"result":{"capabilities":{"logging":{},"tools":{"listChanged":true}},"protocolVersion":"2025-06-18","serverInfo":{"name":"awmg-github","version":"1.0.0"}}}
+2026-02-27T10:41:26.4996998Z 
+2026-02-27T10:41:26.4997002Z 
+2026-02-27T10:41:26.4997334Z [2026-02-27T10:41:10Z] [DEBUG] [server:auth] Authenticating request: method=POST, path=/mcp/github, remote=172.30.0.20:52384
+2026-02-27T10:41:26.4997930Z [2026-02-27T10:41:10Z] [DEBUG] [server:auth] Authentication successful
+2026-02-27T10:41:26.4998450Z [2026-02-27T10:41:10Z] [INFO] [auth] Authentication successful, remote=172.30.0.20:52384, path=/mcp/github
+2026-02-27T10:41:26.4999166Z [2026-02-27T10:41:10Z] [DEBUG] [auth:header] Extracting session ID from auth header: sanitized=KBDM...
+2026-02-27T10:41:26.4999690Z [2026-02-27T10:41:10Z] [DEBUG] [auth:header] Using plain API key as session ID
+2026-02-27T10:41:26.5000405Z [2026-02-27T10:41:10Z] [DEBUG] [server:sdk-frontend] >>> SDK Request [routed:github] session=KBDMpGo8... mcp-session=EXHMQ7R2... method=POST path=/mcp/github
+2026-02-27T10:41:26.5001248Z [2026-02-27T10:41:10Z] [DEBUG] [server:sdk-frontend]     JSON-RPC Request: method=notifications/initialized id=<nil>
+2026-02-27T10:41:26.5002097Z [2026-02-27T10:41:10Z] [DEBUG] [sdk-frontend] JSON-RPC request parsed: mode=routed:github, method=notifications/initialized, id=<nil>, session=KBDMpGo8...
+2026-02-27T10:41:26.5002909Z [2026-02-27T10:41:10Z] [DEBUG] [server:response_writer] Creating new response writer with default status 200
+2026-02-27T10:41:26.5003504Z [2026-02-27T10:41:10Z] [DEBUG] [server:response_writer] Setting response status code: 202
+2026-02-27T10:41:26.5004022Z [2026-02-27T10:41:10Z] [DEBUG] [server:response_writer] Retrieving captured body: 0 bytes
+2026-02-27T10:41:26.5004555Z [2026-02-27T10:41:10Z] [DEBUG] [server:response_writer] Retrieving captured status code: 202
+2026-02-27T10:41:26.5005211Z [2026-02-27T10:41:10Z] [DEBUG] [server:sdk-frontend] <<< SDK Response [routed:github] status=202 duration=2.835177ms (empty body)
+2026-02-27T10:41:26.5005814Z [2026-02-27T10:41:10Z] [DEBUG] [server:routed] [INFO] session initialized
+2026-02-27T10:41:26.5006407Z [2026-02-27T10:41:10Z] [DEBUG] [server:auth] Authenticating request: method=GET, path=/mcp/github, remote=172.30.0.20:52372
+2026-02-27T10:41:26.5007120Z [2026-02-27T10:41:10Z] [DEBUG] [server:auth] Authentication successful
+2026-02-27T10:41:26.5007637Z [2026-02-27T10:41:10Z] [INFO] [auth] Authentication successful, remote=172.30.0.20:52372, path=/mcp/github
+2026-02-27T10:41:26.5008248Z [2026-02-27T10:41:10Z] [DEBUG] [auth:header] Extracting session ID from auth header: sanitized=KBDM...
+2026-02-27T10:41:26.5008877Z [2026-02-27T10:41:10Z] [DEBUG] [auth:header] Using plain API key as session ID
+2026-02-27T10:41:26.5009575Z [2026-02-27T10:41:10Z] [DEBUG] [server:sdk-frontend] >>> SDK Request [routed:github] session=KBDMpGo8... mcp-session=EXHMQ7R2... method=GET path=/mcp/github
+2026-02-27T10:41:26.5010382Z [2026-02-27T10:41:10Z] [DEBUG] [server:response_writer] Creating new response writer with default status 200
+2026-02-27T10:41:26.5010971Z [2026-02-27T10:41:10Z] [DEBUG] [server:response_writer] Setting response status code: 200
+2026-02-27T10:41:26.5011630Z [2026-02-27T10:41:10Z] [DEBUG] [server:auth] Authenticating request: method=DELETE, path=/mcp/github, remote=172.30.0.20:52384
+2026-02-27T10:41:26.5012222Z [2026-02-27T10:41:10Z] [DEBUG] [server:auth] Authentication successful
+2026-02-27T10:41:26.5012735Z [2026-02-27T10:41:10Z] [INFO] [auth] Authentication successful, remote=172.30.0.20:52384, path=/mcp/github
+2026-02-27T10:41:26.5013355Z [2026-02-27T10:41:10Z] [DEBUG] [auth:header] Extracting session ID from auth header: sanitized=KBDM...
+2026-02-27T10:41:26.5013883Z [2026-02-27T10:41:10Z] [DEBUG] [auth:header] Using plain API key as session ID
+2026-02-27T10:41:26.5014586Z [2026-02-27T10:41:10Z] [DEBUG] [server:sdk-frontend] >>> SDK Request [routed:github] session=KBDMpGo8... mcp-session=EXHMQ7R2... method=DELETE path=/mcp/github
+2026-02-27T10:41:26.5015402Z [2026-02-27T10:41:10Z] [DEBUG] [server:response_writer] Creating new response writer with default status 200
+2026-02-27T10:41:26.5016102Z [2026-02-27T10:41:10Z] [DEBUG] [server:response_writer] Retrieving captured body: 0 bytes
+2026-02-27T10:41:26.5016632Z [2026-02-27T10:41:10Z] [DEBUG] [server:response_writer] Retrieving captured status code: 200
+2026-02-27T10:41:26.5017303Z [2026-02-27T10:41:10Z] [DEBUG] [server:sdk-frontend] <<< SDK Response [routed:github] status=200 duration=87.671221ms (empty body)
+2026-02-27T10:41:26.5018056Z [2026-02-27T10:41:10Z] [DEBUG] [server:routed] [INFO] server session disconnected session_id=EXHMQ7R26LXILFMKK7ZOLHLVZW
+2026-02-27T10:41:26.5018784Z [2026-02-27T10:41:10Z] [DEBUG] [server:response_writer] Setting response status code: 204
+2026-02-27T10:41:26.5019292Z [2026-02-27T10:41:10Z] [DEBUG] [server:response_writer] Retrieving captured body: 0 bytes
+2026-02-27T10:41:26.5019819Z [2026-02-27T10:41:10Z] [DEBUG] [server:response_writer] Retrieving captured status code: 204
+2026-02-27T10:41:26.5020470Z [2026-02-27T10:41:10Z] [DEBUG] [server:sdk-frontend] <<< SDK Response [routed:github] status=204 duration=3.942947ms (empty body)
+2026-02-27T10:41:26.5021189Z [2026-02-27T10:41:25Z] [DEBUG] [server:response_writer] Creating new response writer with default status 200
+2026-02-27T10:41:26.5021866Z [2026-02-27T10:41:25Z] [DEBUG] [server:auth] Authenticating request: method=POST, path=/close, remote=[::1]:57580
+2026-02-27T10:41:26.5022454Z [2026-02-27T10:41:25Z] [DEBUG] [server:auth] Authentication failed: invalid API key
+2026-02-27T10:41:26.5023026Z [2026-02-27T10:41:25Z] [ERROR] [auth] Authentication failed: invalid API key, remote=[::1]:57580, path=/close
+2026-02-27T10:41:26.5023722Z [2026-02-27T10:41:25Z] [DEBUG] [server:errors] Logging runtime error: type=authentication_failed, detail=invalid_api_key
+2026-02-27T10:41:26.5024341Z [2026-02-27T10:41:25Z] [DEBUG] [server:response_writer] Setting response status code: 401
+2026-02-27T10:41:26.5024854Z [2026-02-27T10:41:25Z] [DEBUG] [server:response_writer] Writing response body: 30 bytes
+2026-02-27T10:41:26.5025369Z [2026-02-27T10:41:25Z] [DEBUG] [server:response_writer] Retrieving captured body: 30 bytes
+2026-02-27T10:41:26.5026017Z [2026-02-27T10:41:25Z] [DEBUG] [server:response_writer] Retrieving captured body: 30 bytes
+2026-02-27T10:41:26.5026550Z [2026-02-27T10:41:25Z] [DEBUG] [server:response_writer] Retrieving captured status code: 401
+2026-02-27T10:41:26.5027129Z [2026-02-27T10:41:25Z] [DEBUG] [launcher:launcher] Closing launcher: connections=1, hasSessionPool=true
+2026-02-27T10:41:26.5027689Z [2026-02-27T10:41:25Z] [DEBUG] [launcher:pool] Context cancelled, stopping cleanup
+2026-02-27T10:41:26.5028130Z [2026-02-27T10:41:25Z] [INFO] [shutdown] Shutting down gateway...
+2026-02-27T10:41:26.5028632Z [2026-02-27T10:41:25Z] [DEBUG] [launcher:launcher] Closing 1 connections
+2026-02-27T10:41:26.5029088Z [2026-02-27T10:41:25Z] [DEBUG] [launcher:launcher] Stopping session connection pool
+2026-02-27T10:41:26.5029543Z [2026-02-27T10:41:25Z] [DEBUG] [launcher:pool] Stopping connection pool
+2026-02-27T10:41:26.5029962Z [2026-02-27T10:41:25Z] [DEBUG] [launcher:pool] Cleanup goroutine stopped
+2026-02-27T10:41:26.5030389Z [2026-02-27T10:41:25Z] [DEBUG] [launcher:pool] Connection pool stopped
+2026-02-27T10:41:26.5030817Z [2026-02-27T10:41:25Z] [DEBUG] [launcher:launcher] Launcher closed successfully
+2026-02-27T10:41:26.5031354Z [2026-02-27T10:41:25Z] [DEBUG] [launcher:launcher] Closing launcher: connections=0, hasSessionPool=true
+2026-02-27T10:41:26.5031721Z 
+2026-02-27T10:41:26.5032309Z ##[endgroup]
+2026-02-27T10:41:26.5032653Z ##[group]rpc-messages.jsonl (50015 bytes)
+2026-02-27T10:41:26.5033360Z {"timestamp":"2026-02-27T10:40:54.486975526Z","direction":"OUT","type":"REQUEST","server_id":"github","method":"tools/list","payload":{"jsonrpc":"2.0","method":"tools/list","params":null}}
+2026-02-27T10:41:26.5237674Z {"timestamp":"2026-02-27T10:40:54.549233451Z","direction":"IN","type":"RESPONSE","server_id":"github","payload":{"id":1,"jsonrpc":"2.0","result":{"tools":[{"annotations":{"readOnlyHint":true,"title":"Get commit details"},"description":"Get details for a commit from a GitHub repository","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABTklEQVRIie2UPUvDUBSGn5PW2qnYwUXExWhNpY2CUKT+BB10E3R0dnbrppuKLgouHbr5X5qlKRIFB+cuguBHj4O05KYfNsVJ+m7n3Hue54ZcrhDKQqGQTX1YVwg7QIbx0gh8b7VTJMMrqS+5RtgD7oDX2GhhC6UcbhkCVLZVuX1sesex4YCdX6uAGgIrsicjlrTGgQ9KVPDnmQgmgongPwgkXNiOq8ADMAtkx4UGvtflJvus20ANeIlN/vW5/kkt8L3D2HD6P9dRgSI8dQcc9w1IR3acBE3vbFSp8ZMVnoFSqJ/unZDe3pAYXyDIJarn9opbDZrewaAh2y7Oy5S1r6h5QG2Xxbw3piDw6xe244oKyxFmC5ihc+tS1qaqngKJyAEBGmZvSGzHVYT790T7aPozsaFoFZGboFGvDJsbOYuOuxuuc7n1uaV8sRSH8Q1DUVLnYLty3gAAAABJRU5ErkJggg==","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA+ElEQVRIie2WLU5DQRRGzwUEirQCQ9BsoSGtZQHgSFgIsg4JXQCGP8V2QCBIEATZkJDgOJi+MJnMo30TFHmfmzvzfeeKyZ2BROpQvVHfrddDmhkZ4BY4Ai6BD7prAowjIoq7i85nFcGNf6qa1tayM1vAvBZQUg74c/WAHtAD/gMgn6YCT8A2MKwOTaZpCfAF3AGvFdlLx7XqdUVw4186rgWeE8Nn4cU67QLNAS/ASG3qmwVPqdaqjWw9A86BK+CkzaTuAseFBse/AiLiQg1gLzs3Bwb8XIp94AxYL/Af2xordap6v/htHKhv6nTlgBUAh9l6Rx11yfgG8ne/zwh2OysAAAAASUVORK5CYII=","theme":"dark"}],"inputSchema":{"properties":{"include_diff":{"default":true,"description":"Whether to include file diffs and stats in the response. Default is true.","type":"boolean"},"owner":{"description":"Repository owner","type":"string"},"page":{"description":"Page number for pagination (min 1)","minimum":1,"type":"number"},"perPage":{"description":"Results per page for pagination (min 1, max 100)","maximum":100,"minimum":1,"type":"number"},"repo":{"description":"Repository name","type":"string"},"sha":{"description":"Commit SHA, branch name, or tag name","type":"string"}},"required":["owner","repo","sha"],"type":"object"},"name":"get_commit"},{"annotations":{"readOnlyHint":true,"title":"Get file or directory contents"},"description":"Get the contents of a file or directory from a GitHub repository","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABTklEQVRIie2UPUvDUBSGn5PW2qnYwUXExWhNpY2CUKT+BB10E3R0dnbrppuKLgouHbr5X5qlKRIFB+cuguBHj4O05KYfNsVJ+m7n3Hue54ZcrhDKQqGQTX1YVwg7QIbx0gh8b7VTJMMrqS+5RtgD7oDX2GhhC6UcbhkCVLZVuX1sesex4YCdX6uAGgIrsicjlrTGgQ9KVPDnmQgmgongPwgkXNiOq8ADMAtkx4UGvtflJvus20ANeIlN/vW5/kkt8L3D2HD6P9dRgSI8dQcc9w1IR3acBE3vbFSp8ZMVnoFSqJ/unZDe3pAYXyDIJarn9opbDZrewaAh2y7Oy5S1r6h5QG2Xxbw3piDw6xe244oKyxFmC5ihc+tS1qaqngKJyAEBGmZvSGzHVYT790T7aPozsaFoFZGboFGvDJsbOYuOuxuuc7n1uaV8sRSH8Q1DUVLnYLty3gAAAABJRU5ErkJggg==","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA+ElEQVRIie2WLU5DQRRGzwUEirQCQ9BsoSGtZQHgSFgIsg4JXQCGP8V2QCBIEATZkJDgOJi+MJnMo30TFHmfmzvzfeeKyZ2BROpQvVHfrddDmhkZ4BY4Ai6BD7prAowjIoq7i85nFcGNf6qa1tayM1vAvBZQUg74c/WAHtAD/gMgn6YCT8A2MKwOTaZpCfAF3AGvFdlLx7XqdUVw4186rgWeE8Nn4cU67QLNAS/ASG3qmwVPqdaqjWw9A86BK+CkzaTuAseFBse/AiLiQg1gLzs3Bwb8XIp94AxYL/Af2xordap6v/htHKhv6nTlgBUAh9l6Rx11yfgG8ne/zwh2OysAAAAASUVORK5CYII=","theme":"dark"}],"inputSchema":{"properties":{"owner":{"description":"Repository owner (username or organization)","type":"string"},"path":{"default":"/","description":"Path to file/directory","type":"string"},"ref":{"description":"Accepts optional git refs such as `refs/tags/{tag}`, `refs/heads/{branch}` or `refs/pull/{pr_number}/head`","type":"string"},"repo":{"description":"Repository name","type":"string"},"sha":{"description":"Accepts optional commit SHA. If specified, it will be used instead of ref","type":"string"}},"required":["owner","repo"],"type":"object"},"name":"get_file_contents"},{"annotations":{"readOnlyHint":true,"title":"Get a specific label from a repository."},"description":"Get a specific label from a repository.","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAC2UlEQVRIicWVMUyTaRjHf/+vVUpOJOdilOYoUvVreq2CDmLOwdlAS5xMbrrhBifjYG7QjYuJw108nZx1huLgYlw0QshxChUK2koxHHcuCmgsFfieG0or3kGPSoz/8X3f5/97nvfN8z7wmaVqm9FodFfR/EnMugy5giCAwYwgI9Ff9Hl9L9Lp1zUBgsGO+rqGwnlhF4CdwBSyAUwvS1G220zHBSFgHtmVxYWvfp2ZGSj8LyAcjgfZphTQZtAr7OdsZvSP9RIJR+LtQhcNusF+d1aUfPp05M8NAavmg8AOk3cmN56+s1Hpa7U/cviUYbcw3jgex9ZCKoBgsKM+0PDuAdBq2He5zOiTzZiXtc+NxRw598GeLRcWTuTz+UUAp3ygrqFwHmgzeWdqNQd4PpFOy/gedNQfaDz3UQXRaHRX0fNPGdzNZUZO12q+VuHIoV7g5Hu/1/IinX7tABTNnwR2SvRsxRzAzOsBGuuWfAkoX5FZFzCVHR95tFVAbiI9DEwj6wLwl5YVMTRYLTDsxjuRrgGYYz/kxkbvbXRWMOBB24cKYI9ks1X8hXQDaAaa5XG9WjImZgV71wI+m8qAv8y0t1pSmP0ITANTmHO2qqvRZDALlTdgHKyjWkx2YvQ2cHtTacMxYBhWK5DoF4TCkXj7Jg02VKsbOwI0Y+qvALZrOQXMC13cKkDSJWBuJUCqAhgbG3uF7IpBcn/k8KlPNQ+78U5QQuhy/vHjuQoAYPndwi9gw4bd2ufGYrWatxz8No50ExhaKsz9Vl6vAPL5/KKzoiTGG0fOg1oqCbvxTp/juw/M+zynu/yTwjoD58CBQ02ez/pAR4E+M69ntf3/o1Y3dqR050oAQz7P6Z6cfPRRw647MkOhUMAfaDyH+AloBKYNPRT292rQHoMOSp09J3TZlt5ezWazxX97VR3638RiX9ct+RImSyBcrDT0ETMyMp4ptRIgVX7QL6J/ALSUEwJ5rdg2AAAAAElFTkSuQmCC","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABxElEQVRIibWVvW4TURCFv0vlNEDcIHAkKAERJOIKSjoUArwBPwUFFaKIIngAJARCPIgdh4cgRBYt6ZIAEYEqdhpEw0fhCbkKa68dxyNtsfNzzpnZu3NhwpYGBdUqcA+4A1wEZiK0DawD74FWSml3JAJ1CngGLAIngU1gFfgZKWeAG8AFoAu8At6mlH6VtqTOqJ/UP2pDnRuQO6c27VlbrQ0Dvq121Fulag7q5qPmW18SdSqUd9Qrw4Jn9bNR21YrRQkvYixDKy/AuB3jWjocqKpdtXFU8AxrOTqZzp2PgvnaMRDUA+tB7mypG+OCZ3hbahPgRPguAR9LihaicEu9WcKxClzOi/fU1wPAk7rjgX0uEfNG3cs7mJjtE+wA5/olpZQEHgNf6K2NJyW4NeD7v7c4WptjSc0svlMjdzyM2fbdOyOA7x/T+7mzGj9H8xgIWuquevpw4HmsivkxwBdC/WJRsBKLqqPOHgH8aqybtcJlF0m1WLndUToJ5V31q9r3NOYk7Wh1Wa0PyK3HzA3l/4H3uzIrwFNgCThF7/x/AH5EylngOnAe6AAvgXcppd9DEWRE08DdeIou/RVgJaXUGYQzUfsL+zmwV7BtIq0AAAAASUVORK5CYII=","theme":"dark"}],"inputSchema":{"properties":{"name":{"description":"Label name.","type":"string"},"owner":{"description":"Repository owner (username or organization name)","type":"string"},"repo":{"description":"Repository name","type":"string"}},"required":["owner","repo","name"],"type":"object"},"name":"get_label"},{"annotations":{"readOnlyHint":true,"title":"Get latest release"},"description":"Get the latest release in a GitHub repository","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABTklEQVRIie2UPUvDUBSGn5PW2qnYwUXExWhNpY2CUKT+BB10E3R0dnbrppuKLgouHbr5X5qlKRIFB+cuguBHj4O05KYfNsVJ+m7n3Hue54ZcrhDKQqGQTX1YVwg7QIbx0gh8b7VTJMMrqS+5RtgD7oDX2GhhC6UcbhkCVLZVuX1sesex4YCdX6uAGgIrsicjlrTGgQ9KVPDnmQgmgongPwgkXNiOq8ADMAtkx4UGvtflJvus20ANeIlN/vW5/kkt8L3D2HD6P9dRgSI8dQcc9w1IR3acBE3vbFSp8ZMVnoFSqJ/unZDe3pAYXyDIJarn9opbDZrewaAh2y7Oy5S1r6h5QG2Xxbw3piDw6xe244oKyxFmC5ihc+tS1qaqngKJyAEBGmZvSGzHVYT790T7aPozsaFoFZGboFGvDJsbOYuOuxuuc7n1uaV8sRSH8Q1DUVLnYLty3gAAAABJRU5ErkJggg==","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA+ElEQVRIie2WLU5DQRRGzwUEirQCQ9BsoSGtZQHgSFgIsg4JXQCGP8V2QCBIEATZkJDgOJi+MJnMo30TFHmfmzvzfeeKyZ2BROpQvVHfrddDmhkZ4BY4Ai6BD7prAowjIoq7i85nFcGNf6qa1tayM1vAvBZQUg74c/WAHtAD/gMgn6YCT8A2MKwOTaZpCfAF3AGvFdlLx7XqdUVw4186rgWeE8Nn4cU67QLNAS/ASG3qmwVPqdaqjWw9A86BK+CkzaTuAseFBse/AiLiQg1gLzs3Bwb8XIp94AxYL/Af2xordap6v/htHKhv6nTlgBUAh9l6Rx11yfgG8ne/zwh2OysAAAAASUVORK5CYII=","theme":"dark"}],"inputSchema":{"properties":{"owner":{"description":"Repository owner","type":"string"},"repo":{"description":"Repository name","type":"string"}},"required":["owner","repo"],"type":"object"},"name":"get_latest_release"},{"annotations":{"readOnlyHint":true,"title":"Get my user profile"},"description":"Get details of the authenticated GitHub user. Use this when a request is about the user's own profile for GitHub. Or when information is missing to build other tool calls.","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAACSUlEQVRIidWVv09TURTHP+e+2mJMEOLiQBig4GtN4WEHRQxGMfHHYkx0YpJJR+OmjMTNP0CjRv4DJyNETXTQODRQSkmJTweYBUw0KeX1HoeCKY3v0eKi3/Gdc74/zrs3F/53SJN9Jul6owhpAJQlvzT/HrB/LZB0h4YR+wjI7B6UBVW55ZfmPkY6a4J8FugQ1euOLbc7ttyuyDWLJhA7k0wNnNpvAulLefOKdiZM4BWLxbX6Yncm0xkPTB5lzS/lhwBtKUHS9c4qOiCqdxrJAVYKhXVE7iIMJt2h0TCe8BVt/1Cjm7OhPZXETK23mm5ZQMTGQom3YW0gACoS2hsqoNbJAwTm4FjocFtwEcCozYcajTBo+lLenEUTWzE7vFIorNcXXdc9EpCYB775pfwJQu5E1BqsVW6L8CoemHwy7d39vfN4+VJgeYhwGPRGGPleCQCkN+XdE3Tqz1W97y8tPIgkCCv092dc68gzkGFgHXiNsFrLJt2IjgGdwAfH6sTy8sJy0wK9xwbPieEFSlmRyY5DzvNcLrdV35PNZg9s/KzeFNEpII6aq35p7t2eAjXn5hOwqk718pfFxdXQ/EDP8Wy3scFLoMuxerIxSeMxFeuYpyjlZsgBvhZzK9bErgAVa+RJo+ldAn0p7wJwWpHJZsjrRVRlUuFMT3rgfEQCOw5stDlb082S70CCH9PAd2NlPFRAkRGEN8VisdKqgO/7mwJvEUZCBYCjwOdWyXdga7Nd9d9232SRCSo28oWKgjjVxxrElvY7/2/iF/Bu47CZ2fOnAAAAAElFTkSuQmCC","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABaElEQVRIidWUvUrDcBTFz79YnRSii4N2cVB8AuvgByKuQqmrILQPoe9SfABxV5wUna2IVLq1k11adffn4A3UNPknjQ56IARyzz3ncj8i/Xe4LCSgIGlD0qp9epJ07Zz7+HEFQBl4YBRNoPwb4u9AB6gA0/bsAy3gDVjLK+6syg4wGxMPLHYPZGp1VGDLWlHxcKrG2UziFDwe4UAvPZyLCHcsgwlPLETYmkSuz6Bp7x0PZy/CzQ6gYENuAUFMfA7o2pB9hXpN1m0VOzbQGXsOTDz/mpqBA05ijizEcZpG4v4CK5IaksqS+pKuJHUtXNLXbAJJd5KOnHPP41S+DbwCL0ANKMZwikAd6AED3y2MVG7ij8BiBn7JuANgOY3sgFurPFU8YtIDbry/DWDXhlfLKj6UW7fc5LsBToE+MJnDYMra1PCR2sDZuOJD+efAt22KXuC8pHZeA8td8FVQBZIJKQCWgMO8+X8Tn12zhtgfmPjeAAAAAElFTkSuQmCC","theme":"dark"}],"inputSchema":{"properties":{},"type":"object"},"name":"get_me"},{"annotations":{"readOnlyHint":true,"title":"Get a release by tag name"},"description":"Get a specific release by its tag name in a GitHub repository","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABTklEQVRIie2UPUvDUBSGn5PW2qnYwUXExWhNpY2CUKT+BB10E3R0dnbrppuKLgouHbr5X5qlKRIFB+cuguBHj4O05KYfNsVJ+m7n3Hue54ZcrhDKQqGQTX1YVwg7QIbx0gh8b7VTJMMrqS+5RtgD7oDX2GhhC6UcbhkCVLZVuX1sesex4YCdX6uAGgIrsicjlrTGgQ9KVPDnmQgmgongPwgkXNiOq8ADMAtkx4UGvtflJvus20ANeIlN/vW5/kkt8L3D2HD6P9dRgSI8dQcc9w1IR3acBE3vbFSp8ZMVnoFSqJ/unZDe3pAYXyDIJarn9opbDZrewaAh2y7Oy5S1r6h5QG2Xxbw3piDw6xe244oKyxFmC5ihc+tS1qaqngKJyAEBGmZvSGzHVYT790T7aPozsaFoFZGboFGvDJsbOYuOuxuuc7n1uaV8sRSH8Q1DUVLnYLty3gAAAABJRU5ErkJggg==","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA+ElEQVRIie2WLU5DQRRGzwUEirQCQ9BsoSGtZQHgSFgIsg4JXQCGP8V2QCBIEATZkJDgOJi+MJnMo30TFHmfmzvzfeeKyZ2BROpQvVHfrddDmhkZ4BY4Ai6BD7prAowjIoq7i85nFcGNf6qa1tayM1vAvBZQUg74c/WAHtAD/gMgn6YCT8A2MKwOTaZpCfAF3AGvFdlLx7XqdUVw4186rgWeE8Nn4cU67QLNAS/ASG3qmwVPqdaqjWw9A86BK+CkzaTuAseFBse/AiLiQg1gLzs3Bwb8XIp94AxYL/Af2xordap6v/htHKhv6nTlgBUAh9l6Rx11yfgG8ne/zwh2OysAAAAASUVORK5CYII=","theme":"dark"}],"inputSchema":{"properties":{"owner":{"description":"Repository owner","type":"string"},"repo":{"description":"Repository name","type":"string"},"tag":{"description":"Tag name (e.g., 'v1.0.0')","type":"string"}},"required":["owner","repo","tag"],"type":"object"},"name":"get_release_by_tag"},{"annotations":{"readOnlyHint":true,"title":"Get tag details"},"description":"Get details about a specific git tag in a GitHub repository","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABTklEQVRIie2UPUvDUBSGn5PW2qnYwUXExWhNpY2CUKT+BB10E3R0dnbrppuKLgouHbr5X5qlKRIFB+cuguBHj4O05KYfNsVJ+m7n3Hue54ZcrhDKQqGQTX1YVwg7QIbx0gh8b7VTJMMrqS+5RtgD7oDX2GhhC6UcbhkCVLZVuX1sesex4YCdX6uAGgIrsicjlrTGgQ9KVPDnmQgmgongPwgkXNiOq8ADMAtkx4UGvtflJvus20ANeIlN/vW5/kkt8L3D2HD6P9dRgSI8dQcc9w1IR3acBE3vbFSp8ZMVnoFSqJ/unZDe3pAYXyDIJarn9opbDZrewaAh2y7Oy5S1r6h5QG2Xxbw3piDw6xe244oKyxFmC5ihc+tS1qaqngKJyAEBGmZvSGzHVYT790T7aPozsaFoFZGboFGvDJsbOYuOuxuuc7n1uaV8sRSH8Q1DUVLnYLty3gAAAABJRU5ErkJggg==","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA+ElEQVRIie2WLU5DQRRGzwUEirQCQ9BsoSGtZQHgSFgIsg4JXQCGP8V2QCBIEATZkJDgOJi+MJnMo30TFHmfmzvzfeeKyZ2BROpQvVHfrddDmhkZ4BY4Ai6BD7prAowjIoq7i85nFcGNf6qa1tayM1vAvBZQUg74c/WAHtAD/gMgn6YCT8A2MKwOTaZpCfAF3AGvFdlLx7XqdUVw4186rgWeE8Nn4cU67QLNAS/ASG3qmwVPqdaqjWw9A86BK+CkzaTuAseFBse/AiLiQg1gLzs3Bwb8XIp94AxYL/Af2xordap6v/htHKhv6nTlgBUAh9l6Rx11yfgG8ne/zwh2OysAAAAASUVORK5CYII=","theme":"dark"}],"inputSchema":{"properties":{"owner":{"description":"Repository owner","type":"string"},"repo":{"description":"Repository name","type":"string"},"tag":{"description":"Tag name","type":"string"}},"required":["owner","repo","tag"],"type":"object"},"name":"get_tag"},{"annotations":{"readOnlyHint":true,"title":"Get team members"},"description":"Get member usernames of a specific team in an organization. Limited to organizations accessible with current credentials","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAACSUlEQVRIidWVv09TURTHP+e+2mJMEOLiQBig4GtN4WEHRQxGMfHHYkx0YpJJR+OmjMTNP0CjRv4DJyNETXTQODRQSkmJTweYBUw0KeX1HoeCKY3v0eKi3/Gdc74/zrs3F/53SJN9Jul6owhpAJQlvzT/HrB/LZB0h4YR+wjI7B6UBVW55ZfmPkY6a4J8FugQ1euOLbc7ttyuyDWLJhA7k0wNnNpvAulLefOKdiZM4BWLxbX6Yncm0xkPTB5lzS/lhwBtKUHS9c4qOiCqdxrJAVYKhXVE7iIMJt2h0TCe8BVt/1Cjm7OhPZXETK23mm5ZQMTGQom3YW0gACoS2hsqoNbJAwTm4FjocFtwEcCozYcajTBo+lLenEUTWzE7vFIorNcXXdc9EpCYB775pfwJQu5E1BqsVW6L8CoemHwy7d39vfN4+VJgeYhwGPRGGPleCQCkN+XdE3Tqz1W97y8tPIgkCCv092dc68gzkGFgHXiNsFrLJt2IjgGdwAfH6sTy8sJy0wK9xwbPieEFSlmRyY5DzvNcLrdV35PNZg9s/KzeFNEpII6aq35p7t2eAjXn5hOwqk718pfFxdXQ/EDP8Wy3scFLoMuxerIxSeMxFeuYpyjlZsgBvhZzK9bErgAVa+RJo+ldAn0p7wJwWpHJZsjrRVRlUuFMT3rgfEQCOw5stDlb082S70CCH9PAd2NlPFRAkRGEN8VisdKqgO/7mwJvEUZCBYCjwOdWyXdga7Nd9d9232SRCSo28oWKgjjVxxrElvY7/2/iF/Bu47CZ2fOnAAAAAElFTkSuQmCC","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABaElEQVRIidWUvUrDcBTFz79YnRSii4N2cVB8AuvgByKuQqmrILQPoe9SfABxV5wUna2IVLq1k11adffn4A3UNPknjQ56IARyzz3ncj8i/Xe4LCSgIGlD0qp9epJ07Zz7+HEFQBl4YBRNoPwb4u9AB6gA0/bsAy3gDVjLK+6syg4wGxMPLHYPZGp1VGDLWlHxcKrG2UziFDwe4UAvPZyLCHcsgwlPLETYmkSuz6Bp7x0PZy/CzQ6gYENuAUFMfA7o2pB9hXpN1m0VOzbQGXsOTDz/mpqBA05ijizEcZpG4v4CK5IaksqS+pKuJHUtXNLXbAJJd5KOnHPP41S+DbwCL0ANKMZwikAd6AED3y2MVG7ij8BiBn7JuANgOY3sgFurPFU8YtIDbry/DWDXhlfLKj6UW7fc5LsBToE+MJnDYMra1PCR2sDZuOJD+efAt22KXuC8pHZeA8td8FVQBZIJKQCWgMO8+X8Tn12zhtgfmPjeAAAAAElFTkSuQmCC","theme":"dark"}],"inputSchema":{"properties":{"org":{"description":"Organization login (owner) that contains the team.","type":"string"},"team_slug":{"description":"Team slug","type":"string"}},"required":["org","team_slug"],"type":"object"},"name":"get_team_members"},{"annotations":{"readOnlyHint":true,"title":"Get teams"},"description":"Get details of the teams the user is a member of. Limited to organizations accessible with current credentials","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAACSUlEQVRIidWVv09TURTHP+e+2mJMEOLiQBig4GtN4WEHRQxGMfHHYkx0YpJJR+OmjMTNP0CjRv4DJyNETXTQODRQSkmJTweYBUw0KeX1HoeCKY3v0eKi3/Gdc74/zrs3F/53SJN9Jul6owhpAJQlvzT/HrB/LZB0h4YR+wjI7B6UBVW55ZfmPkY6a4J8FugQ1euOLbc7ttyuyDWLJhA7k0wNnNpvAulLefOKdiZM4BWLxbX6Yncm0xkPTB5lzS/lhwBtKUHS9c4qOiCqdxrJAVYKhXVE7iIMJt2h0TCe8BVt/1Cjm7OhPZXETK23mm5ZQMTGQom3YW0gACoS2hsqoNbJAwTm4FjocFtwEcCozYcajTBo+lLenEUTWzE7vFIorNcXXdc9EpCYB775pfwJQu5E1BqsVW6L8CoemHwy7d39vfN4+VJgeYhwGPRGGPleCQCkN+XdE3Tqz1W97y8tPIgkCCv092dc68gzkGFgHXiNsFrLJt2IjgGdwAfH6sTy8sJy0wK9xwbPieEFSlmRyY5DzvNcLrdV35PNZg9s/KzeFNEpII6aq35p7t2eAjXn5hOwqk718pfFxdXQ/EDP8Wy3scFLoMuxerIxSeMxFeuYpyjlZsgBvhZzK9bErgAVa+RJo+ldAn0p7wJwWpHJZsjrRVRlUuFMT3rgfEQCOw5stDlb082S70CCH9PAd2NlPFRAkRGEN8VisdKqgO/7mwJvEUZCBYCjwOdWyXdga7Nd9d9232SRCSo28oWKgjjVxxrElvY7/2/iF/Bu47CZ2fOnAAAAAElFTkSuQmCC","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABaElEQVRIidWUvUrDcBTFz79YnRSii4N2cVB8AuvgByKuQqmrILQPoe9SfABxV5wUna2IVLq1k11adffn4A3UNPknjQ56IARyzz3ncj8i/Xe4LCSgIGlD0qp9epJ07Zz7+HEFQBl4YBRNoPwb4u9AB6gA0/bsAy3gDVjLK+6syg4wGxMPLHYPZGp1VGDLWlHxcKrG2UziFDwe4UAvPZyLCHcsgwlPLETYmkSuz6Bp7x0PZy/CzQ6gYENuAUFMfA7o2pB9hXpN1m0VOzbQGXsOTDz/mpqBA05ijizEcZpG4v4CK5IaksqS+pKuJHUtXNLXbAJJd5KOnHPP41S+DbwCL0ANKMZwikAd6AED3y2MVG7ij8BiBn7JuANgOY3sgFurPFU8YtIDbry/DWDXhlfLKj6UW7fc5LsBToE+MJnDYMra1PCR2sDZuOJD+efAt22KXuC8pHZeA8td8FVQBZIJKQCWgMO8+X8Tn12zhtgfmPjeAAAAAElFTkSuQmCC","theme":"dark"}],"inputSchema":{"properties":{"user":{"description":"Username to get teams for. If not provided, uses the authenticated user.","type":"string"}},"type":"object"},"name":"get_teams"},{"annotations":{"readOnlyHint":true,"title":"Get issue details"},"description":"Get information about a specific issue in a GitHub repository.","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAC2UlEQVRIicWVMUyTaRjHf/+vVUpOJOdilOYoUvVreq2CDmLOwdlAS5xMbrrhBifjYG7QjYuJw108nZx1huLgYlw0QshxChUK2koxHHcuCmgsFfieG0or3kGPSoz/8X3f5/97nvfN8z7wmaVqm9FodFfR/EnMugy5giCAwYwgI9Ff9Hl9L9Lp1zUBgsGO+rqGwnlhF4CdwBSyAUwvS1G220zHBSFgHtmVxYWvfp2ZGSj8LyAcjgfZphTQZtAr7OdsZvSP9RIJR+LtQhcNusF+d1aUfPp05M8NAavmg8AOk3cmN56+s1Hpa7U/cviUYbcw3jgex9ZCKoBgsKM+0PDuAdBq2He5zOiTzZiXtc+NxRw598GeLRcWTuTz+UUAp3ygrqFwHmgzeWdqNQd4PpFOy/gedNQfaDz3UQXRaHRX0fNPGdzNZUZO12q+VuHIoV7g5Hu/1/IinX7tABTNnwR2SvRsxRzAzOsBGuuWfAkoX5FZFzCVHR95tFVAbiI9DEwj6wLwl5YVMTRYLTDsxjuRrgGYYz/kxkbvbXRWMOBB24cKYI9ks1X8hXQDaAaa5XG9WjImZgV71wI+m8qAv8y0t1pSmP0ITANTmHO2qqvRZDALlTdgHKyjWkx2YvQ2cHtTacMxYBhWK5DoF4TCkXj7Jg02VKsbOwI0Y+qvALZrOQXMC13cKkDSJWBuJUCqAhgbG3uF7IpBcn/k8KlPNQ+78U5QQuhy/vHjuQoAYPndwi9gw4bd2ufGYrWatxz8No50ExhaKsz9Vl6vAPL5/KKzoiTGG0fOg1oqCbvxTp/juw/M+zynu/yTwjoD58CBQ02ez/pAR4E+M69ntf3/o1Y3dqR050oAQz7P6Z6cfPRRw647MkOhUMAfaDyH+AloBKYNPRT292rQHoMOSp09J3TZlt5ezWazxX97VR3638RiX9ct+RImSyBcrDT0ETMyMp4ptRIgVX7QL6J/ALSUEwJ5rdg2AAAAAElFTkSuQmCC","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABxElEQVRIibWVvW4TURCFv0vlNEDcIHAkKAERJOIKSjoUArwBPwUFFaKIIngAJARCPIgdh4cgRBYt6ZIAEYEqdhpEw0fhCbkKa68dxyNtsfNzzpnZu3NhwpYGBdUqcA+4A1wEZiK0DawD74FWSml3JAJ1CngGLAIngU1gFfgZKWeAG8AFoAu8At6mlH6VtqTOqJ/UP2pDnRuQO6c27VlbrQ0Dvq121Fulag7q5qPmW18SdSqUd9Qrw4Jn9bNR21YrRQkvYixDKy/AuB3jWjocqKpdtXFU8AxrOTqZzp2PgvnaMRDUA+tB7mypG+OCZ3hbahPgRPguAR9LihaicEu9WcKxClzOi/fU1wPAk7rjgX0uEfNG3cs7mJjtE+wA5/olpZQEHgNf6K2NJyW4NeD7v7c4WptjSc0svlMjdzyM2fbdOyOA7x/T+7mzGj9H8xgIWuquevpw4HmsivkxwBdC/WJRsBKLqqPOHgH8aqybtcJlF0m1WLndUToJ5V31q9r3NOYk7Wh1Wa0PyK3HzA3l/4H3uzIrwFNgCThF7/x/AH5EylngOnAe6AAvgXcppd9DEWRE08DdeIou/RVgJaXUGYQzUfsL+zmwV7BtIq0AAAAASUVORK5CYII=","theme":"dark"}],"inputSchema":{"properties":{"issue_number":{"description":"The number of the issue","type":"number"},"method":{"description":"The read operation to perform on a single issue.\nOptions are:\n1. get - Get details of a specific issue.\n2. get_comments - Get issue comments.\n3. get_sub_issues - Get sub-issues of the issue.\n4. get_labels - Get labels assigned to the issue.\n","enum":["get","get_comments","get_sub_issues","get_labels"],"type":"string"},"owner":{"description":"The owner of the repository","type":"string"},"page":{"description":"Page number for pagination (min 1)","minimum":1,"type":"number"},"perPage":{"description":"Results per page for pagination (min 1, max 100)","maximum":100,"minimum":1,"type":"number"},"repo":{"description":"The name of the repository","type":"string"}},"required":["method","owner","repo","issue_number"],"type":"object"},"name":"issue_read"},{"annotations":{"readOnlyHint":true,"title":"List branches"},"description":"List branches in a GitHub repository","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABTklEQVRIie2UPUvDUBSGn5PW2qnYwUXExWhNpY2CUKT+BB10E3R0dnbrppuKLgouHbr5X5qlKRIFB+cuguBHj4O05KYfNsVJ+m7n3Hue54ZcrhDKQqGQTX1YVwg7QIbx0gh8b7VTJMMrqS+5RtgD7oDX2GhhC6UcbhkCVLZVuX1sesex4YCdX6uAGgIrsicjlrTGgQ9KVPDnmQgmgongPwgkXNiOq8ADMAtkx4UGvtflJvus20ANeIlN/vW5/kkt8L3D2HD6P9dRgSI8dQcc9w1IR3acBE3vbFSp8ZMVnoFSqJ/unZDe3pAYXyDIJarn9opbDZrewaAh2y7Oy5S1r6h5QG2Xxbw3piDw6xe244oKyxFmC5ihc+tS1qaqngKJyAEBGmZvSGzHVYT790T7aPozsaFoFZGboFGvDJsbOYuOuxuuc7n1uaV8sRSH8Q1DUVLnYLty3gAAAABJRU5ErkJggg==","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA+ElEQVRIie2WLU5DQRRGzwUEirQCQ9BsoSGtZQHgSFgIsg4JXQCGP8V2QCBIEATZkJDgOJi+MJnMo30TFHmfmzvzfeeKyZ2BROpQvVHfrddDmhkZ4BY4Ai6BD7prAowjIoq7i85nFcGNf6qa1tayM1vAvBZQUg74c/WAHtAD/gMgn6YCT8A2MKwOTaZpCfAF3AGvFdlLx7XqdUVw4186rgWeE8Nn4cU67QLNAS/ASG3qmwVPqdaqjWw9A86BK+CkzaTuAseFBse/AiLiQg1gLzs3Bwb8XIp94AxYL/Af2xordap6v/htHKhv6nTlgBUAh9l6Rx11yfgG8ne/zwh2OysAAAAASUVORK5CYII=","theme":"dark"}],"inputSchema":{"properties":{"owner":{"description":"Repository owner","type":"string"},"page":{"description":"Page number for pagination (min 1)","minimum":1,"type":"number"},"perPage":{"description":"Results per page for pagination (min 1, max 100)","maximum":100,"minimum":1,"type":"number"},"repo":{"description":"Repository name","type":"string"}},"required":["owner","repo"],"type":"object"},"name":"list_branches"},{"annotations":{"readOnlyHint":true,"title":"List commits"},"description":"Get list of commits of a branch in a GitHub repository. Returns at least 30 results per page by default, but can return more if specified using the perPage parameter (up to 100).","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABTklEQVRIie2UPUvDUBSGn5PW2qnYwUXExWhNpY2CUKT+BB10E3R0dnbrppuKLgouHbr5X5qlKRIFB+cuguBHj4O05KYfNsVJ+m7n3Hue54ZcrhDKQqGQTX1YVwg7QIbx0gh8b7VTJMMrqS+5RtgD7oDX2GhhC6UcbhkCVLZVuX1sesex4YCdX6uAGgIrsicjlrTGgQ9KVPDnmQgmgongPwgkXNiOq8ADMAtkx4UGvtflJvus20ANeIlN/vW5/kkt8L3D2HD6P9dRgSI8dQcc9w1IR3acBE3vbFSp8ZMVnoFSqJ/unZDe3pAYXyDIJarn9opbDZrewaAh2y7Oy5S1r6h5QG2Xxbw3piDw6xe244oKyxFmC5ihc+tS1qaqngKJyAEBGmZvSGzHVYT790T7aPozsaFoFZGboFGvDJsbOYuOuxuuc7n1uaV8sRSH8Q1DUVLnYLty3gAAAABJRU5ErkJggg==","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA+ElEQVRIie2WLU5DQRRGzwUEirQCQ9BsoSGtZQHgSFgIsg4JXQCGP8V2QCBIEATZkJDgOJi+MJnMo30TFHmfmzvzfeeKyZ2BROpQvVHfrddDmhkZ4BY4Ai6BD7prAowjIoq7i85nFcGNf6qa1tayM1vAvBZQUg74c/WAHtAD/gMgn6YCT8A2MKwOTaZpCfAF3AGvFdlLx7XqdUVw4186rgWeE8Nn4cU67QLNAS/ASG3qmwVPqdaqjWw9A86BK+CkzaTuAseFBse/AiLiQg1gLzs3Bwb8XIp94AxYL/Af2xordap6v/htHKhv6nTlgBUAh9l6Rx11yfgG8ne/zwh2OysAAAAASUVORK5CYII=","theme":"dark"}],"inputSchema":{"properties":{"author":{"description":"Author username or email address to filter commits by","type":"string"},"owner":{"description":"Repository owner","type":"string"},"page":{"description":"Page number for pagination (min 1)","minimum":1,"type":"number"},"perPage":{"description":"Results per page for pagination (min 1, max 100)","maximum":100,"minimum":1,"type":"number"},"repo":{"description":"Repository name","type":"string"},"sha":{"description":"Commit SHA, branch or tag name to list commits of. If not provided, uses the default branch of the repository. If a commit SHA is provided, will list commits up to that SHA.","type":"string"}},"required":["owner","repo"],"type":"object"},"name":"list_commits"},{"annotations":{"readOnlyHint":true,"title":"List available issue types"},"description":"List supported issue types for repository owner (organization).","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAC2UlEQVRIicWVMUyTaRjHf/+vVUpOJOdilOYoUvVreq2CDmLOwdlAS5xMbrrhBifjYG7QjYuJw108nZx1huLgYlw0QshxChUK2koxHHcuCmgsFfieG0or3kGPSoz/8X3f5/97nvfN8z7wmaVqm9FodFfR/EnMugy5giCAwYwgI9Ff9Hl9L9Lp1zUBgsGO+rqGwnlhF4CdwBSyAUwvS1G220zHBSFgHtmVxYWvfp2ZGSj8LyAcjgfZphTQZtAr7OdsZvSP9RIJR+LtQhcNusF+d1aUfPp05M8NAavmg8AOk3cmN56+s1Hpa7U/cviUYbcw3jgex9ZCKoBgsKM+0PDuAdBq2He5zOiTzZiXtc+NxRw598GeLRcWTuTz+UUAp3ygrqFwHmgzeWdqNQd4PpFOy/gedNQfaDz3UQXRaHRX0fNPGdzNZUZO12q+VuHIoV7g5Hu/1/IinX7tABTNnwR2SvRsxRzAzOsBGuuWfAkoX5FZFzCVHR95tFVAbiI9DEwj6wLwl5YVMTRYLTDsxjuRrgGYYz/kxkbvbXRWMOBB24cKYI9ks1X8hXQDaAaa5XG9WjImZgV71wI+m8qAv8y0t1pSmP0ITANTmHO2qqvRZDALlTdgHKyjWkx2YvQ2cHtTacMxYBhWK5DoF4TCkXj7Jg02VKsbOwI0Y+qvALZrOQXMC13cKkDSJWBuJUCqAhgbG3uF7IpBcn/k8KlPNQ+78U5QQuhy/vHjuQoAYPndwi9gw4bd2ufGYrWatxz8No50ExhaKsz9Vl6vAPL5/KKzoiTGG0fOg1oqCbvxTp/juw/M+zynu/yTwjoD58CBQ02ez/pAR4E+M69ntf3/o1Y3dqR050oAQz7P6Z6cfPRRw647MkOhUMAfaDyH+AloBKYNPRT292rQHoMOSp09J3TZlt5ezWazxX97VR3638RiX9ct+RImSyBcrDT0ETMyMp4ptRIgVX7QL6J/ALSUEwJ5rdg2AAAAAElFTkSuQmCC","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABxElEQVRIibWVvW4TURCFv0vlNEDcIHAkKAERJOIKSjoUArwBPwUFFaKIIngAJARCPIgdh4cgRBYt6ZIAEYEqdhpEw0fhCbkKa68dxyNtsfNzzpnZu3NhwpYGBdUqcA+4A1wEZiK0DawD74FWSml3JAJ1CngGLAIngU1gFfgZKWeAG8AFoAu8At6mlH6VtqTOqJ/UP2pDnRuQO6c27VlbrQ0Dvq121Fulag7q5qPmW18SdSqUd9Qrw4Jn9bNR21YrRQkvYixDKy/AuB3jWjocqKpdtXFU8AxrOTqZzp2PgvnaMRDUA+tB7mypG+OCZ3hbahPgRPguAR9LihaicEu9WcKxClzOi/fU1wPAk7rjgX0uEfNG3cs7mJjtE+wA5/olpZQEHgNf6K2NJyW4NeD7v7c4WptjSc0svlMjdzyM2fbdOyOA7x/T+7mzGj9H8xgIWuquevpw4HmsivkxwBdC/WJRsBKLqqPOHgH8aqybtcJlF0m1WLndUToJ5V31q9r3NOYk7Wh1Wa0PyK3HzA3l/4H3uzIrwFNgCThF7/x/AH5EylngOnAe6AAvgXcppd9DEWRE08DdeIou/RVgJaXUGYQzUfsL+zmwV7BtIq0AAAAASUVORK5CYII=","theme":"dark"}],"inputSchema":{"properties":{"owner":{"description":"The organization owner of the repository","type":"string"}},"required":["owner"],"type":"object"},"name":"list_issue_types"},{"annotations":{"readOnlyHint":true,"title":"List issues"},"description":"List issues in a GitHub repository. For pagination, use the 'endCursor' from the previous response's 'pageInfo' in the 'after' parameter.","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAC2UlEQVRIicWVMUyTaRjHf/+vVUpOJOdilOYoUvVreq2CDmLOwdlAS5xMbrrhBifjYG7QjYuJw108nZx1huLgYlw0QshxChUK2koxHHcuCmgsFfieG0or3kGPSoz/8X3f5/97nvfN8z7wmaVqm9FodFfR/EnMugy5giCAwYwgI9Ff9Hl9L9Lp1zUBgsGO+rqGwnlhF4CdwBSyAUwvS1G220zHBSFgHtmVxYWvfp2ZGSj8LyAcjgfZphTQZtAr7OdsZvSP9RIJR+LtQhcNusF+d1aUfPp05M8NAavmg8AOk3cmN56+s1Hpa7U/cviUYbcw3jgex9ZCKoBgsKM+0PDuAdBq2He5zOiTzZiXtc+NxRw598GeLRcWTuTz+UUAp3ygrqFwHmgzeWdqNQd4PpFOy/gedNQfaDz3UQXRaHRX0fNPGdzNZUZO12q+VuHIoV7g5Hu/1/IinX7tABTNnwR2SvRsxRzAzOsBGuuWfAkoX5FZFzCVHR95tFVAbiI9DEwj6wLwl5YVMTRYLTDsxjuRrgGYYz/kxkbvbXRWMOBB24cKYI9ks1X8hXQDaAaa5XG9WjImZgV71wI+m8qAv8y0t1pSmP0ITANTmHO2qqvRZDALlTdgHKyjWkx2YvQ2cHtTacMxYBhWK5DoF4TCkXj7Jg02VKsbOwI0Y+qvALZrOQXMC13cKkDSJWBuJUCqAhgbG3uF7IpBcn/k8KlPNQ+78U5QQuhy/vHjuQoAYPndwi9gw4bd2ufGYrWatxz8No50ExhaKsz9Vl6vAPL5/KKzoiTGG0fOg1oqCbvxTp/juw/M+zynu/yTwjoD58CBQ02ez/pAR4E+M69ntf3/o1Y3dqR050oAQz7P6Z6cfPRRw647MkOhUMAfaDyH+AloBKYNPRT292rQHoMOSp09J3TZlt5ezWazxX97VR3638RiX9ct+RImSyBcrDT0ETMyMp4ptRIgVX7QL6J/ALSUEwJ5rdg2AAAAAElFTkSuQmCC","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABxElEQVRIibWVvW4TURCFv0vlNEDcIHAkKAERJOIKSjoUArwBPwUFFaKIIngAJARCPIgdh4cgRBYt6ZIAEYEqdhpEw0fhCbkKa68dxyNtsfNzzpnZu3NhwpYGBdUqcA+4A1wEZiK0DawD74FWSml3JAJ1CngGLAIngU1gFfgZKWeAG8AFoAu8At6mlH6VtqTOqJ/UP2pDnRuQO6c27VlbrQ0Dvq121Fulag7q5qPmW18SdSqUd9Qrw4Jn9bNR21YrRQkvYixDKy/AuB3jWjocqKpdtXFU8AxrOTqZzp2PgvnaMRDUA+tB7mypG+OCZ3hbahPgRPguAR9LihaicEu9WcKxClzOi/fU1wPAk7rjgX0uEfNG3cs7mJjtE+wA5/olpZQEHgNf6K2NJyW4NeD7v7c4WptjSc0svlMjdzyM2fbdOyOA7x/T+7mzGj9H8xgIWuquevpw4HmsivkxwBdC/WJRsBKLqqPOHgH8aqybtcJlF0m1WLndUToJ5V31q9r3NOYk7Wh1Wa0PyK3HzA3l/4H3uzIrwFNgCThF7/x/AH5EylngOnAe6AAvgXcppd9DEWRE08DdeIou/RVgJaXUGYQzUfsL+zmwV7BtIq0AAAAASUVORK5CYII=","theme":"dark"}],"inputSchema":{"properties":{"after":{"description":"Cursor for pagination. Use the endCursor from the previous page's PageInfo for GraphQL APIs.","type":"string"},"direction":{"description":"Order direction. If provided, the 'orderBy' also needs to be provided.","enum":["ASC","DESC"],"type":"string"},"labels":{"description":"Filter by labels","items":{"type":"string"},"type":"array"},"orderBy":{"description":"Order issues by field. If provided, the 'direction' also needs to be provided.","enum":["CREATED_AT","UPDATED_AT","COMMENTS"],"type":"string"},"owner":{"description":"Repository owner","type":"string"},"perPage":{"description":"Results per page for pagination (min 1, max 100)","maximum":100,"minimum":1,"type":"number"},"repo":{"description":"Repository name","type":"string"},"since":{"description":"Filter by date (ISO 8601 timestamp)","type":"string"},"state":{"description":"Filter by state, by default both open and closed issues are returned when not provided","enum":["OPEN","CLOSED"],"type":"string"}},"required":["owner","repo"],"type":"object"},"name":"list_issues"},{"annotations":{"readOnlyHint":true,"title":"List pull requests"},"description":"List pull requests in a GitHub repository. If the user specifies an author, then DO NOT use this tool and use the search_pull_requests tool instead.","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAACwUlEQVRIie2Vz28UZRjHP993pi0QIC3YahNjirtmd3bS3Q1eUHvQEPUiEv8A4kXjwRJ78MCFBLjBBRKCHowHE38cNCbGGx6IUoKiodtNpoNmTJp4oSJNQ3pw29l5POxus2wo3QTwxPc0887zfD7zvu9kXnjEUfdNrjj5vJOmMP4e9JrfR1G02tuQD8tvgpck0dxCPwK30ViqnJTcr4bOmfRlI/PrhUJ5313woDpDpu8ss7f6nYHrvDnGcYlPsoY/bKaXwHY3HWfvgmNnMX0zvMM7069A3c3pkEYWa7UVgFxQPSfs7SSeH3k2rEy5jMubMBoG1yQ+SBbm53of+gCybMkk/H8VAFdbZisZLAFsJ11oyL+BUURcwrjWAZixXeIwxs/5UuVAr0QAYRjubGR+HWy3mb6QCIBXQe8nce0jgIkwfMo3/xLG085x8I9ofkMyUa0O+w2rgS0mcf3lboEDiKJo1cvsIDDr4D1DhTb8407hYhTdTJW+AvrdMnuhG9Je1m9BBzbfjXbyQcXypeqJLQt7+0rVE/mgYr3j7l7FDzOPBY8FDx6vc1EolPeNjI5/Jpgw7Lm9o+Pry//c/K0PhnLFyrSMDxE79jwxvn9079gvt28vrUD7V1EoFHalbltd2C7DfS4sAF4DTSdx7cL96LliZVriPPADuL+geRh0Z8il5SiKVn2ATENvCCYw78U/b8xdBcgHlYuGHQXuK5A4ClxM4vnXW8Lqp5JdWWt6h4CvWnsgxgDSbRZ3Gg0tCJ7sY4nGwDZOt/WBZtzN9FswLgM2sGann5mcPDaw5pWEHQH7cUu86SdkR3LF6tfrA814MNVpwNrM1leUxPXrSKfMeHcwdctyNotY8c3NbMX3LJsB3ZHsymDqlkHvYHYyievXWxPpSj4o75eYIuPWZof+vRKG4c61pncIx6gZsx34/5L/ACy3ElqUYhuvAAAAAElFTkSuQmCC","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABn0lEQVRIie2Vvy5EURDGvyMUkhUU/pS2Q2clwvIKqL0Cm9ArrBcQShJPoLFR2YaIhIjQ7a7E39IiCgqVn8KsPY697E3oTHPumTPf990z986M9Mfm/A0wKGlMUlnSlnPuOQQAE5LOnXOFWErAIvBK1S6BZBAzZ2fzcckHjXwVaAXSwD2wWYN8A2iKK1ABt3m+ZeDRnseIthdgDxioxd1o662tfZIO7Lnf8xcklST1StqRdORxNEualHQIDDvnTmvdIGE5vwdWgLy93bQX0w0UgSdgKMC3AdfA7ndpSgKbduUbYBoI/7Ju4BiYrYFfAl4iBbxAgOyPgV9xWYDQ3xCXKK79C/wL/KJZoeW8QpsJCy0C54AMULaGmQu7sIAW4MpaxTKwbQU3U4dAxmLzwLpxXAIJP2jKgkY8Xx4o1SFwBmx7+7RxTUnVb9Bpa9HDFiR1/SRgWH+6FT3/h2qK6sBpB0aBB7yB880NcpaWtGHXjCsVBmb5PDIvgJ46BJKW84q9AguV87Adp/Q+9O8UMfQjRBKSxiV1SNp3zp3Ug/sVewPruexhKwhGXQAAAABJRU5ErkJggg==","theme":"dark"}],"inputSchema":{"properties":{"base":{"description":"Filter by base branch","type":"string"},"direction":{"description":"Sort direction","enum":["asc","desc"],"type":"string"},"head":{"description":"Filter by head user/org and branch","type":"string"},"owner":{"description":"Repository owner","type":"string"},"page":{"description":"Page number for pagination (min 1)","minimum":1,"type":"number"},"perPage":{"description":"Results per page for pagination (min 1, max 100)","maximum":100,"minimum":1,"type":"number"},"repo":{"description":"Repository name","type":"string"},"sort":{"description":"Sort by","enum":["created","updated","popularity","long-running"],"type":"string"},"state":{"description":"Filter by state","enum":["open","closed","all"],"type":"string"}},"required":["owner","repo"],"type":"object"},"name":"list_pull_requests"},{"annotations":{"readOnlyHint":true,"title":"List releases"},"description":"List releases in a GitHub repository","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABTklEQVRIie2UPUvDUBSGn5PW2qnYwUXExWhNpY2CUKT+BB10E3R0dnbrppuKLgouHbr5X5qlKRIFB+cuguBHj4O05KYfNsVJ+m7n3Hue54ZcrhDKQqGQTX1YVwg7QIbx0gh8b7VTJMMrqS+5RtgD7oDX2GhhC6UcbhkCVLZVuX1sesex4YCdX6uAGgIrsicjlrTGgQ9KVPDnmQgmgongPwgkXNiOq8ADMAtkx4UGvtflJvus20ANeIlN/vW5/kkt8L3D2HD6P9dRgSI8dQcc9w1IR3acBE3vbFSp8ZMVnoFSqJ/unZDe3pAYXyDIJarn9opbDZrewaAh2y7Oy5S1r6h5QG2Xxbw3piDw6xe244oKyxFmC5ihc+tS1qaqngKJyAEBGmZvSGzHVYT790T7aPozsaFoFZGboFGvDJsbOYuOuxuuc7n1uaV8sRSH8Q1DUVLnYLty3gAAAABJRU5ErkJggg==","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA+ElEQVRIie2WLU5DQRRGzwUEirQCQ9BsoSGtZQHgSFgIsg4JXQCGP8V2QCBIEATZkJDgOJi+MJnMo30TFHmfmzvzfeeKyZ2BROpQvVHfrddDmhkZ4BY4Ai6BD7prAowjIoq7i85nFcGNf6qa1tayM1vAvBZQUg74c/WAHtAD/gMgn6YCT8A2MKwOTaZpCfAF3AGvFdlLx7XqdUVw4186rgWeE8Nn4cU67QLNAS/ASG3qmwVPqdaqjWw9A86BK+CkzaTuAseFBse/AiLiQg1gLzs3Bwb8XIp94AxYL/Af2xordap6v/htHKhv6nTlgBUAh9l6Rx11yfgG8ne/zwh2OysAAAAASUVORK5CYII=","theme":"dark"}],"inputSchema":{"properties":{"owner":{"description":"Repository owner","type":"string"},"page":{"description":"Page number for pagination (min 1)","minimum":1,"type":"number"},"perPage":{"description":"Results per page for pagination (min 1, max 100)","maximum":100,"minimum":1,"type":"number"},"repo":{"description":"Repository name","type":"string"}},"required":["owner","repo"],"type":"object"},"name":"list_releases"},{"annotations":{"readOnlyHint":true,"title":"List tags"},"description":"List git tags in a GitHub repository","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABTklEQVRIie2UPUvDUBSGn5PW2qnYwUXExWhNpY2CUKT+BB10E3R0dnbrppuKLgouHbr5X5qlKRIFB+cuguBHj4O05KYfNsVJ+m7n3Hue54ZcrhDKQqGQTX1YVwg7QIbx0gh8b7VTJMMrqS+5RtgD7oDX2GhhC6UcbhkCVLZVuX1sesex4YCdX6uAGgIrsicjlrTGgQ9KVPDnmQgmgongPwgkXNiOq8ADMAtkx4UGvtflJvus20ANeIlN/vW5/kkt8L3D2HD6P9dRgSI8dQcc9w1IR3acBE3vbFSp8ZMVnoFSqJ/unZDe3pAYXyDIJarn9opbDZrewaAh2y7Oy5S1r6h5QG2Xxbw3piDw6xe244oKyxFmC5ihc+tS1qaqngKJyAEBGmZvSGzHVYT790T7aPozsaFoFZGboFGvDJsbOYuOuxuuc7n1uaV8sRSH8Q1DUVLnYLty3gAAAABJRU5ErkJggg==","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA+ElEQVRIie2WLU5DQRRGzwUEirQCQ9BsoSGtZQHgSFgIsg4JXQCGP8V2QCBIEATZkJDgOJi+MJnMo30TFHmfmzvzfeeKyZ2BROpQvVHfrddDmhkZ4BY4Ai6BD7prAowjIoq7i85nFcGNf6qa1tayM1vAvBZQUg74c/WAHtAD/gMgn6YCT8A2MKwOTaZpCfAF3AGvFdlLx7XqdUVw4186rgWeE8Nn4cU67QLNAS/ASG3qmwVPqdaqjWw9A86BK+CkzaTuAseFBse/AiLiQg1gLzs3Bwb8XIp94AxYL/Af2xordap6v/htHKhv6nTlgBUAh9l6Rx11yfgG8ne/zwh2OysAAAAASUVORK5CYII=","theme":"dark"}],"inputSchema":{"properties":{"owner":{"description":"Repository owner","type":"string"},"page":{"description":"Page number for pagination (min 1)","minimum":1,"type":"number"},"perPage":{"description":"Results per page for pagination (min 1, max 100)","maximum":100,"minimum":1,"type":"number"},"repo":{"description":"Repository name","type":"string"}},"required":["owner","repo"],"type":"object"},"name":"list_tags"},{"annotations":{"readOnlyHint":true,"title":"Get details for a single pull request"},"description":"Get information on a specific pull request in GitHub repository.","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAACwUlEQVRIie2Vz28UZRjHP993pi0QIC3YahNjirtmd3bS3Q1eUHvQEPUiEv8A4kXjwRJ78MCFBLjBBRKCHowHE38cNCbGGx6IUoKiodtNpoNmTJp4oSJNQ3pw29l5POxus2wo3QTwxPc0887zfD7zvu9kXnjEUfdNrjj5vJOmMP4e9JrfR1G02tuQD8tvgpck0dxCPwK30ViqnJTcr4bOmfRlI/PrhUJ5313woDpDpu8ss7f6nYHrvDnGcYlPsoY/bKaXwHY3HWfvgmNnMX0zvMM7069A3c3pkEYWa7UVgFxQPSfs7SSeH3k2rEy5jMubMBoG1yQ+SBbm53of+gCybMkk/H8VAFdbZisZLAFsJ11oyL+BUURcwrjWAZixXeIwxs/5UuVAr0QAYRjubGR+HWy3mb6QCIBXQe8nce0jgIkwfMo3/xLG085x8I9ofkMyUa0O+w2rgS0mcf3lboEDiKJo1cvsIDDr4D1DhTb8407hYhTdTJW+AvrdMnuhG9Je1m9BBzbfjXbyQcXypeqJLQt7+0rVE/mgYr3j7l7FDzOPBY8FDx6vc1EolPeNjI5/Jpgw7Lm9o+Pry//c/K0PhnLFyrSMDxE79jwxvn9079gvt28vrUD7V1EoFHalbltd2C7DfS4sAF4DTSdx7cL96LliZVriPPADuL+geRh0Z8il5SiKVn2ATENvCCYw78U/b8xdBcgHlYuGHQXuK5A4ClxM4vnXW8Lqp5JdWWt6h4CvWnsgxgDSbRZ3Gg0tCJ7sY4nGwDZOt/WBZtzN9FswLgM2sGann5mcPDaw5pWEHQH7cUu86SdkR3LF6tfrA814MNVpwNrM1leUxPXrSKfMeHcwdctyNotY8c3NbMX3LJsB3ZHsymDqlkHvYHYyievXWxPpSj4o75eYIuPWZof+vRKG4c61pncIx6gZsx34/5L/ACy3ElqUYhuvAAAAAElFTkSuQmCC","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABn0lEQVRIie2Vvy5EURDGvyMUkhUU/pS2Q2clwvIKqL0Cm9ArrBcQShJPoLFR2YaIhIjQ7a7E39IiCgqVn8KsPY697E3oTHPumTPf990z986M9Mfm/A0wKGlMUlnSlnPuOQQAE5LOnXOFWErAIvBK1S6BZBAzZ2fzcckHjXwVaAXSwD2wWYN8A2iKK1ABt3m+ZeDRnseIthdgDxioxd1o662tfZIO7Lnf8xcklST1StqRdORxNEualHQIDDvnTmvdIGE5vwdWgLy93bQX0w0UgSdgKMC3AdfA7ndpSgKbduUbYBoI/7Ju4BiYrYFfAl4iBbxAgOyPgV9xWYDQ3xCXKK79C/wL/KJZoeW8QpsJCy0C54AMULaGmQu7sIAW4MpaxTKwbQU3U4dAxmLzwLpxXAIJP2jKgkY8Xx4o1SFwBmx7+7RxTUnVb9Bpa9HDFiR1/SRgWH+6FT3/h2qK6sBpB0aBB7yB880NcpaWtGHXjCsVBmb5PDIvgJ46BJKW84q9AguV87Adp/Q+9O8UMfQjRBKSxiV1SNp3zp3Ug/sVewPruexhKwhGXQAAAABJRU5ErkJggg==","theme":"dark"}],"inputSchema":{"properties":{"method":{"description":"Action to specify what pull request data needs to be retrieved from GitHub. \nPossible options: \n 1. get - Get details of a specific pull request.\n 2. get_diff - Get the diff of a pull request.\n 3. get_status - Get status of a head commit in a pull request. This reflects status of builds and checks.\n 4. get_files - Get the list of files changed in a pull request. Use with pagination parameters to control the number of results returned.\n 5. get_review_comments - Get review threads on a pull request. Each thread contains logically grouped review comments made on the same code location during pull request reviews. Returns threads with metadata (isResolved, isOutdated, isCollapsed) and their associated comments. Use cursor-based pagination (perPage, after) to control results.\n 6. get_reviews - Get the reviews on a pull request. When asked for review comments, use get_review_comments method.\n 7. get_comments - Get comments on a pull request. Use this if user doesn't specifically want review comments. Use with pagination parameters to control the number of results returned.\n","enum":["get","get_diff","get_status","get_files","get_review_comments","get_reviews","get_comments"],"type":"string"},"owner":{"description":"Repository owner","type":"string"},"page":{"description":"Page number for pagination (min 1)","minimum":1,"type":"number"},"perPage":{"description":"Results per page for pagination (min 1, max 100)","maximum":100,"minimum":1,"type":"number"},"pullNumber":{"description":"Pull request number","type":"number"},"repo":{"description":"Repository name","type":"string"}},"required":["method","owner","repo","pullNumber"],"type":"object"},"name":"pull_request_read"},{"annotations":{"readOnlyHint":true,"title":"Search code"},"description":"Fast and precise code search across ALL GitHub repositories using GitHub's native search engine. Best for finding exact symbols, functions, classes, or specific code patterns.","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABTklEQVRIie2UPUvDUBSGn5PW2qnYwUXExWhNpY2CUKT+BB10E3R0dnbrppuKLgouHbr5X5qlKRIFB+cuguBHj4O05KYfNsVJ+m7n3Hue54ZcrhDKQqGQTX1YVwg7QIbx0gh8b7VTJMMrqS+5RtgD7oDX2GhhC6UcbhkCVLZVuX1sesex4YCdX6uAGgIrsicjlrTGgQ9KVPDnmQgmgongPwgkXNiOq8ADMAtkx4UGvtflJvus20ANeIlN/vW5/kkt8L3D2HD6P9dRgSI8dQcc9w1IR3acBE3vbFSp8ZMVnoFSqJ/unZDe3pAYXyDIJarn9opbDZrewaAh2y7Oy5S1r6h5QG2Xxbw3piDw6xe244oKyxFmC5ihc+tS1qaqngKJyAEBGmZvSGzHVYT790T7aPozsaFoFZGboFGvDJsbOYuOuxuuc7n1uaV8sRSH8Q1DUVLnYLty3gAAAABJRU5ErkJggg==","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA+ElEQVRIie2WLU5DQRRGzwUEirQCQ9BsoSGtZQHgSFgIsg4JXQCGP8V2QCBIEATZkJDgOJi+MJnMo30TFHmfmzvzfeeKyZ2BROpQvVHfrddDmhkZ4BY4Ai6BD7prAowjIoq7i85nFcGNf6qa1tayM1vAvBZQUg74c/WAHtAD/gMgn6YCT8A2MKwOTaZpCfAF3AGvFdlLx7XqdUVw4186rgWeE8Nn4cU67QLNAS/ASG3qmwVPqdaqjWw9A86BK+CkzaTuAseFBse/AiLiQg1gLzs3Bwb8XIp94AxYL/Af2xordap6v/htHKhv6nTlgBUAh9l6Rx11yfgG8ne/zwh2OysAAAAASUVORK5CYII=","theme":"dark"}],"inputSchema":{"properties":{"order":{"description":"Sort order for results","enum":["asc","desc"],"type":"string"},"page":{"description":"Page number for pagination (min 1)","minimum":1,"type":"number"},"perPage":{"description":"Results per page for pagination (min 1, max 100)","maximum":100,"minimum":1,"type":"number"},"query":{"description":"Search query using GitHub's powerful code search syntax. Examples: 'content:Skill language:Java org:github', 'NOT is:archived language:Python OR language:go', 'repo:github/github-mcp-server'. Supports exact matching, language filters, path filters, and more.","type":"string"},"sort":{"description":"Sort field ('indexed' only)","type":"string"}},"required":["query"],"type":"object"},"name":"search_code"},{"annotations":{"readOnlyHint":true,"title":"Search issues"},"description":"Search for issues in GitHub repositories using issues search syntax already scoped to is:issue","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAC2UlEQVRIicWVMUyTaRjHf/+vVUpOJOdilOYoUvVreq2CDmLOwdlAS5xMbrrhBifjYG7QjYuJw108nZx1huLgYlw0QshxChUK2koxHHcuCmgsFfieG0or3kGPSoz/8X3f5/97nvfN8z7wmaVqm9FodFfR/EnMugy5giCAwYwgI9Ff9Hl9L9Lp1zUBgsGO+rqGwnlhF4CdwBSyAUwvS1G220zHBSFgHtmVxYWvfp2ZGSj8LyAcjgfZphTQZtAr7OdsZvSP9RIJR+LtQhcNusF+d1aUfPp05M8NAavmg8AOk3cmN56+s1Hpa7U/cviUYbcw3jgex9ZCKoBgsKM+0PDuAdBq2He5zOiTzZiXtc+NxRw598GeLRcWTuTz+UUAp3ygrqFwHmgzeWdqNQd4PpFOy/gedNQfaDz3UQXRaHRX0fNPGdzNZUZO12q+VuHIoV7g5Hu/1/IinX7tABTNnwR2SvRsxRzAzOsBGuuWfAkoX5FZFzCVHR95tFVAbiI9DEwj6wLwl5YVMTRYLTDsxjuRrgGYYz/kxkbvbXRWMOBB24cKYI9ks1X8hXQDaAaa5XG9WjImZgV71wI+m8qAv8y0t1pSmP0ITANTmHO2qqvRZDALlTdgHKyjWkx2YvQ2cHtTacMxYBhWK5DoF4TCkXj7Jg02VKsbOwI0Y+qvALZrOQXMC13cKkDSJWBuJUCqAhgbG3uF7IpBcn/k8KlPNQ+78U5QQuhy/vHjuQoAYPndwi9gw4bd2ufGYrWatxz8No50ExhaKsz9Vl6vAPL5/KKzoiTGG0fOg1oqCbvxTp/juw/M+zynu/yTwjoD58CBQ02ez/pAR4E+M69ntf3/o1Y3dqR050oAQz7P6Z6cfPRRw647MkOhUMAfaDyH+AloBKYNPRT292rQHoMOSp09J3TZlt5ezWazxX97VR3638RiX9ct+RImSyBcrDT0ETMyMp4ptRIgVX7QL6J/ALSUEwJ5rdg2AAAAAElFTkSuQmCC","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABxElEQVRIibWVvW4TURCFv0vlNEDcIHAkKAERJOIKSjoUArwBPwUFFaKIIngAJARCPIgdh4cgRBYt6ZIAEYEqdhpEw0fhCbkKa68dxyNtsfNzzpnZu3NhwpYGBdUqcA+4A1wEZiK0DawD74FWSml3JAJ1CngGLAIngU1gFfgZKWeAG8AFoAu8At6mlH6VtqTOqJ/UP2pDnRuQO6c27VlbrQ0Dvq121Fulag7q5qPmW18SdSqUd9Qrw4Jn9bNR21YrRQkvYixDKy/AuB3jWjocqKpdtXFU8AxrOTqZzp2PgvnaMRDUA+tB7mypG+OCZ3hbahPgRPguAR9LihaicEu9WcKxClzOi/fU1wPAk7rjgX0uEfNG3cs7mJjtE+wA5/olpZQEHgNf6K2NJyW4NeD7v7c4WptjSc0svlMjdzyM2fbdOyOA7x/T+7mzGj9H8xgIWuquevpw4HmsivkxwBdC/WJRsBKLqqPOHgH8aqybtcJlF0m1WLndUToJ5V31q9r3NOYk7Wh1Wa0PyK3HzA3l/4H3uzIrwFNgCThF7/x/AH5EylngOnAe6AAvgXcppd9DEWRE08DdeIou/RVgJaXUGYQzUfsL+zmwV7BtIq0AAAAASUVORK5CYII=","theme":"dark"}],"inputSchema":{"properties":{"order":{"description":"Sort order","enum":["asc","desc"],"type":"string"},"owner":{"description":"Optional repository owner. If provided with repo, only issues for this repository are listed.","type":"string"},"page":{"description":"Page number for pagination (min 1)","minimum":1,"type":"number"},"perPage":{"description":"Results per page for pagination (min 1, max 100)","maximum":100,"minimum":1,"type":"number"},"query":{"description":"Search query using GitHub issues search syntax","type":"string"},"repo":{"description":"Optional repository name. If provided with owner, only issues for this repository are listed.","type":"string"},"sort":{"description":"Sort field by number of matches of categories, defaults to best match","enum":["comments","reactions","reactions-+1","reactions--1","reactions-smile","reactions-thinking_face","reactions-heart","reactions-tada","interactions","created","updated"],"type":"string"}},"required":["query"],"type":"object"},"name":"search_issues"},{"annotations":{"readOnlyHint":true,"title":"Search pull requests"},"description":"Search for pull requests in GitHub repositories using issues search syntax already scoped to is:pr","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAACwUlEQVRIie2Vz28UZRjHP993pi0QIC3YahNjirtmd3bS3Q1eUHvQEPUiEv8A4kXjwRJ78MCFBLjBBRKCHowHE38cNCbGGx6IUoKiodtNpoNmTJp4oSJNQ3pw29l5POxus2wo3QTwxPc0887zfD7zvu9kXnjEUfdNrjj5vJOmMP4e9JrfR1G02tuQD8tvgpck0dxCPwK30ViqnJTcr4bOmfRlI/PrhUJ5313woDpDpu8ss7f6nYHrvDnGcYlPsoY/bKaXwHY3HWfvgmNnMX0zvMM7069A3c3pkEYWa7UVgFxQPSfs7SSeH3k2rEy5jMubMBoG1yQ+SBbm53of+gCybMkk/H8VAFdbZisZLAFsJ11oyL+BUURcwrjWAZixXeIwxs/5UuVAr0QAYRjubGR+HWy3mb6QCIBXQe8nce0jgIkwfMo3/xLG085x8I9ofkMyUa0O+w2rgS0mcf3lboEDiKJo1cvsIDDr4D1DhTb8407hYhTdTJW+AvrdMnuhG9Je1m9BBzbfjXbyQcXypeqJLQt7+0rVE/mgYr3j7l7FDzOPBY8FDx6vc1EolPeNjI5/Jpgw7Lm9o+Pry//c/K0PhnLFyrSMDxE79jwxvn9079gvt28vrUD7V1EoFHalbltd2C7DfS4sAF4DTSdx7cL96LliZVriPPADuL+geRh0Z8il5SiKVn2ATENvCCYw78U/b8xdBcgHlYuGHQXuK5A4ClxM4vnXW8Lqp5JdWWt6h4CvWnsgxgDSbRZ3Gg0tCJ7sY4nGwDZOt/WBZtzN9FswLgM2sGann5mcPDaw5pWEHQH7cUu86SdkR3LF6tfrA814MNVpwNrM1leUxPXrSKfMeHcwdctyNotY8c3NbMX3LJsB3ZHsymDqlkHvYHYyievXWxPpSj4o75eYIuPWZof+vRKG4c61pncIx6gZsx34/5L/ACy3ElqUYhuvAAAAAElFTkSuQmCC","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABn0lEQVRIie2Vvy5EURDGvyMUkhUU/pS2Q2clwvIKqL0Cm9ArrBcQShJPoLFR2YaIhIjQ7a7E39IiCgqVn8KsPY697E3oTHPumTPf990z986M9Mfm/A0wKGlMUlnSlnPuOQQAE5LOnXOFWErAIvBK1S6BZBAzZ2fzcckHjXwVaAXSwD2wWYN8A2iKK1ABt3m+ZeDRnseIthdgDxioxd1o662tfZIO7Lnf8xcklST1StqRdORxNEualHQIDDvnTmvdIGE5vwdWgLy93bQX0w0UgSdgKMC3AdfA7ndpSgKbduUbYBoI/7Ju4BiYrYFfAl4iBbxAgOyPgV9xWYDQ3xCXKK79C/wL/KJZoeW8QpsJCy0C54AMULaGmQu7sIAW4MpaxTKwbQU3U4dAxmLzwLpxXAIJP2jKgkY8Xx4o1SFwBmx7+7RxTUnVb9Bpa9HDFiR1/SRgWH+6FT3/h2qK6sBpB0aBB7yB880NcpaWtGHXjCsVBmb5PDIvgJ46BJKW84q9AguV87Adp/Q+9O8UMfQjRBKSxiV1SNp3zp3Ug/sVewPruexhKwhGXQAAAABJRU5ErkJggg==","theme":"dark"}],"inputSchema":{"properties":{"order":{"description":"Sort order","enum":["asc","desc"],"type":"string"},"owner":{"description":"Optional repository owner. If provided with repo, only pull requests for this repository are listed.","type":"string"},"page":{"description":"Page number for pagination (min 1)","minimum":1,"type":"number"},"perPage":{"description":"Results per page for pagination (min 1, max 100)","maximum":100,"minimum":1,"type":"number"},"query":{"description":"Search query using GitHub pull request search syntax","type":"string"},"repo":{"description":"Optional repository name. If provided with owner, only pull requests for this repository are listed.","type":"string"},"sort":{"description":"Sort field by number of matches of categories, defaults to best match","enum":["comments","reactions","reactions-+1","reactions--1","reactions-smile","reactions-thinking_face","reactions-heart","reactions-tada","interactions","created","updated"],"type":"string"}},"required":["query"],"type":"object"},"name":"search_pull_requests"},{"annotations":{"readOnlyHint":true,"title":"Search repositories"},"description":"Find GitHub repositories by name, description, readme, topics, or other metadata. Perfect for discovering projects, finding examples, or locating specific repositories across GitHub.","icons":[{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABTklEQVRIie2UPUvDUBSGn5PW2qnYwUXExWhNpY2CUKT+BB10E3R0dnbrppuKLgouHbr5X5qlKRIFB+cuguBHj4O05KYfNsVJ+m7n3Hue54ZcrhDKQqGQTX1YVwg7QIbx0gh8b7VTJMMrqS+5RtgD7oDX2GhhC6UcbhkCVLZVuX1sesex4YCdX6uAGgIrsicjlrTGgQ9KVPDnmQgmgongPwgkXNiOq8ADMAtkx4UGvtflJvus20ANeIlN/vW5/kkt8L3D2HD6P9dRgSI8dQcc9w1IR3acBE3vbFSp8ZMVnoFSqJ/unZDe3pAYXyDIJarn9opbDZrewaAh2y7Oy5S1r6h5QG2Xxbw3piDw6xe244oKyxFmC5ihc+tS1qaqngKJyAEBGmZvSGzHVYT790T7aPozsaFoFZGboFGvDJsbOYuOuxuuc7n1uaV8sRSH8Q1DUVLnYLty3gAAAABJRU5ErkJggg==","theme":"light"},{"mimeType":"image/png","src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA+ElEQVRIie2WLU5DQRRGzwUEirQCQ9BsoSGtZQHgSFgIsg4JXQCGP8V2QCBIEATZkJDgOJi+MJnMo30TFHmfmzvzfeeKyZ2BROpQvVHfrddDmhkZ4BY4Ai6BD7prAowjIoq7i85nFcGNf6qa1tayM1vAvBZQUg74c/WAHtAD/gMgn6YCT8A2MKwOTaZpCfAF3AGvFdlLx7XqdUVw4186rgWeE8Nn4cU67QLNAS/ASG3qmwVPqdaqjWw9A86BK+CkzaTuAseFBse/AiLiQg1gLzs3Bwb8XIp94AxYL/Af2xordap6v/htHKhv6nTlgBUAh9l6Rx11yfgG8ne/zwh2OysAAAAASUVORK5CYII=","theme":"dark"}],"inputSchema":{"properties":{"minimal_output":{"default":true,"description":"Return minimal repository information (default: true). When false, returns full GitHub API repository objects.","type":"boolean"},"order":{"description":"Sort order","enum":["asc","desc"],"type":"string"},"page":{"description":"Page number for pagination (min 1)","minimum":1,"type":"number"},"perPage":{"description":"Results per page for pagination (min 1, max 100)","maximum":100,"minimum":1,"type":"number"},"query":{"description":"Repository search query. Examples: 'machine learning in:name stars:\u003e1000 language:python', 'topic:react', 'user:facebook'. Supports advanced search syntax for precise filtering.","type":"string"},"sort":{"description":"Sort repositories by field, defaults to best match","enum":["stars","forks","help-wanted-issues","updated"],"type":"string"}},"required":["query"],"type":"object"},"name":"search_repositories"}]}}}
+2026-02-27T10:41:26.5437980Z 
+2026-02-27T10:41:26.5438224Z ##[endgroup]
+2026-02-27T10:41:26.5438669Z ##[group]start-gateway.log (291 bytes)
+2026-02-27T10:41:26.5438926Z Checking MCP servers...
+2026-02-27T10:41:26.5439059Z 
+2026-02-27T10:41:26.5439294Z ⏱️  TIMING: Configuration validation took 7ms
+2026-02-27T10:41:26.5439502Z 
+2026-02-27T10:41:26.5439599Z   Attempting connection (timeout: 10s)...
+2026-02-27T10:41:26.5439882Z ✓ github: connected
+2026-02-27T10:41:26.5440137Z ⏱️  TIMING: Server check for github took 80ms
+2026-02-27T10:41:26.5440325Z 
+2026-02-27T10:41:26.5440481Z ⏱️  TIMING: Overall MCP server checks took 92ms
+2026-02-27T10:41:26.5440695Z 
+2026-02-27T10:41:26.5440849Z ✓ All checks passed (1 succeeded, 0 skipped)
+2026-02-27T10:41:26.5441032Z 
+2026-02-27T10:41:26.5441234Z ##[endgroup]
+2026-02-27T10:41:26.5441543Z ##[group]stderr.log (37112 bytes)
+2026-02-27T10:41:26.5441823Z [INFO] Starting MCP Gateway in containerized mode...
+2026-02-27T10:41:26.5442131Z [INFO] Running in containerized environment
+2026-02-27T10:41:26.5442415Z [WARN] Invalid container ID format: runnervmnay03
+2026-02-27T10:41:26.5442706Z [WARN] Could not determine container ID
+2026-02-27T10:41:26.5442961Z [INFO] Docker daemon is accessible
+2026-02-27T10:41:26.5443221Z [INFO] Required environment variables are set
+2026-02-27T10:41:26.5443517Z [INFO] Set DOCKER_API_VERSION=1.48 (server current)
+2026-02-27T10:41:26.5443843Z [INFO] Detecting host IP for container networking...
+2026-02-27T10:41:26.5444144Z [INFO] Method 1 (primary interface): 10.1.0.188
+2026-02-27T10:41:26.5444422Z [INFO] Using host IP: 10.1.0.188
+2026-02-27T10:41:26.5444709Z [INFO] Adding host.docker.internal mapping to /etc/hosts
+2026-02-27T10:41:26.5445261Z [INFO] DNS mapping configured: 10.1.0.188 -> host.docker.internal
+2026-02-27T10:41:26.5445597Z [INFO] Gateway will listen on 0.0.0.0:80
+2026-02-27T10:41:26.5445875Z [INFO] Log directory: /tmp/gh-aw/mcp-logs/
+2026-02-27T10:41:26.5446309Z [INFO] Command: ./awmg --routed --listen 0.0.0.0:80 --config-stdin --log-dir /tmp/gh-aw/mcp-logs/
+2026-02-27T10:41:26.5446769Z [INFO] Waiting for JSON configuration on stdin...
+2026-02-27T10:41:26.5447039Z [INFO] 
+2026-02-27T10:41:26.5447272Z [INFO] IMPORTANT: Configuration must be provided via stdin.
+2026-02-27T10:41:26.5447651Z [INFO] No default configuration is used in containerized mode.
+2026-02-27T10:41:26.5447946Z [INFO] 
+2026-02-27T10:41:26.5448231Z config:feature Registered defaults setter: total=1 +123µs
+2026-02-27T10:41:26.5448902Z middleware:jqschema Successfully compiled jq schema filter at init (gojq v0.12.18) +109µs
+2026-02-27T10:41:26.5449367Z main:main Starting MCP Gateway application +682ns
+2026-02-27T10:41:26.5449768Z main:main Building version string from build metadata +9µs
+2026-02-27T10:41:26.5450155Z main:main Using version from ldflags: v0.1.5 +3µs
+2026-02-27T10:41:26.5450512Z main:main Extracting commit hash from build info +10µs
+2026-02-27T10:41:26.5450860Z main:main Built version string: v0.1.5 +8µs
+2026-02-27T10:41:26.5451167Z main:main Executing root command +15µs
+2026-02-27T10:41:26.5451480Z 2026/02/27 10:40:54 Logging level: DEBUG=* (from environment)
+2026-02-27T10:41:26.5451873Z 2026/02/27 10:40:54 Logging to file: /tmp/gh-aw/mcp-logs/mcp-gateway.log
+2026-02-27T10:41:26.5452346Z 2026/02/27 10:40:54 Initialized per-serverID logging in directory: /tmp/gh-aw/mcp-logs/
+2026-02-27T10:41:26.5452824Z 2026/02/27 10:40:54 Tools logging to file: /tmp/gh-aw/mcp-logs/tools.json
+2026-02-27T10:41:26.5453241Z cmd:root Starting MCPG with config: stdin, listen: 0.0.0.0:80 +3ms
+2026-02-27T10:41:26.5453607Z 2026/02/27 10:40:54 Reading configuration from stdin...
+2026-02-27T10:41:26.5453979Z config:validation Expanding variables: context=raw JSON data +4ms
+2026-02-27T10:41:26.5454681Z config:validation Expanded variable: GITHUB_MCP_SERVER_TOKEN (found in environment) +282µs
+2026-02-27T10:41:26.5455354Z config:validation Variable expansion completed: context=raw JSON data, undefined_count=0 +313µs
+2026-02-27T10:41:26.5455927Z config:validation_schema Starting JSON schema validation: data_size=569 bytes +5ms
+2026-02-27T10:41:26.5456482Z config:validation_schema Compiling JSON schema for the first time +312µs
+2026-02-27T10:41:26.5457398Z config:validation_schema Fetching schema from URL: https://raw.githubusercontent.com/github/gh-aw/v0.41.1/docs/public/schemas/mcp-gateway-config.schema.json +260µs
+2026-02-27T10:41:26.5458190Z config:validation_schema HTTP request completed in 63.887456ms +64ms
+2026-02-27T10:41:26.5458848Z config:validation_schema Schema read completed in 154.359µs (size: 13040 bytes) +651µs
+2026-02-27T10:41:26.5459387Z config:validation_schema Schema fixes applied in 539.077µs +921µs
+2026-02-27T10:41:26.5459925Z config:validation_schema Total schema fetch and fix completed in 66.270041ms +488µs
+2026-02-27T10:41:26.5460416Z config:validation_schema Schema compiled and cached successfully +1ms
+2026-02-27T10:41:26.5460945Z config:validation_schema Schema compilation/retrieval took: 68.613133ms +324µs
+2026-02-27T10:41:26.5461436Z config:validation_schema JSON parsing took: 13.776µs +438µs
+2026-02-27T10:41:26.5461872Z config:validation_schema Schema validation took: 54.673µs +521µs
+2026-02-27T10:41:26.5462436Z config:validation_schema Total validation completed successfully in 70.389639ms +504µs
+2026-02-27T10:41:26.5463010Z config:validation_schema Validating string patterns: server_count=1 +383µs
+2026-02-27T10:41:26.5463532Z config:validation_schema Validating server: name=github, type=stdio +477µs
+2026-02-27T10:41:26.5463953Z config:validation Validating gateway configuration +72ms
+2026-02-27T10:41:26.5464347Z config:validation Validating gateway port: 80 +457µs
+2026-02-27T10:41:26.5464742Z config:rules Validating port range: port=80, jsonPath=gateway.port +81ms
+2026-02-27T10:41:26.5465373Z config:validation Validating payload directory: /tmp/gh-aw/mcp-payloads +1ms
+2026-02-27T10:41:26.5466023Z config:rules Validating absolute path: field=payloadDir, value=/tmp/gh-aw/mcp-payloads, jsonPath=gateway.payloadDir +1ms
+2026-02-27T10:41:26.5466704Z config:rules Valid Unix absolute path: /tmp/gh-aw/mcp-payloads +428µs
+2026-02-27T10:41:26.5467100Z config:validation Gateway config validation passed +1ms
+2026-02-27T10:41:26.5467504Z config:validation Validating gateway configuration +386µs
+2026-02-27T10:41:26.5467897Z config:validation Validating gateway port: 80 +302µs
+2026-02-27T10:41:26.5468283Z config:rules Validating port range: port=80, jsonPath=gateway.port +1ms
+2026-02-27T10:41:26.5468940Z config:validation Validating payload directory: /tmp/gh-aw/mcp-payloads +725µs
+2026-02-27T10:41:26.5469687Z config:rules Validating absolute path: field=payloadDir, value=/tmp/gh-aw/mcp-payloads, jsonPath=gateway.payloadDir +790µs
+2026-02-27T10:41:26.5470382Z config:rules Valid Unix absolute path: /tmp/gh-aw/mcp-payloads +409µs
+2026-02-27T10:41:26.5470781Z config:validation Gateway config validation passed +1ms
+2026-02-27T10:41:26.5471112Z config:feature Applying 1 default setter(s) +83ms
+2026-02-27T10:41:26.5471467Z config:feature All default setters applied +483µs
+2026-02-27T10:41:26.5471851Z config:validation Validating server config: name=github, type=stdio +1ms
+2026-02-27T10:41:26.5472353Z config:validation Server config validation passed: name=github +355µs
+2026-02-27T10:41:26.5472862Z config:validation Expanding env variables for server: github, count=4 +322µs
+2026-02-27T10:41:26.5473531Z config:validation Expanding variables: context=jsonPath=mcpServers.github.env.GITHUB_LOCKDOWN_MODE +330µs
+2026-02-27T10:41:26.5474431Z config:validation Variable expansion completed: context=jsonPath=mcpServers.github.env.GITHUB_LOCKDOWN_MODE, undefined_count=0 +518µs
+2026-02-27T10:41:26.5475340Z config:validation Expanding variables: context=jsonPath=mcpServers.github.env.GITHUB_PERSONAL_ACCESS_TOKEN +313µs
+2026-02-27T10:41:26.5476439Z config:validation Variable expansion completed: context=jsonPath=mcpServers.github.env.GITHUB_PERSONAL_ACCESS_TOKEN, undefined_count=0 +401µs
+2026-02-27T10:41:26.5477326Z config:validation Expanding variables: context=jsonPath=mcpServers.github.env.GITHUB_READ_ONLY +304µs
+2026-02-27T10:41:26.5478182Z config:validation Variable expansion completed: context=jsonPath=mcpServers.github.env.GITHUB_READ_ONLY, undefined_count=0 +316µs
+2026-02-27T10:41:26.5479136Z config:validation Expanding variables: context=jsonPath=mcpServers.github.env.GITHUB_TOOLSETS +439µs
+2026-02-27T10:41:26.5479982Z config:validation Variable expansion completed: context=jsonPath=mcpServers.github.env.GITHUB_TOOLSETS, undefined_count=0 +383µs
+2026-02-27T10:41:26.5480712Z config:validation Env variable expansion completed for server: github +366µs
+2026-02-27T10:41:26.5481115Z config:feature Applying 0 stdin converter(s) +4ms
+2026-02-27T10:41:26.5481486Z config:feature All stdin converters applied +327µs
+2026-02-27T10:41:26.5481813Z cmd:root Configuration loaded with 1 servers +85ms
+2026-02-27T10:41:26.5482105Z 2026/02/27 10:40:54 Loaded 1 MCP server(s)
+2026-02-27T10:41:26.5482559Z 2026/02/27 10:40:54 DIFC enforcement disabled (sessions auto-created for standard MCP client compatibility)
+2026-02-27T10:41:26.5483086Z 2026/02/27 10:40:54 Parallel server launching enabled (default)
+2026-02-27T10:41:26.5483445Z cmd:root Server mode: routed, DIFC enabled: false +1ms
+2026-02-27T10:41:26.5483931Z server:unified Creating new unified server: enableDIFC=false, sequentialLaunch=false, servers=1 +90ms
+2026-02-27T10:41:26.5484489Z launcher:launcher Creating new launcher with 1 configured servers +91ms
+2026-02-27T10:41:26.5484908Z 2026/02/27 10:40:54 [LAUNCHER] Detected running inside a container
+2026-02-27T10:41:26.5485349Z launcher:launcher Using configured startup timeout: 1m0s +333µs
+2026-02-27T10:41:26.5485914Z launcher:pool Creating new session connection pool: idleTimeout=30m0s, cleanupInterval=5m0s, maxErrors=10 +92ms
+2026-02-27T10:41:26.5486759Z server:unified Payload configuration: dir=/tmp/gh-aw/mcp-payloads, sizeThreshold=10240 bytes (10.00 KB) +1ms
+2026-02-27T10:41:26.5487306Z launcher:pool Cleanup goroutine started +556µs
+2026-02-27T10:41:26.5487667Z launcher:launcher Retrieved server IDs: count=1, ids=[github] +1ms
+2026-02-27T10:41:26.5488070Z sys:sys Creating new SysServer with 1 servers: [github] +96ms
+2026-02-27T10:41:26.5488413Z guard:registry Creating new guard registry +96ms
+2026-02-27T10:41:26.5488882Z difc:capabilities Creating new capabilities set +96ms
+2026-02-27T10:41:26.5489263Z launcher:launcher Retrieved server IDs: count=1, ids=[github] +1ms
+2026-02-27T10:41:26.5489664Z guard:noop Creating new noop guard (no DIFC restrictions) +97ms
+2026-02-27T10:41:26.5490095Z guard:registry Registering guard for serverID=github, guardName=noop +1ms
+2026-02-27T10:41:26.5490553Z guard:context [Guard] Registered guard 'noop' for server 'github' +98ms
+2026-02-27T10:41:26.5490986Z 2026/02/27 10:40:54 [DIFC] Registered guard 'noop' for server 'github'
+2026-02-27T10:41:26.5491349Z 2026/02/27 10:40:54 Registering tools from all backends...
+2026-02-27T10:41:26.5491731Z launcher:launcher Retrieved server IDs: count=1, ids=[github] +1ms
+2026-02-27T10:41:26.5492129Z server:unified Starting tool registration for 1 backends +4ms
+2026-02-27T10:41:26.5492513Z 2026/02/27 10:40:54 DIFC disabled: skipping sys tools registration
+2026-02-27T10:41:26.5492977Z launcher:launcher Retrieved server IDs: count=1, ids=[github] +820µs
+2026-02-27T10:41:26.5493457Z server:unified Registering tools in parallel from 1 backends +694µs
+2026-02-27T10:41:26.5493840Z 2026/02/27 10:40:54 Registering tools from backend: github
+2026-02-27T10:41:26.5494198Z launcher:launcher GetOrLaunch called: serverID=github +1ms
+2026-02-27T10:41:26.5494710Z launcher:launcher Connection not found in cache, launching new: serverID=github +339µs
+2026-02-27T10:41:26.5495295Z launcher:launcher Retrieved server config: serverID=github, type=stdio +336µs
+2026-02-27T10:41:26.5495846Z 2026/02/27 10:40:54 [LAUNCHER] Starting MCP server: github
+2026-02-27T10:41:26.5496390Z launcher:launcher Launching new server: serverID=github, command=docker, inContainer=true, isDirectCommand=false +1ms
+2026-02-27T10:41:26.5496917Z 2026/02/27 10:40:54 [LAUNCHER] Command: docker
+2026-02-27T10:41:26.5497856Z 2026/02/27 10:40:54 [LAUNCHER] Args: [run --rm -i -e NO_COLOR=... -e TERM=... -e PYTHONUNBUFFERED=... -e GITHUB_LOCKDOWN_MODE=... -e GITHUB_PERSONAL_ACCESS_TOKEN=ghs_... -e GITHUB_READ_ONLY=... -e GITHUB_TOOLSETS=cont... ghcr.io/github/github-mcp-server:v0.31.0]
+2026-02-27T10:41:26.5498944Z 2026/02/27 10:40:54 [LAUNCHER] Starting server with 1m0s timeout
+2026-02-27T10:41:26.5499467Z launcher:launcher Starting server with timeout: serverID=github, timeout=1m0s +684µs
+2026-02-27T10:41:26.5500020Z launcher:launcher Starting connection goroutine: serverID=github +349µs
+2026-02-27T10:41:26.5501178Z mcp:connection Creating new MCP connection: command=docker, args=[run --rm -i -e NO_COLOR=... -e TERM=... -e PYTHONUNBUFFERED=... -e GITHUB_LOCKDOWN_MODE=... -e GITHUB_PERSONAL_ACCESS_TOKEN=ghs_... -e GITHUB_READ_ONLY=... -e GITHUB_TOOLSETS=cont... ghcr.io/github/github-mcp-server:v0.31.0] +102ms
+2026-02-27T10:41:26.5503142Z mcp:connection Expanded args for Docker env: [run --rm -i -e NO_COLOR=... -e TERM=... -e PYTHONUNBUFFERED=... -e GITHUB_LOCKDOWN_MODE=... -e GITHUB_PERSONAL_ACCESS_TOKEN=ghs_... -e GITHUB_READ_ONLY=... -e GITHUB_TOOLSETS=cont... ghcr.io/github/github-mcp-server:v0.31.0] +602µs
+2026-02-27T10:41:26.5504851Z 2026/02/27 10:40:54 Starting MCP server command: docker [run --rm -i -e NO_COLOR=... -e TERM=... -e PYTHONUNBUFFERED=... -e GITHUB_LOCKDOWN_MODE=... -e GITHUB_PERSONAL_ACCESS_TOKEN=ghs_... -e GITHUB_READ_ONLY=... -e GITHUB_TOOLSETS=cont... ghcr.io/github/github-mcp-server:v0.31.0]
+2026-02-27T10:41:26.5505855Z 2026/02/27 10:40:54 Connecting to MCP server...
+2026-02-27T10:41:26.5506271Z mcp:connection Initiating MCP server connection and handshake +866µs
+2026-02-27T10:41:26.5507200Z mcp:connection [github stderr] time=2026-02-27T10:40:54.479Z level=INFO msg="starting server" version=v0.31.0 host="" dynamicToolsets=false readOnly=true lockdownEnabled=false +147ms
+2026-02-27T10:41:26.5508002Z mcp:connection [github stderr] GitHub MCP Server running on stdio +1ms
+2026-02-27T10:41:26.5508569Z mcp:connection Successfully connected to MCP server: command=docker +1ms
+2026-02-27T10:41:26.5509110Z mcp:connection [github stderr] time=2026-02-27T10:40:54.480Z level=INFO msg="server run start" +783ns
+2026-02-27T10:41:26.5510256Z 2026/02/27 10:40:54 Started MCP server: docker [run --rm -i -e NO_COLOR=... -e TERM=... -e PYTHONUNBUFFERED=... -e GITHUB_LOCKDOWN_MODE=... -e GITHUB_PERSONAL_ACCESS_TOKEN=ghs_... -e GITHUB_READ_ONLY=... -e GITHUB_TOOLSETS=cont... ghcr.io/github/github-mcp-server:v0.31.0]
+2026-02-27T10:41:26.5511260Z 2026/02/27 10:40:54 [LAUNCHER] Successfully launched: github
+2026-02-27T10:41:26.5511652Z launcher:launcher Connection established: serverID=github +154ms
+2026-02-27T10:41:26.5512176Z mcp:connection [github stderr] time=2026-02-27T10:40:54.480Z level=INFO msg="server connecting" +1ms
+2026-02-27T10:41:26.5512851Z mcp:connection [github stderr] time=2026-02-27T10:40:54.480Z level=INFO msg="server session connected" session_id="" +1ms
+2026-02-27T10:41:26.5513536Z mcp:connection [github stderr] time=2026-02-27T10:40:54.482Z level=INFO msg="session initialized" +1ms
+2026-02-27T10:41:26.5514082Z mcp:schema Normalizing input schema for tool: github___get_commit +352ms
+2026-02-27T10:41:26.5514605Z mcp:schema Tool github___get_commit schema analysis: hasType=true +663µs
+2026-02-27T10:41:26.5515262Z mcp:schema Tool github___get_commit object type schema: hasProperties=true, hasAdditionalProperties=false +352µs
+2026-02-27T10:41:26.5515943Z mcp:schema Tool github___get_commit schema is valid, no normalization needed +455µs
+2026-02-27T10:41:26.5516374Z 2026/02/27 10:40:54 Registered tool: github-get_commit
+2026-02-27T10:41:26.5516959Z mcp:schema Normalizing input schema for tool: github___get_file_contents +384µs
+2026-02-27T10:41:26.5517522Z mcp:schema Tool github___get_file_contents schema analysis: hasType=true +314µs
+2026-02-27T10:41:26.5518233Z mcp:schema Tool github___get_file_contents object type schema: hasProperties=true, hasAdditionalProperties=false +402µs
+2026-02-27T10:41:26.5519083Z mcp:schema Tool github___get_file_contents schema is valid, no normalization needed +394µs
+2026-02-27T10:41:26.5519562Z 2026/02/27 10:40:54 Registered tool: github-get_file_contents
+2026-02-27T10:41:26.5520025Z mcp:schema Normalizing input schema for tool: github___get_label +591µs
+2026-02-27T10:41:26.5520515Z mcp:schema Tool github___get_label schema analysis: hasType=true +364µs
+2026-02-27T10:41:26.5521161Z mcp:schema Tool github___get_label object type schema: hasProperties=true, hasAdditionalProperties=false +313µs
+2026-02-27T10:41:26.5521834Z mcp:schema Tool github___get_label schema is valid, no normalization needed +303µs
+2026-02-27T10:41:26.5522266Z 2026/02/27 10:40:54 Registered tool: github-get_label
+2026-02-27T10:41:26.5522742Z mcp:schema Normalizing input schema for tool: github___get_latest_release +382µs
+2026-02-27T10:41:26.5523290Z mcp:schema Tool github___get_latest_release schema analysis: hasType=true +305µs
+2026-02-27T10:41:26.5524004Z mcp:schema Tool github___get_latest_release object type schema: hasProperties=true, hasAdditionalProperties=false +387µs
+2026-02-27T10:41:26.5524737Z mcp:schema Tool github___get_latest_release schema is valid, no normalization needed +657µs
+2026-02-27T10:41:26.5525213Z 2026/02/27 10:40:54 Registered tool: github-get_latest_release
+2026-02-27T10:41:26.5525667Z mcp:schema Normalizing input schema for tool: github___get_me +363µs
+2026-02-27T10:41:26.5526141Z mcp:schema Tool github___get_me schema analysis: hasType=true +452µs
+2026-02-27T10:41:26.5526760Z mcp:schema Tool github___get_me object type schema: hasProperties=true, hasAdditionalProperties=false +285µs
+2026-02-27T10:41:26.5527406Z mcp:schema Tool github___get_me schema is valid, no normalization needed +328µs
+2026-02-27T10:41:26.5527932Z 2026/02/27 10:40:54 Registered tool: github-get_me
+2026-02-27T10:41:26.5528393Z mcp:schema Normalizing input schema for tool: github___get_release_by_tag +639µs
+2026-02-27T10:41:26.5529054Z mcp:schema Tool github___get_release_by_tag schema analysis: hasType=true +355µs
+2026-02-27T10:41:26.5529762Z mcp:schema Tool github___get_release_by_tag object type schema: hasProperties=true, hasAdditionalProperties=false +340µs
+2026-02-27T10:41:26.5530493Z mcp:schema Tool github___get_release_by_tag schema is valid, no normalization needed +391µs
+2026-02-27T10:41:26.5530962Z 2026/02/27 10:40:54 Registered tool: github-get_release_by_tag
+2026-02-27T10:41:26.5531415Z mcp:schema Normalizing input schema for tool: github___get_tag +338µs
+2026-02-27T10:41:26.5531894Z mcp:schema Tool github___get_tag schema analysis: hasType=true +464µs
+2026-02-27T10:41:26.5532530Z mcp:schema Tool github___get_tag object type schema: hasProperties=true, hasAdditionalProperties=false +489µs
+2026-02-27T10:41:26.5533200Z mcp:schema Tool github___get_tag schema is valid, no normalization needed +438µs
+2026-02-27T10:41:26.5533602Z 2026/02/27 10:40:54 Registered tool: github-get_tag
+2026-02-27T10:41:26.5534052Z mcp:schema Normalizing input schema for tool: github___get_team_members +731µs
+2026-02-27T10:41:26.5534590Z mcp:schema Tool github___get_team_members schema analysis: hasType=true +301µs
+2026-02-27T10:41:26.5535285Z mcp:schema Tool github___get_team_members object type schema: hasProperties=true, hasAdditionalProperties=false +265µs
+2026-02-27T10:41:26.5536004Z mcp:schema Tool github___get_team_members schema is valid, no normalization needed +315µs
+2026-02-27T10:41:26.5536468Z 2026/02/27 10:40:54 Registered tool: github-get_team_members
+2026-02-27T10:41:26.5536922Z mcp:schema Normalizing input schema for tool: github___get_teams +362µs
+2026-02-27T10:41:26.5537418Z mcp:schema Tool github___get_teams schema analysis: hasType=true +372µs
+2026-02-27T10:41:26.5538197Z mcp:schema Tool github___get_teams object type schema: hasProperties=true, hasAdditionalProperties=false +434µs
+2026-02-27T10:41:26.5538986Z mcp:schema Tool github___get_teams schema is valid, no normalization needed +321µs
+2026-02-27T10:41:26.5539403Z 2026/02/27 10:40:54 Registered tool: github-get_teams
+2026-02-27T10:41:26.5539843Z mcp:schema Normalizing input schema for tool: github___issue_read +334µs
+2026-02-27T10:41:26.5540350Z mcp:schema Tool github___issue_read schema analysis: hasType=true +655µs
+2026-02-27T10:41:26.5541012Z mcp:schema Tool github___issue_read object type schema: hasProperties=true, hasAdditionalProperties=false +370µs
+2026-02-27T10:41:26.5541690Z mcp:schema Tool github___issue_read schema is valid, no normalization needed +306µs
+2026-02-27T10:41:26.5542117Z 2026/02/27 10:40:54 Registered tool: github-issue_read
+2026-02-27T10:41:26.5542561Z mcp:schema Normalizing input schema for tool: github___list_branches +331µs
+2026-02-27T10:41:26.5543092Z mcp:schema Tool github___list_branches schema analysis: hasType=true +358µs
+2026-02-27T10:41:26.5543791Z mcp:schema Tool github___list_branches object type schema: hasProperties=true, hasAdditionalProperties=false +736µs
+2026-02-27T10:41:26.5544494Z mcp:schema Tool github___list_branches schema is valid, no normalization needed +589µs
+2026-02-27T10:41:26.5544947Z 2026/02/27 10:40:54 Registered tool: github-list_branches
+2026-02-27T10:41:26.5545406Z mcp:schema Normalizing input schema for tool: github___list_commits +456µs
+2026-02-27T10:41:26.5545922Z mcp:schema Tool github___list_commits schema analysis: hasType=true +413µs
+2026-02-27T10:41:26.5546587Z mcp:schema Tool github___list_commits object type schema: hasProperties=true, hasAdditionalProperties=false +353µs
+2026-02-27T10:41:26.5547277Z mcp:schema Tool github___list_commits schema is valid, no normalization needed +373µs
+2026-02-27T10:41:26.5547713Z 2026/02/27 10:40:54 Registered tool: github-list_commits
+2026-02-27T10:41:26.5548179Z mcp:schema Normalizing input schema for tool: github___list_issue_types +350µs
+2026-02-27T10:41:26.5548984Z mcp:schema Tool github___list_issue_types schema analysis: hasType=true +465µs
+2026-02-27T10:41:26.5549687Z mcp:schema Tool github___list_issue_types object type schema: hasProperties=true, hasAdditionalProperties=false +327µs
+2026-02-27T10:41:26.5550405Z mcp:schema Tool github___list_issue_types schema is valid, no normalization needed +302µs
+2026-02-27T10:41:26.5550866Z 2026/02/27 10:40:54 Registered tool: github-list_issue_types
+2026-02-27T10:41:26.5551329Z mcp:schema Normalizing input schema for tool: github___list_issues +320µs
+2026-02-27T10:41:26.5551839Z mcp:schema Tool github___list_issues schema analysis: hasType=true +313µs
+2026-02-27T10:41:26.5552498Z mcp:schema Tool github___list_issues object type schema: hasProperties=true, hasAdditionalProperties=false +377µs
+2026-02-27T10:41:26.5553185Z mcp:schema Tool github___list_issues schema is valid, no normalization needed +318µs
+2026-02-27T10:41:26.5553612Z 2026/02/27 10:40:54 Registered tool: github-list_issues
+2026-02-27T10:41:26.5554094Z mcp:schema Normalizing input schema for tool: github___list_pull_requests +664µs
+2026-02-27T10:41:26.5554651Z mcp:schema Tool github___list_pull_requests schema analysis: hasType=true +375µs
+2026-02-27T10:41:26.5555366Z mcp:schema Tool github___list_pull_requests object type schema: hasProperties=true, hasAdditionalProperties=false +505µs
+2026-02-27T10:41:26.5556110Z mcp:schema Tool github___list_pull_requests schema is valid, no normalization needed +361µs
+2026-02-27T10:41:26.5556588Z 2026/02/27 10:40:54 Registered tool: github-list_pull_requests
+2026-02-27T10:41:26.5557066Z mcp:schema Normalizing input schema for tool: github___list_releases +440µs
+2026-02-27T10:41:26.5557591Z mcp:schema Tool github___list_releases schema analysis: hasType=true +451µs
+2026-02-27T10:41:26.5558262Z mcp:schema Tool github___list_releases object type schema: hasProperties=true, hasAdditionalProperties=false +416µs
+2026-02-27T10:41:26.5559076Z mcp:schema Tool github___list_releases schema is valid, no normalization needed +347µs
+2026-02-27T10:41:26.5559700Z 2026/02/27 10:40:54 Registered tool: github-list_releases
+2026-02-27T10:41:26.5560152Z mcp:schema Normalizing input schema for tool: github___list_tags +545µs
+2026-02-27T10:41:26.5560650Z mcp:schema Tool github___list_tags schema analysis: hasType=true +425µs
+2026-02-27T10:41:26.5561302Z mcp:schema Tool github___list_tags object type schema: hasProperties=true, hasAdditionalProperties=false +345µs
+2026-02-27T10:41:26.5561979Z mcp:schema Tool github___list_tags schema is valid, no normalization needed +438µs
+2026-02-27T10:41:26.5562427Z 2026/02/27 10:40:54 Registered tool: github-list_tags
+2026-02-27T10:41:26.5562892Z mcp:schema Normalizing input schema for tool: github___pull_request_read +489µs
+2026-02-27T10:41:26.5563441Z mcp:schema Tool github___pull_request_read schema analysis: hasType=true +342µs
+2026-02-27T10:41:26.5564149Z mcp:schema Tool github___pull_request_read object type schema: hasProperties=true, hasAdditionalProperties=false +397µs
+2026-02-27T10:41:26.5564895Z mcp:schema Tool github___pull_request_read schema is valid, no normalization needed +301µs
+2026-02-27T10:41:26.5565373Z 2026/02/27 10:40:54 Registered tool: github-pull_request_read
+2026-02-27T10:41:26.5565837Z mcp:schema Normalizing input schema for tool: github___search_code +340µs
+2026-02-27T10:41:26.5566350Z mcp:schema Tool github___search_code schema analysis: hasType=true +384µs
+2026-02-27T10:41:26.5567014Z mcp:schema Tool github___search_code object type schema: hasProperties=true, hasAdditionalProperties=false +375µs
+2026-02-27T10:41:26.5567705Z mcp:schema Tool github___search_code schema is valid, no normalization needed +329µs
+2026-02-27T10:41:26.5568137Z 2026/02/27 10:40:54 Registered tool: github-search_code
+2026-02-27T10:41:26.5568695Z mcp:schema Normalizing input schema for tool: github___search_issues +566µs
+2026-02-27T10:41:26.5569230Z mcp:schema Tool github___search_issues schema analysis: hasType=true +467µs
+2026-02-27T10:41:26.5569908Z mcp:schema Tool github___search_issues object type schema: hasProperties=true, hasAdditionalProperties=false +358µs
+2026-02-27T10:41:26.5570750Z mcp:schema Tool github___search_issues schema is valid, no normalization needed +328µs
+2026-02-27T10:41:26.5571193Z 2026/02/27 10:40:54 Registered tool: github-search_issues
+2026-02-27T10:41:26.5571684Z mcp:schema Normalizing input schema for tool: github___search_pull_requests +495µs
+2026-02-27T10:41:26.5572259Z mcp:schema Tool github___search_pull_requests schema analysis: hasType=true +373µs
+2026-02-27T10:41:26.5573001Z mcp:schema Tool github___search_pull_requests object type schema: hasProperties=true, hasAdditionalProperties=false +434µs
+2026-02-27T10:41:26.5573762Z mcp:schema Tool github___search_pull_requests schema is valid, no normalization needed +534µs
+2026-02-27T10:41:26.5574254Z 2026/02/27 10:40:54 Registered tool: github-search_pull_requests
+2026-02-27T10:41:26.5574761Z mcp:schema Normalizing input schema for tool: github___search_repositories +484µs
+2026-02-27T10:41:26.5575344Z mcp:schema Tool github___search_repositories schema analysis: hasType=true +347µs
+2026-02-27T10:41:26.5576080Z mcp:schema Tool github___search_repositories object type schema: hasProperties=true, hasAdditionalProperties=false +416µs
+2026-02-27T10:41:26.5576850Z mcp:schema Tool github___search_repositories schema is valid, no normalization needed +401µs
+2026-02-27T10:41:26.5577345Z 2026/02/27 10:40:54 Registered tool: github-search_repositories
+2026-02-27T10:41:26.5579446Z 2026/02/27 10:40:54 Registered 22 tools from github: github-get_commit, github-get_file_contents, github-get_label, github-get_latest_release, github-get_me, github-get_release_by_tag, github-get_tag, github-get_team_members, github-get_teams, github-issue_read, github-list_branches, github-list_commits, github-list_issue_types, github-list_issues, github-list_pull_requests, github-list_releases, github-list_tags, github-pull_request_read, github-search_code, github-search_issues, github-search_pull_requests, github-search_repositories
+2026-02-27T10:41:26.5581647Z server:unified Successfully registered tools from github (took 290.695859ms) +291ms
+2026-02-27T10:41:26.5582195Z 2026/02/27 10:40:54 Parallel tool registration complete: 1 succeeded, 0 failed, total tools=22
+2026-02-27T10:41:26.5582753Z server:unified Tool registration complete: 1 succeeded, 0 failed, total tools=22 +1ms
+2026-02-27T10:41:26.5583322Z server:unified Unified server created successfully with 22 tools +527µs
+2026-02-27T10:41:26.5583740Z 2026/02/27 10:40:54 Starting MCPG in ROUTED mode on 0.0.0.0:80
+2026-02-27T10:41:26.5584141Z launcher:launcher Retrieved server IDs: count=1, ids=[github] +135ms
+2026-02-27T10:41:26.5584578Z 2026/02/27 10:40:54 Routes: /mcp/<server> where <server> is one of: [github]
+2026-02-27T10:41:26.5585019Z launcher:launcher Retrieved server IDs: count=1, ids=[github] +1ms
+2026-02-27T10:41:26.5585453Z server:routed Creating HTTP server for routed mode: addr=0.0.0.0:80 +393ms
+2026-02-27T10:41:26.5585864Z server:handlers Creating OAuth discovery handler +393ms
+2026-02-27T10:41:26.5586275Z server:handlers Creating OAuth discovery handler +373µs
+2026-02-27T10:41:26.5586641Z server:handlers Creating close handler +420µs
+2026-02-27T10:41:26.5586945Z server:auth Initialized auth middleware +394ms
+2026-02-27T10:41:26.5587302Z launcher:launcher Retrieved server IDs: count=1, ids=[github] +2ms
+2026-02-27T10:41:26.5587729Z server:routed DIFC disabled: excluding sys from route registration +2ms
+2026-02-27T10:41:26.5588210Z server:routed Registering routes for 1 backends: [github] +515µs
+2026-02-27T10:41:26.5588667Z server:auth Initialized auth middleware +1ms
+2026-02-27T10:41:26.5588964Z 2026/02/27 10:40:54 Registered route: /mcp/github
+2026-02-27T10:41:26.5589364Z server:response_writer Creating new response writer with default status 200 +4.8s
+2026-02-27T10:41:26.5589859Z server:health Health check request: method=GET, remote=[::1]:56932 +4.8s
+2026-02-27T10:41:26.5590275Z server:response_writer Setting response status code: 200 +1ms
+2026-02-27T10:41:26.5590623Z server:health Building health response +1ms
+2026-02-27T10:41:26.5591100Z launcher:launcher Retrieved server IDs: count=1, ids=[github] +4.4s
+2026-02-27T10:41:26.5591534Z server:health Retrieved status for 1 servers +846µs
+2026-02-27T10:41:26.5591944Z server:health Overall health status determined: healthy +465µs
+2026-02-27T10:41:26.5592389Z server:health Health response: status=healthy, servers=1 +445µs
+2026-02-27T10:41:26.5592772Z server:response_writer Writing response body: 122 bytes +2ms
+2026-02-27T10:41:26.5593219Z server:response_writer Retrieving captured body: 122 bytes +400µs
+2026-02-27T10:41:26.5593686Z server:response_writer Retrieving captured body: 122 bytes +376µs
+2026-02-27T10:41:26.5594152Z server:response_writer Retrieving captured status code: 200 +395µs
+2026-02-27T10:41:26.5594921Z 2026/02/27 10:40:59 [[::1]:56932] GET /health - Status: 200, Response: {"status":"healthy","specVersion":"1.8.0","gatewayVersion":"v0.1.5","servers":{"github":{"status":"running","uptime":0}}}
+2026-02-27T10:41:26.5595788Z server:auth Authenticating request: method=POST, path=/mcp/github, remote=127.0.0.1:40080 +4.5s
+2026-02-27T10:41:26.5596289Z server:auth Authentication successful +471µs
+2026-02-27T10:41:26.5596669Z auth:header Extracting session ID from auth header: sanitized=KBDM... +4.9s
+2026-02-27T10:41:26.5597125Z auth:header Using plain API key as session ID +340µs
+2026-02-27T10:41:26.5597694Z server:sdk-frontend >>> SDK Request [routed:github] session=KBDMpGo8... mcp-session=(none) method=POST path=/mcp/github +4.9s
+2026-02-27T10:41:26.5598360Z server:sdk-frontend     JSON-RPC Request: method=ping id=1 +359µs
+2026-02-27T10:41:26.5598932Z server:response_writer Creating new response writer with default status 200 +71ms
+2026-02-27T10:41:26.5599492Z server:helpers Extracting session from request: remote=127.0.0.1:40080, path=/mcp/github +4.9s
+2026-02-27T10:41:26.5600019Z auth:header Extracting session ID from auth header: sanitized=KBDM... +2ms
+2026-02-27T10:41:26.5600470Z auth:header Using plain API key as session ID +448µs
+2026-02-27T10:41:26.5601323Z server:helpers Session extracted successfully: sessionID=***, remote=127.0.0.1:40080 +1ms
+2026-02-27T10:41:26.5601809Z 2026/02/27 10:40:59 === NEW STREAMABLE HTTP CONNECTION (ROUTED) ===
+2026-02-27T10:41:26.5602169Z 2026/02/27 10:40:59 [127.0.0.1:40080] POST /mcp/github
+2026-02-27T10:41:26.5602450Z 2026/02/27 10:40:59 Backend: github
+2026-02-27T10:41:26.5602917Z 2026/02/27 10:40:59 Authorization (Session ID): ***
+2026-02-27T10:41:26.5603568Z server:helpers Checking request body: method=POST, hasBody=true, sessionID=*** +1ms
+2026-02-27T10:41:26.5604441Z server:helpers Request body read: size=40 bytes, sessionID=***, backendID=github +635µs
+2026-02-27T10:41:26.5604923Z 2026/02/27 10:40:59 Request body: {"jsonrpc":"2.0","id":1,"method":"ping"}
+2026-02-27T10:41:26.5605391Z server:helpers Request body restored for subsequent reads +892µs
+2026-02-27T10:41:26.5606180Z server:helpers Injecting session context: sessionID=***, backendID=github +504µs
+2026-02-27T10:41:26.5606720Z server:helpers Adding backend ID to context: backendID=github +517µs
+2026-02-27T10:41:26.5607187Z server:helpers Session context injected successfully +467µs
+2026-02-27T10:41:26.5607639Z 2026/02/27 10:40:59 ✓ Injected session ID and backend ID into context
+2026-02-27T10:41:26.5607990Z 2026/02/27 10:40:59 ===================================
+2026-02-27T10:41:26.5608754Z server:routed [CACHE] Creating new filtered server: backend=github, session=*** +4.5s
+2026-02-27T10:41:26.5609282Z server:routed Creating filtered server: backend=github +566µs
+2026-02-27T10:41:26.5609670Z 2026/02/27 10:40:59 Creating filtered server for github with 22 tools
+2026-02-27T10:41:26.5610100Z server:routed Backend github has 22 tools available +367µs
+2026-02-27T10:41:26.5610475Z server:routed [INFO] server connecting +846µs
+2026-02-27T10:41:26.5610972Z server:routed [INFO] server session connected session_id=3FOWPUT4NHMWVXQF4CPDQ2L4U7 +456µs
+2026-02-27T10:41:26.5611466Z server:response_writer Writing response body: 59 bytes +9ms
+2026-02-27T10:41:26.5612076Z server:routed [INFO] server session disconnected session_id=3FOWPUT4NHMWVXQF4CPDQ2L4U7 +1ms
+2026-02-27T10:41:26.5612632Z server:response_writer Retrieving captured body: 59 bytes +863µs
+2026-02-27T10:41:26.5613098Z server:response_writer Retrieving captured status code: 200 +341µs
+2026-02-27T10:41:26.5613659Z server:sdk-frontend <<< SDK Response [routed:github] status=200 duration=11.617477ms (non-JSON or stream) +11ms
+2026-02-27T10:41:26.5614180Z server:sdk-frontend     Raw response: event: message
+2026-02-27T10:41:26.5614488Z data: {"jsonrpc":"2.0","id":1,"result":{}}
+2026-02-27T10:41:26.5614661Z 
+2026-02-27T10:41:26.5614758Z  +304µs
+2026-02-27T10:41:26.5615102Z server:auth Authenticating request: method=POST, path=/mcp/github, remote=127.0.0.1:40084 +21ms
+2026-02-27T10:41:26.5615603Z server:auth Authentication successful +490µs
+2026-02-27T10:41:26.5615987Z auth:header Extracting session ID from auth header: sanitized=KBDM... +18ms
+2026-02-27T10:41:26.5616442Z auth:header Using plain API key as session ID +483µs
+2026-02-27T10:41:26.5617028Z server:sdk-frontend >>> SDK Request [routed:github] session=KBDMpGo8... mcp-session=(none) method=POST path=/mcp/github +10ms
+2026-02-27T10:41:26.5617723Z server:sdk-frontend     JSON-RPC Request: method=initialize id=2 +382µs
+2026-02-27T10:41:26.5618214Z server:response_writer Creating new response writer with default status 200 +12ms
+2026-02-27T10:41:26.5618881Z server:helpers Extracting session from request: remote=127.0.0.1:40084, path=/mcp/github +17ms
+2026-02-27T10:41:26.5619414Z auth:header Extracting session ID from auth header: sanitized=KBDM... +3ms
+2026-02-27T10:41:26.5619867Z auth:header Using plain API key as session ID +335µs
+2026-02-27T10:41:26.5620554Z server:helpers Session extracted successfully: sessionID=***, remote=127.0.0.1:40084 +1ms
+2026-02-27T10:41:26.5621034Z 2026/02/27 10:40:59 === NEW STREAMABLE HTTP CONNECTION (ROUTED) ===
+2026-02-27T10:41:26.5621383Z 2026/02/27 10:40:59 [127.0.0.1:40084] POST /mcp/github
+2026-02-27T10:41:26.5621785Z 2026/02/27 10:40:59 Backend: github
+2026-02-27T10:41:26.5622257Z 2026/02/27 10:40:59 Authorization (Session ID): ***
+2026-02-27T10:41:26.5623013Z server:helpers Checking request body: method=POST, hasBody=true, sessionID=*** +546µs
+2026-02-27T10:41:26.5623899Z server:helpers Request body read: size=166 bytes, sessionID=***, backendID=github +466µs
+2026-02-27T10:41:26.5624773Z 2026/02/27 10:40:59 Request body: {"jsonrpc":"2.0","id":2,"method":"initialize","params":{"capabilities":{},"clientInfo":{"name":"check-mcp-servers","version":"1.0.0"},"protocolVersion":"2024-11-05"}}
+2026-02-27T10:41:26.5625576Z server:helpers Request body restored for subsequent reads +1ms
+2026-02-27T10:41:26.5626358Z server:helpers Injecting session context: sessionID=***, backendID=github +390µs
+2026-02-27T10:41:26.5626895Z server:helpers Adding backend ID to context: backendID=github +508µs
+2026-02-27T10:41:26.5627349Z server:helpers Session context injected successfully +391µs
+2026-02-27T10:41:26.5627798Z 2026/02/27 10:40:59 ✓ Injected session ID and backend ID into context
+2026-02-27T10:41:26.5628159Z 2026/02/27 10:40:59 ===================================
+2026-02-27T10:41:26.5628962Z server:routed [CACHE] Reusing cached filtered server: backend=github, session=*** +18ms
+2026-02-27T10:41:26.5629446Z server:routed [INFO] server connecting +524µs
+2026-02-27T10:41:26.5629938Z server:routed [INFO] server session connected session_id=447IKHNMW3EJBVAXC7ONDLZVMM +326µs
+2026-02-27T10:41:26.5630427Z server:response_writer Writing response body: 202 bytes +7ms
+2026-02-27T10:41:26.5630880Z server:response_writer Retrieving captured body: 202 bytes +347µs
+2026-02-27T10:41:26.5631356Z server:response_writer Retrieving captured status code: 200 +307µs
+2026-02-27T10:41:26.5631905Z server:sdk-frontend <<< SDK Response [routed:github] status=200 duration=9.973235ms (non-JSON or stream) +9ms
+2026-02-27T10:41:26.5632420Z server:sdk-frontend     Raw response: event: message
+2026-02-27T10:41:26.5633129Z data: {"jsonrpc":"2.0","id":2,"result":{"capabilities":{"logging":{},"tools":{"listChanged":true}},"protocolVersion":"2024-11-05","serverInfo":{"name":"awmg-github","version":"1.0.0"}}}
+2026-02-27T10:41:26.5633902Z 
+2026-02-27T10:41:26.5633994Z  +425µs
+2026-02-27T10:41:26.5634343Z server:auth Authenticating request: method=POST, path=/mcp/github, remote=127.0.0.1:40092 +24ms
+2026-02-27T10:41:26.5634847Z server:auth Authentication successful +421µs
+2026-02-27T10:41:26.5635231Z auth:header Extracting session ID from auth header: sanitized=KBDM... +20ms
+2026-02-27T10:41:26.5635686Z auth:header Using plain API key as session ID +451µs
+2026-02-27T10:41:26.5636265Z server:sdk-frontend >>> SDK Request [routed:github] session=KBDMpGo8... mcp-session=447IKHNM... method=POST path=/mcp/github +14ms
+2026-02-27T10:41:26.5636962Z server:sdk-frontend     JSON-RPC Request: method=tools/list id=3 +438µs
+2026-02-27T10:41:26.5637451Z server:response_writer Creating new response writer with default status 200 +16ms
+2026-02-27T10:41:26.5637973Z server:response_writer Writing response body: 15997 bytes +687µs
+2026-02-27T10:41:26.5638569Z server:response_writer Retrieving captured body: 15997 bytes +421µs
+2026-02-27T10:41:26.5639064Z server:response_writer Retrieving captured status code: 200 +355µs
+2026-02-27T10:41:26.5639619Z server:sdk-frontend <<< SDK Response [routed:github] status=200 duration=3.579195ms (non-JSON or stream) +2ms
+2026-02-27T10:41:26.5640168Z server:sdk-frontend     Raw response (truncated): event: message
+2026-02-27T10:41:26.5642207Z data: {"jsonrpc":"2.0","id":3,"result":{"tools":[{"description":"[github] Get details for a commit from a GitHub repository","inputSchema":{"properties":{"include_diff":{"default":true,"description":"Whether to include file diffs and stats in the response. Default is true.","type":"boolean"},"owner":{"description":"Repository owner","type":"string"},"page":{"description":"Page number for pagination (min 1)","minimum":1,"type":"number"},"perPage":{"description":"Results per page fo... +314µs
+2026-02-27T10:41:26.5644179Z server:auth Authenticating request: method=POST, path=/mcp/github, remote=172.30.0.20:52372 +11.5s
+2026-02-27T10:41:26.5644694Z server:auth Authentication successful +884µs
+2026-02-27T10:41:26.5645075Z auth:header Extracting session ID from auth header: sanitized=KBDM... +11.5s
+2026-02-27T10:41:26.5645532Z auth:header Using plain API key as session ID +546µs
+2026-02-27T10:41:26.5646103Z server:sdk-frontend >>> SDK Request [routed:github] session=KBDMpGo8... mcp-session=(none) method=POST path=/mcp/github +11.5s
+2026-02-27T10:41:26.5646790Z server:sdk-frontend     JSON-RPC Request: method=initialize id=0 +455µs
+2026-02-27T10:41:26.5647284Z server:response_writer Creating new response writer with default status 200 +11.5s
+2026-02-27T10:41:26.5647853Z server:helpers Extracting session from request: remote=172.30.0.20:52372, path=/mcp/github +11.6s
+2026-02-27T10:41:26.5648397Z auth:header Extracting session ID from auth header: sanitized=KBDM... +2ms
+2026-02-27T10:41:26.5648960Z auth:header Using plain API key as session ID +356µs
+2026-02-27T10:41:26.5649676Z server:helpers Session extracted successfully: sessionID=***, remote=172.30.0.20:52372 +1ms
+2026-02-27T10:41:26.5650163Z 2026/02/27 10:41:10 === NEW STREAMABLE HTTP CONNECTION (ROUTED) ===
+2026-02-27T10:41:26.5650514Z 2026/02/27 10:41:10 [172.30.0.20:52372] POST /mcp/github
+2026-02-27T10:41:26.5650792Z 2026/02/27 10:41:10 Backend: github
+2026-02-27T10:41:26.5651450Z 2026/02/27 10:41:10 Authorization (Session ID): ***
+2026-02-27T10:41:26.5652363Z server:helpers Checking request body: method=POST, hasBody=true, sessionID=*** +614µs
+2026-02-27T10:41:26.5653428Z server:helpers Request body read: size=173 bytes, sessionID=***, backendID=github +380µs
+2026-02-27T10:41:26.5654470Z 2026/02/27 10:41:10 Request body: {"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"github-copilot-developer","version":"1.0.0"}},"jsonrpc":"2.0","id":0}
+2026-02-27T10:41:26.5655536Z server:helpers Request body restored for subsequent reads +664µs
+2026-02-27T10:41:26.5656607Z server:helpers Injecting session context: sessionID=***, backendID=github +279µs
+2026-02-27T10:41:26.5657236Z server:helpers Adding backend ID to context: backendID=github +306µs
+2026-02-27T10:41:26.5657916Z server:helpers Session context injected successfully +320µs
+2026-02-27T10:41:26.5658639Z 2026/02/27 10:41:10 ✓ Injected session ID and backend ID into context
+2026-02-27T10:41:26.5659153Z 2026/02/27 10:41:10 ===================================
+2026-02-27T10:41:26.5659950Z server:routed [CACHE] Reusing cached filtered server: backend=github, session=*** +11.6s
+2026-02-27T10:41:26.5660508Z server:routed [INFO] server connecting +335µs
+2026-02-27T10:41:26.5661155Z server:routed [INFO] server session connected session_id=EXHMQ7R26LXILFMKK7ZOLHLVZW +393µs
+2026-02-27T10:41:26.5661809Z server:response_writer Writing response body: 202 bytes +5ms
+2026-02-27T10:41:26.5662408Z server:response_writer Retrieving captured body: 202 bytes +322µs
+2026-02-27T10:41:26.5663055Z server:response_writer Retrieving captured status code: 200 +417µs
+2026-02-27T10:41:26.5673448Z server:sdk-frontend <<< SDK Response [routed:github] status=200 duration=8.353303ms (non-JSON or stream) +7ms
+2026-02-27T10:41:26.5674270Z server:sdk-frontend     Raw response: event: message
+2026-02-27T10:41:26.5675014Z data: {"jsonrpc":"2.0","id":0,"result":{"capabilities":{"logging":{},"tools":{"listChanged":true}},"protocolVersion":"2025-06-18","serverInfo":{"name":"awmg-github","version":"1.0.0"}}}
+2026-02-27T10:41:26.5675634Z 
+2026-02-27T10:41:26.5675775Z  +333µs
+2026-02-27T10:41:26.5676147Z server:auth Authenticating request: method=POST, path=/mcp/github, remote=172.30.0.20:52384 +23ms
+2026-02-27T10:41:26.5676659Z server:auth Authentication successful +532µs
+2026-02-27T10:41:26.5677042Z auth:header Extracting session ID from auth header: sanitized=KBDM... +20ms
+2026-02-27T10:41:26.5677512Z auth:header Using plain API key as session ID +339µs
+2026-02-27T10:41:26.5678111Z server:sdk-frontend >>> SDK Request [routed:github] session=KBDMpGo8... mcp-session=EXHMQ7R2... method=POST path=/mcp/github +15ms
+2026-02-27T10:41:26.5679262Z server:sdk-frontend     JSON-RPC Request: method=notifications/initialized id=<nil> +428µs
+2026-02-27T10:41:26.5679823Z server:response_writer Creating new response writer with default status 200 +17ms
+2026-02-27T10:41:26.5680341Z server:response_writer Setting response status code: 202 +410µs
+2026-02-27T10:41:26.5680701Z server:routed [INFO] session initialized +19ms
+2026-02-27T10:41:26.5681103Z server:response_writer Retrieving captured body: 0 bytes +463µs
+2026-02-27T10:41:26.5681566Z server:response_writer Retrieving captured status code: 202 +330µs
+2026-02-27T10:41:26.5682087Z server:sdk-frontend <<< SDK Response [routed:github] status=202 duration=2.835177ms (empty body) +2ms
+2026-02-27T10:41:26.5682695Z server:auth Authenticating request: method=GET, path=/mcp/github, remote=172.30.0.20:52372 +6ms
+2026-02-27T10:41:26.5683190Z server:auth Authentication successful +515µs
+2026-02-27T10:41:26.5683574Z auth:header Extracting session ID from auth header: sanitized=KBDM... +6ms
+2026-02-27T10:41:26.5684042Z auth:header Using plain API key as session ID +424µs
+2026-02-27T10:41:26.5684635Z server:sdk-frontend >>> SDK Request [routed:github] session=KBDMpGo8... mcp-session=EXHMQ7R2... method=GET path=/mcp/github +4ms
+2026-02-27T10:41:26.5685302Z server:response_writer Creating new response writer with default status 200 +5ms
+2026-02-27T10:41:26.5685806Z server:response_writer Setting response status code: 200 +461µs
+2026-02-27T10:41:26.5686324Z server:auth Authenticating request: method=DELETE, path=/mcp/github, remote=172.30.0.20:52384 +85ms
+2026-02-27T10:41:26.5686835Z server:auth Authentication successful +482µs
+2026-02-27T10:41:26.5687212Z auth:header Extracting session ID from auth header: sanitized=KBDM... +85ms
+2026-02-27T10:41:26.5687667Z auth:header Using plain API key as session ID +311µs
+2026-02-27T10:41:26.5688263Z server:sdk-frontend >>> SDK Request [routed:github] session=KBDMpGo8... mcp-session=EXHMQ7R2... method=DELETE path=/mcp/github +85ms
+2026-02-27T10:41:26.5689208Z server:response_writer Creating new response writer with default status 200 +85ms
+2026-02-27T10:41:26.5689722Z server:response_writer Retrieving captured body: 0 bytes +342µs
+2026-02-27T10:41:26.5690213Z server:routed [INFO] server session disconnected session_id=EXHMQ7R26LXILFMKK7ZOLHLVZW +92ms
+2026-02-27T10:41:26.5690778Z server:response_writer Retrieving captured status code: 200 +371µs
+2026-02-27T10:41:26.5691292Z server:sdk-frontend <<< SDK Response [routed:github] status=200 duration=87.671221ms (empty body) +1ms
+2026-02-27T10:41:26.5691823Z server:response_writer Setting response status code: 204 +1ms
+2026-02-27T10:41:26.5692273Z server:response_writer Retrieving captured body: 0 bytes +365µs
+2026-02-27T10:41:26.5692725Z server:response_writer Retrieving captured status code: 204 +371µs
+2026-02-27T10:41:26.5693238Z server:sdk-frontend <<< SDK Response [routed:github] status=204 duration=3.942947ms (empty body) +2ms
+2026-02-27T10:41:26.5693826Z server:response_writer Creating new response writer with default status 200 +14.3s
+2026-02-27T10:41:26.5694379Z server:auth Authenticating request: method=POST, path=/close, remote=[::1]:57580 +14.3s
+2026-02-27T10:41:26.5694891Z server:auth Authentication failed: invalid API key +342µs
+2026-02-27T10:41:26.5695365Z server:errors Logging runtime error: type=authentication_failed, detail=invalid_api_key +30.9s
+2026-02-27T10:41:26.5696213Z 2026/02/27 10:41:25 [ERROR] timestamp=2026-02-27T10:41:25Z server=gateway request_id=unknown error_type=authentication_failed detail=invalid_api_key path=/close method=POST
+2026-02-27T10:41:26.5696942Z server:response_writer Setting response status code: 401 +2ms
+2026-02-27T10:41:26.5697374Z server:response_writer Writing response body: 30 bytes +342µs
+2026-02-27T10:41:26.5697813Z server:response_writer Retrieving captured body: 30 bytes +320µs
+2026-02-27T10:41:26.5698264Z server:response_writer Retrieving captured body: 30 bytes +365µs
+2026-02-27T10:41:26.5699036Z server:response_writer Retrieving captured status code: 401 +341µs
+2026-02-27T10:41:26.5699534Z 2026/02/27 10:41:25 [[::1]:57580] POST /close - Status: 401, Response: Unauthorized: invalid API key
+2026-02-27T10:41:26.5700057Z launcher:launcher Closing launcher: connections=1, hasSessionPool=true +26.1s
+2026-02-27T10:41:26.5700493Z launcher:pool Context cancelled, stopping cleanup +30.8s
+2026-02-27T10:41:26.5700865Z launcher:launcher Closing 1 connections +776µs
+2026-02-27T10:41:26.5701144Z 2026/02/27 10:41:25 Shutting down...
+2026-02-27T10:41:26.5701437Z launcher:launcher Stopping session connection pool +1ms
+2026-02-27T10:41:26.5701759Z launcher:pool Stopping connection pool +3ms
+2026-02-27T10:41:26.5702086Z launcher:pool Cleanup goroutine stopped +437µs
+2026-02-27T10:41:26.5702419Z launcher:pool Connection pool stopped +369µs
+2026-02-27T10:41:26.5702726Z launcher:launcher Launcher closed successfully +1ms
+2026-02-27T10:41:26.5703186Z launcher:launcher Closing launcher: connections=0, hasSessionPool=true +488µs
+2026-02-27T10:41:26.5703648Z launcher:launcher Closing 0 connections +555µs
+2026-02-27T10:41:26.5703839Z 
+2026-02-27T10:41:26.5704073Z ##[endgroup]
+2026-02-27T10:41:26.5704388Z ##[group]tools.json (3748 bytes)
+2026-02-27T10:41:26.5704609Z {
+2026-02-27T10:41:26.5704766Z   "servers": {
+2026-02-27T10:41:26.5704936Z     "github": [
+2026-02-27T10:41:26.5705098Z       {
+2026-02-27T10:41:26.5705266Z         "name": "get_commit",
+2026-02-27T10:41:26.5705579Z         "description": "Get details for a commit from a GitHub repository"
+2026-02-27T10:41:26.5705907Z       },
+2026-02-27T10:41:26.5706064Z       {
+2026-02-27T10:41:26.5706227Z         "name": "get_file_contents",
+2026-02-27T10:41:26.5706599Z         "description": "Get the contents of a file or directory from a GitHub repository"
+2026-02-27T10:41:26.5706976Z       },
+2026-02-27T10:41:26.5707129Z       {
+2026-02-27T10:41:26.5707294Z         "name": "get_label",
+2026-02-27T10:41:26.5707565Z         "description": "Get a specific label from a repository."
+2026-02-27T10:41:26.5708000Z       },
+2026-02-27T10:41:26.5708155Z       {
+2026-02-27T10:41:26.5708325Z         "name": "get_latest_release",
+2026-02-27T10:41:26.5708754Z         "description": "Get the latest release in a GitHub repository"
+2026-02-27T10:41:26.5709069Z       },
+2026-02-27T10:41:26.5709213Z       {
+2026-02-27T10:41:26.5709373Z         "name": "get_me",
+2026-02-27T10:41:26.5710055Z         "description": "Get details of the authenticated GitHub user. Use this when a request is about the user's own profile for GitHub. Or when information is missing to build other tool calls."
+2026-02-27T10:41:26.5710758Z       },
+2026-02-27T10:41:26.5710908Z       {
+2026-02-27T10:41:26.5711068Z         "name": "get_release_by_tag",
+2026-02-27T10:41:26.5711423Z         "description": "Get a specific release by its tag name in a GitHub repository"
+2026-02-27T10:41:26.5711784Z       },
+2026-02-27T10:41:26.5711932Z       {
+2026-02-27T10:41:26.5712090Z         "name": "get_tag",
+2026-02-27T10:41:26.5712419Z         "description": "Get details about a specific git tag in a GitHub repository"
+2026-02-27T10:41:26.5712771Z       },
+2026-02-27T10:41:26.5712920Z       {
+2026-02-27T10:41:26.5713084Z         "name": "get_team_members",
+2026-02-27T10:41:26.5713643Z         "description": "Get member usernames of a specific team in an organization. Limited to organizations accessible with current credentials"
+2026-02-27T10:41:26.5714203Z       },
+2026-02-27T10:41:26.5714347Z       {
+2026-02-27T10:41:26.5714508Z         "name": "get_teams",
+2026-02-27T10:41:26.5714993Z         "description": "Get details of the teams the user is a member of. Limited to organizations accessible with current credentials"
+2026-02-27T10:41:26.5715501Z       },
+2026-02-27T10:41:26.5715650Z       {
+2026-02-27T10:41:26.5715811Z         "name": "issue_read",
+2026-02-27T10:41:26.5716150Z         "description": "Get information about a specific issue in a GitHub repository."
+2026-02-27T10:41:26.5716516Z       },
+2026-02-27T10:41:26.5716790Z       {
+2026-02-27T10:41:26.5716959Z         "name": "list_branches",
+2026-02-27T10:41:26.5717232Z         "description": "List branches in a GitHub repository"
+2026-02-27T10:41:26.5717509Z       },
+2026-02-27T10:41:26.5717660Z       {
+2026-02-27T10:41:26.5717818Z         "name": "list_commits",
+2026-02-27T10:41:26.5718670Z         "description": "Get list of commits of a branch in a GitHub repository. Returns at least 30 results per page by default, but can return more if specified using the perPage parameter (up to 100)."
+2026-02-27T10:41:26.5719563Z       },
+2026-02-27T10:41:26.5719720Z       {
+2026-02-27T10:41:26.5719881Z         "name": "list_issue_types",
+2026-02-27T10:41:26.5720248Z         "description": "List supported issue types for repository owner (organization)."
+2026-02-27T10:41:26.5720624Z       },
+2026-02-27T10:41:26.5720779Z       {
+2026-02-27T10:41:26.5720944Z         "name": "list_issues",
+2026-02-27T10:41:26.5721532Z         "description": "List issues in a GitHub repository. For pagination, use the 'endCursor' from the previous response's 'pageInfo' in the 'after' parameter."
+2026-02-27T10:41:26.5722157Z       },
+2026-02-27T10:41:26.5722307Z       {
+2026-02-27T10:41:26.5722477Z         "name": "list_pull_requests",
+2026-02-27T10:41:26.5723115Z         "description": "List pull requests in a GitHub repository. If the user specifies an author, then DO NOT use this tool and use the search_pull_requests tool instead."
+2026-02-27T10:41:26.5723744Z       },
+2026-02-27T10:41:26.5723888Z       {
+2026-02-27T10:41:26.5724051Z         "name": "list_releases",
+2026-02-27T10:41:26.5724322Z         "description": "List releases in a GitHub repository"
+2026-02-27T10:41:26.5724599Z       },
+2026-02-27T10:41:26.5724750Z       {
+2026-02-27T10:41:26.5724903Z         "name": "list_tags",
+2026-02-27T10:41:26.5725163Z         "description": "List git tags in a GitHub repository"
+2026-02-27T10:41:26.5725436Z       },
+2026-02-27T10:41:26.5725586Z       {
+2026-02-27T10:41:26.5725754Z         "name": "pull_request_read",
+2026-02-27T10:41:26.5726308Z         "description": "Get information on a specific pull request in GitHub repository."
+2026-02-27T10:41:26.5726680Z       },
+2026-02-27T10:41:26.5726828Z       {
+2026-02-27T10:41:26.5726988Z         "name": "search_code",
+2026-02-27T10:41:26.5727714Z         "description": "Fast and precise code search across ALL GitHub repositories using GitHub's native search engine. Best for finding exact symbols, functions, classes, or specific code patterns."
+2026-02-27T10:41:26.5728607Z       },
+2026-02-27T10:41:26.5728761Z       {
+2026-02-27T10:41:26.5728916Z         "name": "search_issues",
+2026-02-27T10:41:26.5729373Z         "description": "Search for issues in GitHub repositories using issues search syntax already scoped to is:issue"
+2026-02-27T10:41:26.5729849Z       },
+2026-02-27T10:41:26.5729992Z       {
+2026-02-27T10:41:26.5730154Z         "name": "search_pull_requests",
+2026-02-27T10:41:26.5730644Z         "description": "Search for pull requests in GitHub repositories using issues search syntax already scoped to is:pr"
+2026-02-27T10:41:26.5731141Z       },
+2026-02-27T10:41:26.5731281Z       {
+2026-02-27T10:41:26.5731450Z         "name": "search_repositories",
+2026-02-27T10:41:26.5732221Z         "description": "Find GitHub repositories by name, description, readme, topics, or other metadata. Perfect for discovering projects, finding examples, or locating specific repositories across GitHub."
+2026-02-27T10:41:26.5732986Z       }
+2026-02-27T10:41:26.5733135Z     ]
+2026-02-27T10:41:26.5733281Z   }
+2026-02-27T10:41:26.5733421Z }
+2026-02-27T10:41:26.5733716Z ##[endgroup]
+2026-02-27T10:41:26.5733995Z ##[endgroup]
+2026-02-27T10:41:26.5734266Z ##[endgroup]
+2026-02-27T10:41:26.5734434Z Found gateway.md (1158 bytes)

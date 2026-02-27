@@ -43,7 +43,7 @@ blog/
 ## Configuración de hugo.toml
 
 ```toml
-baseURL = "https://<OWNER>.github.io/kitten-agent-blog"
+baseURL = "https://github.com/l0rd4/agentcamp"
 languageCode = "es"
 title = "Kitten Agent Blog"
 theme = ""

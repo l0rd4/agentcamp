@@ -1,0 +1,21 @@
+﻿2026-02-27T11:14:02.8179824Z ##[group]Run actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+2026-02-27T11:14:02.8181144Z with:
+2026-02-27T11:14:02.8181739Z   name: prompt
+2026-02-27T11:14:02.8182445Z   path: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-02-27T11:14:02.8183336Z   retention-days: 1
+2026-02-27T11:14:02.8184015Z   if-no-files-found: warn
+2026-02-27T11:14:02.8184767Z   compression-level: 6
+2026-02-27T11:14:02.8185506Z   overwrite: false
+2026-02-27T11:14:02.8186184Z   include-hidden-files: false
+2026-02-27T11:14:02.8187220Z ##[endgroup]
+2026-02-27T11:14:02.9905801Z With the provided path, there will be 1 file uploaded
+2026-02-27T11:14:02.9925979Z Artifact name is valid!
+2026-02-27T11:14:02.9930098Z Root directory input is valid!
+2026-02-27T11:14:03.1298388Z Beginning upload of artifact content to blob storage
+2026-02-27T11:14:03.2662750Z Uploaded bytes 2146
+2026-02-27T11:14:03.2998526Z Finished uploading artifact content to blob storage!
+2026-02-27T11:14:03.3005309Z SHA256 digest of uploaded artifact zip is fc659004432cc40203002cfcc431510e960d7ac859e7a2023658cc5c50a5d1d2
+2026-02-27T11:14:03.3012301Z Finalizing artifact upload
+2026-02-27T11:14:03.4785015Z Artifact prompt.zip successfully finalized. Artifact ID 5688991328
+2026-02-27T11:14:03.4790541Z Artifact prompt has been successfully uploaded! Final size is 2146 bytes. Artifact ID is 5688991328
+2026-02-27T11:14:03.4800781Z Artifact download URL: https://github.com/l0rd4/agentcamp/actions/runs/22483955818/artifacts/5688991328

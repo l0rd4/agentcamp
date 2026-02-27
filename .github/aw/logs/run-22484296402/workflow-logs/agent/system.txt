@@ -1,0 +1,8 @@
+2026-02-27T11:25:19.1060000Z Evaluating agent.if
+2026-02-27T11:25:19.1060000Z Evaluating: success()
+2026-02-27T11:25:19.1060000Z Result: true
+2026-02-27T11:25:19.1090000Z Requested labels: ubuntu-latest
+2026-02-27T11:25:19.1090000Z Job defined at: l0rd4/agentcamp/.github/workflows/squad-intro.lock.yml@refs/heads/master
+2026-02-27T11:25:19.1090000Z Waiting for a runner to pick up this job...
+2026-02-27T11:25:19.5950000Z Job is about to start running on the hosted runner: GitHub Actions 1000000017
+2026-02-27T11:25:19.5950000Z Job is waiting for a hosted runner to come online.

@@ -1,0 +1,67 @@
+{
+  "cli_version": "v0.50.6",
+  "run_id": 22483041180,
+  "processed_at": "2026-02-27T11:46:09.4908529+01:00",
+  "run": {
+    "databaseId": 22483041180,
+    "number": 3,
+    "url": "https://github.com/l0rd4/agentcamp/actions/runs/22483041180",
+    "status": "completed",
+    "conclusion": "failure",
+    "workflowName": "Squad Intro — Workflow de presentación del squad",
+    "workflowPath": ".github/workflows/squad-intro.lock.yml",
+    "createdAt": "2026-02-27T10:44:29Z",
+    "startedAt": "2026-02-27T10:44:29Z",
+    "updatedAt": "2026-02-27T10:45:59Z",
+    "event": "workflow_dispatch",
+    "headBranch": "master",
+    "headSha": "0a7644ce3591423a791e1191220db63cc5550e7e",
+    "displayTitle": "Squad Intro — Workflow de presentación del squad",
+    "Duration": 90000000000,
+    "TokenUsage": 0,
+    "EstimatedCost": 0,
+    "Turns": 0,
+    "ErrorCount": 1,
+    "WarningCount": 0,
+    "MissingToolCount": 0,
+    "MissingDataCount": 0,
+    "NoopCount": 0,
+    "SafeItemsCount": 0,
+    "LogsPath": ".github\\aw\\logs\\run-22483041180"
+  },
+  "metrics": {
+    "TokenUsage": 0,
+    "EstimatedCost": 0,
+    "Turns": 0,
+    "ToolCalls": null,
+    "ToolSequences": null
+  },
+  "access_analysis": null,
+  "firewall_analysis": null,
+  "redacted_domains_analysis": null,
+  "missing_tools": null,
+  "missing_data": null,
+  "noops": null,
+  "mcp_failures": null,
+  "artifacts_list": [
+    "prompt.txt"
+  ],
+  "job_details": [
+    {
+      "name": "activation",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-02-27T10:44:34Z",
+      "completed_at": "2026-02-27T10:44:55Z",
+      "Duration": 21000000000
+    },
+    {
+      "name": "agent",
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-02-27T10:44:59Z",
+      "completed_at": "2026-02-27T10:45:58Z",
+      "Duration": 59000000000
+    }
+  ]
+}

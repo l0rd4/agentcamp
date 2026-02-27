@@ -1,0 +1,141 @@
+{
+  "cli_version": "v0.50.6",
+  "run_id": 22483955818,
+  "processed_at": "2026-02-27T12:16:56.2543828+01:00",
+  "run": {
+    "databaseId": 22483955818,
+    "number": 5,
+    "url": "https://github.com/l0rd4/agentcamp/actions/runs/22483955818",
+    "status": "completed",
+    "conclusion": "failure",
+    "workflowName": "Squad Intro — Workflow de presentación del squad",
+    "workflowPath": ".github/workflows/squad-intro.lock.yml",
+    "createdAt": "2026-02-27T11:13:43Z",
+    "startedAt": "2026-02-27T11:13:43Z",
+    "updatedAt": "2026-02-27T11:15:09Z",
+    "event": "workflow_dispatch",
+    "headBranch": "master",
+    "headSha": "0a7644ce3591423a791e1191220db63cc5550e7e",
+    "displayTitle": "Squad Intro — Workflow de presentación del squad",
+    "Duration": 86000000000,
+    "TokenUsage": 0,
+    "EstimatedCost": 0,
+    "Turns": 0,
+    "ErrorCount": 1,
+    "WarningCount": 0,
+    "MissingToolCount": 0,
+    "MissingDataCount": 0,
+    "NoopCount": 0,
+    "SafeItemsCount": 0,
+    "LogsPath": ".github\\aw\\logs\\run-22483955818"
+  },
+  "metrics": {
+    "TokenUsage": 0,
+    "EstimatedCost": 0,
+    "Turns": 0,
+    "ToolCalls": null,
+    "ToolSequences": null
+  },
+  "access_analysis": null,
+  "firewall_analysis": {
+    "allowed_domains": [
+      "api.githubcopilot.com:443"
+    ],
+    "blocked_domains": [
+      "-"
+    ],
+    "total_requests": 4,
+    "allowed_requests": 2,
+    "blocked_requests": 2,
+    "requests_by_domain": {
+      "-": {
+        "allowed": 0,
+        "blocked": 2
+      },
+      "api.githubcopilot.com:443": {
+        "allowed": 2,
+        "blocked": 0
+      }
+    }
+  },
+  "redacted_domains_analysis": null,
+  "missing_tools": null,
+  "missing_data": null,
+  "noops": null,
+  "mcp_failures": null,
+  "artifacts_list": [
+    "agent-stdio.log",
+    "aw-prompts\\prompt.txt",
+    "aw_info.json",
+    "mcp-logs\\gateway.md",
+    "mcp-logs\\github.log",
+    "mcp-logs\\mcp-gateway.log",
+    "mcp-logs\\rpc-messages.jsonl",
+    "mcp-logs\\start-gateway.log",
+    "mcp-logs\\stderr.log",
+    "mcp-logs\\tools.json",
+    "prompt.txt",
+    "sandbox\\firewall\\logs\\access.log",
+    "sandbox\\firewall\\logs\\cache.log",
+    "workflow-logs\\0_agent.txt",
+    "workflow-logs\\1_activation.txt",
+    "workflow-logs\\activation\\10_Validate prompt placeholders.txt",
+    "workflow-logs\\activation\\11_Print prompt.txt",
+    "workflow-logs\\activation\\12_Upload prompt artifact.txt",
+    "workflow-logs\\activation\\1_Set up job.txt",
+    "workflow-logs\\activation\\24_Post Checkout .github and .agents folders.txt",
+    "workflow-logs\\activation\\25_Complete job.txt",
+    "workflow-logs\\activation\\2_Setup Scripts.txt",
+    "workflow-logs\\activation\\3_Validate COPILOT_GITHUB_TOKEN secret.txt",
+    "workflow-logs\\activation\\4_Validate context variables.txt",
+    "workflow-logs\\activation\\5_Checkout .github and .agents folders.txt",
+    "workflow-logs\\activation\\6_Check workflow file timestamps.txt",
+    "workflow-logs\\activation\\7_Create prompt with built-in context.txt",
+    "workflow-logs\\activation\\8_Interpolate variables and render templates.txt",
+    "workflow-logs\\activation\\9_Substitute placeholders.txt",
+    "workflow-logs\\activation\\system.txt",
+    "workflow-logs\\agent\\10_Determine automatic lockdown mode for GitHub MCP Server.txt",
+    "workflow-logs\\agent\\11_Download container images.txt",
+    "workflow-logs\\agent\\12_Start MCP Gateway.txt",
+    "workflow-logs\\agent\\13_Generate workflow overview.txt",
+    "workflow-logs\\agent\\14_Download prompt artifact.txt",
+    "workflow-logs\\agent\\15_Clean git credentials.txt",
+    "workflow-logs\\agent\\16_Execute GitHub Copilot CLI.txt",
+    "workflow-logs\\agent\\18_Copy Copilot session state files to logs.txt",
+    "workflow-logs\\agent\\19_Stop MCP Gateway.txt",
+    "workflow-logs\\agent\\1_Set up job.txt",
+    "workflow-logs\\agent\\20_Redact secrets in logs.txt",
+    "workflow-logs\\agent\\22_Parse agent logs for step summary.txt",
+    "workflow-logs\\agent\\23_Parse MCP Gateway logs for step summary.txt",
+    "workflow-logs\\agent\\24_Print firewall logs.txt",
+    "workflow-logs\\agent\\25_Upload agent artifacts.txt",
+    "workflow-logs\\agent\\2_Setup Scripts.txt",
+    "workflow-logs\\agent\\3_Checkout repository.txt",
+    "workflow-logs\\agent\\4_Create gh-aw temp directory.txt",
+    "workflow-logs\\agent\\50_Post Checkout repository.txt",
+    "workflow-logs\\agent\\51_Complete job.txt",
+    "workflow-logs\\agent\\5_Configure Git credentials.txt",
+    "workflow-logs\\agent\\7_Generate agentic run info.txt",
+    "workflow-logs\\agent\\8_Install GitHub Copilot CLI.txt",
+    "workflow-logs\\agent\\9_Install awf binary.txt",
+    "workflow-logs\\agent\\system.txt"
+  ],
+  "job_details": [
+    {
+      "name": "activation",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-02-27T11:13:48Z",
+      "completed_at": "2026-02-27T11:14:07Z",
+      "Duration": 19000000000
+    },
+    {
+      "name": "agent",
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-02-27T11:14:10Z",
+      "completed_at": "2026-02-27T11:15:08Z",
+      "Duration": 58000000000
+    }
+  ]
+}
