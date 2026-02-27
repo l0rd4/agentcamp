@@ -1,0 +1,25 @@
+﻿2026-02-27T11:44:52.0833304Z ##[group]Run actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+2026-02-27T11:44:52.0834162Z with:
+2026-02-27T11:44:52.0834568Z   name: safe-output-items
+2026-02-27T11:44:52.0835071Z   path: /tmp/safe-output-items.jsonl
+2026-02-27T11:44:52.0835615Z   if-no-files-found: warn
+2026-02-27T11:44:52.0836088Z   compression-level: 6
+2026-02-27T11:44:52.0836539Z   overwrite: false
+2026-02-27T11:44:52.0836978Z   include-hidden-files: false
+2026-02-27T11:44:52.0837440Z env:
+2026-02-27T11:44:52.0837829Z   GH_AW_ENGINE_ID: copilot
+2026-02-27T11:44:52.0838297Z   GH_AW_WORKFLOW_ID: astro
+2026-02-27T11:44:52.0839294Z   GH_AW_WORKFLOW_NAME: Astro — Workflow de scaffolding del blog Hugo
+2026-02-27T11:44:52.0840145Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/safeoutputs/agent_output.json
+2026-02-27T11:44:52.0840801Z ##[endgroup]
+2026-02-27T11:44:52.2594945Z With the provided path, there will be 1 file uploaded
+2026-02-27T11:44:52.2605163Z Artifact name is valid!
+2026-02-27T11:44:52.2619160Z Root directory input is valid!
+2026-02-27T11:44:52.3774436Z Beginning upload of artifact content to blob storage
+2026-02-27T11:44:52.5012039Z Uploaded bytes 162
+2026-02-27T11:44:52.5336629Z Finished uploading artifact content to blob storage!
+2026-02-27T11:44:52.5343669Z SHA256 digest of uploaded artifact zip is 1f1d8c9a5adb4d97684cac16a4133976fdb3f264a0c4521685ba6f37f2d3c54a
+2026-02-27T11:44:52.5350474Z Finalizing artifact upload
+2026-02-27T11:44:52.7447857Z Artifact safe-output-items.zip successfully finalized. Artifact ID 5689369169
+2026-02-27T11:44:52.7453311Z Artifact safe-output-items has been successfully uploaded! Final size is 162 bytes. Artifact ID is 5689369169
+2026-02-27T11:44:52.7463056Z Artifact download URL: https://github.com/l0rd4/agentcamp/actions/runs/22484839425/artifacts/5689369169

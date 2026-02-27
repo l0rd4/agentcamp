@@ -1,0 +1,12 @@
+﻿2026-02-27T11:45:08.8011856Z ##[group]Run actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53
+2026-02-27T11:45:08.8016231Z with:
+2026-02-27T11:45:08.8016944Z   name: agent-output
+2026-02-27T11:45:08.8017746Z   path: /tmp/gh-aw/safeoutputs/
+2026-02-27T11:45:08.8018637Z   merge-multiple: false
+2026-02-27T11:45:08.8019453Z   repository: l0rd4/agentcamp
+2026-02-27T11:45:08.8023391Z   run-id: 22484839425
+2026-02-27T11:45:08.8025281Z ##[endgroup]
+2026-02-27T11:45:09.3139347Z Downloading single artifact
+2026-02-27T11:45:09.5015171Z ##[error]Unable to download artifact(s): Artifact not found for name: agent-output
+        Please ensure that your artifact is not expired and the artifact was uploaded using a compatible version of toolkit/upload-artifact.
+        For more information, visit the GitHub Artifacts FAQ: https://github.com/actions/toolkit/blob/main/packages/artifact/docs/faq.md

@@ -1,0 +1,18 @@
+﻿2026-02-27T11:45:09.9059707Z ##[group]Run actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+2026-02-27T11:45:09.9061138Z with:
+2026-02-27T11:45:09.9062222Z   github-token: ***
+2026-02-27T11:45:09.9065050Z   script: const { setupGlobals } = require('/opt/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io);
+const { main } = require('/opt/gh-aw/actions/missing_tool.cjs');
+await main();
+
+2026-02-27T11:45:09.9067773Z   debug: false
+2026-02-27T11:45:09.9068590Z   user-agent: actions/github-script
+2026-02-27T11:45:09.9069527Z   result-encoding: json
+2026-02-27T11:45:09.9070307Z   retries: 0
+2026-02-27T11:45:09.9071113Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-02-27T11:45:09.9072104Z env:
+2026-02-27T11:45:09.9073238Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/safeoutputs/agent_output.json
+2026-02-27T11:45:09.9074696Z   GH_AW_WORKFLOW_NAME: Astro — Workflow de scaffolding del blog Hugo
+2026-02-27T11:45:09.9075914Z ##[endgroup]
+2026-02-27T11:45:09.9791902Z Max count: unlimited

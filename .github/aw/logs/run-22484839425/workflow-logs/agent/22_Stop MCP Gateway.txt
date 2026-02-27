@@ -1,0 +1,24 @@
+﻿2026-02-27T11:44:30.9569255Z ##[group]Run bash /opt/gh-aw/actions/stop_mcp_gateway.sh "$GATEWAY_PID"
+2026-02-27T11:44:30.9569752Z [36;1mbash /opt/gh-aw/actions/stop_mcp_gateway.sh "$GATEWAY_PID"[0m
+2026-02-27T11:44:30.9615774Z shell: /usr/bin/bash -e {0}
+2026-02-27T11:44:30.9616023Z env:
+2026-02-27T11:44:30.9616207Z   DEFAULT_BRANCH: master
+2026-02-27T11:44:30.9616438Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-02-27T11:44:30.9616669Z   GH_AW_ASSETS_BRANCH: 
+2026-02-27T11:44:30.9616883Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-02-27T11:44:30.9617158Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-02-27T11:44:30.9617560Z   GH_AW_SAFE_OUTPUTS: /opt/gh-aw/safeoutputs/outputs.jsonl
+2026-02-27T11:44:30.9617981Z   GH_AW_SAFE_OUTPUTS_CONFIG_PATH: /opt/gh-aw/safeoutputs/config.json
+2026-02-27T11:44:30.9618399Z   GH_AW_SAFE_OUTPUTS_TOOLS_PATH: /opt/gh-aw/safeoutputs/tools.json
+2026-02-27T11:44:30.9618747Z   GH_AW_WORKFLOW_ID_SANITIZED: astro
+2026-02-27T11:44:30.9618998Z   MCP_GATEWAY_PORT: 80
+2026-02-27T11:44:30.9619470Z   MCP_GATEWAY_API_KEY: '***'
+2026-02-27T11:44:30.9619741Z   GATEWAY_PID: 3787
+2026-02-27T11:44:30.9619946Z ##[endgroup]
+2026-02-27T11:44:30.9699329Z Stopping MCP gateway (PID: 3787)...
+2026-02-27T11:44:30.9811409Z Attempting graceful shutdown via /close endpoint...
+2026-02-27T11:44:30.9921632Z Failed to invoke /close endpoint (curl exit: 22)
+2026-02-27T11:44:30.9922220Z Response: 
+2026-02-27T11:44:30.9922570Z Falling back to kill signal...
+2026-02-27T11:44:30.9923134Z Gateway process is still running, sending termination signal...
+2026-02-27T11:44:32.0190054Z Gateway stopped successfully

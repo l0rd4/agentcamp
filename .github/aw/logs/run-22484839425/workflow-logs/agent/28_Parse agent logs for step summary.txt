@@ -1,0 +1,26 @@
+﻿2026-02-27T11:44:32.6083629Z ##[group]Run actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+2026-02-27T11:44:32.6084093Z with:
+2026-02-27T11:44:32.6084860Z   script: const { setupGlobals } = require('/opt/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io);
+const { main } = require('/opt/gh-aw/actions/parse_copilot_log.cjs');
+await main();
+
+2026-02-27T11:44:32.6085835Z   github-token: ***
+2026-02-27T11:44:32.6086046Z   debug: false
+2026-02-27T11:44:32.6086252Z   user-agent: actions/github-script
+2026-02-27T11:44:32.6086512Z   result-encoding: json
+2026-02-27T11:44:32.6086918Z   retries: 0
+2026-02-27T11:44:32.6087137Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-02-27T11:44:32.6087418Z env:
+2026-02-27T11:44:32.6087593Z   DEFAULT_BRANCH: master
+2026-02-27T11:44:32.6087819Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-02-27T11:44:32.6088053Z   GH_AW_ASSETS_BRANCH: 
+2026-02-27T11:44:32.6088258Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-02-27T11:44:32.6088528Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-02-27T11:44:32.6088909Z   GH_AW_SAFE_OUTPUTS: /opt/gh-aw/safeoutputs/outputs.jsonl
+2026-02-27T11:44:32.6089305Z   GH_AW_SAFE_OUTPUTS_CONFIG_PATH: /opt/gh-aw/safeoutputs/config.json
+2026-02-27T11:44:32.6089725Z   GH_AW_SAFE_OUTPUTS_TOOLS_PATH: /opt/gh-aw/safeoutputs/tools.json
+2026-02-27T11:44:32.6090064Z   GH_AW_WORKFLOW_ID_SANITIZED: astro
+2026-02-27T11:44:32.6090354Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/sandbox/agent/logs/
+2026-02-27T11:44:32.6090641Z ##[endgroup]
+2026-02-27T11:44:32.6860141Z Copilot log parsed successfully

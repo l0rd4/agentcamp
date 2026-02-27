@@ -1,0 +1,29 @@
+﻿2026-02-27T11:44:06.5380961Z ##[group]Run actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53
+2026-02-27T11:44:06.5381434Z with:
+2026-02-27T11:44:06.5381620Z   name: prompt
+2026-02-27T11:44:06.5381822Z   path: /tmp/gh-aw/aw-prompts
+2026-02-27T11:44:06.5382070Z   merge-multiple: false
+2026-02-27T11:44:06.5382293Z   repository: l0rd4/agentcamp
+2026-02-27T11:44:06.5382530Z   run-id: 22484839425
+2026-02-27T11:44:06.5382751Z env:
+2026-02-27T11:44:06.5382928Z   DEFAULT_BRANCH: master
+2026-02-27T11:44:06.5383145Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-02-27T11:44:06.5383674Z   GH_AW_ASSETS_BRANCH: 
+2026-02-27T11:44:06.5383887Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-02-27T11:44:06.5384158Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-02-27T11:44:06.5384523Z   GH_AW_SAFE_OUTPUTS: /opt/gh-aw/safeoutputs/outputs.jsonl
+2026-02-27T11:44:06.5384916Z   GH_AW_SAFE_OUTPUTS_CONFIG_PATH: /opt/gh-aw/safeoutputs/config.json
+2026-02-27T11:44:06.5385334Z   GH_AW_SAFE_OUTPUTS_TOOLS_PATH: /opt/gh-aw/safeoutputs/tools.json
+2026-02-27T11:44:06.5385717Z   GH_AW_WORKFLOW_ID_SANITIZED: astro
+2026-02-27T11:44:06.5385955Z ##[endgroup]
+2026-02-27T11:44:06.7486660Z Downloading single artifact
+2026-02-27T11:44:06.8873047Z Preparing to download the following artifacts:
+2026-02-27T11:44:06.8874168Z - prompt (ID: 5689351080, Size: 2859, Expected Digest: sha256:5f94f4c7013bfc4a679b15904a48f11c4c7a3d6dbb121940871d802f6b7cc0f2)
+2026-02-27T11:44:06.9656858Z Redirecting to blob download url: https://productionresultssa13.blob.core.windows.net/actions-results/35381259-f79a-4d36-af04-1f875e9561d2/workflow-job-run-08630821-5b9d-572f-a87a-7ecaa0217087/artifacts/cf07194ee232eb531e15f690000d19846dea69cf05504782658afcfacb9228a2.zip
+2026-02-27T11:44:06.9658996Z Starting download of artifact to: /tmp/gh-aw/aw-prompts
+2026-02-27T11:44:07.0704574Z (node:4112) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-02-27T11:44:07.0705994Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-02-27T11:44:07.0744938Z SHA256 digest of downloaded artifact is 5f94f4c7013bfc4a679b15904a48f11c4c7a3d6dbb121940871d802f6b7cc0f2
+2026-02-27T11:44:07.0746210Z Artifact download completed successfully.
+2026-02-27T11:44:07.0746825Z Total of 1 artifact(s) downloaded
+2026-02-27T11:44:07.0751965Z Download artifact has finished successfully

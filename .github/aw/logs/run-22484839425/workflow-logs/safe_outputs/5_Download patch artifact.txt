@@ -1,0 +1,24 @@
+﻿2026-02-27T11:44:51.1325446Z ##[group]Run actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53
+2026-02-27T11:44:51.1326268Z with:
+2026-02-27T11:44:51.1326647Z   name: agent-artifacts
+2026-02-27T11:44:51.1327084Z   path: /tmp/gh-aw/
+2026-02-27T11:44:51.1327506Z   merge-multiple: false
+2026-02-27T11:44:51.1327945Z   repository: l0rd4/agentcamp
+2026-02-27T11:44:51.1328814Z   run-id: 22484839425
+2026-02-27T11:44:51.1329245Z env:
+2026-02-27T11:44:51.1329608Z   GH_AW_ENGINE_ID: copilot
+2026-02-27T11:44:51.1330068Z   GH_AW_WORKFLOW_ID: astro
+2026-02-27T11:44:51.1330673Z   GH_AW_WORKFLOW_NAME: Astro — Workflow de scaffolding del blog Hugo
+2026-02-27T11:44:51.1331481Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/safeoutputs/agent_output.json
+2026-02-27T11:44:51.1332097Z ##[endgroup]
+2026-02-27T11:44:51.3597121Z Downloading single artifact
+2026-02-27T11:44:51.5250972Z Preparing to download the following artifacts:
+2026-02-27T11:44:51.5254957Z - agent-artifacts (ID: 5689365525, Size: 43937, Expected Digest: sha256:f691f04fddd17e5e0b8b068060403167e580855e5b2bc2748614576e114f44cf)
+2026-02-27T11:44:51.6241963Z Redirecting to blob download url: https://productionresultssa13.blob.core.windows.net/actions-results/35381259-f79a-4d36-af04-1f875e9561d2/workflow-job-run-44301eb3-7608-5af6-865e-919de6b1eb31/artifacts/048a8fab6d204fbc816c87d3d94fee39902cbc8b565ed4f9f5e5ffce7f8bc3e1.zip
+2026-02-27T11:44:51.6245640Z Starting download of artifact to: /tmp/gh-aw
+2026-02-27T11:44:51.7336808Z (node:983) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-02-27T11:44:51.7339325Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-02-27T11:44:51.7594328Z SHA256 digest of downloaded artifact is f691f04fddd17e5e0b8b068060403167e580855e5b2bc2748614576e114f44cf
+2026-02-27T11:44:51.7598871Z Artifact download completed successfully.
+2026-02-27T11:44:51.7601922Z Total of 1 artifact(s) downloaded
+2026-02-27T11:44:51.7611867Z Download artifact has finished successfully

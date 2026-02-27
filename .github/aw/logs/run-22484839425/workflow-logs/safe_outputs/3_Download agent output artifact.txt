@@ -1,0 +1,16 @@
+﻿2026-02-27T11:44:50.5441434Z ##[group]Run actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53
+2026-02-27T11:44:50.5442445Z with:
+2026-02-27T11:44:50.5442836Z   name: agent-output
+2026-02-27T11:44:50.5443504Z   path: /tmp/gh-aw/safeoutputs/
+2026-02-27T11:44:50.5444050Z   merge-multiple: false
+2026-02-27T11:44:50.5444529Z   repository: l0rd4/agentcamp
+2026-02-27T11:44:50.5445005Z   run-id: 22484839425
+2026-02-27T11:44:50.5445415Z env:
+2026-02-27T11:44:50.5445807Z   GH_AW_ENGINE_ID: copilot
+2026-02-27T11:44:50.5446271Z   GH_AW_WORKFLOW_ID: astro
+2026-02-27T11:44:50.5446907Z   GH_AW_WORKFLOW_NAME: Astro — Workflow de scaffolding del blog Hugo
+2026-02-27T11:44:50.5447599Z ##[endgroup]
+2026-02-27T11:44:50.9523461Z Downloading single artifact
+2026-02-27T11:44:51.1002969Z ##[error]Unable to download artifact(s): Artifact not found for name: agent-output
+        Please ensure that your artifact is not expired and the artifact was uploaded using a compatible version of toolkit/upload-artifact.
+        For more information, visit the GitHub Artifacts FAQ: https://github.com/actions/toolkit/blob/main/packages/artifact/docs/faq.md

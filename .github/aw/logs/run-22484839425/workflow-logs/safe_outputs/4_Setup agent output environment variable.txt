@@ -1,0 +1,10 @@
+﻿2026-02-27T11:44:51.1166270Z ##[group]Run mkdir -p /tmp/gh-aw/safeoutputs/
+2026-02-27T11:44:51.1167025Z [36;1mmkdir -p /tmp/gh-aw/safeoutputs/[0m
+2026-02-27T11:44:51.1167655Z [36;1mfind "/tmp/gh-aw/safeoutputs/" -type f -print[0m
+2026-02-27T11:44:51.1168889Z [36;1mecho "GH_AW_AGENT_OUTPUT=/tmp/gh-aw/safeoutputs/agent_output.json" >> "$GITHUB_ENV"[0m
+2026-02-27T11:44:51.1174721Z shell: /usr/bin/bash -e {0}
+2026-02-27T11:44:51.1175210Z env:
+2026-02-27T11:44:51.1175585Z   GH_AW_ENGINE_ID: copilot
+2026-02-27T11:44:51.1176056Z   GH_AW_WORKFLOW_ID: astro
+2026-02-27T11:44:51.1176685Z   GH_AW_WORKFLOW_NAME: Astro — Workflow de scaffolding del blog Hugo
+2026-02-27T11:44:51.1177356Z ##[endgroup]

@@ -1,0 +1,83 @@
+Safe Outputs MCP Server Log
+Start time: Fri Feb 27 11:44:00 UTC 2026
+===========================================
+
+[2026-02-27T11:44:00.228Z] [safe-outputs-entry] Entry point script executing
+[2026-02-27T11:44:00.241Z] [safe_outputs_mcp_server_http] Module is being loaded
+[2026-02-27T11:44:00.247Z] [safe_outputs_mcp_server_http] Loaded http
+[2026-02-27T11:44:00.250Z] [safe_outputs_mcp_server_http] Loaded crypto
+[2026-02-27T11:44:00.251Z] [mcp_http_transport] Module is being loaded
+[2026-02-27T11:44:00.252Z] [mcp_server_core] Module is being loaded
+[2026-02-27T11:44:00.253Z] [safe_outputs_mcp_server_http] Loaded mcp_http_transport.cjs
+[2026-02-27T11:44:00.253Z] [safe_outputs_mcp_server_http] Loaded mcp_logger.cjs
+[2026-02-27T11:44:00.254Z] [safe_outputs_mcp_server_http] Loaded safe_outputs_bootstrap.cjs
+[2026-02-27T11:44:00.254Z] [safe_outputs_mcp_server_http] Loaded safe_outputs_append.cjs
+[2026-02-27T11:44:00.264Z] [safe_outputs_mcp_server_http] Loaded safe_outputs_handlers.cjs
+[2026-02-27T11:44:00.264Z] [safe_outputs_mcp_server_http] Loaded safe_outputs_tools_loader.cjs
+[2026-02-27T11:44:00.264Z] [safe_outputs_mcp_server_http] All modules loaded successfully
+[2026-02-27T11:44:00.264Z] [safe-outputs-entry] Successfully required safe_outputs_mcp_server_http.cjs
+[2026-02-27T11:44:00.264Z] [safe-outputs-entry] In require.main === module block
+[2026-02-27T11:44:00.264Z] [safe-outputs-entry] Port: 3001, LogDir: /tmp/gh-aw/mcp-logs/safeoutputs
+[2026-02-27T11:44:00.264Z] [safe-outputs-entry] Calling startHttpServer...
+[2026-02-27T11:44:00.265Z] [safe-outputs-startup] startHttpServer called with port=3001, stateless=true
+[2026-02-27T11:44:00.265Z] [safe-outputs-startup] === Starting Safe Outputs MCP HTTP Server ===
+[2026-02-27T11:44:00.265Z] [safe-outputs-startup] Port: 3001
+[2026-02-27T11:44:00.265Z] [safe-outputs-startup] Mode: stateless
+[2026-02-27T11:44:00.265Z] [safe-outputs-startup] Environment: NODE_VERSION=v20.20.0, PLATFORM=linux
+[2026-02-27T11:44:00.265Z] [safe-outputs-startup] About to call createMCPServer...
+[2026-02-27T11:44:00.265Z] [safeoutputs] === Creating MCP Server ===
+[2026-02-27T11:44:00.265Z] [safeoutputs] Loading safe-outputs configuration
+[2026-02-27T11:44:00.265Z] [safeoutputs] Reading config from file: /opt/gh-aw/safeoutputs/config.json
+[2026-02-27T11:44:00.265Z] [safeoutputs] Config file exists at: /opt/gh-aw/safeoutputs/config.json
+[2026-02-27T11:44:00.265Z] [safeoutputs] Config file content length: 87 characters
+[2026-02-27T11:44:00.265Z] [safeoutputs] Config file read successfully, attempting to parse JSON
+[2026-02-27T11:44:00.265Z] [safeoutputs] Successfully parsed config from file with 4 configuration keys
+[2026-02-27T11:44:00.265Z] [safeoutputs] Final processed config: {"create_pull_request":{"max":1},"missing_data":{},"missing_tool":{},"noop":{"max":1}}
+[2026-02-27T11:44:00.266Z] [safeoutputs] Loading safe-outputs tools
+[2026-02-27T11:44:00.266Z] [safeoutputs] Reading tools from file: /opt/gh-aw/safeoutputs/tools.json
+[2026-02-27T11:44:00.266Z] [safeoutputs] Tools file exists at: /opt/gh-aw/safeoutputs/tools.json
+[2026-02-27T11:44:00.266Z] [safeoutputs] Tools file content length: 4826 characters
+[2026-02-27T11:44:00.266Z] [safeoutputs] Tools file read successfully, attempting to parse JSON
+[2026-02-27T11:44:00.266Z] [safeoutputs] Successfully parsed 4 tools from file
+[2026-02-27T11:44:00.266Z] [safeoutputs] Server name: safeoutputs
+[2026-02-27T11:44:00.266Z] [safeoutputs] Server version: 1.0.0
+[2026-02-27T11:44:00.266Z] [safeoutputs] Output file: /opt/gh-aw/safeoutputs/outputs.jsonl
+[2026-02-27T11:44:00.266Z] [safeoutputs] Config: {"create_pull_request":{"max":1},"missing_data":{},"missing_tool":{},"noop":{"max":1}}
+[2026-02-27T11:44:00.266Z] [safeoutputs] Registering predefined tools...
+[2026-02-27T11:44:00.266Z] [safeoutputs] Registering tool: create_pull_request
+[2026-02-27T11:44:00.267Z] [safeoutputs] Registered tool: create_pull_request
+[2026-02-27T11:44:00.267Z] [safeoutputs] Registering tool: missing_tool
+[2026-02-27T11:44:00.267Z] [safeoutputs] Registered tool: missing_tool
+[2026-02-27T11:44:00.267Z] [safeoutputs] Registering tool: noop
+[2026-02-27T11:44:00.267Z] [safeoutputs] Registered tool: noop
+[2026-02-27T11:44:00.267Z] [safeoutputs] Registering tool: missing_data
+[2026-02-27T11:44:00.267Z] [safeoutputs] Registered tool: missing_data
+[2026-02-27T11:44:00.267Z] [safeoutputs] Registering dynamic tools...
+[2026-02-27T11:44:00.267Z] [safeoutputs] Tool registration complete: 4 registered
+[2026-02-27T11:44:00.267Z] [safeoutputs] === MCP Server Creation Complete ===
+[2026-02-27T11:44:00.267Z] [safeoutputs] MCP server created successfully
+[2026-02-27T11:44:00.267Z] [safeoutputs] Server name: safeoutputs
+[2026-02-27T11:44:00.267Z] [safeoutputs] Server version: 1.0.0
+[2026-02-27T11:44:00.267Z] [safeoutputs] Tools configured: 4
+[2026-02-27T11:44:00.267Z] [safeoutputs] Creating HTTP transport...
+[2026-02-27T11:44:00.267Z] [safeoutputs] HTTP transport created
+[2026-02-27T11:44:00.267Z] [safeoutputs] Connecting server to transport...
+[2026-02-27T11:44:00.267Z] [safeoutputs] About to call server.connect(transport)...
+[2026-02-27T11:44:00.267Z] [MCPServer] Starting connect...
+[2026-02-27T11:44:00.267Z] [MCPServer] Set transport
+[2026-02-27T11:44:00.267Z] [MCPServer] Called setServer
+[2026-02-27T11:44:00.267Z] [MCPHTTPTransport] Called, started=false
+[2026-02-27T11:44:00.267Z] [MCPHTTPTransport] Set started=true
+[2026-02-27T11:44:00.267Z] [safe-outputs-entry] startHttpServer call initiated (async)
+[2026-02-27T11:44:00.267Z] [MCPServer] Transport.start() completed
+[2026-02-27T11:44:00.267Z] [safeoutputs] server.connect(transport) completed successfully
+[2026-02-27T11:44:00.267Z] [safeoutputs] Server connected to transport successfully
+[2026-02-27T11:44:00.267Z] [safeoutputs] Creating HTTP server...
+[2026-02-27T11:44:00.268Z] [safeoutputs] Attempting to bind to port 3001...
+[2026-02-27T11:44:00.270Z] [safeoutputs] === Safe Outputs MCP HTTP Server Started Successfully ===
+[2026-02-27T11:44:00.270Z] [safeoutputs] HTTP server listening on http://localhost:3001
+[2026-02-27T11:44:00.270Z] [safeoutputs] MCP endpoint: POST http://localhost:3001/
+[2026-02-27T11:44:00.270Z] [safeoutputs] Server name: safeoutputs
+[2026-02-27T11:44:00.270Z] [safeoutputs] Server version: 1.0.0
+[2026-02-27T11:44:00.270Z] [safeoutputs] Tools available: 4
+[2026-02-27T11:44:00.270Z] [safeoutputs] Server is ready to accept requests

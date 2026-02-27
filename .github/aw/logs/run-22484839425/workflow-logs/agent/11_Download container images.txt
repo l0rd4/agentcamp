@@ -1,0 +1,34 @@
+﻿2026-02-27T11:43:49.8438985Z ##[group]Run bash /opt/gh-aw/actions/download_docker_images.sh ghcr.io/github/gh-aw-firewall/agent:0.23.0 ghcr.io/github/gh-aw-firewall/api-proxy:0.23.0 ghcr.io/github/gh-aw-firewall/squid:0.23.0 ghcr.io/github/gh-aw-mcpg:v0.1.5 ghcr.io/github/github-mcp-server:v0.31.0 node:lts-alpine
+2026-02-27T11:43:49.8440987Z [36;1mbash /opt/gh-aw/actions/download_docker_images.sh ghcr.io/github/gh-aw-firewall/agent:0.23.0 ghcr.io/github/gh-aw-firewall/api-proxy:0.23.0 ghcr.io/github/gh-aw-firewall/squid:0.23.0 ghcr.io/github/gh-aw-mcpg:v0.1.5 ghcr.io/github/github-mcp-server:v0.31.0 node:lts-alpine[0m
+2026-02-27T11:43:49.8490882Z shell: /usr/bin/bash -e {0}
+2026-02-27T11:43:49.8491132Z env:
+2026-02-27T11:43:49.8491341Z   DEFAULT_BRANCH: master
+2026-02-27T11:43:49.8491573Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-02-27T11:43:49.8491806Z   GH_AW_ASSETS_BRANCH: 
+2026-02-27T11:43:49.8492011Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-02-27T11:43:49.8492287Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-02-27T11:43:49.8492714Z   GH_AW_SAFE_OUTPUTS: /opt/gh-aw/safeoutputs/outputs.jsonl
+2026-02-27T11:43:49.8493136Z   GH_AW_SAFE_OUTPUTS_CONFIG_PATH: /opt/gh-aw/safeoutputs/config.json
+2026-02-27T11:43:49.8493908Z   GH_AW_SAFE_OUTPUTS_TOOLS_PATH: /opt/gh-aw/safeoutputs/tools.json
+2026-02-27T11:43:49.8494278Z   GH_AW_WORKFLOW_ID_SANITIZED: astro
+2026-02-27T11:43:49.8494529Z ##[endgroup]
+2026-02-27T11:43:49.8584192Z Starting download of 6 image(s) with max 4 concurrent downloads...
+2026-02-27T11:43:49.8649518Z Attempt 1 of 3: Pulling ghcr.io/github/gh-aw-firewall/api-proxy:0.23.0...
+2026-02-27T11:43:49.8650941Z Attempt 1 of 3: Pulling ghcr.io/github/gh-aw-firewall/agent:0.23.0...
+2026-02-27T11:43:49.8653118Z Attempt 1 of 3: Pulling ghcr.io/github/gh-aw-firewall/squid:0.23.0...
+2026-02-27T11:43:49.8656151Z Attempt 1 of 3: Pulling ghcr.io/github/gh-aw-mcpg:v0.1.5...
+2026-02-27T11:43:54.8468822Z ghcr.io/github/gh-aw-mcpg:v0.1.5
+2026-02-27T11:43:54.8472768Z Successfully pulled ghcr.io/github/gh-aw-mcpg:v0.1.5
+2026-02-27T11:43:54.8524437Z Attempt 1 of 3: Pulling ghcr.io/github/github-mcp-server:v0.31.0...
+2026-02-27T11:43:55.1971519Z ghcr.io/github/gh-aw-firewall/api-proxy:0.23.0
+2026-02-27T11:43:55.1999344Z Successfully pulled ghcr.io/github/gh-aw-firewall/api-proxy:0.23.0
+2026-02-27T11:43:55.2042749Z Attempt 1 of 3: Pulling node:lts-alpine...
+2026-02-27T11:43:56.8701101Z ghcr.io/github/github-mcp-server:v0.31.0
+2026-02-27T11:43:56.8724904Z Successfully pulled ghcr.io/github/github-mcp-server:v0.31.0
+2026-02-27T11:43:58.2928460Z docker.io/library/node:lts-alpine
+2026-02-27T11:43:58.2951918Z Successfully pulled node:lts-alpine
+2026-02-27T11:43:58.5851349Z ghcr.io/github/gh-aw-firewall/squid:0.23.0
+2026-02-27T11:43:58.5874201Z Successfully pulled ghcr.io/github/gh-aw-firewall/squid:0.23.0
+2026-02-27T11:44:00.0055864Z ghcr.io/github/gh-aw-firewall/agent:0.23.0
+2026-02-27T11:44:00.0075563Z Successfully pulled ghcr.io/github/gh-aw-firewall/agent:0.23.0
+2026-02-27T11:44:00.0081352Z All images downloaded successfully

@@ -1,0 +1,27 @@
+﻿2026-02-27T11:45:11.0597436Z ##[group]Run actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+2026-02-27T11:45:11.0598833Z with:
+2026-02-27T11:45:11.0599906Z   github-token: ***
+2026-02-27T11:45:11.0603324Z   script: const { setupGlobals } = require('/opt/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io);
+const { main } = require('/opt/gh-aw/actions/handle_noop_message.cjs');
+await main();
+
+2026-02-27T11:45:11.0606143Z   debug: false
+2026-02-27T11:45:11.0606911Z   user-agent: actions/github-script
+2026-02-27T11:45:11.0607838Z   result-encoding: json
+2026-02-27T11:45:11.0608616Z   retries: 0
+2026-02-27T11:45:11.0609414Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-02-27T11:45:11.0610440Z env:
+2026-02-27T11:45:11.0611324Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/safeoutputs/agent_output.json
+2026-02-27T11:45:11.0612978Z   GH_AW_WORKFLOW_NAME: Astro — Workflow de scaffolding del blog Hugo
+2026-02-27T11:45:11.0614563Z   GH_AW_RUN_URL: https://github.com/l0rd4/agentcamp/actions/runs/22484839425
+2026-02-27T11:45:11.0615920Z   GH_AW_AGENT_CONCLUSION: failure
+2026-02-27T11:45:11.0616802Z   GH_AW_NOOP_MESSAGE: 
+2026-02-27T11:45:11.0617607Z   GH_AW_NOOP_REPORT_AS_ISSUE: true
+2026-02-27T11:45:11.0618483Z ##[endgroup]
+2026-02-27T11:45:11.1369866Z Workflow name: Astro — Workflow de scaffolding del blog Hugo
+2026-02-27T11:45:11.1376200Z Run URL: https://github.com/l0rd4/agentcamp/actions/runs/22484839425
+2026-02-27T11:45:11.1380024Z No-op message: 
+2026-02-27T11:45:11.1383576Z Agent conclusion: failure
+2026-02-27T11:45:11.1386640Z Report as issue: true
+2026-02-27T11:45:11.1389644Z No no-op message found, skipping

@@ -1,0 +1,28 @@
+﻿2026-02-27T11:44:51.7856447Z ##[group]Run actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+2026-02-27T11:44:51.7857292Z with:
+2026-02-27T11:44:51.7857958Z   github-token: ***
+2026-02-27T11:44:51.7859846Z   script: const { setupGlobals } = require('/opt/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io);
+const { main } = require('/opt/gh-aw/actions/safe_output_handler_manager.cjs');
+await main();
+
+2026-02-27T11:44:51.7861726Z   debug: false
+2026-02-27T11:44:51.7862167Z   user-agent: actions/github-script
+2026-02-27T11:44:51.7862694Z   result-encoding: json
+2026-02-27T11:44:51.7863128Z   retries: 0
+2026-02-27T11:44:51.7863593Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-02-27T11:44:51.7864163Z env:
+2026-02-27T11:44:51.7864531Z   GH_AW_ENGINE_ID: copilot
+2026-02-27T11:44:51.7865037Z   GH_AW_WORKFLOW_ID: astro
+2026-02-27T11:44:51.7865694Z   GH_AW_WORKFLOW_NAME: Astro — Workflow de scaffolding del blog Hugo
+2026-02-27T11:44:51.7866540Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/safeoutputs/agent_output.json
+2026-02-27T11:44:51.7878681Z   GH_AW_ALLOWED_DOMAINS: api.business.githubcopilot.com,api.enterprise.githubcopilot.com,api.github.com,api.githubcopilot.com,api.individual.githubcopilot.com,api.snapcraft.io,archive.ubuntu.com,azure.archive.ubuntu.com,crl.geotrust.com,crl.globalsign.com,crl.identrust.com,crl.sectigo.com,crl.thawte.com,crl.usertrust.com,crl.verisign.com,crl3.digicert.com,crl4.digicert.com,crls.ssl.com,github.com,host.docker.internal,json-schema.org,json.schemastore.org,keyserver.ubuntu.com,ocsp.digicert.com,ocsp.geotrust.com,ocsp.globalsign.com,ocsp.identrust.com,ocsp.sectigo.com,ocsp.ssl.com,ocsp.thawte.com,ocsp.usertrust.com,ocsp.verisign.com,packagecloud.io,packages.cloud.google.com,packages.microsoft.com,ppa.launchpad.net,raw.githubusercontent.com,registry.npmjs.org,s.symcb.com,s.symcd.com,security.ubuntu.com,telemetry.enterprise.githubcopilot.com,ts-crl.ws.symantec.com,ts-ocsp.ws.symantec.com
+2026-02-27T11:44:51.7890423Z   GITHUB_SERVER_URL: https://github.com
+2026-02-27T11:44:51.7891025Z   GITHUB_API_URL: https://api.github.com
+2026-02-27T11:44:51.7892050Z   GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG: {"create_pull_request":{"max":1,"max_patch_size":1024},"missing_data":{},"missing_tool":{}}
+2026-02-27T11:44:51.7893058Z   GH_AW_CI_TRIGGER_TOKEN: 
+2026-02-27T11:44:51.7893522Z ##[endgroup]
+2026-02-27T11:44:52.0633926Z Safe Output Handler Manager starting...
+2026-02-27T11:44:52.0641009Z Loaded config from GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG: {"create_pull_request":{"max":1,"max_patch_size":1024},"missing_data":{},"missing_tool":{}}
+2026-02-27T11:44:52.0660319Z Error reading agent output file: ENOENT: no such file or directory, open '/tmp/gh-aw/safeoutputs/agent_output.json'
+2026-02-27T11:44:52.0663807Z No agent output available - nothing to process

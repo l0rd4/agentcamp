@@ -1,0 +1,19 @@
+﻿2026-02-27T11:45:09.5422418Z ##[group]Run actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+2026-02-27T11:45:09.5424114Z with:
+2026-02-27T11:45:09.5425279Z   github-token: ***
+2026-02-27T11:45:09.5427693Z   script: const { setupGlobals } = require('/opt/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io);
+const { main } = require('/opt/gh-aw/actions/noop.cjs');
+await main();
+
+2026-02-27T11:45:09.5430997Z   debug: false
+2026-02-27T11:45:09.5431782Z   user-agent: actions/github-script
+2026-02-27T11:45:09.5432975Z   result-encoding: json
+2026-02-27T11:45:09.5433793Z   retries: 0
+2026-02-27T11:45:09.5434639Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-02-27T11:45:09.5435720Z env:
+2026-02-27T11:45:09.5436603Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/safeoutputs/agent_output.json
+2026-02-27T11:45:09.5437732Z   GH_AW_NOOP_MAX: 1
+2026-02-27T11:45:09.5438738Z   GH_AW_WORKFLOW_NAME: Astro — Workflow de scaffolding del blog Hugo
+2026-02-27T11:45:09.5439920Z ##[endgroup]
+2026-02-27T11:45:09.8814141Z Error reading agent output file: ENOENT: no such file or directory, open '/tmp/gh-aw/safeoutputs/agent_output.json'

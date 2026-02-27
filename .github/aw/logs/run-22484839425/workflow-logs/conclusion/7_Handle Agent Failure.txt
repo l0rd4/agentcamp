@@ -1,0 +1,42 @@
+﻿2026-02-27T11:45:09.9990844Z ##[group]Run actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+2026-02-27T11:45:09.9992245Z with:
+2026-02-27T11:45:09.9993642Z   github-token: ***
+2026-02-27T11:45:09.9996820Z   script: const { setupGlobals } = require('/opt/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io);
+const { main } = require('/opt/gh-aw/actions/handle_agent_failure.cjs');
+await main();
+
+2026-02-27T11:45:10.0000245Z   debug: false
+2026-02-27T11:45:10.0001079Z   user-agent: actions/github-script
+2026-02-27T11:45:10.0002016Z   result-encoding: json
+2026-02-27T11:45:10.0003043Z   retries: 0
+2026-02-27T11:45:10.0003869Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-02-27T11:45:10.0004867Z env:
+2026-02-27T11:45:10.0005777Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/safeoutputs/agent_output.json
+2026-02-27T11:45:10.0007204Z   GH_AW_WORKFLOW_NAME: Astro — Workflow de scaffolding del blog Hugo
+2026-02-27T11:45:10.0008766Z   GH_AW_RUN_URL: https://github.com/l0rd4/agentcamp/actions/runs/22484839425
+2026-02-27T11:45:10.0010130Z   GH_AW_AGENT_CONCLUSION: failure
+2026-02-27T11:45:10.0011035Z   GH_AW_WORKFLOW_ID: astro
+2026-02-27T11:45:10.0011913Z   GH_AW_SECRET_VERIFICATION_RESULT: success
+2026-02-27T11:45:10.0013226Z   GH_AW_CHECKOUT_PR_SUCCESS: true
+2026-02-27T11:45:10.0014162Z   GH_AW_CODE_PUSH_FAILURE_ERRORS: 
+2026-02-27T11:45:10.0015089Z   GH_AW_CODE_PUSH_FAILURE_COUNT: 
+2026-02-27T11:45:10.0016000Z   GH_AW_GROUP_REPORTS: false
+2026-02-27T11:45:10.0017066Z ##[endgroup]
+2026-02-27T11:45:10.0919418Z Agent conclusion: failure
+2026-02-27T11:45:10.0925974Z Workflow name: Astro — Workflow de scaffolding del blog Hugo
+2026-02-27T11:45:10.0929550Z Workflow ID: astro
+2026-02-27T11:45:10.0932499Z Secret verification result: success
+2026-02-27T11:45:10.0936136Z Assignment error count: 0
+2026-02-27T11:45:10.0939251Z Create discussion error count: 0
+2026-02-27T11:45:10.0943016Z Code push failure count: 0
+2026-02-27T11:45:10.0946387Z Checkout PR success: true
+2026-02-27T11:45:10.1194593Z fatal: not a git repository (or any of the parent directories): .git
+2026-02-27T11:45:10.1196233Z Searching for pull request from branch: master
+2026-02-27T11:45:10.3976016Z No pull request found for branch: master
+2026-02-27T11:45:10.3981303Z Parent issue creation is disabled (group-reports: false)
+2026-02-27T11:45:10.4007695Z Checking for existing issue with title: "[aw] Astro — Workflow de scaffolding del blog Hugo failed"
+2026-02-27T11:45:10.5679312Z No existing issue found, creating a new one
+2026-02-27T11:45:10.5734528Z fatal: not a git repository (or any of the parent directories): .git
+2026-02-27T11:45:10.5736653Z Error reading agent output file: ENOENT: no such file or directory, open '/tmp/gh-aw/safeoutputs/agent_output.json'
+2026-02-27T11:45:11.0405619Z ✓ Created new issue #1: https://github.com/l0rd4/agentcamp/issues/1

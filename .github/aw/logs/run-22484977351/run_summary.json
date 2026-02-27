@@ -1,0 +1,83 @@
+{
+  "cli_version": "v0.50.6",
+  "run_id": 22484977351,
+  "processed_at": "2026-02-27T12:53:13.572378+01:00",
+  "run": {
+    "databaseId": 22484977351,
+    "number": 2,
+    "url": "https://github.com/l0rd4/agentcamp/actions/runs/22484977351",
+    "status": "completed",
+    "conclusion": "success",
+    "workflowName": "Astro — Workflow de scaffolding del blog Hugo",
+    "workflowPath": ".github/workflows/astro.lock.yml",
+    "createdAt": "2026-02-27T11:47:41Z",
+    "startedAt": "2026-02-27T11:47:41Z",
+    "updatedAt": "2026-02-27T11:52:34Z",
+    "event": "workflow_dispatch",
+    "headBranch": "master",
+    "headSha": "5a904bcfdbe3dc418241c45b5366e41350cb59db",
+    "displayTitle": "Astro — Workflow de scaffolding del blog Hugo",
+    "Duration": 293000000000,
+    "TokenUsage": 0,
+    "EstimatedCost": 0,
+    "Turns": 0,
+    "ErrorCount": 0,
+    "WarningCount": 0,
+    "MissingToolCount": 0,
+    "MissingDataCount": 0,
+    "NoopCount": 0,
+    "SafeItemsCount": 0,
+    "LogsPath": ".github\\aw\\logs\\run-22484977351"
+  },
+  "metrics": {
+    "TokenUsage": 0,
+    "EstimatedCost": 0,
+    "Turns": 0,
+    "ToolCalls": null,
+    "ToolSequences": null
+  },
+  "access_analysis": null,
+  "firewall_analysis": null,
+  "redacted_domains_analysis": null,
+  "missing_tools": null,
+  "missing_data": null,
+  "noops": null,
+  "mcp_failures": null,
+  "artifacts_list": [
+    "prompt.txt"
+  ],
+  "job_details": [
+    {
+      "name": "activation",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-02-27T11:47:45Z",
+      "completed_at": "2026-02-27T11:48:03Z",
+      "Duration": 18000000000
+    },
+    {
+      "name": "agent",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-02-27T11:48:06Z",
+      "completed_at": "2026-02-27T11:51:51Z",
+      "Duration": 225000000000
+    },
+    {
+      "name": "safe_outputs",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-02-27T11:51:54Z",
+      "completed_at": "2026-02-27T11:52:10Z",
+      "Duration": 16000000000
+    },
+    {
+      "name": "conclusion",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-02-27T11:52:14Z",
+      "completed_at": "2026-02-27T11:52:33Z",
+      "Duration": 19000000000
+    }
+  ]
+}

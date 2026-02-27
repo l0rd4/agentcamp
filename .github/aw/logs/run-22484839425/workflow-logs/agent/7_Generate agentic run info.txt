@@ -1,0 +1,90 @@
+﻿2026-02-27T11:43:35.8537089Z ##[group]Run actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+2026-02-27T11:43:35.8537482Z with:
+2026-02-27T11:43:35.8541167Z   script: const fs = require('fs');
+
+const awInfo = {
+  engine_id: "copilot",
+  engine_name: "GitHub Copilot CLI",
+  model: process.env.GH_AW_MODEL_AGENT_COPILOT || "",
+  version: "",
+  agent_version: "0.0.418",
+  cli_version: "v0.50.6",
+  workflow_name: "Astro — Workflow de scaffolding del blog Hugo",
+  experimental: false,
+  supports_tools_allowlist: true,
+  run_id: context.runId,
+  run_number: context.runNumber,
+  run_attempt: process.env.GITHUB_RUN_ATTEMPT,
+  repository: context.repo.owner + '/' + context.repo.repo,
+  ref: context.ref,
+  sha: context.sha,
+  actor: context.actor,
+  event_name: context.eventName,
+  staged: false,
+  allowed_domains: ["defaults"],
+  firewall_enabled: true,
+  awf_version: "v0.23.0",
+  awmg_version: "v0.1.5",
+  steps: {
+    firewall: "squid"
+  },
+  created_at: new Date().toISOString()
+};
+
+// Write to /tmp/gh-aw directory to avoid inclusion in PR
+const tmpPath = '/tmp/gh-aw/aw_info.json';
+fs.writeFileSync(tmpPath, JSON.stringify(awInfo, null, 2));
+console.log('Generated aw_info.json at:', tmpPath);
+console.log(JSON.stringify(awInfo, null, 2));
+
+// Set model as output for reuse in other steps/jobs
+core.setOutput('model', awInfo.model);
+
+2026-02-27T11:43:35.8545658Z   github-token: ***
+2026-02-27T11:43:35.8545854Z   debug: false
+2026-02-27T11:43:35.8546044Z   user-agent: actions/github-script
+2026-02-27T11:43:35.8546292Z   result-encoding: json
+2026-02-27T11:43:35.8546488Z   retries: 0
+2026-02-27T11:43:35.8546688Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-02-27T11:43:35.8546968Z env:
+2026-02-27T11:43:35.8547129Z   DEFAULT_BRANCH: master
+2026-02-27T11:43:35.8547343Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-02-27T11:43:35.8547561Z   GH_AW_ASSETS_BRANCH: 
+2026-02-27T11:43:35.8547754Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-02-27T11:43:35.8548017Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-02-27T11:43:35.8548367Z   GH_AW_SAFE_OUTPUTS: /opt/gh-aw/safeoutputs/outputs.jsonl
+2026-02-27T11:43:35.8548754Z   GH_AW_SAFE_OUTPUTS_CONFIG_PATH: /opt/gh-aw/safeoutputs/config.json
+2026-02-27T11:43:35.8549168Z   GH_AW_SAFE_OUTPUTS_TOOLS_PATH: /opt/gh-aw/safeoutputs/tools.json
+2026-02-27T11:43:35.8549493Z   GH_AW_WORKFLOW_ID_SANITIZED: astro
+2026-02-27T11:43:35.8549726Z ##[endgroup]
+2026-02-27T11:43:35.9266455Z Generated aw_info.json at: /tmp/gh-aw/aw_info.json
+2026-02-27T11:43:35.9268550Z {
+2026-02-27T11:43:35.9268902Z   "engine_id": "copilot",
+2026-02-27T11:43:35.9269372Z   "engine_name": "GitHub Copilot CLI",
+2026-02-27T11:43:35.9269846Z   "model": "",
+2026-02-27T11:43:35.9270073Z   "version": "",
+2026-02-27T11:43:35.9270314Z   "agent_version": "0.0.418",
+2026-02-27T11:43:35.9270594Z   "cli_version": "v0.50.6",
+2026-02-27T11:43:35.9271222Z   "workflow_name": "Astro — Workflow de scaffolding del blog Hugo",
+2026-02-27T11:43:35.9271650Z   "experimental": false,
+2026-02-27T11:43:35.9271935Z   "supports_tools_allowlist": true,
+2026-02-27T11:43:35.9272266Z   "run_id": 22484839425,
+2026-02-27T11:43:35.9272523Z   "run_number": 1,
+2026-02-27T11:43:35.9272909Z   "run_attempt": "1",
+2026-02-27T11:43:35.9273562Z   "repository": "l0rd4/agentcamp",
+2026-02-27T11:43:35.9273942Z   "ref": "refs/heads/master",
+2026-02-27T11:43:35.9274274Z   "sha": "5a904bcfdbe3dc418241c45b5366e41350cb59db",
+2026-02-27T11:43:35.9274619Z   "actor": "l0rd4",
+2026-02-27T11:43:35.9274872Z   "event_name": "workflow_dispatch",
+2026-02-27T11:43:35.9275179Z   "staged": false,
+2026-02-27T11:43:35.9275405Z   "allowed_domains": [
+2026-02-27T11:43:35.9275648Z     "defaults"
+2026-02-27T11:43:35.9275853Z   ],
+2026-02-27T11:43:35.9276059Z   "firewall_enabled": true,
+2026-02-27T11:43:35.9276329Z   "awf_version": "v0.23.0",
+2026-02-27T11:43:35.9276587Z   "awmg_version": "v0.1.5",
+2026-02-27T11:43:35.9276837Z   "steps": {
+2026-02-27T11:43:35.9277048Z     "firewall": "squid"
+2026-02-27T11:43:35.9277299Z   },
+2026-02-27T11:43:35.9277519Z   "created_at": "2026-02-27T11:43:35.925Z"
+2026-02-27T11:43:35.9278047Z }

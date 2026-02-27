@@ -1,0 +1,23 @@
+﻿2026-02-27T11:44:33.7276081Z ##[group]Run if [[ -n "$OUTPUT_TYPES" || "$HAS_PATCH" == "true" ]]; then
+2026-02-27T11:44:33.7276589Z [36;1mif [[ -n "$OUTPUT_TYPES" || "$HAS_PATCH" == "true" ]]; then[0m
+2026-02-27T11:44:33.7276978Z [36;1m  echo "run_detection=true" >> "$GITHUB_OUTPUT"[0m
+2026-02-27T11:44:33.7277420Z [36;1m  echo "Detection will run: output_types=$OUTPUT_TYPES, has_patch=$HAS_PATCH"[0m
+2026-02-27T11:44:33.7277818Z [36;1melse[0m
+2026-02-27T11:44:33.7278067Z [36;1m  echo "run_detection=false" >> "$GITHUB_OUTPUT"[0m
+2026-02-27T11:44:33.7278477Z [36;1m  echo "Detection skipped: no agent outputs or patches to analyze"[0m
+2026-02-27T11:44:33.7278837Z [36;1mfi[0m
+2026-02-27T11:44:33.7327738Z shell: /usr/bin/bash -e {0}
+2026-02-27T11:44:33.7328029Z env:
+2026-02-27T11:44:33.7328221Z   DEFAULT_BRANCH: master
+2026-02-27T11:44:33.7328459Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-02-27T11:44:33.7328704Z   GH_AW_ASSETS_BRANCH: 
+2026-02-27T11:44:33.7328929Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-02-27T11:44:33.7329220Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-02-27T11:44:33.7329647Z   GH_AW_SAFE_OUTPUTS: /opt/gh-aw/safeoutputs/outputs.jsonl
+2026-02-27T11:44:33.7330061Z   GH_AW_SAFE_OUTPUTS_CONFIG_PATH: /opt/gh-aw/safeoutputs/config.json
+2026-02-27T11:44:33.7330501Z   GH_AW_SAFE_OUTPUTS_TOOLS_PATH: /opt/gh-aw/safeoutputs/tools.json
+2026-02-27T11:44:33.7330860Z   GH_AW_WORKFLOW_ID_SANITIZED: astro
+2026-02-27T11:44:33.7331121Z   OUTPUT_TYPES: 
+2026-02-27T11:44:33.7331325Z   HAS_PATCH: false
+2026-02-27T11:44:33.7331529Z ##[endgroup]
+2026-02-27T11:44:33.7403129Z Detection skipped: no agent outputs or patches to analyze

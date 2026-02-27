@@ -1,0 +1,35 @@
+﻿2026-02-27T11:43:49.4269013Z ##[group]Run actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+2026-02-27T11:43:49.4269426Z with:
+2026-02-27T11:43:49.4270039Z   script: const determineAutomaticLockdown = require('/opt/gh-aw/actions/determine_automatic_lockdown.cjs');
+await determineAutomaticLockdown(github, context, core);
+
+2026-02-27T11:43:49.4270926Z   github-token: ***
+2026-02-27T11:43:49.4271116Z   debug: false
+2026-02-27T11:43:49.4271326Z   user-agent: actions/github-script
+2026-02-27T11:43:49.4271575Z   result-encoding: json
+2026-02-27T11:43:49.4271775Z   retries: 0
+2026-02-27T11:43:49.4271977Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-02-27T11:43:49.4272244Z env:
+2026-02-27T11:43:49.4272407Z   DEFAULT_BRANCH: master
+2026-02-27T11:43:49.4272620Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-02-27T11:43:49.4272843Z   GH_AW_ASSETS_BRANCH: 
+2026-02-27T11:43:49.4273035Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-02-27T11:43:49.4273443Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-02-27T11:43:49.4273786Z   GH_AW_SAFE_OUTPUTS: /opt/gh-aw/safeoutputs/outputs.jsonl
+2026-02-27T11:43:49.4274197Z   GH_AW_SAFE_OUTPUTS_CONFIG_PATH: /opt/gh-aw/safeoutputs/config.json
+2026-02-27T11:43:49.4274604Z   GH_AW_SAFE_OUTPUTS_TOOLS_PATH: /opt/gh-aw/safeoutputs/tools.json
+2026-02-27T11:43:49.4274934Z   GH_AW_WORKFLOW_ID_SANITIZED: astro
+2026-02-27T11:43:49.4275161Z   GH_AW_GITHUB_TOKEN: 
+2026-02-27T11:43:49.4275367Z   GH_AW_GITHUB_MCP_SERVER_TOKEN: 
+2026-02-27T11:43:49.4275783Z ##[endgroup]
+2026-02-27T11:43:49.5063144Z Determining automatic lockdown mode for GitHub MCP server
+2026-02-27T11:43:49.5064966Z Checking repository: l0rd4/agentcamp
+2026-02-27T11:43:49.8180618Z Repository visibility: public
+2026-02-27T11:43:49.8182152Z Repository is private: false
+2026-02-27T11:43:49.8182732Z GH_AW_GITHUB_TOKEN configured: false
+2026-02-27T11:43:49.8186711Z GH_AW_GITHUB_MCP_SERVER_TOKEN configured: false
+2026-02-27T11:43:49.8187245Z Custom github-token configured: false
+2026-02-27T11:43:49.8187695Z Any custom token configured: false
+2026-02-27T11:43:49.8188168Z Automatic lockdown mode determined: false
+2026-02-27T11:43:49.8190219Z Automatic lockdown mode disabled for public repository (no custom tokens configured)
+2026-02-27T11:43:49.8191637Z To enable lockdown mode for enhanced security, configure GH_AW_GITHUB_TOKEN as a repository secret and set 'lockdown: true' in your workflow.
