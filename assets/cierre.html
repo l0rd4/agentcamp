@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>if(!sessionStorage.getItem('wk26')){location.replace('gate.html')}</script>
+  <title>Cierre del Workshop · Kitten Agent Blog · AgentCamp 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --cyan:#00e5ff; --purple:#9c27b0; --indigo:#3d5afe; --dark:#0d0d1a; --card:#1a1a35; --text:#e8e8f0; --muted:#888ab0; --green:#00e676; --orange:#ff9100; --pink:#f50057; --yellow:#ffea00; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--dark); color:var(--text); line-height:1.7; min-height:100vh; }
+    body::before { content:''; position:fixed; inset:0; background-image: radial-gradient(2px 2px at 10% 10%,rgba(255,255,255,.8) 0%,transparent 100%), radial-gradient(1px 1px at 30% 55%,rgba(255,255,255,.5) 0%,transparent 100%), radial-gradient(2px 2px at 60% 8%,rgba(255,255,255,.7) 0%,transparent 100%), radial-gradient(1px 1px at 80% 75%,rgba(255,255,255,.6) 0%,transparent 100%), radial-gradient(2px 2px at 50% 90%,rgba(255,255,255,.4) 0%,transparent 100%), radial-gradient(1px 1px at 95% 30%,rgba(255,255,255,.6) 0%,transparent 100%), radial-gradient(2px 2px at 20% 80%,rgba(255,255,255,.5) 0%,transparent 100%); pointer-events:none; z-index:0; }
+    body::after { content:''; position:fixed; top:-20%; right:-10%; width:70vw; height:70vh; background:radial-gradient(ellipse,rgba(57,0,120,.4) 0%,transparent 70%); pointer-events:none; z-index:0; }
+    .wrap { position:relative; z-index:1; max-width:860px; margin:0 auto; padding:2rem 1.5rem 4rem; }
+    .top-nav { display:flex; flex-wrap:wrap; gap:.4rem; justify-content:center; margin-bottom:2.5rem; }
+    .nav-btn { background:var(--card); border:1px solid rgba(255,255,255,.1); color:var(--muted); font-size:.75rem; padding:.35rem .8rem; border-radius:.45rem; text-decoration:none; transition:all .2s; }
+    .nav-btn:hover { border-color:var(--cyan); color:var(--cyan); background:rgba(0,229,255,.07); }
+    .nav-btn.active { border-color:var(--cyan); color:var(--cyan); background:rgba(0,229,255,.1); }
+    /* HERO */
+    .cierre-hero { text-align:center; padding:2.5rem 0 1.5rem; }
+    .cierre-hero .badge { display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; background:rgba(0,229,255,.1); border:1px solid rgba(0,229,255,.3); color:var(--cyan); padding:.35rem 1rem; border-radius:999px; margin-bottom:1rem; }
+    .cierre-hero h1 { font-size:clamp(2rem,5vw,3.5rem); font-weight:900; line-height:1.1; background:linear-gradient(135deg,var(--cyan) 0%,var(--purple) 50%,var(--pink) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:.75rem; }
+    .cierre-hero .subtitle { font-size:1.05rem; color:var(--muted); max-width:480px; margin:0 auto; }
+    .timing-pill { display:inline-flex; align-items:center; gap:.4rem; background:rgba(0,229,255,.08); border:1px solid rgba(0,229,255,.2); color:var(--cyan); font-size:.82rem; padding:.35rem 1rem; border-radius:999px; margin-top:1rem; }
+    section { margin-bottom:2.5rem; }
+    .section-label { font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--cyan); margin-bottom:.5rem; }
+    h2 { font-size:1.4rem; font-weight:800; margin-bottom:1rem; color:#fff; }
+    p { color:var(--text); margin-bottom:1rem; }
+    code { background:rgba(0,0,0,.4); color:var(--cyan); padding:.1em .4em; border-radius:.3em; font-family:'Cascadia Code','Fira Code',monospace; font-size:.88em; }
+    .box { border-radius:.75rem; padding:1rem 1.25rem; margin-bottom:1rem; font-size:.9rem; }
+    .box-tip  { background:rgba(0,230,118,.08);  border:1px solid rgba(0,230,118,.3);  color:#69f0ae; }
+    .box-info { background:rgba(61,90,254,.1);  border:1px solid rgba(61,90,254,.35); color:#90caf9; }
+    .box .box-title { font-weight:700; margin-bottom:.35rem; }
+    /* KEY CONCEPTS */
+    .concepts { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .concept-card { background:var(--card); border:1px solid rgba(255,255,255,.07); border-radius:.75rem; padding:1rem 1.1rem; }
+    .concept-card .cc-icon { font-size:1.5rem; margin-bottom:.4rem; display:block; }
+    .concept-card .cc-title { font-weight:700; font-size:.92rem; color:#fff; margin-bottom:.3rem; }
+    .concept-card .cc-desc { font-size:.82rem; color:var(--muted); }
+    /* BADGE */
+    .badge-section { text-align:center; margin-bottom:2rem; }
+    .badge-card { display:inline-block; background:linear-gradient(135deg,rgba(0,229,255,.07),rgba(156,39,176,.08)); border:2px solid rgba(0,229,255,.25); border-radius:1.5rem; padding:2rem 3rem; }
+    .badge-card .badge-icon { font-size:4rem; display:block; margin-bottom:.75rem; }
+    .badge-card .badge-title { font-size:1.3rem; font-weight:900; color:#fff; margin-bottom:.25rem; }
+    .badge-card .badge-sub { font-size:.82rem; color:var(--muted); }
+    .badge-card .badge-date { font-size:.76rem; color:var(--cyan); margin-top:.5rem; }
+    /* RESOURCES */
+    .resources { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .resource-item { background:var(--card); border:1px solid rgba(255,255,255,.07); border-radius:.75rem; padding:.9rem 1rem; display:flex; gap:.75rem; align-items:flex-start; }
+    .resource-item .ri-icon { font-size:1.2rem; flex-shrink:0; margin-top:.1rem; }
+    .resource-item .ri-label { font-size:.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:.15rem; }
+    .resource-item .ri-title { font-size:.88rem; font-weight:600; color:#fff; }
+    .resource-item a { color:var(--cyan); text-decoration:none; font-size:.78rem; }
+    .resource-item a:hover { text-decoration:underline; }
+    /* SPEAKERS */
+    .speakers { display:flex; gap:1.5rem; flex-wrap:wrap; margin-bottom:1.5rem; }
+    .speaker-card { background:var(--card); border:1px solid rgba(0,229,255,.15); border-radius:.75rem; padding:1rem; display:flex; gap:.75rem; align-items:center; flex:1; min-width:220px; }
+    .speaker-card .avatar { width:3rem; height:3rem; border-radius:.5rem; background:linear-gradient(135deg,var(--cyan),var(--purple)); display:flex; align-items:center; justify-content:center; font-size:1.25rem; flex-shrink:0; }
+    .speaker-card .sc-name { font-weight:700; color:#fff; font-size:.92rem; }
+    .speaker-card .sc-role { font-size:.78rem; color:var(--muted); }
+    /* NEXT STEPS */
+    .next-steps { display:flex; flex-direction:column; gap:.6rem; }
+    .next-step { background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:.6rem; padding:.8rem 1rem; display:flex; gap:.75rem; align-items:flex-start; font-size:.9rem; }
+    .next-step .ns-icon { font-size:1rem; flex-shrink:0; margin-top:.1rem; }
+    .next-step .ns-text { color:var(--text); }
+    .next-step .ns-text strong { color:#fff; }
+    /* final CTA */
+    .final-cta { background:linear-gradient(135deg,rgba(0,229,255,.07),rgba(156,39,176,.07)); border:1px solid rgba(0,229,255,.2); border-radius:1.25rem; padding:2rem; text-align:center; }
+    .final-cta .fc-title { font-size:1.5rem; font-weight:900; color:#fff; margin-bottom:.5rem; }
+    .final-cta .fc-sub { font-size:.92rem; color:var(--muted); margin-bottom:1.25rem; }
+    .btn-group { display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; gap:.5rem; font-size:.88rem; font-weight:700; padding:.65rem 1.35rem; border-radius:.6rem; text-decoration:none; transition:all .2s; }
+    .btn-cyan { background:rgba(0,229,255,.12); border:1px solid rgba(0,229,255,.35); color:var(--cyan); }
+    .btn-cyan:hover { background:rgba(0,229,255,.2); border-color:var(--cyan); }
+    .btn-purple { background:rgba(156,39,176,.12); border:1px solid rgba(156,39,176,.35); color:#ce93d8; }
+    .btn-purple:hover { background:rgba(156,39,176,.2); }
+    .bottom-nav { display:flex; justify-content:flex-start; align-items:center; padding-top:1.5rem; margin-top:2rem; border-top:1px solid rgba(255,255,255,.07); }
+    .nav-link { display:flex; align-items:center; gap:.5rem; background:var(--card); border:1px solid rgba(255,255,255,.1); color:var(--text); font-size:.85rem; padding:.6rem 1.1rem; border-radius:.6rem; text-decoration:none; transition:all .2s; }
+    .nav-link:hover { border-color:var(--cyan); color:var(--cyan); }
+    footer { text-align:center; font-size:.78rem; color:var(--muted); padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.07); margin-top:2rem; }
+    footer a { color:var(--cyan); text-decoration:none; }
+    @media (max-width:520px) { .concepts { grid-template-columns:1fr; } .resources { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="top-nav">
+    <a href="index.html"               class="nav-btn">🏠</a>
+    <a href="bienvenida-workshop.html"  class="nav-btn">🎒</a>
+    <a href="actividad-01-setup.html"   class="nav-btn">01</a>
+    <a href="actividad-02-agentes.html" class="nav-btn">02</a>
+    <a href="actividad-03-hugo.html"    class="nav-btn">03</a>
+    <a href="actividad-04-whiskers.html" class="nav-btn">04</a>
+    <a href="actividad-05-luna.html"    class="nav-btn">05</a>
+    <a href="actividad-06-rocket.html"  class="nav-btn">06</a>
+    <a href="actividad-07-squad.html"   class="nav-btn">07</a>
+    <a href="cierre.html"              class="nav-btn active">🏁</a>
+  </nav>
+
+  <header class="cierre-hero">
+    <div class="badge">Cierre del Workshop</div>
+    <h1>Lo conseguisteis 🎉</h1>
+    <p class="subtitle">Un blog real en Internet, gestionado por un squad de 4 agentes de IA. En 4 horas.</p>
+    <div class="timing-pill">⏱ 13:45 – 14:00 · 15 minutos · Q&A</div>
+  </header>
+
+  <!-- BADGE -->
+  <section class="badge-section">
+    <div class="badge-card">
+      <span class="badge-icon">🐱🚀</span>
+      <div class="badge-title">Kitten Agent Master</div>
+      <div class="badge-sub">AgentCamp 2026 · NTT DATA Spain</div>
+      <div class="badge-date">27 de Febrero de 2026 · Madrid</div>
+    </div>
+  </section>
+
+  <!-- KEY CONCEPTS -->
+  <section>
+    <div class="section-label">Lo que aprendiste hoy</div>
+    <h2>6 conceptos clave del workshop</h2>
+    <div class="concepts">
+      <div class="concept-card">
+        <span class="cc-icon">📄</span>
+        <div class="cc-title">Agentes como archivos de texto</div>
+        <div class="cc-desc">Un <code>.agent.md</code> con YAML frontmatter es todo lo que necesita un LLM para actuar como agente. Sin SDKs, sin frameworks, sin boilerplate.</div>
+      </div>
+      <div class="concept-card">
+        <span class="cc-icon">🔒</span>
+        <div class="cc-title">Guardrails como código</div>
+        <div class="cc-desc">Los guardrails son restricciones declarativas en el agente que el LLM interpreta como reglas inquebrantables. Una línea de texto puede ser un bloqueo total de comportamiento.</div>
+      </div>
+      <div class="concept-card">
+        <span class="cc-icon">🔗</span>
+        <div class="cc-title">Coordinación vía Git</div>
+        <div class="cc-desc">Los agentes no necesitan un bus de mensajes ni un orquestador central. El estado del repositorio (un frontmatter, una rama, un PR) ES el canal de comunicación.</div>
+      </div>
+      <div class="concept-card">
+        <span class="cc-icon">🧠</span>
+        <div class="cc-title">Meta-prompting</div>
+        <div class="cc-desc">Usar un LLM para generar el prompt de otro sistema de IA (DALL-E). El primer modelo comprende el contexto; el segundo ejecuta con máxima calidad gracias al prompt enriquecido.</div>
+      </div>
+      <div class="concept-card">
+        <span class="cc-icon">🛡️</span>
+        <div class="cc-title">CI como guardrail de infraestructura</div>
+        <div class="cc-desc">Rocket demostró que los pipelines de CI no son burocracia: son el último guardrail antes de producción. Si falla el build, el deploy no existe.</div>
+      </div>
+      <div class="concept-card">
+        <span class="cc-icon">👤</span>
+        <div class="cc-title">El humano como supervisor</div>
+        <div class="cc-desc">Los agentes proponen (PRs), el humano aprueba (merge). Esta dualidad es la que hace los sistemas de agentes seguros y auditables en entornos reales.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEAKERS -->
+  <section>
+    <div class="section-label">Los instructores del workshop</div>
+    <h2>Preguntas a los ponentes</h2>
+    <div class="speakers">
+      <div class="speaker-card">
+        <div class="avatar">👨‍🚀</div>
+        <div>
+          <div class="sc-name">Alejandro Almeida</div>
+          <div class="sc-role">Cloud & AI Architect · NTT DATA</div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="avatar">👩‍🚀</div>
+        <div>
+          <div class="sc-name">María Soto</div>
+          <div class="sc-role">Azure AI Engineer · NTT DATA</div>
+        </div>
+      </div>
+    </div>
+    <div class="box box-tip">
+      <div class="box-title">✅ El tiempo de Q&A es tuyo</div>
+      Preguntas técnicas, conceptuales, experiencias con agentes en producción, dudas del workshop…
+      Aprovecha estos 15 minutos. No hay preguntas estúpidas en AgentCamp.
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section>
+    <div class="section-label">Para llevar a casa</div>
+    <h2>Recursos y documentación</h2>
+    <div class="resources">
+      <div class="resource-item">
+        <div class="ri-icon">⚡</div>
+        <div>
+          <div class="ri-label">CLI Extension</div>
+          <div class="ri-title">GitHub Agent Workflows (gh-aw)</div>
+          <a href="https://github.com/github/gh-aw" target="_blank" rel="noopener">github.com/github/gh-aw →</a>
+        </div>
+      </div>
+      <div class="resource-item">
+        <div class="ri-icon">🦎</div>
+        <div>
+          <div class="ri-label">Static Site Generator</div>
+          <div class="ri-title">Hugo Extended</div>
+          <a href="https://gohugo.io/documentation/" target="_blank" rel="noopener">gohugo.io/documentation →</a>
+        </div>
+      </div>
+      <div class="resource-item">
+        <div class="ri-icon">🎨</div>
+        <div>
+          <div class="ri-label">CSS Framework via CDN</div>
+          <div class="ri-title">Tailwind CSS</div>
+          <a href="https://tailwindcss.com/docs" target="_blank" rel="noopener">tailwindcss.com/docs →</a>
+        </div>
+      </div>
+      <div class="resource-item">
+        <div class="ri-icon">🤖</div>
+        <div>
+          <div class="ri-label">AI + Models</div>
+          <div class="ri-title">GitHub Models (Free Tier)</div>
+          <a href="https://github.blog/news-insights/product-news/introducing-github-models/" target="_blank" rel="noopener">GitHub Models Blog →</a>
+        </div>
+      </div>
+      <div class="resource-item">
+        <div class="ri-icon">☁️</div>
+        <div>
+          <div class="ri-label">Azure OpenAI Service</div>
+          <div class="ri-title">GPT-4o + DALL-E 3</div>
+          <a href="https://learn.microsoft.com/azure/ai-services/openai/" target="_blank" rel="noopener">learn.microsoft.com →</a>
+        </div>
+      </div>
+      <div class="resource-item">
+        <div class="ri-icon">🔌</div>
+        <div>
+          <div class="ri-label">Protocol</div>
+          <div class="ri-title">Model Context Protocol (MCP)</div>
+          <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">modelcontextprotocol.io →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT STEPS -->
+  <section>
+    <div class="section-label">¿Y ahora qué?</div>
+    <h2>Próximos pasos después del workshop</h2>
+    <div class="next-steps">
+      <div class="next-step">
+        <div class="ns-icon">✍️</div>
+        <div class="ns-text"><strong>Personaliza el blog</strong> — Cambia el tema Hugo, añade tus propias categorías, personaliza los prompts de Whiskers con tu voz y estilo.</div>
+      </div>
+      <div class="next-step">
+        <div class="ns-icon">🤖</div>
+        <div class="ns-text"><strong>Crea tu propio agente</strong> — Usa la anatomía de <code>.agent.md</code> para definir un agente nuevo con tu propio conjunto de herramientas y guardrails.</div>
+      </div>
+      <div class="next-step">
+        <div class="ns-icon">🔗</div>
+        <div class="ns-text"><strong>Conecta un agente con un API externo</strong> — Añade un MCP server a tu workspace que hable con una API (Notion, Jira, Slack) y diseña el guardrail correspondiente.</div>
+      </div>
+      <div class="next-step">
+        <div class="ns-icon">🛡️</div>
+        <div class="ns-text"><strong>Estudia guardrails avanzados</strong> — Explora cómo añadir evaluaciones de Responsible AI y content filters en Azure AI Foundry para agentes en producción.</div>
+      </div>
+      <div class="next-step">
+        <div class="ns-icon">⭐</div>
+        <div class="ns-text"><strong>Dale una estrella al repo del workshop</strong> — Ayuda a que más personas descubran el proyecto y la metodología de AgentCamp.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <div class="final-cta">
+    <div class="fc-title">¡Gracias por venir al AgentCamp 2026! 🐱🚀</div>
+    <div class="fc-sub">El squad de agentes que construiste hoy es tuyo. Sigue iterando sobre él.</div>
+    <div class="btn-group">
+      <a href="index.html" class="btn btn-cyan">← Ver el workshop completo</a>
+      <a href="bienvenida-workshop.html" class="btn btn-purple">Prerequisitos otra vez</a>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="actividad-07-squad.html" class="nav-link">← Actividad 7: El Gran Reto</a>
+  </div>
+
+  <footer>
+    <p>AgentCamp 2026 · Workshop: Kitten Agent Blog · Madrid · 27 de Febrero de 2026</p>
+    <p style="margin-top:.3rem;">Organizado por <a href="#">NTT DATA Spain</a> · Instructores: Alejandro Almeida &amp; María Soto</p>
+  </footer>
+
+</div>
+</body>
+</html>

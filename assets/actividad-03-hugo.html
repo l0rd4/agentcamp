@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>if(!sessionStorage.getItem('wk26')){location.replace('gate.html')}</script>
+  <title>Actividad 3 – El Blog Vive · Kitten Agent Blog</title>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --cyan:#00e5ff; --purple:#9c27b0; --indigo:#3d5afe; --dark:#0d0d1a; --card:#1a1a35; --text:#e8e8f0; --muted:#888ab0; --green:#00e676; --orange:#ff9100; --pink:#f50057; --yellow:#ffea00; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--dark); color:var(--text); line-height:1.7; min-height:100vh; }
+    body::before { content:''; position:fixed; inset:0; background-image: radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,.6) 0%,transparent 100%), radial-gradient(1px 1px at 35% 55%,rgba(255,255,255,.4) 0%,transparent 100%), radial-gradient(1px 1px at 60% 15%,rgba(255,255,255,.7) 0%,transparent 100%), radial-gradient(1px 1px at 75% 80%,rgba(255,255,255,.5) 0%,transparent 100%), radial-gradient(1px 1px at 50% 65%,rgba(255,255,255,.5) 0%,transparent 100%); pointer-events:none; z-index:0; }
+    body::after { content:''; position:fixed; top:-20%; right:-10%; width:70vw; height:70vh; background:radial-gradient(ellipse,rgba(57,0,120,.35) 0%,transparent 70%); pointer-events:none; z-index:0; }
+    .wrap { position:relative; z-index:1; max-width:860px; margin:0 auto; padding:2rem 1.5rem 4rem; }
+    .top-nav { display:flex; flex-wrap:wrap; gap:.4rem; justify-content:center; margin-bottom:2.5rem; }
+    .nav-btn { background:var(--card); border:1px solid rgba(255,255,255,.1); color:var(--muted); font-size:.75rem; padding:.35rem .8rem; border-radius:.45rem; text-decoration:none; transition:all .2s; }
+    .nav-btn:hover { border-color:var(--cyan); color:var(--cyan); background:rgba(0,229,255,.07); }
+    .nav-btn.active { border-color:var(--indigo); color:#90caf9; background:rgba(61,90,254,.1); }
+    .act-hero { text-align:center; padding:2rem 0; }
+    .act-number { display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#90caf9; margin-bottom:.5rem; }
+    .act-hero h1 { font-size:clamp(1.8rem,4.5vw,3rem); font-weight:900; line-height:1.15; background:linear-gradient(135deg,#7c4dff 0%,var(--cyan) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:.75rem; }
+    .act-hero .subtitle { font-size:1rem; color:var(--muted); }
+    .timing-pill { display:inline-flex; align-items:center; gap:.4rem; background:rgba(61,90,254,.1); border:1px solid rgba(61,90,254,.3); color:#90caf9; font-size:.82rem; padding:.35rem 1rem; border-radius:999px; margin-top:1rem; }
+    section { margin-bottom:2.5rem; }
+    .section-label { font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--cyan); margin-bottom:.5rem; }
+    h2 { font-size:1.4rem; font-weight:800; margin-bottom:1rem; color:#fff; }
+    p { color:var(--text); margin-bottom:1rem; }
+    code { background:rgba(0,0,0,.4); color:var(--cyan); padding:.1em .4em; border-radius:.3em; font-family:'Cascadia Code','Fira Code',monospace; font-size:.88em; }
+    pre { background:rgba(0,0,0,.5); border:1px solid rgba(0,229,255,.15); border-radius:.6rem; padding:1rem; overflow-x:auto; margin:.5rem 0; font-family:'Cascadia Code','Fira Code',monospace; font-size:.82rem; color:var(--text); line-height:1.6; }
+    pre .cmd { color:var(--green); }
+    pre .out { color:var(--orange); }
+    pre .comment { color:var(--muted); font-style:italic; }
+    .steps { display:flex; flex-direction:column; gap:1rem; }
+    .step { display:grid; grid-template-columns:2.5rem 1fr; gap:0 1rem; background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:.75rem; padding:1.1rem; }
+    .step-num { grid-row:span 2; width:2.25rem; height:2.25rem; border-radius:.5rem; background:rgba(61,90,254,.15); border:1px solid rgba(61,90,254,.3); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:.9rem; color:#90caf9; flex-shrink:0; }
+    .step-title { font-weight:700; font-size:.95rem; color:#fff; }
+    .step-body { font-size:.88rem; color:var(--muted); margin-top:.3rem; grid-column:2; }
+    .box { border-radius:.75rem; padding:1rem 1.25rem; margin-bottom:1rem; font-size:.9rem; }
+    .box-tip  { background:rgba(0,230,118,.08);  border:1px solid rgba(0,230,118,.3);  color:#69f0ae; }
+    .box-info { background:rgba(61,90,254,.1);   border:1px solid rgba(61,90,254,.35); color:#90caf9; }
+    .box-warn { background:rgba(255,145,0,.08); border:1px solid rgba(255,145,0,.3); color:#ffb74d; }
+    .box .box-title { font-weight:700; margin-bottom:.35rem; }
+    .celebrate { background:linear-gradient(135deg,rgba(0,229,255,.08),rgba(124,77,255,.1)); border:1px solid rgba(0,229,255,.2); border-radius:1.25rem; padding:1.5rem; text-align:center; margin-bottom:1.5rem; }
+    .celebrate .big { font-size:2.5rem; margin-bottom:.5rem; }
+    .celebrate .title { font-size:1.2rem; font-weight:800; color:#fff; }
+    .celebrate .sub { font-size:.88rem; color:var(--muted); margin-top:.4rem; }
+    /* file tree */
+    .tree { background:rgba(0,0,0,.5); border:1px solid rgba(0,229,255,.15); border-radius:.75rem; padding:1.25rem; font-family:'Cascadia Code','Fira Code',monospace; font-size:.82rem; line-height:2; }
+    .tree .dir { color:var(--cyan); }
+    .tree .file { color:var(--text); }
+    .tree .new { color:var(--green); font-weight:700; }
+    .deliverable { background:linear-gradient(135deg,rgba(124,77,255,.08),rgba(0,229,255,.06)); border:1px solid rgba(124,77,255,.3); border-radius:1rem; padding:1.25rem 1.5rem; margin-top:1rem; }
+    .deliverable .del-label { font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#a78bfa; margin-bottom:.5rem; }
+    .deliverable .del-title { font-weight:700; font-size:1rem; color:#fff; margin-bottom:.35rem; }
+    .deliverable p { font-size:.88rem; color:var(--muted); margin:0; }
+    .bottom-nav { display:flex; justify-content:space-between; align-items:center; padding-top:1.5rem; margin-top:2rem; border-top:1px solid rgba(255,255,255,.07); }
+    .nav-link { display:flex; align-items:center; gap:.5rem; background:var(--card); border:1px solid rgba(255,255,255,.1); color:var(--text); font-size:.85rem; padding:.6rem 1.1rem; border-radius:.6rem; text-decoration:none; transition:all .2s; }
+    .nav-link:hover { border-color:var(--cyan); color:var(--cyan); }
+    .nav-link.next { background:linear-gradient(135deg,rgba(0,229,255,.1),rgba(61,90,254,.1)); border-color:rgba(0,229,255,.25); color:var(--cyan); }
+    footer { text-align:center; font-size:.78rem; color:var(--muted); padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.07); margin-top:2rem; }
+    footer a { color:var(--cyan); text-decoration:none; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="top-nav">
+    <a href="index.html"               class="nav-btn">🏠</a>
+    <a href="bienvenida-workshop.html"  class="nav-btn">🎒</a>
+    <a href="actividad-01-setup.html"   class="nav-btn">01</a>
+    <a href="actividad-02-agentes.html" class="nav-btn">02</a>
+    <a href="actividad-03-hugo.html"    class="nav-btn active">03</a>
+    <a href="actividad-04-whiskers.html" class="nav-btn">04</a>
+    <a href="actividad-05-luna.html"    class="nav-btn">05</a>
+    <a href="actividad-06-rocket.html"  class="nav-btn">06</a>
+    <a href="actividad-07-squad.html"   class="nav-btn">07</a>
+    <a href="cierre.html"              class="nav-btn">🏁</a>
+  </nav>
+
+  <header class="act-hero">
+    <div class="act-number">Actividad 3 de 7</div>
+    <h1>El Blog Vive 🦎</h1>
+    <p class="subtitle">Merge del PR de Astro · Hugo server · El blog en <code>localhost:1313</code></p>
+    <div class="timing-pill">⏱ 11:30 – 11:50 · 20 minutos</div>
+  </header>
+
+  <section>
+    <div class="celebrate">
+      <div class="big">🎉</div>
+      <div class="title">Astro ha construido el blog</div>
+      <div class="sub">El PR está esperando tu aprobación. Un merge y el blog existirá. Sin npm install, sin bundler, sin dependencias.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Qué ha creado Astro</div>
+    <h2>Estructura generada en el PR</h2>
+    <p>El PR de Astro debería contener esta estructura dentro de <code>blog/</code>:</p>
+    <div class="tree">
+      <span class="dir">blog/</span><br>
+      &nbsp;&nbsp;<span class="new">├─ hugo.toml</span>  <span style="color:var(--muted); font-style:italic;">← configuración del sitio</span><br>
+      &nbsp;&nbsp;<span class="new">├─ content/</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="new">├─ _index.md</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="new">└─ posts/</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="new">└─ 2026-02-27-bienvenidos.md</span>  <span style="color:var(--muted); font-style:italic;">← primer post</span><br>
+      &nbsp;&nbsp;<span class="new">├─ layouts/</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="new">├─ _default/</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="new">├─ baseof.html</span>  <span style="color:var(--muted); font-style:italic;">← layout base con Tailwind CDN</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="new">├─ list.html</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="new">└─ single.html</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="new">└─ partials/</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="new">├─ header.html</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="new">└─ footer.html</span><br>
+      &nbsp;&nbsp;<span class="new">└─ static/</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Paso a paso</div>
+    <h2>Merge y primera vista del blog</h2>
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Revisar y aprobar el PR de Astro</div>
+        <div class="step-body">
+          En GitHub, ve al PR <code>[agent-astro] Inicializar blog Hugo</code>. Revisa los ficheros
+          modificados. Comprueba que solo hay cambios dentro de <code>blog/</code>
+          y que la rama sigue la convención <code>feature/astro-setup-*</code>.
+          <br>Si todo está bien → <strong>Merge pull request</strong>.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Hacer pull en local</div>
+        <div class="step-body">
+          <pre><span class="cmd">git checkout master</span>
+<span class="cmd">git pull</span></pre>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Levantar el blog en local</div>
+        <div class="step-body">
+          <pre><span class="cmd">cd blog</span>
+<span class="cmd">hugo server --buildDrafts</span></pre>
+          Deberías ver:
+          <pre><span class="out">Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)</span>
+<span class="out">Press Ctrl+C to stop</span></pre>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">Abrir en el navegador</div>
+        <div class="step-body">
+          Navega a <code>http://localhost:1313</code>. El blog está vacío de contenido real,
+          pero Tailwind CDN está cargado y el layout funciona.
+          <br><br>
+          <div class="box box-tip" style="margin:0;">
+            <div class="box-title">✅ Hugo hot-reload</div>
+            Hugo recarga el navegador automáticamente cuando guardas cambios.
+            No necesitas reiniciar el servidor durante el workshop.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-title">Explorar la arquitectura del blog</div>
+        <div class="step-body">
+          Sin cerrar el servidor, abre el fichero <code>blog/layouts/_default/baseof.html</code>
+          en VS Code. Verás que Tailwind CDN está incluido en el <code>&lt;head&gt;</code>:
+          <pre>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</pre>
+          Esto es intencional: sin build step, sin npm, sin postcss. Funciona directamente.
+          <div class="box box-info" style="margin-top:.75rem;">
+            <div class="box-title">ℹ️ CDN vs compilado</div>
+            El modo CDN de Tailwind es perfecto para workshops y prototipado.
+            En producción real querrías el CLI compilado (sin el overhead del JIT en browser),
+            pero para este workshop es exactamente lo que necesitamos.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="deliverable">
+    <div class="del-label">🎯 Entregable de la actividad</div>
+    <div class="del-title">Blog corriendo en <code>http://localhost:1313</code></div>
+    <p>PR de Astro mergeado. Hugo server levantado. El blog vacío está vivo y con Tailwind cargado.
+    Ahora los gatitos necesitan contenido — y para eso está Whiskers.</p>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="actividad-02-agentes.html" class="nav-link">← Actividad 2: Agentes</a>
+    <a href="actividad-04-whiskers.html" class="nav-link next">Actividad 4: Whiskers →</a>
+  </div>
+
+  <footer>
+    <p>AgentCamp 2026 · Workshop: Kitten Agent Blog · <a href="index.html">Volver al índice</a></p>
+  </footer>
+
+</div>
+</body>
+</html>

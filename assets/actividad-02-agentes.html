@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>if(!sessionStorage.getItem('wk26')){location.replace('gate.html')}</script>
+  <title>Actividad 2 – Custom Agents · Kitten Agent Blog</title>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --cyan:#00e5ff; --purple:#9c27b0; --indigo:#3d5afe;
+      --dark:#0d0d1a; --card:#1a1a35; --text:#e8e8f0; --muted:#888ab0;
+      --green:#00e676; --orange:#ff9100; --pink:#f50057; --yellow:#ffea00;
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--dark); color:var(--text); line-height:1.7; min-height:100vh; }
+    body::before {
+      content:''; position:fixed; inset:0;
+      background-image:
+        radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,.6) 0%,transparent 100%),
+        radial-gradient(1px 1px at 35% 55%,rgba(255,255,255,.4) 0%,transparent 100%),
+        radial-gradient(1px 1px at 60% 15%,rgba(255,255,255,.7) 0%,transparent 100%),
+        radial-gradient(1px 1px at 75% 80%,rgba(255,255,255,.5) 0%,transparent 100%),
+        radial-gradient(1px 1px at 90% 40%,rgba(255,255,255,.6) 0%,transparent 100%),
+        radial-gradient(1px 1px at 50% 65%,rgba(255,255,255,.5) 0%,transparent 100%);
+      pointer-events:none; z-index:0;
+    }
+    body::after {
+      content:''; position:fixed; top:-20%; right:-10%; width:70vw; height:70vh;
+      background:radial-gradient(ellipse,rgba(57,0,120,.35) 0%,transparent 70%);
+      pointer-events:none; z-index:0;
+    }
+    .wrap { position:relative; z-index:1; max-width:860px; margin:0 auto; padding:2rem 1.5rem 4rem; }
+
+    .top-nav { display:flex; flex-wrap:wrap; gap:.4rem; justify-content:center; margin-bottom:2.5rem; }
+    .nav-btn { background:var(--card); border:1px solid rgba(255,255,255,.1); color:var(--muted); font-size:.75rem; padding:.35rem .8rem; border-radius:.45rem; text-decoration:none; transition:all .2s; }
+    .nav-btn:hover { border-color:var(--cyan); color:var(--cyan); background:rgba(0,229,255,.07); }
+    .nav-btn.active { border-color:var(--cyan); color:var(--cyan); background:rgba(0,229,255,.07); }
+
+    .act-hero { text-align:center; padding:2rem 0; }
+    .act-number { display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--cyan); margin-bottom:.5rem; }
+    .act-hero h1 {
+      font-size:clamp(1.8rem,4.5vw,3rem); font-weight:900; line-height:1.15;
+      background:linear-gradient(135deg,var(--cyan) 0%,#a78bfa 60%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:.75rem;
+    }
+    .act-hero .subtitle { font-size:1rem; color:var(--muted); }
+    .timing-pill { display:inline-flex; align-items:center; gap:.4rem; background:rgba(0,229,255,.1); border:1px solid rgba(0,229,255,.25); color:var(--cyan); font-size:.82rem; padding:.35rem 1rem; border-radius:999px; margin-top:1rem; }
+
+    section { margin-bottom:2.5rem; }
+    .section-label { font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--cyan); margin-bottom:.5rem; }
+    h2 { font-size:1.4rem; font-weight:800; margin-bottom:1rem; color:#fff; }
+    p { color:var(--text); margin-bottom:1rem; }
+
+    /* Agent anatomy */
+    .anatomy {
+      background:rgba(0,0,0,.5); border:1px solid rgba(0,229,255,.2);
+      border-radius:.75rem; padding:1.25rem; font-family:'Cascadia Code','Fira Code',monospace;
+      font-size:.82rem; line-height:1.8; margin-bottom:1.5rem;
+    }
+    .anatomy .fm { color:var(--muted); }
+    .anatomy .key { color:var(--cyan); }
+    .anatomy .val { color:var(--orange); }
+    .anatomy .comment { color:var(--muted); font-style:italic; }
+    .anatomy .section-head { color:var(--yellow); font-weight:700; }
+    .anatomy .body-text { color:var(--text); }
+    .anatomy .guardrail { color:var(--pink); }
+
+    /* Agent comparison grid */
+    .agent-compare { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:.75rem; margin-bottom:1.5rem; }
+    .ac-card {
+      background:var(--card); border-radius:.75rem; border:1px solid rgba(255,255,255,.07);
+      padding:1rem; transition:transform .2s;
+    }
+    .ac-card:hover { transform:translateY(-3px); }
+    .ac-emoji { font-size:2rem; margin-bottom:.4rem; display:block; }
+    .ac-name { font-weight:700; font-size:.9rem; color:var(--cyan); }
+    .ac-tools { font-size:.72rem; color:var(--muted); margin-top:.35rem; }
+    .ac-tools span { background:rgba(0,229,255,.08); border:1px solid rgba(0,229,255,.15); border-radius:.3rem; padding:.1rem .4rem; margin-right:.25rem; margin-bottom:.25rem; display:inline-block; }
+
+    /* steps */
+    .steps { display:flex; flex-direction:column; gap:1rem; }
+    .step { display:grid; grid-template-columns:2.5rem 1fr; gap:0 1rem; background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:.75rem; padding:1.1rem; }
+    .step-num { grid-row:span 2; width:2.25rem; height:2.25rem; border-radius:.5rem; background:rgba(0,229,255,.1); border:1px solid rgba(0,229,255,.25); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:.9rem; color:var(--cyan); flex-shrink:0; }
+    .step-title { font-weight:700; font-size:.95rem; color:#fff; }
+    .step-body { font-size:.88rem; color:var(--muted); margin-top:.3rem; grid-column:2; }
+
+    pre { background:rgba(0,0,0,.5); border:1px solid rgba(0,229,255,.15); border-radius:.6rem; padding:1rem; overflow-x:auto; margin:.5rem 0; font-family:'Cascadia Code','Fira Code',monospace; font-size:.82rem; color:var(--text); line-height:1.6; }
+    pre .cmd { color:var(--green); }
+    pre .comment { color:var(--muted); font-style:italic; }
+    code { background:rgba(0,0,0,.4); color:var(--cyan); padding:.1em .4em; border-radius:.3em; font-family:'Cascadia Code','Fira Code',monospace; font-size:.88em; }
+
+    .box { border-radius:.75rem; padding:1rem 1.25rem; margin-bottom:1rem; font-size:.9rem; }
+    .box-warn { background:rgba(255,145,0,.08); border:1px solid rgba(255,145,0,.3); color:#ffb74d; }
+    .box-tip  { background:rgba(0,230,118,.08);  border:1px solid rgba(0,230,118,.3);  color:#69f0ae; }
+    .box-info { background:rgba(61,90,254,.1);   border:1px solid rgba(61,90,254,.35); color:#90caf9; }
+    .box .box-title { font-weight:700; margin-bottom:.35rem; }
+
+    .narrative { background:linear-gradient(135deg,rgba(61,90,254,.12),rgba(156,33,176,.12)); border-left:4px solid var(--indigo); border-radius:0 .75rem .75rem 0; padding:1.25rem 1.5rem; font-size:.95rem; color:var(--text); margin-bottom:1.5rem; }
+
+    .deliverable { background:linear-gradient(135deg,rgba(0,229,255,.08),rgba(61,90,254,.08)); border:1px solid rgba(0,229,255,.25); border-radius:1rem; padding:1.25rem 1.5rem; margin-top:1rem; }
+    .deliverable .del-label { font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--cyan); margin-bottom:.5rem; }
+    .deliverable .del-title { font-weight:700; font-size:1rem; color:#fff; margin-bottom:.35rem; }
+    .deliverable p { font-size:.88rem; color:var(--muted); margin:0; }
+
+    .bottom-nav { display:flex; justify-content:space-between; align-items:center; padding-top:1.5rem; margin-top:2rem; border-top:1px solid rgba(255,255,255,.07); }
+    .nav-link { display:flex; align-items:center; gap:.5rem; background:var(--card); border:1px solid rgba(255,255,255,.1); color:var(--text); font-size:.85rem; padding:.6rem 1.1rem; border-radius:.6rem; text-decoration:none; transition:all .2s; }
+    .nav-link:hover { border-color:var(--cyan); color:var(--cyan); }
+    .nav-link.next { background:linear-gradient(135deg,rgba(0,229,255,.1),rgba(61,90,254,.1)); border-color:rgba(0,229,255,.25); color:var(--cyan); }
+
+    footer { text-align:center; font-size:.78rem; color:var(--muted); padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.07); margin-top:2rem; }
+    footer a { color:var(--cyan); text-decoration:none; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- TOP NAV -->
+  <nav class="top-nav">
+    <a href="index.html"               class="nav-btn">🏠</a>
+    <a href="bienvenida-workshop.html"  class="nav-btn">🎒</a>
+    <a href="actividad-01-setup.html"   class="nav-btn">01</a>
+    <a href="actividad-02-agentes.html" class="nav-btn active">02</a>
+    <a href="actividad-03-hugo.html"    class="nav-btn">03</a>
+    <a href="actividad-04-whiskers.html" class="nav-btn">04</a>
+    <a href="actividad-05-luna.html"    class="nav-btn">05</a>
+    <a href="actividad-06-rocket.html"  class="nav-btn">06</a>
+    <a href="actividad-07-squad.html"   class="nav-btn">07</a>
+    <a href="cierre.html"              class="nav-btn">🏁</a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="act-hero">
+    <div class="act-number">Actividad 2 de 7</div>
+    <h1>Conociendo al Squad 🐾</h1>
+    <p class="subtitle">Anatomía de un <code>.agent.md</code> · Personalizar Astro · Scaffolding del blog</p>
+    <div class="timing-pill">⏱ 10:50 – 11:30 · 40 minutos</div>
+  </header>
+
+  <!-- NARRATIVE -->
+  <section>
+    <div class="narrative">
+      Los agentes del workshop no son magia negra. Son ficheros Markdown con una estructura concreta
+      que GitHub Copilot entiende. En esta actividad vas a <strong>diseccionar un agente</strong>,
+      entender cada sección, personalizar uno y lanzarlo por primera vez para que haga algo real:
+      crear la estructura del blog.
+    </div>
+  </section>
+
+  <!-- ANATOMY -->
+  <section>
+    <div class="section-label">Estructura técnica</div>
+    <h2>Anatomía de un <code>.agent.md</code></h2>
+    <p>Abre el fichero <code>.github/agents/astro.agent.md</code> en VS Code. Esto es lo que vas a ver:</p>
+
+    <div class="anatomy">
+<span class="fm">---</span><br>
+<span class="key">name</span><span class="fm">:</span> <span class="val">Astro</span><br>
+<span class="key">description</span><span class="fm">:</span> <span class="val">Arquitecto del blog Kitten Agent Blog. Genera y mantiene la estructura Hugo + Tailwind.</span><br>
+<span class="key">tools</span><span class="fm">:</span><br>
+&nbsp;&nbsp;<span class="fm">-</span> <span class="val">filesystem</span>  <span class="comment"># Puede leer y escribir ficheros</span><br>
+&nbsp;&nbsp;<span class="fm">-</span> <span class="val">github</span>     <span class="comment"># Puede crear ramas y PRs</span><br>
+<span class="fm">---</span><br><br>
+
+<span class="section-head"># Identidad</span><br>
+<span class="body-text">Eres Astro, el gato arquitecto del squad. Eres preciso, estructurado y nunca dejas un proyecto a medias.</span><br><br>
+
+<span class="section-head">## Tu responsabilidad</span><br>
+<span class="body-text">Generas y mantienes la estructura del blog Hugo con Tailwind CDN. Cuando se te pida scaffolding,</span><br>
+<span class="body-text">creas la estructura completa: hugo.toml, layouts, partials, theme, primer post de ejemplo.</span><br><br>
+
+<span class="section-head">## Guardrails</span><br>
+<span class="guardrail">- NUNCA hagas push directo a master</span><br>
+<span class="guardrail">- Crea siempre una rama con el prefijo feature/astro-</span><br>
+<span class="guardrail">- El PR debe incluir el resultado de `hugo server` sin errores antes de crearse</span><br>
+<span class="guardrail">- No modifiques ficheros fuera de la carpeta blog/ sin confirmación explícita</span>
+    </div>
+
+    <p>Tres partes clave:</p>
+    <div class="agent-compare">
+      <div class="ac-card">
+        <span class="ac-emoji">🔧</span>
+        <div class="ac-name">Frontmatter</div>
+        <div class="ac-tools"><span>name</span><span>description</span><span>tools</span></div>
+      </div>
+      <div class="ac-card">
+        <span class="ac-emoji">🎭</span>
+        <div class="ac-name">Identidad</div>
+        <div class="ac-tools"><span>quién es</span><span>cómo habla</span><span>qué le importa</span></div>
+      </div>
+      <div class="ac-card">
+        <span class="ac-emoji">🛡️</span>
+        <div class="ac-name">Guardrails</div>
+        <div class="ac-tools"><span>qué NO puede hacer</span><span>cómo trabaja</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE FOUR AGENTS -->
+  <section>
+    <div class="section-label">El squad completo</div>
+    <h2>Los 4 ficheros de agente</h2>
+    <p>En <code>.github/agents/</code> tienes los cuatro ficheros pre-creados. Cada uno tiene tools distintos:</p>
+    <div class="agent-compare">
+      <div class="ac-card">
+        <span class="ac-emoji">🏗️</span>
+        <div class="ac-name">astro.agent.md</div>
+        <div class="ac-tools"><span>filesystem</span><span>github</span></div>
+      </div>
+      <div class="ac-card">
+        <span class="ac-emoji">✍️</span>
+        <div class="ac-name">whiskers.agent.md</div>
+        <div class="ac-tools"><span>filesystem</span><span>github</span></div>
+      </div>
+      <div class="ac-card">
+        <span class="ac-emoji">🎨</span>
+        <div class="ac-name">luna.agent.md</div>
+        <div class="ac-tools"><span>filesystem</span><span>github</span><span>azure-openai</span></div>
+      </div>
+      <div class="ac-card">
+        <span class="ac-emoji">🚀</span>
+        <div class="ac-name">rocket.agent.md</div>
+        <div class="ac-tools"><span>github</span><span>shell</span></div>
+      </div>
+    </div>
+    <div class="box box-info">
+      <div class="box-title">ℹ️ La personalidad no se lee, se descubre</div>
+      Por ahora solo fíjate en la estructura técnica. Los rasgos de cada agente los descubrirás
+      cuando lances los workflows y veas cómo reaccionan a distintas instrucciones.
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section>
+    <div class="section-label">Paso a paso</div>
+    <h2>De la lectura a la acción</h2>
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Explorar los 4 ficheros en VS Code</div>
+        <div class="step-body">
+          Abre el explorador y navega a <code>.github/agents/</code>. Lee los cuatro ficheros de agente.
+          Fíjate en cómo cada uno tiene guardrails distintos adaptados a su rol.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Personalizar Astro con tu nombre</div>
+        <div class="step-body">
+          En <code>astro.agent.md</code>, añade en la sección de identidad una línea que diga:
+          <pre>"Tu Mission Controller hoy es <span class="cmd">[TU NOMBRE]</span>. Sigue sus instrucciones."</pre>
+          Esto hace que Astro reconozca quién le está dando órdenes. Guarda el fichero y haz commit y push.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Lanzar Astro: inicializar el blog</div>
+        <div class="step-body">
+          <pre><span class="comment"># 1. Compila el workflow</span>
+<span class="cmd">gh aw compile .github/aw/astro.md</span>
+
+<span class="comment"># 2. Sube los ficheros compilados a GitHub</span>
+<span class="cmd">git add .github/
+git commit -m "chore: compile astro workflow"
+git push</span>
+
+<span class="comment"># 3. Lánzalo</span>
+<span class="cmd">gh aw run .github/aw/astro.md \
+  -F input="Astro, inicializa el blog Hugo con Tailwind CDN en la carpeta blog/"</span></pre>
+          <div class="box box-info" style="margin-top:.75rem;">
+            <div class="box-title">ℹ️ ¿Por qué compilar?</div>
+            Acabas de modificar <code>astro.agent.md</code> en el paso anterior. Compilar regenera el fichero <code>.lock.yml</code> que GitHub Actions usa para ejecutar el workflow con los cambios que acabas de hacer.
+          </div>
+          Astro creará una rama <code>feature/astro-setup-…</code>, generará la estructura completa del blog
+          y abrirá un PR automáticamente.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">Revisar el PR que ha creado Astro</div>
+        <div class="step-body">
+          Ve a <strong>GitHub → Pull requests</strong>. Debería haber un PR titulado
+          <code>[agent-astro] Inicializar blog Hugo con Tailwind CDN</code>.
+          <br><br>
+          Revisa los ficheros que ha tocado. ¿Ha respetado sus guardrails?
+          ¿Solo está dentro de <code>blog/</code>? ¿Ha creado la rama con el prefijo correcto?
+          <div class="box box-warn" style="margin-top:.75rem;">
+            <div class="box-title">⚠️ Primer encuentro con los guardrails</div>
+            Astro no hace push a master (guardrail 1). Astro usa el prefijo feature/astro- (guardrail 2).
+            Si el build de Hugo falla, Astro rechaza crear el PR (guardrail 3). Así funciona un agente responsable.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-title">Ejercicio avanzado: rompe un guardrail</div>
+        <div class="step-body">
+          Intenta pedirle a Astro que cree un archivo fuera de <code>blog/</code>:
+          <pre><span class="cmd">gh aw run .github/aw/astro.md \
+  -F input="Astro, crea un fichero README.md en la raíz del repo"</span></pre>
+          ¿Qué pasa? ¿Lo hace? ¿Cómo gestiona el conflicto con su guardrail?
+          Observa la respuesta del agente en el log del workflow.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DELIVERABLE -->
+  <div class="deliverable">
+    <div class="del-label">🎯 Entregable de la actividad</div>
+    <div class="del-title">Estructura base del blog creada vía agente</div>
+    <p>PR de Astro creado y revisado que contiene la estructura Hugo con Tailwind CDN.
+    Guardrails explorados y comprendidos. Listo para hacer merge en la Actividad 3.</p>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div class="bottom-nav">
+    <a href="actividad-01-setup.html" class="nav-link">← Actividad 1: Setup</a>
+    <a href="actividad-03-hugo.html" class="nav-link next">Actividad 3: Hugo local →</a>
+  </div>
+
+  <footer>
+    <p>AgentCamp 2026 · Workshop: Kitten Agent Blog · <a href="index.html">Volver al índice</a></p>
+  </footer>
+
+</div>
+</body>
+</html>

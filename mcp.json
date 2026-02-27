@@ -1,0 +1,170 @@
+                                                                            {
+  "mcpServers": {
+    "azure-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@azure/mcp-server-azure"
+      ],
+      "env": {
+        "AZURE_SUBSCRIPTION_ID": "${AZURE_SUBSCRIPTION_ID}",
+        "AZURE_TENANT_ID": "${AZURE_TENANT_ID}"
+      },
+      "metadata": {
+        "description": "Acceso a recursos de Azure (VNETs, NSGs, VPN Gateway, Azure Firewall, etc.)",
+        "category": "cloud",
+        "requiredEnvVars": ["AZURE_SUBSCRIPTION_ID", "AZURE_TENANT_ID"]
+      }
+    },
+    "bicep-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-bicep"
+      ],
+      "metadata": {
+        "description": "Asistencia con plantillas Bicep para infraestructura como código",
+        "category": "iac"
+      }
+    },
+    "github-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      },
+      "metadata": {
+        "description": "Acceso a repositorios GitHub, issues, PRs y documentación",
+        "category": "version-control",
+        "requiredEnvVars": ["GITHUB_TOKEN"]
+      }
+    },
+    "filesystem-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "${workspaceFolder}"
+      ],
+      "metadata": {
+        "description": "Navegación optimizada del proyecto local",
+        "category": "filesystem"
+      }
+    },
+    "brave-search-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-brave-search"
+      ],
+      "env": {
+        "BRAVE_API_KEY": "${BRAVE_API_KEY}"
+      },
+      "metadata": {
+        "description": "Búsqueda web para documentación de Azure Networking",
+        "category": "search",
+        "requiredEnvVars": ["BRAVE_API_KEY"],
+        "optional": true
+      }
+    },
+    "memory-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
+      "metadata": {
+        "description": "Contexto persistente entre sesiones de Copilot",
+        "category": "memory"
+      }
+    },
+    "playwright-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp-server"
+      ],
+      "metadata": {
+        "description": "Navegación automatizada, testing e2e, screenshots, validación responsive",
+        "category": "testing",
+        "usedBy": ["web-designer"]
+      }
+    },
+    "axe-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@axe-core/mcp-server"
+      ],
+      "metadata": {
+        "description": "Auditoría de accesibilidad WCAG 2.1 con hallazgos accionables",
+        "category": "accessibility",
+        "usedBy": ["web-designer"]
+      }
+    },
+    "lighthouse-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@lighthouse/mcp-server"
+      ],
+      "metadata": {
+        "description": "Auditorías de performance, SEO, accesibilidad y best practices",
+        "category": "performance",
+        "usedBy": ["web-designer"]
+      }
+    },
+    "pagespeed-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@pagespeed-insights/mcp-server"
+      ],
+      "env": {
+        "PAGESPEED_API_KEY": "${PAGESPEED_API_KEY}"
+      },
+      "metadata": {
+        "description": "Core Web Vitals de campo con datos reales de usuarios",
+        "category": "performance",
+        "usedBy": ["web-designer"],
+        "requiredEnvVars": ["PAGESPEED_API_KEY"],
+        "optional": true
+      }
+    },
+    "markdownify-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@markdownify/mcp-server"
+      ],
+      "metadata": {
+        "description": "Conversión de HTML a Markdown para curación de contenido",
+        "category": "content",
+        "usedBy": ["web-designer"]
+      }
+    },
+    "chrome-devtools-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@chrome-devtools/mcp-server"
+      ],
+      "metadata": {
+        "description": "Inspección profunda de performance, debugging, profiling",
+        "category": "debugging",
+        "usedBy": ["web-designer"]
+      }
+    },
+    "powerpoint-mcp": {
+      "command": "ppt_mcp_server",
+      "args": [],
+      "metadata": {
+        "description": "Creación y manipulación de presentaciones PowerPoint (.pptx) con 32 herramientas especializadas",
+        "category": "productivity"
+      }
+    }
+  }
+}

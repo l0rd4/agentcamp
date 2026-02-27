@@ -1,0 +1,99 @@
+{{ define "main" }}
+{{ $pages := .Pages }}
+{{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
+<div class="max-w-2xl mx-auto">
+
+  <!-- Section header -->
+  {{ if not .IsHome }}
+  <header class="mb-10 text-center">
+    <h1 class="text-3xl font-black text-white mb-2">{{ .Title }}</h1>
+    <p class="text-gray-500">{{ len .Pages }} artículos publicados</p>
+  </header>
+  {{ else }}
+  <header class="mb-12 text-center py-8">
+    <div class="text-5xl mb-4">🐱🚀</div>
+    <h1 class="text-4xl md:text-5xl font-black text-white mb-3 leading-tight">
+      Kitten Agent Blog
+    </h1>
+    <p class="text-gray-400 text-lg max-w-md mx-auto">
+      {{ .Site.Params.tagline }}
+    </p>
+  </header>
+  {{ end }}
+
+  <!-- Posts list -->
+  {{ if $pages }}
+  <div class="space-y-6">
+    {{ range $pages.ByDate.Reverse }}
+    <article class="rounded-xl overflow-hidden transition-all hover:border-cyan-400/30"
+             style="background:#1a1a35; border:1px solid rgba(255,255,255,.07);">
+
+      <!-- Cover image thumbnail -->
+      {{ with .Params.image }}
+      {{ if and (ne . "") (ne . "pending") }}
+      <div class="h-48 overflow-hidden">
+        <img src="{{ . | absURL }}" alt="{{ $.Title }}" class="w-full h-full object-cover" />
+      </div>
+      {{ end }}
+      {{ end }}
+
+      <div class="p-6">
+        <!-- Categories -->
+        {{ with .Params.categories }}
+        <div class="flex flex-wrap gap-2 mb-3">
+          {{ range . }}
+          <span class="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full"
+                style="background:rgba(0,229,255,.08); color:#00e5ff; border:1px solid rgba(0,229,255,.2);">
+            {{ . }}
+          </span>
+          {{ end }}
+        </div>
+        {{ end }}
+
+        <!-- Title -->
+        <h2 class="text-xl font-bold text-white mb-2 leading-snug">
+          <a href="{{ .Permalink }}" class="hover:text-cyan-400 transition-colors">
+            {{ .Title }}
+          </a>
+        </h2>
+
+        <!-- Summary -->
+        {{ with .Params.summary }}
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">{{ . }}</p>
+        {{ else }}
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">{{ .Summary }}</p>
+        {{ end }}
+
+        <!-- Meta -->
+        <div class="flex items-center justify-between text-xs text-gray-600">
+          <div class="flex items-center gap-3">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">
+              {{ .Date.Format "2 Jan 2006" }}
+            </time>
+            <span>·</span>
+            <span>{{ .ReadingTime }} min</span>
+          </div>
+          <a href="{{ .Permalink }}" class="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors">
+            Leer →
+          </a>
+        </div>
+      </div>
+    </article>
+    {{ end }}
+  </div>
+  {{ else }}
+  <div class="text-center py-20">
+    <div class="text-6xl mb-6">✍️</div>
+    <h2 class="text-xl font-bold text-white mb-3">Whiskers está escribiendo…</h2>
+    <p class="text-gray-500">Aún no hay artículos publicados. Lanza el workflow de Whiskers para crear el primero.</p>
+    <code class="block mt-4 text-sm text-cyan-400 bg-black/40 rounded-lg p-3 max-w-sm mx-auto">
+      gh aw run .github/aw/whiskers.md
+    </code>
+  </div>
+  {{ end }}
+
+  <!-- Pagination -->
+  {{ template "_internal/pagination.html" . }}
+
+</div>
+{{ end }}

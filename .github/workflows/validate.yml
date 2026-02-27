@@ -1,0 +1,56 @@
+name: Validate Hugo Build (PR Check)
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - "blog/**"
+
+defaults:
+  run:
+    working-directory: ./blog
+
+jobs:
+  # ─────────────────────────────────────────────────────────
+  # Validates that Hugo builds without errors on every PR
+  # that touches blog/ files. This is Rocket's pre-merge check.
+  # ─────────────────────────────────────────────────────────
+  validate:
+    name: 🔍 Validate Hugo Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+          extended: true
+
+      - name: Validate Hugo build
+        run: hugo --renderToMemory --minify
+        # Builds everything in memory. Any Hugo error → step fails → PR blocked.
+
+      - name: Count posts
+        run: |
+          POST_COUNT=$(find content/posts -name "*.md" | wc -l)
+          echo "📝 Found $POST_COUNT post(s) in content/posts/"
+          echo "post_count=$POST_COUNT" >> $GITHUB_OUTPUT
+        id: count
+
+      - name: Post build summary
+        run: |
+          echo "## ✅ Hugo Build Validation" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Check | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|-------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Hugo build (renderToMemory) | ✅ Passed |" >> $GITHUB_STEP_SUMMARY
+          echo "| Posts found | ${{ steps.count.outputs.post_count }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Safe to merge. Rocket will deploy automatically when this PR lands on master." >> $GITHUB_STEP_SUMMARY

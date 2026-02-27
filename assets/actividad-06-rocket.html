@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>if(!sessionStorage.getItem('wk26')){location.replace('gate.html')}</script>
+  <title>Actividad 6 – Rocket Despliega · Kitten Agent Blog</title>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --cyan:#00e5ff; --purple:#9c27b0; --indigo:#3d5afe; --dark:#0d0d1a; --card:#1a1a35; --text:#e8e8f0; --muted:#888ab0; --green:#00e676; --orange:#ff9100; --pink:#f50057; --yellow:#ffea00; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--dark); color:var(--text); line-height:1.7; min-height:100vh; }
+    body::before { content:''; position:fixed; inset:0; background-image: radial-gradient(1px 1px at 12% 25%,rgba(255,255,255,.6) 0%,transparent 100%), radial-gradient(1px 1px at 45% 60%,rgba(255,255,255,.4) 0%,transparent 100%), radial-gradient(1px 1px at 68% 15%,rgba(255,255,255,.7) 0%,transparent 100%), radial-gradient(1px 1px at 88% 72%,rgba(255,255,255,.5) 0%,transparent 100%); pointer-events:none; z-index:0; }
+    body::after { content:''; position:fixed; top:-20%; right:-10%; width:70vw; height:70vh; background:radial-gradient(ellipse,rgba(57,0,120,.35) 0%,transparent 70%); pointer-events:none; z-index:0; }
+    .wrap { position:relative; z-index:1; max-width:860px; margin:0 auto; padding:2rem 1.5rem 4rem; }
+    .top-nav { display:flex; flex-wrap:wrap; gap:.4rem; justify-content:center; margin-bottom:2.5rem; }
+    .nav-btn { background:var(--card); border:1px solid rgba(255,255,255,.1); color:var(--muted); font-size:.75rem; padding:.35rem .8rem; border-radius:.45rem; text-decoration:none; transition:all .2s; }
+    .nav-btn:hover { border-color:var(--cyan); color:var(--cyan); background:rgba(0,229,255,.07); }
+    .nav-btn.active { border-color:var(--pink); color:var(--pink); background:rgba(245,0,87,.08); }
+    .act-hero { text-align:center; padding:2rem 0; }
+    .act-number { display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--pink); margin-bottom:.5rem; }
+    .act-hero h1 { font-size:clamp(1.8rem,4.5vw,3rem); font-weight:900; line-height:1.15; background:linear-gradient(135deg,var(--pink) 0%,var(--orange) 60%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:.75rem; }
+    .act-hero .subtitle { font-size:1rem; color:var(--muted); }
+    .timing-pill { display:inline-flex; align-items:center; gap:.4rem; background:rgba(245,0,87,.1); border:1px solid rgba(245,0,87,.3); color:var(--pink); font-size:.82rem; padding:.35rem 1rem; border-radius:999px; margin-top:1rem; }
+    section { margin-bottom:2.5rem; }
+    .section-label { font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--cyan); margin-bottom:.5rem; }
+    h2 { font-size:1.4rem; font-weight:800; margin-bottom:1rem; color:#fff; }
+    p { color:var(--text); margin-bottom:1rem; }
+    code { background:rgba(0,0,0,.4); color:var(--cyan); padding:.1em .4em; border-radius:.3em; font-family:'Cascadia Code','Fira Code',monospace; font-size:.88em; }
+    pre { background:rgba(0,0,0,.5); border:1px solid rgba(0,229,255,.15); border-radius:.6rem; padding:1rem; overflow-x:auto; margin:.5rem 0; font-family:'Cascadia Code','Fira Code',monospace; font-size:.82rem; color:var(--text); line-height:1.6; }
+    pre .cmd { color:var(--green); }
+    pre .comment { color:var(--muted); font-style:italic; }
+    pre .yaml-key { color:var(--cyan); }
+    pre .yaml-val { color:var(--orange); }
+    .steps { display:flex; flex-direction:column; gap:1rem; }
+    .step { display:grid; grid-template-columns:2.5rem 1fr; gap:0 1rem; background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:.75rem; padding:1.1rem; }
+    .step-num { grid-row:span 2; width:2.25rem; height:2.25rem; border-radius:.5rem; background:rgba(245,0,87,.1); border:1px solid rgba(245,0,87,.25); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:.9rem; color:var(--pink); flex-shrink:0; }
+    .step-title { font-weight:700; font-size:.95rem; color:#fff; }
+    .step-body { font-size:.88rem; color:var(--muted); margin-top:.3rem; grid-column:2; }
+    .box { border-radius:.75rem; padding:1rem 1.25rem; margin-bottom:1rem; font-size:.9rem; }
+    .box-tip  { background:rgba(0,230,118,.08);  border:1px solid rgba(0,230,118,.3);  color:#69f0ae; }
+    .box-warn { background:rgba(255,145,0,.08); border:1px solid rgba(255,145,0,.3); color:#ffb74d; }
+    .box-info { background:rgba(61,90,254,.1);  border:1px solid rgba(61,90,254,.35); color:#90caf9; }
+    .box .box-title { font-weight:700; margin-bottom:.35rem; }
+    /* pipeline diagram */
+    .pipeline { display:flex; align-items:center; flex-wrap:wrap; gap:.5rem; margin-bottom:1.5rem; justify-content:center; }
+    .pipe-step { background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:.6rem; padding:.6rem 1rem; font-size:.82rem; text-align:center; }
+    .pipe-step .p-icon { font-size:1.2rem; display:block; margin-bottom:.2rem; }
+    .pipe-step .p-label { color:var(--muted); font-size:.7rem; text-transform:uppercase; letter-spacing:.06em; }
+    .pipe-step .p-name { color:#fff; font-weight:700; font-size:.8rem; }
+    .pipe-step.pass { border-color:rgba(0,230,118,.3); }
+    .pipe-step.fail { border-color:rgba(245,0,87,.3); }
+    .pipe-arrow { color:var(--muted); font-size:1.2rem; }
+    /* celebrate */
+    .celebrate { background:linear-gradient(135deg,rgba(245,0,87,.08),rgba(255,145,0,.06)); border:1px solid rgba(245,0,87,.2); border-radius:1.25rem; padding:1.5rem; text-align:center; margin-bottom:1.5rem; }
+    .celebrate .big { font-size:2.5rem; margin-bottom:.5rem; }
+    .celebrate .title { font-size:1.2rem; font-weight:800; color:#fff; }
+    .celebrate .sub { font-size:.88rem; color:var(--muted); margin-top:.4rem; }
+    .deliverable { background:linear-gradient(135deg,rgba(245,0,87,.08),rgba(255,145,0,.05)); border:1px solid rgba(245,0,87,.25); border-radius:1rem; padding:1.25rem 1.5rem; margin-top:1rem; }
+    .deliverable .del-label { font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--pink); margin-bottom:.5rem; }
+    .deliverable .del-title { font-weight:700; font-size:1rem; color:#fff; margin-bottom:.35rem; }
+    .deliverable p { font-size:.88rem; color:var(--muted); margin:0; }
+    .bottom-nav { display:flex; justify-content:space-between; align-items:center; padding-top:1.5rem; margin-top:2rem; border-top:1px solid rgba(255,255,255,.07); }
+    .nav-link { display:flex; align-items:center; gap:.5rem; background:var(--card); border:1px solid rgba(255,255,255,.1); color:var(--text); font-size:.85rem; padding:.6rem 1.1rem; border-radius:.6rem; text-decoration:none; transition:all .2s; }
+    .nav-link:hover { border-color:var(--cyan); color:var(--cyan); }
+    .nav-link.next { background:linear-gradient(135deg,rgba(0,229,255,.1),rgba(61,90,254,.1)); border-color:rgba(0,229,255,.25); color:var(--cyan); }
+    footer { text-align:center; font-size:.78rem; color:var(--muted); padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.07); margin-top:2rem; }
+    footer a { color:var(--cyan); text-decoration:none; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="top-nav">
+    <a href="index.html"               class="nav-btn">🏠</a>
+    <a href="bienvenida-workshop.html"  class="nav-btn">🎒</a>
+    <a href="actividad-01-setup.html"   class="nav-btn">01</a>
+    <a href="actividad-02-agentes.html" class="nav-btn">02</a>
+    <a href="actividad-03-hugo.html"    class="nav-btn">03</a>
+    <a href="actividad-04-whiskers.html" class="nav-btn">04</a>
+    <a href="actividad-05-luna.html"    class="nav-btn">05</a>
+    <a href="actividad-06-rocket.html"  class="nav-btn active">06</a>
+    <a href="actividad-07-squad.html"   class="nav-btn">07</a>
+    <a href="cierre.html"              class="nav-btn">🏁</a>
+  </nav>
+
+  <header class="act-hero">
+    <div class="act-number">Actividad 6 de 7</div>
+    <h1>Rocket Despliega 🚀</h1>
+    <p class="subtitle">GitHub Pages · CI/CD con GitHub Actions · El blog llega a Internet</p>
+    <div class="timing-pill">⏱ 12:45 – 13:20 · 35 minutos</div>
+  </header>
+
+  <!-- CELEBRATE -->
+  <section>
+    <div class="celebrate">
+      <div class="big">🌍</div>
+      <div class="title">El blog va a salir a Internet</div>
+      <div class="sub">Hasta ahora solo existía en tu máquina. En esta actividad Rocket lo lanza al espacio digital.</div>
+    </div>
+  </section>
+
+  <!-- ROCKET INTRO -->
+  <section>
+    <div class="section-label">El agente más estricto del squad</div>
+    <h2>¿Quién es Rocket? 🚀</h2>
+    <p>
+      Rocket es el agente Publisher. Su trabajo es gestionar el CI/CD del blog: validar que Hugo compila
+      sin errores, y si todo está en verde, desplegar a GitHub Pages. Rocket no tiene sentido del humor.
+    </p>
+    <p>
+      La primera vez que intentes forzar un deploy con errores, Rocket te bloqueará.
+      No con un mensaje amable, sino con un pipeline en rojo. Eso es exactamente lo que queremos que veas.
+    </p>
+    <div class="box box-warn">
+      <div class="box-title">⚠️ Lo que descubrirás sobre Rocket hoy</div>
+      Rocket tiene una sola regla inquebrantable: <strong>nunca despliega si el build falla</strong>.
+      No hay override. No hay "deploy anyway". Si Hugo lanza un error, el pipeline se detiene ahí.
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section>
+    <div class="section-label">Flujo de CI/CD</div>
+    <h2>El pipeline de Rocket</h2>
+    <p>Cuando se hace push a <code>master</code> con cambios en <code>blog/</code>, el workflow <code>deploy.yml</code> se activa:</p>
+    <div class="pipeline">
+      <div class="pipe-step pass">
+        <span class="p-icon">🔍</span>
+        <span class="p-label">Job 1</span>
+        <span class="p-name">Validate</span>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step pass">
+        <span class="p-icon">🏗️</span>
+        <span class="p-label">Job 2</span>
+        <span class="p-name">Build Hugo</span>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step pass">
+        <span class="p-icon">🔐</span>
+        <span class="p-label">Job 3</span>
+        <span class="p-name">Upload artifact</span>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step pass">
+        <span class="p-icon">🌍</span>
+        <span class="p-label">Job 4</span>
+        <span class="p-name">Deploy Pages</span>
+      </div>
+    </div>
+    <p>Si el Job 1 (Validate) falla → los demás no se ejecutan. Si Build falla → Deploy no se ejecuta.</p>
+  </section>
+
+  <!-- WORKFLOW PREVIEW -->
+  <section>
+    <div class="section-label">El código de Rocket</div>
+    <h2>Estructura del <code>deploy.yml</code></h2>
+    <pre><span class="yaml-key">name</span>: <span class="yaml-val">Deploy Hugo to GitHub Pages</span>
+<span class="yaml-key">on</span>:
+  <span class="yaml-key">push</span>:
+    <span class="yaml-key">branches</span>: [<span class="yaml-val">master</span>]
+    <span class="yaml-key">paths</span>: [<span class="yaml-val">blog/**</span>]
+
+<span class="yaml-key">jobs</span>:
+  <span class="yaml-key">validate</span>:
+    <span class="comment"># hugo --renderToMemory verifica que no hay errores de templates</span>
+    <span class="yaml-key">runs-on</span>: <span class="yaml-val">ubuntu-latest</span>
+    <span class="yaml-key">steps</span>:
+      - <span class="yaml-key">uses</span>: <span class="yaml-val">actions/checkout@v4</span>
+      - <span class="yaml-key">uses</span>: <span class="yaml-val">peaceiris/actions-hugo@v3</span>
+      - <span class="yaml-key">run</span>: <span class="yaml-val">hugo --renderToMemory</span>
+        <span class="yaml-key">working-directory</span>: <span class="yaml-val">./blog</span>
+
+  <span class="yaml-key">deploy</span>:
+    <span class="yaml-key">needs</span>: <span class="yaml-val">validate</span>   <span class="comment"># ← el guardrail clave: depends on validate</span>
+    <span class="yaml-key">permissions</span>:
+      <span class="yaml-key">pages</span>: <span class="yaml-val">write</span>
+      <span class="yaml-key">id-token</span>: <span class="yaml-val">write</span>
+    <span class="yaml-key">environment</span>:
+      <span class="yaml-key">name</span>: <span class="yaml-val">github-pages</span></pre>
+  </section>
+
+  <!-- STEPS -->
+  <section>
+    <div class="section-label">Paso a paso</div>
+    <h2>De local a Internet</h2>
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Activar GitHub Pages en tu repositorio</div>
+        <div class="step-body">
+          Ve a <strong>GitHub → Tu repo → Settings → Pages</strong>.<br>
+          En <em>Source</em>, selecciona <strong>GitHub Actions</strong> (no "Deploy from a branch").<br>
+          GitHub ahora esperará que un workflow suba el artifact de Pages — que es exactamente lo que hace Rocket.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Verificar los permisos del workflow</div>
+        <div class="step-body">
+          En <strong>Settings → Actions → General → Workflow permissions</strong>,
+          asegúrate de que está en <em>"Read and write permissions"</em>.
+          Sin esto, Rocket no puede subir el artifact de Pages.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Lanzar el primer deploy</div>
+        <div class="step-body">
+          <pre><span class="cmd">git add .
+git commit -m "chore: trigger first deployment"
+git push</span></pre>
+          Ve a <strong>GitHub → Actions</strong> y observa el pipeline en tiempo real.
+          El primer deploy tarda ~2-3 minutos.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">¡El blog está en Internet! 🌍</div>
+        <div class="step-body">
+          Una vez el pipeline termine en verde, tu blog estará en:
+          <pre>https://<span class="cmd">&lt;TU-USUARIO&gt;</span>.github.io/kitten-agent-blog</pre>
+          También puedes encontrar la URL en <strong>Settings → Pages → Your site is published at…</strong>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-title">🔥 Demo de guardrail: forzar un error en Hugo</div>
+        <div class="step-body">
+          Ahora vamos a demostrar por qué Rocket no es negociable. Edita
+          <code>blog/layouts/_default/single.html</code> e introduce un error de template:
+          <pre><span class="comment"># Añade esta línea en algún lugar del template:</span>
+{{ .NoExiste }}   <span class="comment"># variable que no existe en Hugo</span></pre>
+          Haz commit y push. ¿Qué pasa en el pipeline? Rocket bloquea el deploy en el job Validate.
+          <div class="box box-tip" style="margin-top:.75rem;">
+            <div class="box-title">✅ Esto es CI como guardrail</div>
+            El blog en producción nunca ve el error. Rocket garantiza que si algo está roto,
+            el deploy simplemente no ocurre. No hay rollback porque no hubo deploy.
+          </div>
+          Corrige el error y vuelve a hacer push para restaurar el pipeline verde.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="deliverable">
+    <div class="del-label">🎯 Entregable de la actividad</div>
+    <div class="del-title">Blog publicado y accesible en Internet vía GitHub Pages</div>
+    <p>Pipeline de Rocket corriendo correctamente. URL de GitHub Pages activa con contenido real.
+    Guardrail de Rocket demostrado: deploy bloqueado cuando Hugo lanza errores.</p>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="actividad-05-luna.html" class="nav-link">← Actividad 5: Luna</a>
+    <a href="actividad-07-squad.html" class="nav-link next">Actividad 7: El Gran Reto →</a>
+  </div>
+
+  <footer>
+    <p>AgentCamp 2026 · Workshop: Kitten Agent Blog · <a href="index.html">Volver al índice</a></p>
+  </footer>
+
+</div>
+</body>
+</html>

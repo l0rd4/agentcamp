@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>if(!sessionStorage.getItem('wk26')){location.replace('gate.html')}</script>
+  <title>Actividad 5 – Luna Pinta · Kitten Agent Blog</title>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --cyan:#00e5ff; --purple:#9c27b0; --indigo:#3d5afe; --dark:#0d0d1a; --card:#1a1a35; --text:#e8e8f0; --muted:#888ab0; --green:#00e676; --orange:#ff9100; --pink:#f50057; --yellow:#ffea00; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--dark); color:var(--text); line-height:1.7; min-height:100vh; }
+    body::before { content:''; position:fixed; inset:0; background-image: radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,.6) 0%,transparent 100%), radial-gradient(1px 1px at 40% 60%,rgba(255,255,255,.4) 0%,transparent 100%), radial-gradient(1px 1px at 65% 10%,rgba(255,255,255,.7) 0%,transparent 100%), radial-gradient(1px 1px at 85% 80%,rgba(255,255,255,.5) 0%,transparent 100%); pointer-events:none; z-index:0; }
+    body::after { content:''; position:fixed; top:-20%; right:-10%; width:70vw; height:70vh; background:radial-gradient(ellipse,rgba(57,0,120,.35) 0%,transparent 70%); pointer-events:none; z-index:0; }
+    .wrap { position:relative; z-index:1; max-width:860px; margin:0 auto; padding:2rem 1.5rem 4rem; }
+    .top-nav { display:flex; flex-wrap:wrap; gap:.4rem; justify-content:center; margin-bottom:2.5rem; }
+    .nav-btn { background:var(--card); border:1px solid rgba(255,255,255,.1); color:var(--muted); font-size:.75rem; padding:.35rem .8rem; border-radius:.45rem; text-decoration:none; transition:all .2s; }
+    .nav-btn:hover { border-color:var(--cyan); color:var(--cyan); background:rgba(0,229,255,.07); }
+    .nav-btn.active { border-color:var(--orange); color:var(--orange); background:rgba(255,145,0,.08); }
+    .act-hero { text-align:center; padding:2rem 0; }
+    .act-number { display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--orange); margin-bottom:.5rem; }
+    .act-hero h1 { font-size:clamp(1.8rem,4.5vw,3rem); font-weight:900; line-height:1.15; background:linear-gradient(135deg,var(--orange) 0%,var(--yellow) 60%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:.75rem; }
+    .act-hero .subtitle { font-size:1rem; color:var(--muted); }
+    .timing-pill { display:inline-flex; align-items:center; gap:.4rem; background:rgba(255,145,0,.1); border:1px solid rgba(255,145,0,.3); color:var(--orange); font-size:.82rem; padding:.35rem 1rem; border-radius:999px; margin-top:1rem; }
+    section { margin-bottom:2.5rem; }
+    .section-label { font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--cyan); margin-bottom:.5rem; }
+    h2 { font-size:1.4rem; font-weight:800; margin-bottom:1rem; color:#fff; }
+    p { color:var(--text); margin-bottom:1rem; }
+    code { background:rgba(0,0,0,.4); color:var(--cyan); padding:.1em .4em; border-radius:.3em; font-family:'Cascadia Code','Fira Code',monospace; font-size:.88em; }
+    pre { background:rgba(0,0,0,.5); border:1px solid rgba(0,229,255,.15); border-radius:.6rem; padding:1rem; overflow-x:auto; margin:.5rem 0; font-family:'Cascadia Code','Fira Code',monospace; font-size:.82rem; color:var(--text); line-height:1.6; }
+    pre .cmd { color:var(--green); }
+    pre .comment { color:var(--muted); font-style:italic; }
+    .steps { display:flex; flex-direction:column; gap:1rem; }
+    .step { display:grid; grid-template-columns:2.5rem 1fr; gap:0 1rem; background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:.75rem; padding:1.1rem; }
+    .step-num { grid-row:span 2; width:2.25rem; height:2.25rem; border-radius:.5rem; background:rgba(255,145,0,.12); border:1px solid rgba(255,145,0,.25); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:.9rem; color:var(--orange); flex-shrink:0; }
+    .step-title { font-weight:700; font-size:.95rem; color:#fff; }
+    .step-body { font-size:.88rem; color:var(--muted); margin-top:.3rem; grid-column:2; }
+    .box { border-radius:.75rem; padding:1rem 1.25rem; margin-bottom:1rem; font-size:.9rem; }
+    .box-tip  { background:rgba(0,230,118,.08);  border:1px solid rgba(0,230,118,.3);  color:#69f0ae; }
+    .box-warn { background:rgba(255,145,0,.08); border:1px solid rgba(255,145,0,.3); color:#ffb74d; }
+    .box-info { background:rgba(61,90,254,.1);  border:1px solid rgba(61,90,254,.35); color:#90caf9; }
+    .box-orange { background:rgba(255,145,0,.08); border:1px solid rgba(255,145,0,.25); color:#ffcc80; }
+    .box .box-title { font-weight:700; margin-bottom:.35rem; }
+    /* flow diagram */
+    .flow { display:flex; flex-direction:column; gap:0; align-items:center; margin-bottom:1.5rem; }
+    .flow-step {
+      background:var(--card); border:1px solid rgba(0,229,255,.2);
+      border-radius:.75rem; padding:.75rem 1.25rem; font-size:.88rem;
+      text-align:center; width:100%; max-width:420px;
+    }
+    .flow-step .label { color:var(--muted); font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:.15rem; }
+    .flow-step .content { color:var(--text); font-weight:600; }
+    .flow-arrow { color:var(--orange); font-size:1.2rem; margin:.2rem 0; }
+    /* mode comparison */
+    .mode-comparison { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .mode-card { background:var(--card); border-radius:.75rem; padding:1rem; border:1px solid rgba(255,255,255,.07); }
+    .mode-card .mode-badge { display:inline-block; font-size:.68rem; font-weight:700; padding:.15rem .6rem; border-radius:.3rem; margin-bottom:.5rem; }
+    .mode-free  .mode-badge { background:rgba(0,230,118,.12); color:var(--green);  border:1px solid rgba(0,230,118,.3); }
+    .mode-azure .mode-badge { background:rgba(0,229,255,.1);  color:var(--cyan);   border:1px solid rgba(0,229,255,.25); }
+    .mode-card .mode-title { font-weight:700; font-size:.9rem; color:#fff; margin-bottom:.3rem; }
+    .mode-card .mode-desc { font-size:.82rem; color:var(--muted); }
+    /* secret setup */
+    .secret-steps { display:flex; flex-direction:column; gap:.5rem; counter-reset:secret; }
+    .secret-step { background:rgba(0,229,255,.05); border:1px solid rgba(0,229,255,.12); border-radius:.6rem; padding:.75rem 1rem; font-size:.88rem; }
+    .deliverable { background:linear-gradient(135deg,rgba(255,145,0,.08),rgba(255,234,0,.05)); border:1px solid rgba(255,145,0,.3); border-radius:1rem; padding:1.25rem 1.5rem; margin-top:1rem; }
+    .deliverable .del-label { font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--orange); margin-bottom:.5rem; }
+    .deliverable .del-title { font-weight:700; font-size:1rem; color:#fff; margin-bottom:.35rem; }
+    .deliverable p { font-size:.88rem; color:var(--muted); margin:0; }
+    .bottom-nav { display:flex; justify-content:space-between; align-items:center; padding-top:1.5rem; margin-top:2rem; border-top:1px solid rgba(255,255,255,.07); }
+    .nav-link { display:flex; align-items:center; gap:.5rem; background:var(--card); border:1px solid rgba(255,255,255,.1); color:var(--text); font-size:.85rem; padding:.6rem 1.1rem; border-radius:.6rem; text-decoration:none; transition:all .2s; }
+    .nav-link:hover { border-color:var(--cyan); color:var(--cyan); }
+    .nav-link.next { background:linear-gradient(135deg,rgba(0,229,255,.1),rgba(61,90,254,.1)); border-color:rgba(0,229,255,.25); color:var(--cyan); }
+    footer { text-align:center; font-size:.78rem; color:var(--muted); padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.07); margin-top:2rem; }
+    footer a { color:var(--cyan); text-decoration:none; }
+    @media (max-width:520px) { .mode-comparison { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="top-nav">
+    <a href="index.html"               class="nav-btn">🏠</a>
+    <a href="bienvenida-workshop.html"  class="nav-btn">🎒</a>
+    <a href="actividad-01-setup.html"   class="nav-btn">01</a>
+    <a href="actividad-02-agentes.html" class="nav-btn">02</a>
+    <a href="actividad-03-hugo.html"    class="nav-btn">03</a>
+    <a href="actividad-04-whiskers.html" class="nav-btn">04</a>
+    <a href="actividad-05-luna.html"    class="nav-btn active">05</a>
+    <a href="actividad-06-rocket.html"  class="nav-btn">06</a>
+    <a href="actividad-07-squad.html"   class="nav-btn">07</a>
+    <a href="cierre.html"              class="nav-btn">🏁</a>
+  </nav>
+
+  <header class="act-hero">
+    <div class="act-number">Actividad 5 de 7</div>
+    <h1>Luna Pinta 🎨</h1>
+    <p class="subtitle">Meta-prompting con dos IAs encadenadas · Imágenes de portada automáticas</p>
+    <div class="timing-pill">⏱ 12:20 – 12:45 · 25 minutos</div>
+  </header>
+
+  <!-- LUNA INTRO -->
+  <section>
+    <div class="section-label">La artista del squad</div>
+    <h2>¿Qué hace Luna exactamente? 🎨</h2>
+    <p>
+      Los artículos de Whiskers tienen <code>image: "pending"</code> en el frontmatter.
+      Esa es la señal que activa a Luna. El agente de imágenes no genera portadas a ciegas:
+      primero <strong>lee el artículo completo</strong>, luego usa una IA para escribir
+      el prompt visual perfecto, y solo entonces genera la imagen.
+    </p>
+    <p>
+      Este patrón se llama <strong>meta-prompting</strong> y es la razón por la que las imágenes
+      de Luna son coherentes con el contenido del artículo en lugar de ser imágenes genéricas de gatos en el espacio.
+    </p>
+  </section>
+
+  <!-- FLOW -->
+  <section>
+    <div class="section-label">El flujo interno de Luna</div>
+    <h2>Cómo funciona el meta-prompting</h2>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="label">Trigger</div>
+        <div class="content">Artículo nuevo con <code>image: "pending"</code></div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="label">Guardrail anti-duplicados</div>
+        <div class="content">¿Ya tiene imagen? → Luna ignora el artículo</div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="label">Paso 1: Meta-prompting (GPT-4o)</div>
+        <div class="content">Lee el artículo completo → escribe un prompt DALL-E ultra-específico con paleta, composición y metáforas visuales</div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="label">Paso 2: Generación (DALL-E 3 / SVG)</div>
+        <div class="content">Genera imagen 1792×1024 o SVG animado temático</div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="label">Guardrail de dimensiones</div>
+        <div class="content">Valida que la imagen tenga ≥ 1024px antes de commitear</div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="label">Actualiza frontmatter + PR</div>
+        <div class="content"><code>image: "pending"</code> → ruta real · PR creado (nunca push directo)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODE COMPARISON -->
+  <section>
+    <div class="section-label">Dos modos de Luna</div>
+    <h2>SVG Mode vs DALL-E Mode</h2>
+    <div class="mode-comparison">
+      <div class="mode-card mode-free">
+        <div class="mode-badge">✅ Modo gratuito (defecto)</div>
+        <div class="mode-title">🖼️ SVG Mode</div>
+        <div class="mode-desc">
+          GPT-4o lee el artículo y genera un SVG animado temático con CSS:
+          colores, iconos, el título del post. Sin coste de API de imágenes.
+          Pedagógicamente idéntico: el meta-prompting, los guardrails y el PR funcionan igual.
+          <br><br>El PR lleva la etiqueta <code>[svg-mode]</code>.
+        </div>
+      </div>
+      <div class="mode-card mode-azure">
+        <div class="mode-badge">⭐ Modo premium (Azure)</div>
+        <div class="mode-title">🤖 DALL-E 3 Mode</div>
+        <div class="mode-desc">
+          GPT-4o escribe el prompt → DALL-E 3 genera imagen real 1792×1024 HD.
+          Requiere el secret <code>AZURE_OPENAI_API_KEY</code> configurado en el repo.
+          La API Key la proporciona el instructor el día del evento.
+          <br><br>El PR lleva la etiqueta <code>[dall-e-3]</code>.
+        </div>
+      </div>
+    </div>
+    <div class="box box-info">
+      <div class="box-title">ℹ️ Luna detecta automáticamente el modo</div>
+      Si <code>AZURE_OPENAI_API_KEY</code> está configurado → modo DALL-E.
+      Si no → modo SVG. Sin configuración extra ni flags.
+    </div>
+  </section>
+
+  <!-- AZURE SETUP -->
+  <section>
+    <div class="section-label">Activar el modo premium</div>
+    <h2>Configurar el secret de Azure OpenAI</h2>
+    <p>Para usar DALL-E 3, tienes que añadir la API Key al repositorio:</p>
+    <div class="secret-steps">
+      <div class="secret-step">
+        <strong>1.</strong> Ve a tu repositorio en GitHub: <strong>Settings → Secrets and variables → Actions</strong>
+      </div>
+      <div class="secret-step">
+        <strong>2.</strong> Haz clic en <strong>New repository secret</strong>
+      </div>
+      <div class="secret-step">
+        <strong>3.</strong> Nombre: <code>AZURE_OPENAI_API_KEY</code><br>
+        Valor: <em>(El instructor te lo proporciona en el evento — no publicar en ningún repo)</em>
+      </div>
+      <div class="secret-step">
+        <strong>4.</strong> El endpoint de Azure OpenAI ya está en el workflow de Luna:
+        <code>https://oai-kitten-workshop.openai.azure.com/</code> — no es sensible, puede estar en el repo.
+      </div>
+    </div>
+    <div class="box box-warn" style="margin-top:1rem;">
+      <div class="box-title">⚠️ La API Key es compartida y temporal</div>
+      El recurso Azure OpenAI del workshop se rota a las 14:00 del 27 de febrero. No uses la key
+      para proyectos propios ni la compartas fuera del evento.
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section>
+    <div class="section-label">Paso a paso</div>
+    <h2>Lanzando a Luna</h2>
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Revisar <code>luna.agent.md</code></div>
+        <div class="step-body">
+          Abre <code>.github/agents/luna.agent.md</code>. Fíjate en el guardrail clave:
+          Luna solo procesa artículos con <code>image: pending</code>. Si ya hay imagen, la ignora.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Lanzar Luna sobre un artículo de Whiskers</div>
+        <div class="step-body">
+          <pre><span class="comment"># 1. Compila el workflow</span>
+<span class="cmd">gh aw compile .github/aw/luna.md</span>
+
+<span class="comment"># 2. Sube los ficheros compilados a GitHub</span>
+<span class="cmd">git add .github/
+git commit -m "chore: compile luna workflow"
+git push</span>
+
+<span class="comment"># 3. Lánzalo</span>
+<span class="cmd">gh aw run .github/aw/luna.md \
+  -F input="Luna, genera la imagen de portada para el artículo sobre la misión lunar"</span></pre>
+          <div class="box box-info" style="margin-top:.75rem;">
+            <div class="box-title">ℹ️ ¿Por qué compilar?</div>
+            Es la primera vez que ejecutas este workflow. Compilar genera el fichero <code>luna.lock.yml</code> que GitHub Actions necesita para poder lanzarlo. A partir de aquí, solo necesitarás volver a compilar si modificas <code>luna.md</code> o <code>luna.agent.md</code>.
+          </div>
+          Luna detectará el artículo con <code>image: pending</code>, leerá el contenido completo
+          y generará la imagen.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Revisar el PR de Luna</div>
+        <div class="step-body">
+          El PR incluirá:
+          <ul style="margin-top:.5rem; margin-left:1.25rem; color:var(--muted);">
+            <li>La imagen guardada en <code>blog/static/images/posts/&lt;slug&gt;/cover.webp</code></li>
+            <li>El frontmatter actualizado: <code>image:</code> apuntando a la imagen generada</li>
+            <li>En la descripción del PR: el prompt que GPT-4o elaboró y el modo usado (<code>[svg-mode]</code> o <code>[dall-e-3]</code>)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">Intentar violar el guardrail anti-duplicados</div>
+        <div class="step-body">
+          Mergea el PR de Luna. Luego vuelve a lanzarla sobre el mismo artículo:
+          <pre><span class="cmd">gh aw run .github/aw/luna.md \
+  -F input="Luna, re-genera la imagen del artículo de la misión lunar"</span></pre>
+          ¿Qué hace Luna? Debería indicar que el artículo ya tiene imagen y no generar un PR nuevo.
+          <div class="box box-tip" style="margin-top:.75rem;">
+            <div class="box-title">✅ Guardrail de idempotencia</div>
+            Un agente bien diseñado no hace trabajo doble. Si ya existe imagen, Luna la respeta.
+            Para forzar la regeneración habría que cambiar manualmente el frontmatter a <code>image: pending</code>.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="deliverable">
+    <div class="del-label">🎯 Entregable de la actividad</div>
+    <div class="del-title">Al menos 1 artículo con imagen de portada</div>
+    <p>PR de Luna mergeado. Artículo visible en localhost con imagen de portada.
+    Concepto de meta-prompting entendido y guardrail anti-duplicados probado.</p>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="actividad-04-whiskers.html" class="nav-link">← Actividad 4: Whiskers</a>
+    <a href="actividad-06-rocket.html" class="nav-link next">Actividad 6: Rocket →</a>
+  </div>
+
+  <footer>
+    <p>AgentCamp 2026 · Workshop: Kitten Agent Blog · <a href="index.html">Volver al índice</a></p>
+  </footer>
+
+</div>
+</body>
+</html>

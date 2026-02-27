@@ -1,0 +1,24 @@
+<header style="background:rgba(13,13,26,.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,.07);"
+        class="sticky top-0 z-50 px-4 py-3">
+  <div class="max-w-3xl mx-auto flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="{{ "/" | relURL }}" class="flex items-center gap-2 text-white font-black text-lg no-underline hover:text-cyan-400 transition-colors">
+      <span>🐱🚀</span>
+      <span>{{ .Site.Title }}</span>
+    </a>
+
+    <!-- Nav -->
+    <nav class="flex items-center gap-4">
+      <a href="{{ "/" | relURL }}"
+         class="text-sm font-semibold transition-colors {{ if .IsHome }}text-cyan-400{{ else }}text-gray-400 hover:text-white{{ end }}">
+        Inicio
+      </a>
+      <a href="{{ "/posts/" | relURL }}"
+         class="text-sm font-semibold transition-colors {{ if eq .Section "posts" }}text-cyan-400{{ else }}text-gray-400 hover:text-white{{ end }}">
+        Artículos
+      </a>
+    </nav>
+
+  </div>
+</header>

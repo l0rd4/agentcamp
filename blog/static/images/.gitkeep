@@ -1,0 +1,8 @@
+# Este directorio almacena las imágenes de portada de los artículos.
+# 
+# Estructura esperada:
+#   static/images/posts/<slug-del-articulo>/cover.webp  (modo DALL-E)
+#   static/images/posts/<slug-del-articulo>/cover.svg   (modo SVG)
+#
+# Las imágenes son generadas automáticamente por Luna (el agente de imágenes).
+# No subas imágenes manualmente aquí; deja que Luna lo haga mediante PR.

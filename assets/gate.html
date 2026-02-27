@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acceso al Workshop · AgentCamp 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --cyan:#00e5ff; --purple:#9c27b0; --dark:#0d0d1a; --card:#1a1a35; --text:#e8e8f0; --muted:#888ab0; --pink:#f50057; }
+    html, body { height:100%; }
+    body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--dark); color:var(--text); display:flex; align-items:center; justify-content:center; min-height:100vh; }
+    body::before { content:''; position:fixed; inset:0; background-image: radial-gradient(1px 1px at 8% 15%,rgba(255,255,255,.7) 0%,transparent 100%), radial-gradient(1px 1px at 35% 55%,rgba(255,255,255,.4) 0%,transparent 100%), radial-gradient(1px 1px at 72% 12%,rgba(255,255,255,.6) 0%,transparent 100%), radial-gradient(1px 1px at 90% 78%,rgba(255,255,255,.5) 0%,transparent 100%), radial-gradient(1px 1px at 50% 90%,rgba(255,255,255,.35) 0%,transparent 100%); pointer-events:none; z-index:0; }
+    body::after { content:''; position:fixed; top:-20%; right:-10%; width:70vw; height:70vh; background:radial-gradient(ellipse,rgba(57,0,120,.4) 0%,transparent 70%); pointer-events:none; z-index:0; }
+    .gate-wrap { position:relative; z-index:1; width:100%; max-width:420px; padding:1.5rem; }
+    .gate-card { background:var(--card); border:1px solid rgba(0,229,255,.2); border-radius:1.25rem; padding:2.5rem 2rem; text-align:center; box-shadow:0 0 60px rgba(0,229,255,.07); }
+    .gate-icon { font-size:3rem; margin-bottom:1rem; display:block; }
+    .gate-title { font-size:1.6rem; font-weight:900; color:#fff; margin-bottom:.35rem; }
+    .gate-sub { font-size:.88rem; color:var(--muted); margin-bottom:2rem; }
+    .gate-label { display:block; font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--cyan); margin-bottom:.6rem; text-align:left; }
+    .gate-input { width:100%; background:rgba(0,0,0,.35); border:1px solid rgba(0,229,255,.2); border-radius:.6rem; color:#fff; font-size:1.1rem; font-family:'Cascadia Code','Fira Code',monospace; font-weight:700; letter-spacing:.2em; text-align:center; padding:.75rem 1rem; outline:none; transition:border-color .2s; margin-bottom:.75rem; }
+    .gate-input:focus { border-color:var(--cyan); box-shadow:0 0 0 3px rgba(0,229,255,.12); }
+    .gate-input::placeholder { color:var(--muted); font-size:.85rem; letter-spacing:.05em; }
+    .gate-btn { width:100%; background:linear-gradient(135deg,rgba(0,229,255,.15),rgba(61,90,254,.15)); border:1px solid rgba(0,229,255,.35); color:var(--cyan); font-size:.95rem; font-weight:700; padding:.8rem 1.5rem; border-radius:.6rem; cursor:pointer; transition:all .2s; }
+    .gate-btn:hover { background:linear-gradient(135deg,rgba(0,229,255,.22),rgba(61,90,254,.22)); border-color:var(--cyan); transform:translateY(-1px); }
+    .gate-btn:active { transform:translateY(0); }
+    .gate-error { background:rgba(245,0,87,.1); border:1px solid rgba(245,0,87,.3); color:#ff6090; font-size:.82rem; border-radius:.5rem; padding:.6rem .9rem; margin-top:.75rem; display:none; }
+    .gate-error.visible { display:block; }
+    @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
+    .shake { animation:shake .35s ease-in-out; }
+    .gate-footer { margin-top:1.75rem; font-size:.72rem; color:rgba(136,138,176,.5); }
+  </style>
+</head>
+<body>
+<div class="gate-wrap">
+  <div class="gate-card" id="card">
+    <span class="gate-icon">🐱🔐</span>
+    <div class="gate-title">AgentCamp 2026</div>
+    <div class="gate-sub">Workshop: Kitten Agent Blog<br>Introduce el código de acceso del evento</div>
+
+    <label class="gate-label" for="pwd">Código de acceso</label>
+    <input
+      id="pwd"
+      class="gate-input"
+      type="password"
+      placeholder="••••••••"
+      autocomplete="off"
+      spellcheck="false"
+      autofocus
+    />
+    <button class="gate-btn" id="btn" onclick="check()">Entrar al workshop →</button>
+    <div class="gate-error" id="err">Código incorrecto. Pídelo al instructor.</div>
+
+    <div class="gate-footer">
+      NTT DATA Spain · 27 de febrero de 2026 · Madrid
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── Introduce el código del evento aquí ──────────────────
+  const CODE = 'KITTEN26';
+  // ─────────────────────────────────────────────────────────
+
+  // Si ya está autenticado, saltar directamente al índice
+  if (sessionStorage.getItem('wk26')) {
+    location.replace('index.html');
+  }
+
+  document.getElementById('pwd').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') check();
+  });
+
+  function check() {
+    const val = document.getElementById('pwd').value.trim().toUpperCase();
+    if (val === CODE) {
+      sessionStorage.setItem('wk26', '1');
+      document.getElementById('btn').textContent = '✅ Acceso concedido…';
+      setTimeout(() => location.replace('index.html'), 400);
+    } else {
+      const card = document.getElementById('card');
+      const err  = document.getElementById('err');
+      card.classList.remove('shake');
+      void card.offsetWidth; // reflow para reiniciar animación
+      card.classList.add('shake');
+      err.classList.add('visible');
+      document.getElementById('pwd').value = '';
+      document.getElementById('pwd').focus();
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>if(!sessionStorage.getItem('wk26')){location.replace('gate.html')}</script>
+  <title>Actividad 1 – Setup del Entorno · Kitten Agent Blog</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cyan:#00e5ff; --purple:#9c27b0; --indigo:#3d5afe;
+      --dark:#0d0d1a; --dark2:#131327; --card:#1a1a35;
+      --text:#e8e8f0; --muted:#888ab0; --green:#00e676;
+      --orange:#ff9100; --pink:#f50057; --yellow:#ffea00;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--dark); color:var(--text); line-height:1.7; min-height:100vh; }
+    body::before {
+      content:''; position:fixed; inset:0;
+      background-image:
+        radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,.6) 0%,transparent 100%),
+        radial-gradient(1px 1px at 30% 60%,rgba(255,255,255,.4) 0%,transparent 100%),
+        radial-gradient(1px 1px at 50% 10%,rgba(255,255,255,.7) 0%,transparent 100%),
+        radial-gradient(1px 1px at 70% 80%,rgba(255,255,255,.5) 0%,transparent 100%),
+        radial-gradient(1px 1px at 90% 35%,rgba(255,255,255,.6) 0%,transparent 100%),
+        radial-gradient(1px 1px at 55% 55%,rgba(255,255,255,.5) 0%,transparent 100%),
+        radial-gradient(1px 1px at 80% 15%,rgba(255,255,255,.7) 0%,transparent 100%);
+      pointer-events:none; z-index:0;
+    }
+    body::after {
+      content:''; position:fixed; top:-20%; right:-10%;
+      width:70vw; height:70vh;
+      background:radial-gradient(ellipse,rgba(57,0,120,.35) 0%,transparent 70%);
+      pointer-events:none; z-index:0;
+    }
+    .wrap { position:relative; z-index:1; max-width:860px; margin:0 auto; padding:2rem 1.5rem 4rem; }
+
+    /* nav */
+    .top-nav { display:flex; flex-wrap:wrap; gap:.4rem; justify-content:center; margin-bottom:2.5rem; }
+    .nav-btn {
+      background:var(--card); border:1px solid rgba(255,255,255,.1);
+      color:var(--muted); font-size:.75rem; padding:.35rem .8rem;
+      border-radius:.45rem; cursor:pointer; text-decoration:none; transition:all .2s;
+    }
+    .nav-btn:hover { border-color:var(--cyan); color:var(--cyan); background:rgba(0,229,255,.07); }
+    .nav-btn.active { border-color:var(--green); color:var(--green); background:rgba(0,230,118,.07); }
+
+    /* hero */
+    .act-hero { text-align:center; padding:2rem 0 2rem; }
+    .act-number {
+      display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.15em;
+      text-transform:uppercase; color:var(--green); margin-bottom:.5rem;
+    }
+    .act-hero h1 {
+      font-size:clamp(1.8rem,4.5vw,3rem); font-weight:900; line-height:1.15;
+      background:linear-gradient(135deg,var(--green) 0%,var(--cyan) 60%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+      margin-bottom:.75rem;
+    }
+    .act-hero .subtitle { font-size:1rem; color:var(--muted); }
+    .timing-pill {
+      display:inline-flex; align-items:center; gap:.4rem;
+      background:rgba(0,230,118,.1); border:1px solid rgba(0,230,118,.25);
+      color:var(--green); font-size:.82rem; padding:.35rem 1rem;
+      border-radius:999px; margin-top:1rem;
+    }
+
+    /* sections */
+    section { margin-bottom:2.5rem; }
+    .section-label {
+      font-size:.7rem; font-weight:700; letter-spacing:.15em;
+      text-transform:uppercase; color:var(--cyan); margin-bottom:.5rem;
+    }
+    h2 { font-size:1.4rem; font-weight:800; margin-bottom:1rem; color:#fff; }
+    p { color:var(--text); margin-bottom:1rem; }
+    .highlight { color:var(--cyan); font-weight:700; }
+
+    /* objectives */
+    .obj-list { display:flex; flex-direction:column; gap:.6rem; }
+    .obj-item {
+      display:flex; align-items:flex-start; gap:.75rem;
+      background:var(--card); border:1px solid rgba(255,255,255,.06);
+      border-radius:.75rem; padding:.9rem 1.1rem;
+    }
+    .obj-num {
+      flex-shrink:0; width:2rem; height:2rem; border-radius:50%;
+      background:linear-gradient(135deg,#00c853,var(--green));
+      display:flex; align-items:center; justify-content:center;
+      font-size:.75rem; font-weight:900; color:#000;
+    }
+    .obj-text { font-size:.9rem; color:var(--text); }
+
+    /* steps */
+    .steps { display:flex; flex-direction:column; gap:1rem; }
+    .step {
+      display:grid; grid-template-columns:2.5rem 1fr; gap:0 1rem;
+      background:var(--card); border:1px solid rgba(255,255,255,.06);
+      border-radius:.75rem; padding:1.1rem;
+    }
+    .step-num {
+      grid-row:span 2; width:2.25rem; height:2.25rem;
+      border-radius:.5rem; background:rgba(0,229,255,.1);
+      border:1px solid rgba(0,229,255,.25);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900; font-size:.9rem; color:var(--cyan); flex-shrink:0;
+    }
+    .step-title { font-weight:700; font-size:.95rem; color:#fff; }
+    .step-body { font-size:.88rem; color:var(--muted); margin-top:.3rem; grid-column:2; }
+    .step-body code {
+      background:rgba(0,0,0,.5); color:var(--cyan); padding:.1em .45em;
+      border-radius:.3em; font-family:'Cascadia Code','Fira Code',monospace; font-size:.85em;
+    }
+    pre {
+      background:rgba(0,0,0,.5); border:1px solid rgba(0,229,255,.15);
+      border-radius:.6rem; padding:1rem; overflow-x:auto; margin:.5rem 0;
+      font-family:'Cascadia Code','Fira Code',monospace;
+      font-size:.82rem; color:var(--text); line-height:1.6;
+    }
+    pre .cmd { color:var(--green); }
+    pre .comment { color:var(--muted); font-style:italic; }
+
+    /* boxes */
+    .box { border-radius:.75rem; padding:1rem 1.25rem; margin-bottom:1rem; font-size:.9rem; }
+    .box-warn { background:rgba(255,145,0,.08); border:1px solid rgba(255,145,0,.3); color:#ffb74d; }
+    .box-tip  { background:rgba(0,230,118,.08);  border:1px solid rgba(0,230,118,.3);  color:#69f0ae; }
+    .box-info { background:rgba(61,90,254,.1);   border:1px solid rgba(61,90,254,.35); color:#90caf9; }
+    .box .box-title { font-weight:700; margin-bottom:.35rem; }
+
+    /* deliverable */
+    .deliverable {
+      background:linear-gradient(135deg,rgba(0,230,118,.08),rgba(0,229,255,.06));
+      border:1px solid rgba(0,230,118,.25); border-radius:1rem; padding:1.25rem 1.5rem;
+      margin-top:1rem;
+    }
+    .deliverable .del-label {
+      font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+      color:var(--green); margin-bottom:.5rem;
+    }
+    .deliverable .del-title { font-weight:700; font-size:1rem; color:#fff; margin-bottom:.35rem; }
+    .deliverable p { font-size:.88rem; color:var(--muted); margin:0; }
+
+    /* nav bottom */
+    .bottom-nav {
+      display:flex; justify-content:space-between; align-items:center;
+      padding-top:1.5rem; margin-top:2rem; border-top:1px solid rgba(255,255,255,.07);
+    }
+    .nav-link {
+      display:flex; align-items:center; gap:.5rem;
+      background:var(--card); border:1px solid rgba(255,255,255,.1);
+      color:var(--text); font-size:.85rem; padding:.6rem 1.1rem;
+      border-radius:.6rem; text-decoration:none; transition:all .2s;
+    }
+    .nav-link:hover { border-color:var(--cyan); color:var(--cyan); }
+    .nav-link.next { background:linear-gradient(135deg,rgba(0,229,255,.1),rgba(61,90,254,.1)); border-color:rgba(0,229,255,.25); color:var(--cyan); }
+    .nav-link.next:hover { background:linear-gradient(135deg,rgba(0,229,255,.18),rgba(61,90,254,.18)); }
+
+    footer { text-align:center; font-size:.78rem; color:var(--muted); padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.07); margin-top:2rem; }
+    footer a { color:var(--cyan); text-decoration:none; }
+    code {
+      background:rgba(0,0,0,.4); color:var(--cyan); padding:.1em .4em;
+      border-radius:.3em; font-family:'Cascadia Code','Fira Code',monospace; font-size:.88em;
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- TOP NAV -->
+  <nav class="top-nav">
+    <a href="index.html"              class="nav-btn">🏠</a>
+    <a href="bienvenida-workshop.html" class="nav-btn">🎒 Prerreq.</a>
+    <a href="actividad-01-setup.html"  class="nav-btn active">01</a>
+    <a href="actividad-02-agentes.html" class="nav-btn">02</a>
+    <a href="actividad-03-hugo.html"   class="nav-btn">03</a>
+    <a href="actividad-04-whiskers.html" class="nav-btn">04</a>
+    <a href="actividad-05-luna.html"   class="nav-btn">05</a>
+    <a href="actividad-06-rocket.html" class="nav-btn">06</a>
+    <a href="actividad-07-squad.html"  class="nav-btn">07</a>
+    <a href="cierre.html"             class="nav-btn">🏁</a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="act-hero">
+    <div class="act-number">Actividad 1 de 7</div>
+    <h1>Setup del Entorno 🛠️</h1>
+    <p class="subtitle">Fork del repo, verificar herramientas y lanzar el primer workflow</p>
+    <div class="timing-pill">⏱ 10:20 – 10:50 · 30 minutos</div>
+  </header>
+
+  <!-- OBJECTIVES -->
+  <section>
+    <div class="section-label">¿Qué vas a lograr?</div>
+    <h2>Objetivos de la actividad</h2>
+    <div class="obj-list">
+      <div class="obj-item">
+        <div class="obj-num">✓</div>
+        <div class="obj-text">Tener el repositorio del workshop listo en tu cuenta de GitHub y clonado en tu máquina</div>
+      </div>
+      <div class="obj-item">
+        <div class="obj-num">✓</div>
+        <div class="obj-text">Verificar que todas las herramientas estén correctamente instaladas</div>
+      </div>
+      <div class="obj-item">
+        <div class="obj-num">✓</div>
+        <div class="obj-text">Configurar <code>gh aw</code> y probar la conexión con GitHub</div>
+      </div>
+      <div class="obj-item">
+        <div class="obj-num">✓</div>
+        <div class="obj-text">Ejecutar el primer workflow agentico: el squad se presenta</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section>
+    <div class="section-label">Paso a paso</div>
+    <h2>¿Qué vamos a hacer?</h2>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Usar el repositorio como template</div>
+        <div class="step-body">
+          Ve a <code>github.com/alejandrolmeida/kitten-agent-blog</code>
+          y haz clic en <strong>„Use this template" → „Create a new repository"</strong>.
+          Esto crea un repo propio limpio (sin historial del original). Dale visibilidad <strong>pública</strong>
+          — es necesario para que GitHub Pages y Actions sean gratuitos e ilimitados.
+          <br><br>
+          <div class="box box-warn" style="margin:0;">
+            <div class="box-title">⚠️ No uses fork, usa el template</div>
+            El fork mantiene relación con el repo original (aparece en tu perfil como fork y puede crear
+            PRs cruzados). El template crea un repo independiente y limpio. Eso es lo que queremos.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Clonar en local</div>
+        <div class="step-body">
+          <pre><span class="cmd">git clone https://github.com/&lt;TU-USUARIO&gt;/kitten-agent-blog.git</span>
+<span class="cmd">cd kitten-agent-blog</span></pre>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Verificar las herramientas</div>
+        <div class="step-body">
+          Abre una terminal en la raíz del repo y ejecuta:
+          <pre><span class="cmd">git --version</span>       <span class="comment"># ≥ 2.43</span>
+<span class="cmd">hugo version</span>       <span class="comment"># ≥ 0.140 extended</span>
+<span class="cmd">gh --version</span>       <span class="comment"># ≥ 2.65</span>
+<span class="cmd">gh auth status</span>     <span class="comment"># sesión activa</span>
+<span class="cmd">gh extension list | grep gh-aw</span>   <span class="comment"># extensión instalada</span></pre>
+          Si algún comando falla, revisa la página de <a href="bienvenida-workshop.html" style="color:var(--cyan);">prerrequisitos</a>.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">Abrir en VS Code</div>
+        <div class="step-body">
+          <pre><span class="cmd">code .</span></pre>
+          VS Code detectará el <code>mcp.json</code> del repo y cargará los MCP servers automáticamente
+          (<code>filesystem</code> y <code>github</code>). Asegúrate de que la extensión GitHub Copilot Chat
+          está activa (icono de chat en la barra lateral).
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-title">Configurar permisos de Copilot en el repo</div>
+        <div class="step-body">
+          En tu repositorio en GitHub: <strong>Settings → GitHub Copilot → Policies</strong>.
+          Asegúrate de que <em>Allow Copilot to submit pull requests</em> está activado.
+          Los agentes necesitan este permiso para crear PRs automáticamente.
+          <br><br>
+          <div class="box box-info" style="margin:0;">
+            <div class="box-title">ℹ️ ¿Por qué en el repositorio y no en la cuenta?</div>
+            Los permisos de Actions se configuran por repositorio exactamente para eso: guardrails.
+            Un agente solo puede hacer PRs en los repos donde tú lo has habilitado explícitamente.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-title">Configurar el secret <code>COPILOT_GITHUB_TOKEN</code></div>
+        <div class="step-body">
+          El workflow agentico necesita este secret para autenticar al GitHub Copilot CLI.
+          Debes usar un <strong>fine-grained PAT</strong> — los tokens clásicos (<code>ghp_...</code>)
+          <strong>no son compatibles</strong> con GitHub Copilot.
+          <br><br>
+          Genera el token en:
+          <strong>github.com → Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token</strong>
+          con la siguiente configuración:
+          <ul style="margin:.5rem 0 .5rem 1.2rem; color:var(--muted); font-size:.88rem; line-height:1.9;">
+            <li><strong style="color:var(--text);">Resource owner:</strong> tu cuenta personal</li>
+            <li><strong style="color:var(--text);">Repository access:</strong> Public repositories</li>
+            <li><strong style="color:var(--text);">Account permissions → Copilot Requests:</strong> Read-only</li>
+          </ul>
+          El token resultante empieza por <code>github_pat_...</code>.
+          <br><br>
+          Añádelo como secret en tu repositorio desde la terminal:
+          <pre><span class="cmd">gh secret set COPILOT_GITHUB_TOKEN --repo &lt;TU-USUARIO&gt;/kitten-agent-blog</span>
+<span class="comment"># Te pedirá el valor del token de forma oculta (pega el github_pat_...)</span></pre>
+          Verifica que se ha creado correctamente:
+          <pre><span class="cmd">gh secret list --repo &lt;TU-USUARIO&gt;/kitten-agent-blog</span></pre>
+          <div class="box box-warn" style="margin-top:.75rem;">
+            <div class="box-title">⚠️ Classic PAT no válido</div>
+            Si usas un token que empieza por <code>ghp_</code> el workflow fallará con
+            "Classic PATs are not supported for GitHub Copilot". Asegúrate de crear un
+            fine-grained token (<code>github_pat_...</code>).
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-title">Compilar el workflow antes de lanzarlo</div>
+        <div class="step-body">
+          Antes de ejecutar el workflow, compílalo para validar la sintaxis y resolver dependencias:
+          <pre><span class="cmd">gh aw compile .github/aw/squad-intro.md</span></pre>
+          Si la compilación finaliza sin errores, sube los ficheros compilados a GitHub:
+          <pre><span class="cmd">git add .github/
+git commit -m "chore: compile squad-intro workflow"
+git push</span></pre>
+          <div class="box box-info" style="margin-top:.75rem;">
+            <div class="box-title">ℹ️ Solo necesario cuando hay cambios</div>
+            Solo tendrás que volver a compilar y hacer push si modificas el fichero <code>.md</code> del workflow o sus agentes. Si no ha cambiado nada, puedes saltar directamente al paso 8.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">8</div>
+        <div class="step-title">Primer workflow: el squad se presenta 👋</div>
+        <div class="step-body">
+          Lanza el workflow de introducción del squad:
+          <pre><span class="cmd">gh aw run .github/aw/squad-intro.md</span></pre>
+          Verás en la salida cómo cada agente imprime su nombre y rol.
+          Es el "Hello World" agentico del workshop.
+          <br><br>
+          También puedes ver el workflow en <strong>GitHub → Actions → Squad Intro</strong>.
+          <div class="box box-tip" style="margin-top:.75rem;">
+            <div class="box-title">✅ Si ves los 4 nombres, estás listo</div>
+            Astro, Whiskers, Luna y Rocket se han presentado. El squad está operativo.
+            Pasa a la Actividad 2.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TROUBLESHOOTING -->
+  <section>
+    <div class="section-label">¿Algo ha fallado?</div>
+    <h2>Solución de problemas más comunes</h2>
+    <div class="box box-warn">
+      <div class="box-title">⚠️ <code>gh aw</code>: extensión no encontrada</div>
+      Ejecuta: <code>gh extension install github/gh-aw</code> y luego <code>gh auth refresh</code>
+    </div>
+    <div class="box box-warn">
+      <div class="box-title">⚠️ Hugo: "command not found"</div>
+      Windows: <code>winget install Hugo.Hugo.Extended</code> · macOS: <code>brew install hugo</code> · Linux: <code>sudo apt install hugo</code>
+    </div>
+    <div class="box box-warn">
+      <div class="box-title">⚠️ Actions falla con "Classic PATs are not supported for GitHub Copilot"</div>
+      Estás usando un token clásico (<code>ghp_...</code>). Debes crear un <strong>fine-grained PAT</strong>
+      en <a href="https://github.com/settings/personal-access-tokens/new" style="color:var(--cyan);">github.com/settings/personal-access-tokens/new</a>
+      con <em>Resource owner</em>: tu cuenta personal, <em>Repository access</em>: Public repositories
+      y <em>Account permissions → Copilot Requests: Read-only</em>. Luego actualiza el secret:
+      <code>gh secret set COPILOT_GITHUB_TOKEN --repo &lt;TU-USUARIO&gt;/kitten-agent-blog</code>
+    </div>
+    <div class="box box-warn">
+      <div class="box-title">⚠️ Actions falla con "COPILOT_GITHUB_TOKEN secret not found"</div>
+      El secret no está configurado en el repositorio. Ejecuta:
+      <code>gh secret set COPILOT_GITHUB_TOKEN --repo &lt;TU-USUARIO&gt;/kitten-agent-blog</code>
+      y pega tu fine-grained PAT cuando lo solicite. Verifica con <code>gh secret list --repo &lt;TU-USUARIO&gt;/kitten-agent-blog</code>.
+    </div>
+    <div class="box box-info">
+      <div class="box-title">ℹ️ El workflow en Actions está en estado "waiting"</div>
+      Ve a Settings → Actions → General → Workflow permissions y asegúrate de que está en
+      "Read and write permissions".
+    </div>
+  </section>
+
+  <!-- DELIVERABLE -->
+  <div class="deliverable">
+    <div class="del-label">🎯 Entregable de la actividad</div>
+    <div class="del-title">Squad operativo y primer workflow ejecutado</div>
+    <p>Repositorio en tu cuenta de GitHub, clonado en local, las 5 herramientas verificadas
+    y el workflow de intro del squad ejecutado con éxito en GitHub Actions.</p>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div class="bottom-nav">
+    <a href="bienvenida-workshop.html" class="nav-link">← Prerrequisitos</a>
+    <a href="actividad-02-agentes.html" class="nav-link next">Actividad 2: Custom Agents →</a>
+  </div>
+
+  <footer>
+    <p>AgentCamp 2026 · Workshop: Kitten Agent Blog · <a href="index.html">Volver al índice</a></p>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>if(!sessionStorage.getItem('wk26')){location.replace('gate.html')}</script>
+  <title>Workshop: Kitten Agent Blog · AgentCamp 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cyan:   #00e5ff;
+      --purple: #9c27b0;
+      --indigo: #3d5afe;
+      --dark:   #0d0d1a;
+      --dark2:  #131327;
+      --card:   #1a1a35;
+      --text:   #e8e8f0;
+      --muted:  #888ab0;
+      --green:  #00e676;
+      --orange: #ff9100;
+      --pink:   #f50057;
+      --yellow: #ffea00;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 35%, rgba(255,255,255,.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 75%, rgba(255,255,255,.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 55%, rgba(255,255,255,.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 80% 15%, rgba(255,255,255,.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 40% 90%, rgba(255,255,255,.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 65% 40%, rgba(255,255,255,.5) 0%, transparent 100%);
+      pointer-events: none; z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed; top: -20%; right: -10%;
+      width: 70vw; height: 70vh;
+      background: radial-gradient(ellipse, rgba(57,0,120,.35) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+    .wrap {
+      position: relative; z-index: 1;
+      max-width: 900px; margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+    /* ── Hero ── */
+    .hero { text-align: center; padding: 3rem 0 2rem; }
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--indigo), var(--purple));
+      color: #fff; font-size: .75rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: .35rem 1rem; border-radius: 999px; margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 900; line-height: 1.1;
+      background: linear-gradient(135deg, var(--cyan) 0%, #a78bfa 60%, var(--pink) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: .75rem;
+    }
+    .hero .subtitle { font-size: 1.1rem; color: var(--muted); margin-bottom: 2rem; }
+    .event-meta {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; margin-bottom: 2.5rem;
+    }
+    .pill {
+      background: var(--card); border: 1px solid rgba(0,229,255,.2);
+      border-radius: 999px; padding: .4rem 1rem;
+      font-size: .85rem; display: flex; align-items: center; gap: .4rem; color: var(--cyan);
+    }
+    /* ── Nav tabs ── */
+    .phase-nav {
+      display: flex; flex-wrap: wrap; gap: .5rem;
+      justify-content: center; margin-bottom: 3rem;
+    }
+    .phase-btn {
+      background: var(--card); border: 1px solid rgba(255,255,255,.1);
+      color: var(--muted); font-size: .8rem; padding: .45rem .9rem;
+      border-radius: .5rem; cursor: pointer; text-decoration: none;
+      transition: all .2s;
+    }
+    .phase-btn:hover, .phase-btn.active {
+      border-color: var(--cyan); color: var(--cyan);
+      background: rgba(0,229,255,.07);
+    }
+    /* ── Section ── */
+    section { margin-bottom: 3rem; }
+    .section-label {
+      font-size: .7rem; font-weight: 700; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--cyan); margin-bottom: .5rem;
+    }
+    h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 1.25rem; color: #fff; }
+    p { color: var(--text); margin-bottom: 1rem; }
+    /* ── Timeline ── */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .tl-item {
+      display: grid; grid-template-columns: 90px 1fr;
+      gap: 0 1.25rem; align-items: stretch;
+    }
+    .tl-time {
+      text-align: right; padding: 1rem .5rem 1rem 0;
+      font-size: .78rem; color: var(--muted);
+      font-family: 'Cascadia Code','Fira Code',monospace;
+      border-right: 2px solid rgba(0,229,255,.15);
+      position: relative;
+    }
+    .tl-time::after {
+      content: '';
+      position: absolute; right: -6px; top: 1.35rem;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--card); border: 2px solid rgba(0,229,255,.4);
+    }
+    .tl-item:first-child .tl-time::after { border-color: var(--green); }
+    .tl-item:last-child .tl-time::after  { border-color: var(--yellow); }
+    .tl-content {
+      background: var(--card); border: 1px solid rgba(255,255,255,.06);
+      border-radius: .75rem; padding: .9rem 1.1rem;
+      margin: .35rem 0; text-decoration: none;
+      transition: transform .15s, box-shadow .15s, border-color .15s;
+      display: block;
+    }
+    a.tl-content:hover {
+      transform: translateX(4px);
+      box-shadow: 0 4px 20px rgba(0,229,255,.08);
+      border-color: rgba(0,229,255,.25);
+    }
+    .tl-title { font-weight: 700; font-size: .95rem; color: #fff; }
+    .tl-meta { font-size: .78rem; color: var(--muted); margin-top: .2rem; }
+    .tl-badge {
+      display: inline-block; font-size: .68rem; font-weight: 700;
+      padding: .1rem .55rem; border-radius: .35rem;
+      margin-left: .5rem; vertical-align: middle; text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .badge-setup   { background:rgba(0,230,118,.12); color:var(--green);  border:1px solid rgba(0,230,118,.25); }
+    .badge-agent   { background:rgba(0,229,255,.1);  color:var(--cyan);   border:1px solid rgba(0,229,255,.25); }
+    .badge-build   { background:rgba(61,90,254,.12); color:#90caf9;        border:1px solid rgba(61,90,254,.3); }
+    .badge-content { background:rgba(156,33,176,.12);color:#ce93d8;        border:1px solid rgba(156,33,176,.3);}
+    .badge-image   { background:rgba(255,145,0,.1);  color:var(--orange);  border:1px solid rgba(255,145,0,.25);}
+    .badge-cicd    { background:rgba(245,0,87,.1);   color:var(--pink);    border:1px solid rgba(245,0,87,.25); }
+    .badge-reto    { background:rgba(255,234,0,.1);  color:var(--yellow);  border:1px solid rgba(255,234,0,.3); }
+    .badge-cierre  { background:rgba(255,255,255,.06);color:var(--muted);  border:1px solid rgba(255,255,255,.1);}
+    /* ── Agents grid ── */
+    .agents-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 1rem; margin-bottom: 2rem;
+    }
+    .agent-card {
+      background: var(--card); border-radius: 1rem;
+      border: 1px solid rgba(255,255,255,.07);
+      padding: 1.25rem 1rem; text-align: center;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .agent-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,229,255,.12); }
+    .agent-card .emoji { font-size: 2.5rem; margin-bottom: .5rem; display: block; }
+    .agent-card .agent-name { font-weight: 700; font-size: 1rem; color: var(--cyan); }
+    .agent-card .agent-role { font-size: .78rem; color: var(--muted); margin-top: .25rem; }
+    .agent-card .agent-secret {
+      font-size: .72rem; color: var(--purple);
+      margin-top: .5rem; font-style: italic; min-height: 2.5em;
+    }
+    /* ── Objectives ── */
+    .obj-list { display: flex; flex-direction: column; gap: .6rem; }
+    .obj-item {
+      display: flex; align-items: flex-start; gap: .75rem;
+      background: var(--card); border: 1px solid rgba(255,255,255,.06);
+      border-radius: .75rem; padding: .9rem 1.1rem;
+    }
+    .obj-num {
+      flex-shrink: 0; width: 2rem; height: 2rem; border-radius: 50%;
+      background: linear-gradient(135deg, var(--indigo), var(--purple));
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem; font-weight: 900; color: #fff;
+    }
+    .obj-text { font-size: .9rem; color: var(--text); }
+    /* ── Stack table ── */
+    table { width: 100%; border-collapse: collapse; font-size: .88rem; margin-bottom: 1.5rem; }
+    th {
+      background: rgba(0,229,255,.08); color: var(--cyan);
+      font-weight: 700; text-align: left; padding: .65rem .9rem;
+      border-bottom: 1px solid rgba(0,229,255,.2);
+    }
+    td {
+      padding: .6rem .9rem;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      color: var(--text); vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    code {
+      background: rgba(0,0,0,.4); color: var(--cyan);
+      padding: .1em .4em; border-radius: .3em;
+      font-family: 'Cascadia Code','Fira Code',monospace; font-size: .88em;
+    }
+    /* ── CTA ── */
+    .cta-block {
+      background: linear-gradient(135deg, rgba(0,229,255,.06), rgba(156,33,176,.06));
+      border: 1px solid rgba(0,229,255,.2); border-radius: 1.25rem;
+      padding: 2rem; text-align: center; margin-bottom: 3rem;
+    }
+    .cta-block .cta-title { font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: .5rem; }
+    .cta-block .cta-sub { color: var(--muted); margin-bottom: 1.5rem; }
+    .cta-stats {
+      display: inline-flex; gap: 2rem; flex-wrap: wrap;
+      justify-content: center; margin-bottom: 1.5rem;
+    }
+    .cta-stats .unit { text-align: center; }
+    .cta-stats .val {
+      display: block; font-size: 2.5rem; font-weight: 900;
+      background: linear-gradient(135deg, var(--cyan), #a78bfa);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      line-height: 1;
+    }
+    .cta-stats .lbl {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .1em; color: var(--muted);
+    }
+    .btn-start {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--indigo), var(--purple));
+      color: #fff; font-weight: 700; font-size: 1rem;
+      padding: .8rem 2rem; border-radius: .75rem;
+      text-decoration: none; transition: opacity .2s;
+    }
+    .btn-start:hover { opacity: .85; }
+    /* ── Footer ── */
+    footer {
+      text-align: center; font-size: .78rem; color: var(--muted);
+      padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.07);
+    }
+    footer a { color: var(--cyan); text-decoration: none; }
+    @media (max-width: 580px) {
+      .agents-grid { grid-template-columns: repeat(2, 1fr); }
+      .tl-item { grid-template-columns: 65px 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="badge">🚀 AgentCamp 2026 · Madrid</div>
+    <h1>Kitten Agent Blog</h1>
+    <p class="subtitle">Workshop completo · Cómo crear agentes autónomos con GitHub Copilot</p>
+    <div class="event-meta">
+      <span class="pill">📅 Viernes 27 de febrero de 2026</span>
+      <span class="pill">🕙 10:00 – 14:00 · 4 horas</span>
+      <span class="pill">📍 NTT DATA · Novus Building, Hortaleza, Madrid</span>
+      <span class="pill">🎤 Alejandro Almeida &amp; María Soto</span>
+    </div>
+  </header>
+
+  <!-- QUICK NAV -->
+  <nav class="phase-nav">
+    <a href="bienvenida-workshop.html" class="phase-btn">🎒 Prerrequisitos</a>
+    <a href="actividad-01-setup.html"  class="phase-btn">01 · Setup</a>
+    <a href="actividad-02-agentes.html" class="phase-btn">02 · Agentes</a>
+    <a href="actividad-03-hugo.html"   class="phase-btn">03 · Hugo</a>
+    <a href="actividad-04-whiskers.html" class="phase-btn">04 · Whiskers</a>
+    <a href="actividad-05-luna.html"   class="phase-btn">05 · Luna</a>
+    <a href="actividad-06-rocket.html" class="phase-btn">06 · Rocket</a>
+    <a href="actividad-07-squad.html"  class="phase-btn">07 · Squad</a>
+    <a href="cierre.html"             class="phase-btn">🏁 Cierre</a>
+  </nav>
+
+  <!-- STATS -->
+  <div class="cta-block">
+    <div class="cta-title">4 horas. 4 agentes. 1 blog en producción.</div>
+    <div class="cta-sub">Los gatitos han vuelto del espacio. Ahora necesitan que les construyas el blog.</div>
+    <div class="cta-stats">
+      <div class="unit"><span class="val">4</span><span class="lbl">Horas</span></div>
+      <div class="unit"><span class="val">4</span><span class="lbl">Agentes</span></div>
+      <div class="unit"><span class="val">7</span><span class="lbl">Actividades</span></div>
+      <div class="unit"><span class="val">∞</span><span class="lbl">Gatitos felices</span></div>
+    </div>
+    <a href="bienvenida-workshop.html" class="btn-start">Empezar por los prerrequisitos →</a>
+  </div>
+
+  <!-- SQUAD -->
+  <section>
+    <div class="section-label">Vuestro equipo</div>
+    <h2>El Kitten Agent Squad 🐾</h2>
+    <p style="color:var(--muted); margin-bottom:1.25rem;">
+      Cuatro agentes. Cuatro roles. Sus personalidades las descubriréis trabajando con ellos.
+    </p>
+    <div class="agents-grid">
+      <div class="agent-card">
+        <span class="emoji">🏗️</span>
+        <div class="agent-name">Astro</div>
+        <div class="agent-role">Architect Agent</div>
+        <div class="agent-secret">Genera la estructura del blog. Dicen que es un poco perfeccionista…</div>
+      </div>
+      <div class="agent-card">
+        <span class="emoji">✍️</span>
+        <div class="agent-name">Whiskers</div>
+        <div class="agent-role">Writer Agent</div>
+        <div class="agent-secret">Escribe los artículos. Tiene opiniones muy fuertes sobre el tono editorial.</div>
+      </div>
+      <div class="agent-card">
+        <span class="emoji">🎨</span>
+        <div class="agent-name">Luna</div>
+        <div class="agent-role">Image Agent</div>
+        <div class="agent-secret">Genera las portadas. Nunca lleva el casco puesto. Siempre desbordada de ideas.</div>
+      </div>
+      <div class="agent-card">
+        <span class="emoji">🚀</span>
+        <div class="agent-name">Rocket</div>
+        <div class="agent-role">Publisher Agent</div>
+        <div class="agent-secret">Gestiona el CI/CD. No despliega nada sin pasar todas sus pruebas. Nunca. Jamás.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section>
+    <div class="section-label">El programa</div>
+    <h2>Timeline del workshop 🗓️</h2>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-time">10:00</div>
+        <a href="bienvenida-workshop.html" class="tl-content">
+          <div class="tl-title">Bienvenida y prerrequisitos <span class="tl-badge badge-setup">Prerreq.</span></div>
+          <div class="tl-meta">20 min · Narrativa, el squad, qué vamos a construir</div>
+        </a>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">10:20</div>
+        <a href="actividad-01-setup.html" class="tl-content">
+          <div class="tl-title">Actividad 1 – Setup del entorno <span class="tl-badge badge-setup">Setup</span></div>
+          <div class="tl-meta">30 min · Fork, clonar, verificar herramientas, primer workflow</div>
+        </a>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">10:50</div>
+        <a href="actividad-02-agentes.html" class="tl-content">
+          <div class="tl-title">Actividad 2 – Custom Agents <span class="tl-badge badge-agent">Agentes</span></div>
+          <div class="tl-meta">40 min · Anatomía de .agent.md, personalizar Astro, scaffolding del blog</div>
+        </a>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">11:30</div>
+        <a href="actividad-03-hugo.html" class="tl-content">
+          <div class="tl-title">Actividad 3 – El blog vive <span class="tl-badge badge-build">Hugo</span></div>
+          <div class="tl-meta">20 min · Merge del PR de Astro, hugo server, localhost:1313</div>
+        </a>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">11:50</div>
+        <a href="actividad-04-whiskers.html" class="tl-content">
+          <div class="tl-title">Actividad 4 – Whiskers al teclado <span class="tl-badge badge-content">Writer</span></div>
+          <div class="tl-meta">30 min · Generar artículos, guardrails del escritor, frontmatter correcto</div>
+        </a>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">12:20</div>
+        <a href="actividad-05-luna.html" class="tl-content">
+          <div class="tl-title">Actividad 5 – Luna pinta <span class="tl-badge badge-image">Imágenes</span></div>
+          <div class="tl-meta">25 min · Meta-prompting, DALL-E / SVG mode, imágenes de portada</div>
+        </a>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">12:45</div>
+        <a href="actividad-06-rocket.html" class="tl-content">
+          <div class="tl-title">Actividad 6 – Rocket despliega <span class="tl-badge badge-cicd">CI/CD</span></div>
+          <div class="tl-meta">35 min · GitHub Pages, deploy.yml, el blog en Internet</div>
+        </a>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">13:20</div>
+        <a href="actividad-07-squad.html" class="tl-content">
+          <div class="tl-title">Actividad 7 – El gran reto <span class="tl-badge badge-reto">Squad</span></div>
+          <div class="tl-meta">25 min · Squad coordinado, PRs encadenados, autonomía real</div>
+        </a>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">13:45</div>
+        <a href="cierre.html" class="tl-content">
+          <div class="tl-title">Cierre y Q&A <span class="tl-badge badge-cierre">Final</span></div>
+          <div class="tl-meta">15 min · Demo final, repaso conceptos, badge de Kitten Agent Master 🏆</div>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OBJECTIVES -->
+  <section>
+    <div class="section-label">¿Qué aprenderás?</div>
+    <h2>Objetivos de aprendizaje 🎯</h2>
+    <div class="obj-list">
+      <div class="obj-item">
+        <div class="obj-num">1</div>
+        <div class="obj-text">Crear <strong>agentes custom</strong> con ficheros <code>.github/agents/*.agent.md</code> de definición</div>
+      </div>
+      <div class="obj-item">
+        <div class="obj-num">2</div>
+        <div class="obj-text">Usar <strong>GitHub Agentic Workflows</strong> (<code>gh aw</code>) para automatización con Markdown en lugar de YAML complejo</div>
+      </div>
+      <div class="obj-item">
+        <div class="obj-num">3</div>
+        <div class="obj-text">Implementar <strong>guardrails reales</strong>: permisos mínimos, safe-outputs, sandboxed execution</div>
+      </div>
+      <div class="obj-item">
+        <div class="obj-num">4</div>
+        <div class="obj-text">Coordinar un <strong>squad de múltiples agentes</strong> sin que se pisen entre sí</div>
+      </div>
+      <div class="obj-item">
+        <div class="obj-num">5</div>
+        <div class="obj-text">Usar <strong>MCP servers</strong> dentro de los agentes para extender capacidades (filesystem, github)</div>
+      </div>
+      <div class="obj-item">
+        <div class="obj-num">6</div>
+        <div class="obj-text">Publicar en <strong>GitHub Pages</strong> de forma completamente automatizada con GitHub Actions</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section>
+    <div class="section-label">Stack tecnológico</div>
+    <h2>Con qué vamos a trabajar 🛠️</h2>
+    <table>
+      <thead><tr><th>Tecnología</th><th>Rol</th><th>Tier</th></tr></thead>
+      <tbody>
+        <tr><td><strong>GitHub Copilot</strong></td><td>Motor IA de los agentes</td><td>Free / Pro</td></tr>
+        <tr><td><strong>GitHub Agentic Workflows (<code>gh aw</code>)</strong></td><td>Automatización agentica con Markdown</td><td>Gratuito</td></tr>
+        <tr><td><strong>GitHub Actions</strong></td><td>Ejecución de agentes en la nube</td><td>Gratuito (repos públicos)</td></tr>
+        <tr><td><strong>Hugo (Extended)</strong></td><td>Generador de blog estático</td><td>Gratuito</td></tr>
+        <tr><td><strong>Tailwind CSS via CDN</strong></td><td>Estilos del blog (sin build local)</td><td>Gratuito</td></tr>
+        <tr><td><strong>GitHub Pages</strong></td><td>Publicación del blog</td><td>Gratuito (repos públicos)</td></tr>
+        <tr><td><strong>MCP filesystem + github</strong></td><td>Los agentes leen/escriben ficheros y PRs</td><td>Incluido en VS Code</td></tr>
+        <tr><td><strong>Azure OpenAI DALL-E 3</strong></td><td>Imagen de portada HD (Luna – modo premium)</td><td>Tenant instructor (opcional)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      AgentCamp 2026 · Workshop: Kitten Agent Blog ·
+      <a href="https://github.com/alejandrolmeida/kitten-agent-blog" target="_blank">github.com/alejandrolmeida/kitten-agent-blog</a>
+    </p>
+    <p style="margin-top:.5rem;">Ponentes: Alejandro Almeida &amp; María Soto · NTT DATA Spain</p>
+  </footer>
+
+</div>
+</body>
+</html>

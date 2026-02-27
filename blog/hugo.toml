@@ -1,0 +1,24 @@
+baseURL = "https://REPLACE_WITH_YOUR_GITHUB_USERNAME.github.io/kitten-agent-blog"
+languageCode = "es"
+title = "Kitten Agent Blog"
+theme = ""
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  description = "Blog generado por el Kitten Agent Squad 🐱🚀"
+  author = "Kitten Squad"
+  tagline = "Crónicas del espacio felino, escritas por agentes de IA"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "monokai"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  page = ["HTML"]

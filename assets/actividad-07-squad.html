@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>if(!sessionStorage.getItem('wk26')){location.replace('gate.html')}</script>
+  <title>Actividad 7 – El Gran Reto del Squad · Kitten Agent Blog</title>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --cyan:#00e5ff; --purple:#9c27b0; --indigo:#3d5afe; --dark:#0d0d1a; --card:#1a1a35; --text:#e8e8f0; --muted:#888ab0; --green:#00e676; --orange:#ff9100; --pink:#f50057; --yellow:#ffea00; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--dark); color:var(--text); line-height:1.7; min-height:100vh; }
+    body::before { content:''; position:fixed; inset:0; background-image: radial-gradient(1px 1px at 8% 15%,rgba(255,255,255,.7) 0%,transparent 100%), radial-gradient(1px 1px at 35% 55%,rgba(255,255,255,.4) 0%,transparent 100%), radial-gradient(1px 1px at 72% 12%,rgba(255,255,255,.6) 0%,transparent 100%), radial-gradient(1px 1px at 90% 78%,rgba(255,255,255,.5) 0%,transparent 100%), radial-gradient(1px 1px at 55% 88%,rgba(255,255,255,.3) 0%,transparent 100%); pointer-events:none; z-index:0; }
+    body::after { content:''; position:fixed; top:-20%; right:-10%; width:70vw; height:70vh; background:radial-gradient(ellipse,rgba(57,0,120,.35) 0%,transparent 70%); pointer-events:none; z-index:0; }
+    .wrap { position:relative; z-index:1; max-width:860px; margin:0 auto; padding:2rem 1.5rem 4rem; }
+    .top-nav { display:flex; flex-wrap:wrap; gap:.4rem; justify-content:center; margin-bottom:2.5rem; }
+    .nav-btn { background:var(--card); border:1px solid rgba(255,255,255,.1); color:var(--muted); font-size:.75rem; padding:.35rem .8rem; border-radius:.45rem; text-decoration:none; transition:all .2s; }
+    .nav-btn:hover { border-color:var(--cyan); color:var(--cyan); background:rgba(0,229,255,.07); }
+    .nav-btn.active { border-color:var(--yellow); color:var(--yellow); background:rgba(255,234,0,.07); }
+    .act-hero { text-align:center; padding:2rem 0; }
+    .act-number { display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--yellow); margin-bottom:.5rem; }
+    .act-hero h1 { font-size:clamp(1.8rem,4.5vw,3rem); font-weight:900; line-height:1.15; background:linear-gradient(135deg,var(--yellow) 0%,var(--orange) 60%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:.75rem; }
+    .act-hero .subtitle { font-size:1rem; color:var(--muted); }
+    .timing-pill { display:inline-flex; align-items:center; gap:.4rem; background:rgba(255,234,0,.1); border:1px solid rgba(255,234,0,.3); color:var(--yellow); font-size:.82rem; padding:.35rem 1rem; border-radius:999px; margin-top:1rem; }
+    section { margin-bottom:2.5rem; }
+    .section-label { font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--cyan); margin-bottom:.5rem; }
+    h2 { font-size:1.4rem; font-weight:800; margin-bottom:1rem; color:#fff; }
+    p { color:var(--text); margin-bottom:1rem; }
+    code { background:rgba(0,0,0,.4); color:var(--cyan); padding:.1em .4em; border-radius:.3em; font-family:'Cascadia Code','Fira Code',monospace; font-size:.88em; }
+    pre { background:rgba(0,0,0,.5); border:1px solid rgba(0,229,255,.15); border-radius:.6rem; padding:1rem; overflow-x:auto; margin:.5rem 0; font-family:'Cascadia Code','Fira Code',monospace; font-size:.82rem; color:var(--text); line-height:1.6; }
+    pre .cmd { color:var(--green); }
+    pre .comment { color:var(--muted); font-style:italic; }
+    .box { border-radius:.75rem; padding:1rem 1.25rem; margin-bottom:1rem; font-size:.9rem; }
+    .box-tip  { background:rgba(0,230,118,.08);  border:1px solid rgba(0,230,118,.3);  color:#69f0ae; }
+    .box-warn { background:rgba(255,145,0,.08); border:1px solid rgba(255,145,0,.3); color:#ffb74d; }
+    .box-info { background:rgba(61,90,254,.1);  border:1px solid rgba(61,90,254,.35); color:#90caf9; }
+    .box .box-title { font-weight:700; margin-bottom:.35rem; }
+    /* squad flow */
+    .squad-flow { display:flex; flex-direction:column; gap:0; align-items:center; }
+    .sf-row { display:flex; align-items:center; gap:.5rem; width:100%; max-width:520px; }
+    .sf-agent { flex:0 0 auto; width:44px; height:44px; border-radius:.5rem; display:flex; align-items:center; justify-content:center; font-size:1.3rem; }
+    .sf-whiskers { background:rgba(156,39,176,.15); border:1px solid rgba(156,39,176,.3); }
+    .sf-luna     { background:rgba(255,145,0,.12); border:1px solid rgba(255,145,0,.3); }
+    .sf-rocket   { background:rgba(245,0,87,.1); border:1px solid rgba(245,0,87,.3); }
+    .sf-human    { background:rgba(0,229,255,.08); border:1px solid rgba(0,229,255,.2); }
+    .sf-content { flex:1; background:var(--card); border:1px solid rgba(255,255,255,.07); border-radius:.6rem; padding:.6rem 1rem; font-size:.84rem; }
+    .sf-content .sf-label { font-size:.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:.15rem; }
+    .sf-content .sf-text { color:#fff; font-weight:600; }
+    .sf-arrow { color:var(--muted); font-size:.9rem; text-align:center; width:100%; max-width:520px; padding:.1rem 0 .1rem 2.5rem; }
+    /* merge modes */
+    .merge-compare { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .merge-card { background:var(--card); border:1px solid rgba(255,255,255,.07); border-radius:.75rem; padding:1rem 1.1rem; }
+    .merge-card .mc-badge { font-size:.68rem; font-weight:700; padding:.15rem .6rem; border-radius:.3rem; margin-bottom:.5rem; display:inline-block; }
+    .mc-supervised .mc-badge { background:rgba(0,229,255,.1); color:var(--cyan); border:1px solid rgba(0,229,255,.25); }
+    .mc-auto .mc-badge { background:rgba(255,234,0,.08); color:var(--yellow); border:1px solid rgba(255,234,0,.25); }
+    .merge-card .mc-title { font-weight:700; font-size:.9rem; color:#fff; margin-bottom:.4rem; }
+    .merge-card .mc-desc { font-size:.82rem; color:var(--muted); }
+    /* steps */
+    .steps { display:flex; flex-direction:column; gap:1rem; }
+    .step { display:grid; grid-template-columns:2.5rem 1fr; gap:0 1rem; background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:.75rem; padding:1.1rem; }
+    .step-num { grid-row:span 2; width:2.25rem; height:2.25rem; border-radius:.5rem; background:rgba(255,234,0,.1); border:1px solid rgba(255,234,0,.2); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:.9rem; color:var(--yellow); flex-shrink:0; }
+    .step-title { font-weight:700; font-size:.95rem; color:#fff; }
+    .step-body { font-size:.88rem; color:var(--muted); margin-top:.3rem; grid-column:2; }
+    .deliverable { background:linear-gradient(135deg,rgba(255,234,0,.08),rgba(255,145,0,.05)); border:1px solid rgba(255,234,0,.25); border-radius:1rem; padding:1.25rem 1.5rem; margin-top:1rem; }
+    .deliverable .del-label { font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--yellow); margin-bottom:.5rem; }
+    .deliverable .del-title { font-weight:700; font-size:1rem; color:#fff; margin-bottom:.35rem; }
+    .deliverable p { font-size:.88rem; color:var(--muted); margin:0; }
+    .bottom-nav { display:flex; justify-content:space-between; align-items:center; padding-top:1.5rem; margin-top:2rem; border-top:1px solid rgba(255,255,255,.07); }
+    .nav-link { display:flex; align-items:center; gap:.5rem; background:var(--card); border:1px solid rgba(255,255,255,.1); color:var(--text); font-size:.85rem; padding:.6rem 1.1rem; border-radius:.6rem; text-decoration:none; transition:all .2s; }
+    .nav-link:hover { border-color:var(--cyan); color:var(--cyan); }
+    .nav-link.next { background:linear-gradient(135deg,rgba(0,229,255,.1),rgba(61,90,254,.1)); border-color:rgba(0,229,255,.25); color:var(--cyan); }
+    footer { text-align:center; font-size:.78rem; color:var(--muted); padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.07); margin-top:2rem; }
+    footer a { color:var(--cyan); text-decoration:none; }
+    @media (max-width:520px) { .merge-compare { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="top-nav">
+    <a href="index.html"               class="nav-btn">🏠</a>
+    <a href="bienvenida-workshop.html"  class="nav-btn">🎒</a>
+    <a href="actividad-01-setup.html"   class="nav-btn">01</a>
+    <a href="actividad-02-agentes.html" class="nav-btn">02</a>
+    <a href="actividad-03-hugo.html"    class="nav-btn">03</a>
+    <a href="actividad-04-whiskers.html" class="nav-btn">04</a>
+    <a href="actividad-05-luna.html"    class="nav-btn">05</a>
+    <a href="actividad-06-rocket.html"  class="nav-btn">06</a>
+    <a href="actividad-07-squad.html"   class="nav-btn active">07</a>
+    <a href="cierre.html"              class="nav-btn">🏁</a>
+  </nav>
+
+  <header class="act-hero">
+    <div class="act-number">Actividad 7 de 7</div>
+    <h1>El Gran Reto del Squad 🏆</h1>
+    <p class="subtitle">Un input humano. Tres PRs encadenados. Un blog publicado en vivo.</p>
+    <div class="timing-pill">⏱ 13:20 – 13:45 · 25 minutos</div>
+  </header>
+
+  <!-- WHAT WE'VE BEEN BUILDING -->
+  <section>
+    <div class="section-label">El momento de verdad</div>
+    <h2>Para esto hemos estado trabajando</h2>
+    <p>
+      Hasta ahora has lanzado Whiskers, Luna y Rocket por separado. Pero el poder real del squad
+      ocurre cuando los tres trabajan en <strong>cadena coordinada</strong>: un solo mensaje
+      tuyo desencadena tres PRs automáticos que al mergearse publican un artículo completo
+      con imagen de portada en Internet.
+    </p>
+  </section>
+
+  <!-- SQUAD FLOW -->
+  <section>
+    <div class="section-label">La cadena completa</div>
+    <h2>De una instrucción humana al blog publicado</h2>
+    <div class="squad-flow">
+      <div class="sf-row">
+        <div class="sf-agent sf-human">👤</div>
+        <div class="sf-content">
+          <div class="sf-label">Tú · Input único</div>
+          <div class="sf-text"><code>gh aw run .github/aw/squad.md -F input="Escribe y publica un artículo sobre el regreso de Whiskers de la Luna"</code></div>
+        </div>
+      </div>
+      <div class="sf-arrow">↓ Whiskers recibe la misión</div>
+      <div class="sf-row">
+        <div class="sf-agent sf-whiskers">✍️</div>
+        <div class="sf-content">
+          <div class="sf-label">Whiskers · PR #1</div>
+          <div class="sf-text">Escribe el artículo con <code>image: pending</code> · Crea PR de borrador</div>
+        </div>
+      </div>
+      <div class="sf-arrow">↓ Luna detecta image: pending</div>
+      <div class="sf-row">
+        <div class="sf-agent sf-luna">🎨</div>
+        <div class="sf-content">
+          <div class="sf-label">Luna · PR #2</div>
+          <div class="sf-text">Meta-prompting → Genera imagen · Actualiza frontmatter · Nuevo PR</div>
+        </div>
+      </div>
+      <div class="sf-arrow">↓ Rocket detecta cambios en master</div>
+      <div class="sf-row">
+        <div class="sf-agent sf-rocket">🚀</div>
+        <div class="sf-content">
+          <div class="sf-label">Rocket · Deploy</div>
+          <div class="sf-text">Build Hugo → Tests → Deploy to GitHub Pages</div>
+        </div>
+      </div>
+    </div>
+    <div class="box box-info" style="margin-top:1.25rem;">
+      <div class="box-title">ℹ️ La clave: los agentes se coordinan vía Git</div>
+      Whiskers hace commit del artículo. Luna escucha los cambios (artículo con <code>image: pending</code>)
+      y actúa. Rocket escucha el merge a master. Ninguno necesita saber que el otro existe;
+      se comunican a través del estado del repositorio.
+    </div>
+  </section>
+
+  <!-- MERGE MODES -->
+  <section>
+    <div class="section-label">Tú decides el nivel de supervisión</div>
+    <h2>Dos modos de coordinar al squad</h2>
+    <div class="merge-compare">
+      <div class="merge-card mc-supervised">
+        <div class="mc-badge">👤 Modo supervisado</div>
+        <div class="mc-title">Tu mano en cada PR</div>
+        <div class="mc-desc">
+          Whiskers abre PR → tú revisas y mergeas.<br>
+          Luna abre PR → tú revisas y mergeas.<br>
+          Rocket despliega automáticamente.<br><br>
+          <strong>Cuándo usarlo</strong>: cuando quieres validar el contenido humanamente
+          antes de publicar.
+        </div>
+      </div>
+      <div class="merge-card mc-auto">
+        <div class="mc-badge">⚡ Modo auto-merge</div>
+        <div class="mc-title">El squad corre solo</div>
+        <div class="mc-desc">
+          Cada PR tiene reglas de auto-merge activadas. En cuanto los checks verdes,
+          el merge ocurre automáticamente. Solo tu input inicial + URL final del blog.<br><br>
+          <strong>Cuándo usarlo</strong>: demostraciones, low-stakes content, automatización completa.
+        </div>
+      </div>
+    </div>
+    <p style="font-size:.88rem; color:var(--muted);">
+      El workshop usa el modo supervisado para que veas cada paso. Puedes cambiar a auto-merge
+      en <code>blog.agent.md</code> o en los settings del repo.
+    </p>
+  </section>
+
+  <!-- STEPS -->
+  <section>
+    <div class="section-label">El gran reto</div>
+    <h2>Lanzar la cadena completa</h2>
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">La instrucción del squad</div>
+        <div class="step-body">
+          <pre><span class="comment"># 1. Compila el workflow</span>
+<span class="cmd">gh aw compile .github/aw/squad.md</span>
+
+<span class="comment"># 2. Sube los ficheros compilados a GitHub</span>
+<span class="cmd">git add .github/
+git commit -m "chore: compile squad workflow"
+git push</span>
+
+<span class="comment"># 3. Lánzalo</span>
+<span class="cmd">gh aw run .github/aw/squad.md \
+  -F input="Escribe y publica un artículo sobre la primera misión de Whiskers a la Luna"</span></pre>
+          <div class="box box-info" style="margin-top:.75rem;">
+            <div class="box-title">ℹ️ ¿Por qué compilar?</div>
+            Es la primera vez que ejecutas este workflow. Compilar genera el fichero <code>squad.lock.yml</code> que GitHub Actions necesita para poder lanzarlo. A partir de aquí, solo necesitarás volver a compilar si modificas <code>squad.md</code> o alguno de los agentes del squad.
+          </div>
+          El workflow <code>squad.md</code> llama secuencialmente a Whiskers, espera el PR,
+          luego activa a Luna, y finalmente espera a Rocket.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Supervisar y mergear el PR de Whiskers</div>
+        <div class="step-body">
+          Abre el PR que Whiskers creó. Lee el artículo. Si estás satisfecho, haz merge.
+          <div class="box box-tip" style="margin-top:.75rem;">
+            <div class="box-title">✅ Aprovecha para probar una cosa</div>
+            Intenta editar directamente en la rama del PR en GitHub para añadir una frase.
+            ¿Whiskers acepta el cambio? ¿Hace otro commit? Observa el comportamiento del agente ante edición humana.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Supervisar y mergear el PR de Luna</div>
+        <div class="step-body">
+          Luna detecta el merge del artículo (con <code>image: pending</code>) y abre su PR con la imagen generada.
+          Revisa la imagen y el frontmatter actualizado. Si todo está bien, mergea.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">Rocket despliega automáticamente</div>
+        <div class="step-body">
+          El merge a <code>master</code> activa el workflow de Rocket. Ve a <strong>Actions</strong>
+          y observa el deploy. En ~2 minutos el artículo con imagen de portada estará live en tu GitHub Pages.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-title">🎉 ¡Comparte la URL!</div>
+        <div class="step-body">
+          Visita tu blog en Internet. Comparte la URL en el chat del workshop.
+          Esto es un blog de IA multi-agente real, tuyo, en producción.
+          <pre>https://<span class="cmd">&lt;TU-USUARIO&gt;</span>.github.io/kitten-agent-blog</pre>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="deliverable">
+    <div class="del-label">🏆 Entregable final del workshop</div>
+    <div class="del-title">Blog publicado en Internet con contenido generado por el squad</div>
+    <p>Cadena completa ejecutada: Whiskers → Luna → Rocket. Artículo con imagen de portada
+    visible en GitHub Pages. Squad de 4 agentes coordinados con un solo input humano.</p>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="actividad-06-rocket.html" class="nav-link">← Actividad 6: Rocket</a>
+    <a href="cierre.html" class="nav-link next">Cierre del Workshop →</a>
+  </div>
+
+  <footer>
+    <p>AgentCamp 2026 · Workshop: Kitten Agent Blog · <a href="index.html">Volver al índice</a></p>
+  </footer>
+
+</div>
+</body>
+</html>

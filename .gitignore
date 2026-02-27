@@ -1,0 +1,5 @@
+local/
+
+# Artefactos generados por gh aw (resultados de ejecución, no fuente del workshop)
+.github/aw/actions-lock.json
+

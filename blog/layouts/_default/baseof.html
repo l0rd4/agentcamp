@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    {{- if .IsHome -}}
+      {{ .Site.Title }} — {{ .Site.Params.tagline }}
+    {{- else -}}
+      {{ .Title }} · {{ .Site.Title }}
+    {{- end -}}
+  </title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+  <meta name="author" content="{{ .Site.Params.author }}" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ .Title }}" />
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+  {{ with .Params.image }}<meta property="og:image" content="{{ . | absURL }}" />{{ end }}
+
+  <!-- Tailwind CSS via CDN — no build step required -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'space-dark': '#0d0d1a',
+            'space-card': '#1a1a35',
+            'space-cyan': '#00e5ff',
+            'space-purple': '#9c27b0',
+          },
+          fontFamily: {
+            sans: ['Segoe UI', 'system-ui', 'sans-serif'],
+            mono: ['Cascadia Code', 'Fira Code', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { background: #0d0d1a; }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 40% 60%, rgba(255,255,255,.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 65% 10%, rgba(255,255,255,.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 80%, rgba(255,255,255,.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 85%, rgba(255,255,255,.3) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      top: -20%;
+      right: -10%;
+      width: 70vw;
+      height: 70vh;
+      background: radial-gradient(ellipse, rgba(57,0,120,.3) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .prose { color: #e8e8f0; }
+    .prose h1, .prose h2, .prose h3 { color: #fff; }
+    .prose a { color: #00e5ff; }
+    .prose code { background: rgba(0,0,0,.4); color: #00e5ff; padding: .1em .4em; border-radius: .3em; }
+    .prose pre { background: rgba(0,0,0,.5); border: 1px solid rgba(0,229,255,.15); border-radius: .5rem; padding: 1rem; overflow-x: auto; }
+    .prose blockquote { border-left: 3px solid #9c27b0; padding-left: 1rem; color: #888ab0; font-style: italic; }
+  </style>
+</head>
+<body class="min-h-screen text-gray-200 relative">
+  <div class="relative z-10">
+    {{ partial "header.html" . }}
+    <main class="max-w-3xl mx-auto px-4 py-8">
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "footer.html" . }}
+  </div>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>if(!sessionStorage.getItem('wk26')){location.replace('gate.html')}</script>
+  <title>Actividad 4 – Whiskers al Teclado · Kitten Agent Blog</title>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --cyan:#00e5ff; --purple:#9c27b0; --indigo:#3d5afe; --dark:#0d0d1a; --card:#1a1a35; --text:#e8e8f0; --muted:#888ab0; --green:#00e676; --orange:#ff9100; --pink:#f50057; --yellow:#ffea00; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--dark); color:var(--text); line-height:1.7; min-height:100vh; }
+    body::before { content:''; position:fixed; inset:0; background-image: radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,.6) 0%,transparent 100%), radial-gradient(1px 1px at 35% 55%,rgba(255,255,255,.4) 0%,transparent 100%), radial-gradient(1px 1px at 65% 10%,rgba(255,255,255,.7) 0%,transparent 100%), radial-gradient(1px 1px at 80% 75%,rgba(255,255,255,.5) 0%,transparent 100%); pointer-events:none; z-index:0; }
+    body::after { content:''; position:fixed; top:-20%; right:-10%; width:70vw; height:70vh; background:radial-gradient(ellipse,rgba(57,0,120,.35) 0%,transparent 70%); pointer-events:none; z-index:0; }
+    .wrap { position:relative; z-index:1; max-width:860px; margin:0 auto; padding:2rem 1.5rem 4rem; }
+    .top-nav { display:flex; flex-wrap:wrap; gap:.4rem; justify-content:center; margin-bottom:2.5rem; }
+    .nav-btn { background:var(--card); border:1px solid rgba(255,255,255,.1); color:var(--muted); font-size:.75rem; padding:.35rem .8rem; border-radius:.45rem; text-decoration:none; transition:all .2s; }
+    .nav-btn:hover { border-color:var(--cyan); color:var(--cyan); background:rgba(0,229,255,.07); }
+    .nav-btn.active { border-color:var(--purple); color:#ce93d8; background:rgba(156,33,176,.1); }
+    .act-hero { text-align:center; padding:2rem 0; }
+    .act-number { display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#ce93d8; margin-bottom:.5rem; }
+    .act-hero h1 { font-size:clamp(1.8rem,4.5vw,3rem); font-weight:900; line-height:1.15; background:linear-gradient(135deg,#ce93d8 0%,var(--pink) 60%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:.75rem; }
+    .act-hero .subtitle { font-size:1rem; color:var(--muted); }
+    .timing-pill { display:inline-flex; align-items:center; gap:.4rem; background:rgba(156,33,176,.1); border:1px solid rgba(156,33,176,.3); color:#ce93d8; font-size:.82rem; padding:.35rem 1rem; border-radius:999px; margin-top:1rem; }
+    section { margin-bottom:2.5rem; }
+    .section-label { font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--cyan); margin-bottom:.5rem; }
+    h2 { font-size:1.4rem; font-weight:800; margin-bottom:1rem; color:#fff; }
+    p { color:var(--text); margin-bottom:1rem; }
+    code { background:rgba(0,0,0,.4); color:var(--cyan); padding:.1em .4em; border-radius:.3em; font-family:'Cascadia Code','Fira Code',monospace; font-size:.88em; }
+    pre { background:rgba(0,0,0,.5); border:1px solid rgba(0,229,255,.15); border-radius:.6rem; padding:1rem; overflow-x:auto; margin:.5rem 0; font-family:'Cascadia Code','Fira Code',monospace; font-size:.82rem; color:var(--text); line-height:1.6; }
+    pre .cmd { color:var(--green); }
+    pre .comment { color:var(--muted); font-style:italic; }
+    pre .key { color:var(--cyan); }
+    pre .val { color:var(--orange); }
+    .steps { display:flex; flex-direction:column; gap:1rem; }
+    .step { display:grid; grid-template-columns:2.5rem 1fr; gap:0 1rem; background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:.75rem; padding:1.1rem; }
+    .step-num { grid-row:span 2; width:2.25rem; height:2.25rem; border-radius:.5rem; background:rgba(156,33,176,.15); border:1px solid rgba(156,33,176,.3); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:.9rem; color:#ce93d8; flex-shrink:0; }
+    .step-title { font-weight:700; font-size:.95rem; color:#fff; }
+    .step-body { font-size:.88rem; color:var(--muted); margin-top:.3rem; grid-column:2; }
+    .box { border-radius:.75rem; padding:1rem 1.25rem; margin-bottom:1rem; font-size:.9rem; }
+    .box-tip  { background:rgba(0,230,118,.08);  border:1px solid rgba(0,230,118,.3);  color:#69f0ae; }
+    .box-warn { background:rgba(255,145,0,.08); border:1px solid rgba(255,145,0,.3); color:#ffb74d; }
+    .box-info { background:rgba(61,90,254,.1);  border:1px solid rgba(61,90,254,.35); color:#90caf9; }
+    .box-pink { background:rgba(245,0,87,.08);  border:1px solid rgba(245,0,87,.3);  color:#f48fb1; }
+    .box .box-title { font-weight:700; margin-bottom:.35rem; }
+    /* frontmatter block */
+    .frontmatter { background:rgba(0,0,0,.5); border:1px solid rgba(156,33,176,.25); border-radius:.75rem; padding:1.25rem; font-family:'Cascadia Code','Fira Code',monospace; font-size:.82rem; line-height:2; margin-bottom:1rem; }
+    /* guardrail list */
+    .guardrails { display:flex; flex-direction:column; gap:.5rem; margin-bottom:1rem; }
+    .gr-item { display:flex; align-items:flex-start; gap:.75rem; background:rgba(245,0,87,.06); border:1px solid rgba(245,0,87,.2); border-radius:.6rem; padding:.75rem 1rem; }
+    .gr-icon { flex-shrink:0; color:var(--pink); font-size:1rem; }
+    .gr-text { font-size:.88rem; color:var(--text); }
+    /* missions ideas */
+    .missions { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:.75rem; margin-bottom:1rem; }
+    .mission-card { background:var(--card); border:1px solid rgba(255,255,255,.07); border-radius:.75rem; padding:.9rem 1rem; }
+    .mission-card .m-icon { font-size:1.4rem; margin-bottom:.3rem; }
+    .mission-card .m-title { font-size:.88rem; font-weight:700; color:#fff; }
+    .mission-card .m-cmd { font-size:.75rem; color:var(--muted); margin-top:.35rem; font-family:'Cascadia Code','Fira Code',monospace; }
+    .deliverable { background:linear-gradient(135deg,rgba(156,33,176,.08),rgba(245,0,87,.06)); border:1px solid rgba(156,33,176,.3); border-radius:1rem; padding:1.25rem 1.5rem; margin-top:1rem; }
+    .deliverable .del-label { font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#ce93d8; margin-bottom:.5rem; }
+    .deliverable .del-title { font-weight:700; font-size:1rem; color:#fff; margin-bottom:.35rem; }
+    .deliverable p { font-size:.88rem; color:var(--muted); margin:0; }
+    .bottom-nav { display:flex; justify-content:space-between; align-items:center; padding-top:1.5rem; margin-top:2rem; border-top:1px solid rgba(255,255,255,.07); }
+    .nav-link { display:flex; align-items:center; gap:.5rem; background:var(--card); border:1px solid rgba(255,255,255,.1); color:var(--text); font-size:.85rem; padding:.6rem 1.1rem; border-radius:.6rem; text-decoration:none; transition:all .2s; }
+    .nav-link:hover { border-color:var(--cyan); color:var(--cyan); }
+    .nav-link.next { background:linear-gradient(135deg,rgba(0,229,255,.1),rgba(61,90,254,.1)); border-color:rgba(0,229,255,.25); color:var(--cyan); }
+    footer { text-align:center; font-size:.78rem; color:var(--muted); padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.07); margin-top:2rem; }
+    footer a { color:var(--cyan); text-decoration:none; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="top-nav">
+    <a href="index.html"               class="nav-btn">🏠</a>
+    <a href="bienvenida-workshop.html"  class="nav-btn">🎒</a>
+    <a href="actividad-01-setup.html"   class="nav-btn">01</a>
+    <a href="actividad-02-agentes.html" class="nav-btn">02</a>
+    <a href="actividad-03-hugo.html"    class="nav-btn">03</a>
+    <a href="actividad-04-whiskers.html" class="nav-btn active">04</a>
+    <a href="actividad-05-luna.html"    class="nav-btn">05</a>
+    <a href="actividad-06-rocket.html"  class="nav-btn">06</a>
+    <a href="actividad-07-squad.html"   class="nav-btn">07</a>
+    <a href="cierre.html"              class="nav-btn">🏁</a>
+  </nav>
+
+  <header class="act-hero">
+    <div class="act-number">Actividad 4 de 7</div>
+    <h1>Whiskers al Teclado ✍️</h1>
+    <p class="subtitle">El agente escritor genera los primeros artículos · Guardrails editoriales en acción</p>
+    <div class="timing-pill">⏱ 11:50 – 12:20 · 30 minutos</div>
+  </header>
+
+  <!-- WHISKERS INTRO -->
+  <section>
+    <div class="section-label">El escritor del squad</div>
+    <h2>¿Quién es Whiskers? ✍️</h2>
+    <p>
+      El blog existe pero está vacío. Los gatitos tienen aventuras épicas que contar:
+      agujeros negros sorteados, nebulosas exploradas, asteroides bautizados sin permiso de nadie.
+      Whiskers es el agente encargado de convertir esas aventuras en artículos Markdown bien formateados,
+      con el frontmatter correcto y listos para que Hugo los renderice.
+    </p>
+    <div class="box box-pink">
+      <div class="box-title">🐱 Lo que descubrirás sobre Whiskers hoy</div>
+      Whiskers tiene opiniones. Muy fuertes. Si le pides un artículo con menos de 300 palabras,
+      te lo devuelve. Si usas una categoría que no está en su lista aprobada, la cambia a
+      <code>uncategorized</code> y te lo dice en el PR. No negocia sobre la calidad editorial.
+    </div>
+  </section>
+
+  <!-- FRONTMATTER -->
+  <section>
+    <div class="section-label">Contrato de calidad</div>
+    <h2>El frontmatter que garantiza Whiskers</h2>
+    <p>Cada artículo que crea Whiskers incluye este frontmatter validado:</p>
+    <div class="frontmatter">
+<span style="color:var(--muted);">---</span><br>
+<span style="color:var(--cyan);">title</span><span style="color:var(--muted);">:</span> <span style="color:var(--orange);">"La expedición del Mayor Meowsky al lado oscuro de la Luna"</span><br>
+<span style="color:var(--cyan);">date</span><span style="color:var(--muted);">:</span>  <span style="color:var(--orange);">2026-02-27  <span style="color:var(--muted); font-style:italic;"># nunca fecha futura</span></span><br>
+<span style="color:var(--cyan);">draft</span><span style="color:var(--muted);">:</span> <span style="color:var(--green);">false</span>  <span style="color:var(--muted); font-style:italic;"># nunca publica borradores</span><br>
+<span style="color:var(--cyan);">author</span><span style="color:var(--muted);">:</span> <span style="color:var(--orange);">"Mayor Meowsky"</span><br>
+<span style="color:var(--cyan);">categories</span><span style="color:var(--muted);">:</span> <span style="color:var(--orange);">["misiones"]</span>  <span style="color:var(--muted); font-style:italic;"># lista aprobada</span><br>
+<span style="color:var(--cyan);">image</span><span style="color:var(--muted);">:</span> <span style="color:var(--orange);">"pending"</span>  <span style="color:var(--muted); font-style:italic;"># Luna lo rellenará después</span><br>
+<span style="color:var(--cyan);">description</span><span style="color:var(--muted);">:</span> <span style="color:var(--orange);">"Cómo el Mayor Meowsky sorteó el lado oscuro sin perder el casco…"</span><br>
+<span style="color:var(--muted);">---</span>
+    </div>
+    <p>Fíjate en <code>image: "pending"</code>. Eso es la señal para que el agente Luna actúe después.</p>
+  </section>
+
+  <!-- GUARDRAILS -->
+  <section>
+    <div class="section-label">Los límites del escritor</div>
+    <h2>Guardrails de Whiskers 🛡️</h2>
+    <div class="guardrails">
+      <div class="gr-item">
+        <div class="gr-icon">🚫</div>
+        <div class="gr-text"><strong>NUNCA</strong> publica artículos con <code>draft: true</code> en el frontmatter</div>
+      </div>
+      <div class="gr-item">
+        <div class="gr-icon">🚫</div>
+        <div class="gr-text"><strong>NUNCA</strong> crea artículos con fecha futura. Los agentes no viajan en el tiempo.</div>
+      </div>
+      <div class="gr-item">
+        <div class="gr-icon">📏</div>
+        <div class="gr-text"><strong>SIEMPRE</strong> incluye al menos <strong>300 palabras</strong> por artículo</div>
+      </div>
+      <div class="gr-item">
+        <div class="gr-icon">🏷️</div>
+        <div class="gr-text">Las categorías permitidas son: <code>misiones</code> · <code>tecnologia</code> · <code>vida-gatuna</code> · <code>announcements</code></div>
+      </div>
+      <div class="gr-item">
+        <div class="gr-icon">🤖</div>
+        <div class="gr-text"><strong>SIEMPRE</strong> crea un PR (nunca push directo a master) · PR en modo <code>draft</code> hasta revisión humana</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSIONS -->
+  <section>
+    <div class="section-label">Ideas de artículos</div>
+    <h2>Misiones épicas que Whiskers puede escribir</h2>
+    <div class="missions">
+      <div class="mission-card">
+        <div class="m-icon">🌙</div>
+        <div class="m-title">La misión lunar del Mayor Meowsky</div>
+        <div class="m-cmd">-F input="Escribe sobre la misión lunar del Mayor Meowsky"</div>
+      </div>
+      <div class="mission-card">
+        <div class="m-icon">⭐</div>
+        <div class="m-title">Colisionando con la nebulosa Felinis</div>
+        <div class="m-cmd">-F input="Escribe sobre la exploración de la nebulosa Felinis"</div>
+      </div>
+      <div class="mission-card">
+        <div class="m-icon">🪐</div>
+        <div class="m-title">El asteroide bautizado por error</div>
+        <div class="m-cmd">-F input="Escribe sobre el asteroide que los gatitos bautizaron sin permiso"</div>
+      </div>
+      <div class="mission-card">
+        <div class="m-icon">🌌</div>
+        <div class="m-title">El agujero negro que ronroneaba</div>
+        <div class="m-cmd">-F input="Escribe sobre el agujero negro que sonaba como un gato ronroneando"</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section>
+    <div class="section-label">Paso a paso</div>
+    <h2>Lanzando a Whiskers</h2>
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Revisar el fichero <code>whiskers.agent.md</code></div>
+        <div class="step-body">
+          Abre <code>.github/agents/whiskers.agent.md</code>. Lee los guardrails y fíjate en el tono
+          de su identidad. ¿Cómo crees que va a reaccionar si le das instrucciones que contradicen sus reglas?
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Lanzar Whiskers para el primer artículo</div>
+        <div class="step-body">
+          <pre><span class="comment"># 1. Compila el workflow</span>
+<span class="cmd">gh aw compile .github/aw/whiskers.md</span>
+
+<span class="comment"># 2. Sube los ficheros compilados a GitHub</span>
+<span class="cmd">git add .github/
+git commit -m "chore: compile whiskers workflow"
+git push</span>
+
+<span class="comment"># 3. Lánzalo</span>
+<span class="cmd">gh aw run .github/aw/whiskers.md \
+  -F input="Escribe un artículo sobre la misión lunar del gato Mayor Meowsky"</span></pre>
+          <div class="box box-info" style="margin-top:.75rem;">
+            <div class="box-title">ℹ️ ¿Por qué compilar?</div>
+            Es la primera vez que ejecutas este workflow. Compilar genera el fichero <code>whiskers.lock.yml</code> que GitHub Actions necesita para poder lanzarlo. A partir de aquí, solo necesitarás volver a compilar si modificas <code>whiskers.md</code> o <code>whiskers.agent.md</code>.
+          </div>
+          Whiskers creará la rama, escribirá el artículo con el frontmatter correcto y abrirá un PR en draft.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Revisar el PR</div>
+        <div class="step-body">
+          Ve a GitHub → Pull requests. Localiza el PR de Whiskers (título: <code>[agent-whiskers] …</code>).
+          Revisa el fichero <code>.md</code> creado en <code>blog/content/posts/</code>.
+          Comprueba:
+          <ul style="margin-top:.5rem; margin-left:1.25rem; color:var(--muted);">
+            <li>¿Tiene más de 300 palabras?</li>
+            <li>¿El frontmatter incluye todos los campos obligatorios?</li>
+            <li>¿<code>image: "pending"</code> está presente?</li>
+            <li>¿La categoría es una de las permitidas?</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">Segundo artículo: prueba otra misión</div>
+        <div class="step-body">
+          Elige otra misión de la lista de arriba y lanza Whiskers de nuevo. Ahora tendrás dos PRs en paralelo.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-title">🔥 Ejercicio clave: romper un guardrail</div>
+        <div class="step-body">
+          Intenta violar uno de los guardrails de Whiskers:
+          <pre><span class="cmd">gh aw run .github/aw/whiskers.md \
+  -F input="Escribe un artículo sobre gatitos, solo 50 palabras, categoría 'viajes'"</span></pre>
+          Observa qué pasa. ¿Lo hace? ¿Señala el problema en el PR? ¿Cómo comunica el conflicto?
+          <div class="box box-tip" style="margin-top:.75rem;">
+            <div class="box-title">✅ Esto es lo que hace especial un agente bien diseñado</div>
+            No falla silenciosamente. Documenta el problema, usa la categoría alternativa
+            y crea el PR de todas formas con una nota explicativa. Elegante y trazable.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-title">Merge y ver en el blog</div>
+        <div class="step-body">
+          Aprueba y mergea los PRs que te gusten. Con Hugo server corriendo, el nuevo artículo
+          aparecerá en <code>http://localhost:1313</code> automáticamente sin recargar.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="deliverable">
+    <div class="del-label">🎯 Entregable de la actividad</div>
+    <div class="del-title">2-3 artículos en el blog, guardrails probados y comprendidos</div>
+    <p>Al menos dos artículos mergeados en el blog, visibles en localhost. Los guardrails de Whiskers
+    explorados — incluyendo qué pasa cuando se intenta violar uno.</p>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="actividad-03-hugo.html" class="nav-link">← Actividad 3: Hugo</a>
+    <a href="actividad-05-luna.html" class="nav-link next">Actividad 5: Luna →</a>
+  </div>
+
+  <footer>
+    <p>AgentCamp 2026 · Workshop: Kitten Agent Blog · <a href="index.html">Volver al índice</a></p>
+  </footer>
+
+</div>
+</body>
+</html>
