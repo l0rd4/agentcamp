@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Kitten Agent Blog</title>
+    <link>http://localhost:1313/kitten-agent-blog/posts/</link>
+    <description>Recent content in Posts on Kitten Agent Blog</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Fri, 27 Feb 2026 10:00:00 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/kitten-agent-blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bienvenidos al Kitten Agent Blog</title>
+      <link>http://localhost:1313/kitten-agent-blog/posts/2026-02-27-bienvenidos/</link>
+      <pubDate>Fri, 27 Feb 2026 10:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/kitten-agent-blog/posts/2026-02-27-bienvenidos/</guid>
+      <description>El blog ha sido scaffoldado por Astro, el agente arquitecto del squad. El viaje acaba de empezar.</description>
+    </item>
+  </channel>
+</rss>
